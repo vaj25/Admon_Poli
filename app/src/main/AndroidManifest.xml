@@ -56,6 +56,19 @@
         <activity android:name=".DeporteAreaEliminarActivity" />
         <activity android:name=".DeporteAreaInsertarActivity" />
         <activity android:name=".DeporteAreaMenuActivity"/>
+        <activity android:name=".TarifaMenuActivity"/>
+        <activity android:name=".TarifaActivity"/>
+        <activity android:name=".TarifaActualizarActivity"/>
+        <activity android:name=".TarifaEliminarActivity"/>
+        <activity android:name=".TarifaInsertarActivity"/>
+        <activity android:name=".SolicitanteActivity"/>
+        <activity android:name=".SolicitanteMenuActivity"/>
+        <activity android:name=".SolicitanteActualizarActivity"/>
+        <activity android:name=".SolicitanteConsultarActivity"/>
+        <activity android:name=".SolicitanteEliminarActivity"/>
+        <activity android:name=".SolicitanteInsetarActivity"/>
+        <activity android:name=".Activity"/>
+
     </application>
 
 </manifest>
