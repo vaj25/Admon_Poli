@@ -41,6 +41,10 @@
         <activity android:name=".AdministradorConsultarActivity" />
         <activity android:name=".AdministradorActualizarActivity" />
         <activity android:name=".SolicitudMenuActivity" />
+        <activity android:name=".SolicitudActualizarActivity"/>
+        <activity android:name=".SolicitudConsultarActivity"/>
+        <activity android:name=".SolicitudEliminarActivity"/>
+        <activity android:name=".SolicitudInsertarActivity"/>
         <activity android:name=".AreaActualizarActivity" />
         <activity android:name=".AreaConsultarActivity" />
         <activity android:name=".AreaEliminarActivity" />
@@ -56,6 +60,17 @@
         <activity android:name=".DeporteAreaEliminarActivity" />
         <activity android:name=".DeporteAreaInsertarActivity" />
         <activity android:name=".DeporteAreaMenuActivity"/>
+        <activity android:name=".TarifaMenuActivity"/>
+        <activity android:name=".TarifaInsertarActivity"/>
+        <activity android:name=".TarifaEliminarActivity"/>
+        <activity android:name=".TarifaConsultarActivity"/>
+        <activity android:name=".TarifaActualizarActivity"/>
+        <activity android:name=".SolicitanteMenuActivity"/>
+        <activity android:name=".SolicitanteActualizarActivity"/>
+        <activity android:name=".SolicitanteConsultarActivity"/>
+        <activity android:name=".SolicitanteEliminarActivity"/>
+        <activity android:name=".SolicitanteInsetarActivity"/>
+
     </application>
 
 </manifest>
