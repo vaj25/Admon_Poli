@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Administración Polideportivo</string>
-    <string name="insert-solicitud">  </string>
+    <string name="insert_solicitud">Insertar Solicitud</string>
+    <string name="cant_asistentes">Cantidad Asistentes</string>
+    <string name="fecha_reserva">Fecha Reserva</string>
+    <string name="select_actividad">Seleccionar Actividad</string>
+    <string name="enviar_solicitud">Enviar Solicitud</string>
 </resources>
