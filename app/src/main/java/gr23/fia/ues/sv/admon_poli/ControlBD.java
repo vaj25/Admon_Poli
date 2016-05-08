@@ -10,13 +10,13 @@ import android.database.Cursor;
 /**
  * Created by FAMILY on 07/05/2016.
  */
-public class ControlBDS {
+public class ControlBD {
 
     private final Context context;     //Almacenara el context de nuestra Activity
     private DatabaseHelper DBHelper; //Nuestro Auxiliador de BD
     private SQLiteDatabase db;      //Instancia de nuestra BD
 
-    public NuestraClaseQueControlaLaBD (Context ctx) {
+    public ControlBD(Context ctx) {
         this. context = ctx;
         DBHelper = new DatabaseHelper( context);
     }
