@@ -53,4 +53,38 @@ public class ControlBD {
     public void cerrar() {
         DBHelper.close();
     }
+
+    //------------------------------------------------------------------------------------
+    // metodos CRUD de cada tabla
+    public String eliminar(Horario horario){
+        return null;
+    }
+
+    public String insertar(Horario horario){
+        return null;
+    }
+
+    public String actualizar(Horario horario){
+        return null;
+    }
+
+    public Horario consultarHorario(int idHorario){
+        return null;
+    }
+
+    public String eliminar(Reserva reserva){
+        return null;
+    }
+
+    public String insertar(Reserva reserva){
+        return null;
+    }
+
+    public String actualizar(Reserva reserva){
+        return null;
+    }
+
+    public Reserva consultarReserva(int idReserva){
+        return null;
+    }
 }

@@ -4,12 +4,24 @@ package gr23.fia.ues.sv.admon_poli;
  * Created by FAMILY on 07/05/2016.
  */
 public class Reserva {
+
+
+    private int idReserva;
     private String fechaReserva;
     private Double tiempoReserva;
 
-    public Reserva(String fechaReserva, Double tiempoReserva){
+    public Reserva(int idReserva, String fechaReserva, Double tiempoReserva){
+        this.idReserva = idReserva;
         this.fechaReserva = fechaReserva;
         this.tiempoReserva = tiempoReserva;
+    }
+
+    public void setIdReserva(int idReserva) {
+        this.idReserva = idReserva;
+    }
+
+    public int getIdReserva() {
+        return idReserva;
     }
 
     public String getFechaReserva(){
