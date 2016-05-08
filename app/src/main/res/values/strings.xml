@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Admon_Poli</string>
+    <string name="app_name">Administración Polideportivo</string>
+    <string name="insert-solicitud">  </string>
 </resources>
