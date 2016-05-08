@@ -12,6 +12,7 @@ public class Deporte {
         this.idDeporte = idDeporte;
         this.nombre = nombre;
     }
+    public Deporte(){}
 
     public String getNombre() {
         return nombre;

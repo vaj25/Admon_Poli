@@ -87,4 +87,21 @@ public class ControlBD {
     public Reserva consultarReserva(int idReserva){
         return null;
     }
+    //------------------------------------------------------------------------
+    //Tablas Moisés
+    public String eliminar(Area area){return null;}
+    public String insertar(Area area){return null;}
+    public String actualizar(Area area){return null;}
+    public String consultarArea(int idArea){return null;}
+
+    public String eliminar(DeporteArea deporteArea){return null;}
+    public String insertar(DeporteArea deporteArea){return null;}
+    public String actualizar(DeporteArea deporteArea){return null;}
+    public String consultarDeporteArea(int idDeporte,int idArea){return null;}
+
+    public String eliminar(Deporte deporte){return null;}
+    public String insertar(Deporte deporte){return null;}
+    public String actualizar(Deporte deporte){return null;}
+    public String consultarDeporte(int idDeporte){return null;}
+    //------------------------------------------------------------------------
 }

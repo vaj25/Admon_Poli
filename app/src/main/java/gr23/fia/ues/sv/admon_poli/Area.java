@@ -18,6 +18,7 @@ public class Area {
         this.area = area;
         this.idDeporte = idDeporte;
     }
+    public Area(){}
 
     public int getIdArea() {
         return idArea;
