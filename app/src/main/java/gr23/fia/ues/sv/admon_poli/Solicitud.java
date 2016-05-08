@@ -6,6 +6,7 @@ package gr23.fia.ues.sv.admon_poli;
 public class Solicitud {
 
     private int idSolicitud ;
+    private int idTarifa ;
     private String Estado ;
     private Date FechaSolicitud ;
     private Date FechaReserva ;
