@@ -10,7 +10,7 @@ import android.database.Cursor;
 /**
  * Created by FAMILY on 07/05/2016.
  */
-public class ControlBD {
+public class ControlBD { /**
 
     private final Context context;     //Almacenara el context de nuestra Activity
     private DatabaseHelper DBHelper; //Nuestro Auxiliador de BD
@@ -104,4 +104,4 @@ public class ControlBD {
     public String actualizar(Deporte deporte){return null;}
     public String consultarDeporte(int idDeporte){return null;}
     //------------------------------------------------------------------------
-}
+*/}
