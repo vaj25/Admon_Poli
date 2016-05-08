@@ -55,7 +55,7 @@
         <activity android:name=".DeporteAreaConsultarActivity" />
         <activity android:name=".DeporteAreaEliminarActivity" />
         <activity android:name=".DeporteAreaInsertarActivity" />
-        <activity android:name=".DeporteAreaMenuActivity"></activity>
+        <activity android:name=".DeporteAreaMenuActivity"/>
     </application>
 
 </manifest>
