@@ -15,6 +15,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".InsertarSolicitudActivity" />
+        <activity android:name=".ConsultarSolicitudActivity" />
+        <activity android:name=".EliminarSolicitudActivity" />
+        <activity android:name=".ActiualizarSolcitudActivity" />
+        <activity android:name=".SolicitudActualizarActivity" />
+        <activity android:name=".SolicitudEliminarActivity" />
+        <activity android:name=".SolicitudInsertarActivity" />
+        <activity android:name=".SolicitudConsultarActivity" />
+        <activity android:name=".SolicitudMenuActivity" />
+        <activity android:name=".SolicitanteInsetarActivity" />
+        <activity android:name=".SolicitanteMenuActivity" />
+        <activity android:name=".SolicitanteActualizarActivity" />
+        <activity android:name=".SolicitanteEliminarActivity" />
+        <activity android:name=".SolicitanteConsultarActivity" />
+        <activity android:name=".TarifaMenuActivity" />
+        <activity android:name=".TarifaActualizarActivity" />
+        <activity android:name=".TarifaConsultarActivity" />
+        <activity android:name=".TarifaEliminarActivity" />
+        <activity android:name=".TarifaInsertarActivity"></activity>
     </application>
 
 </manifest>
