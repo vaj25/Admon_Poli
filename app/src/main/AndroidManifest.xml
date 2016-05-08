@@ -41,6 +41,10 @@
         <activity android:name=".AdministradorConsultarActivity" />
         <activity android:name=".AdministradorActualizarActivity" />
         <activity android:name=".SolicitudMenuActivity" />
+        <activity android:name=".SolicitudActualizarActivity" />
+        <activity android:name=".SolicitudInsertarActivity" />
+        <activity android:name=".SolicitudConsultarActivity" />
+        <activity android:name=".SolicitudEliminarActivity" />
         <activity android:name=".AreaActualizarActivity" />
         <activity android:name=".AreaConsultarActivity" />
         <activity android:name=".AreaEliminarActivity" />

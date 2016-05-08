@@ -7,13 +7,20 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 public class MainActivity extends ListActivity {
-    String[] menu={"Tabla Actividad","Tabla Administrador","Tabla Area","Tabla Deporte","Tabla DeporteArea","Tabla DetalleReserva","Tabla DetalleSolicitud","Tabla Horario","Tabla Reserva","Tabla Solicitante","Tabla Solicitud","Tabla Tarifa","LLenar Base de Datos"};
-    String[] activities={"ActividadMenuActivity","AdministradorMenuActivity","AreaMenuActivity","DeporteMenuActivity","DeporteAreaMenuActivity","DetalleReservaMenuActivity","DetalleSolicitudMenuActivity","HorarioMenuActivity","ReservaMenuActivity","SolicitanteMenuActivity","SolicitudMenuActivity","TarifaMenuActivity"};
+    String[] menu={"Tabla Actividad","Tabla Administrador","Tabla Area","Tabla Deporte","Tabla DeporteArea",
+            "Tabla Detalle Reserva","Tabla Detalle Solicitud","Tabla Horario","Tabla Reserva","Tabla Solicitante",
+            "Tabla Solicitud","Tabla Tarifa","LLenar Base de Datos"};
+
+    String[] activities={"ActividadMenuActivity","AdministradorMenuActivity","AreaMenuActivity","DeporteMenuActivity",
+            "DeporteAreaMenuActivity","DetalleReservaMenuActivity","DetalleSolicitudMenuActivity","HorarioMenuActivity",
+            "ReservaMenuActivity","SolicitanteMenuActivity","SolicitudMenuActivity","TarifaMenuActivity"};
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menu));
     }
+
     @Override
     protected void onListItemClick(ListView l,View v,int position,long id){
         super.onListItemClick(l, v, position, id);
@@ -27,7 +34,7 @@ public class MainActivity extends ListActivity {
                 e.printStackTrace();
             }
         }else{
-//CODIGO PARA LLENAR BASE DE DATOS
+            //CODIGO PARA LLENAR BASE DE DATOS
         }
     }
 }
