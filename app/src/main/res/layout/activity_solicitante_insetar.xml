@@ -5,12 +5,11 @@
     android:padding = "20dip"
     android:orientation = "vertical">
 
-    <TextView android:id = "@+id/insert-solicitante"
+    <TextView android:id = "@+id/insert_solicitante"
         android:layout_width = "fill_parent"
         android:layout_height = "wrap_content"
         android:layout_marginTop = "10dip"
         android:layout_marginBottom = "40dip"
-        android:text = "@string/register"
         android:gravity = "center"
         android:textSize = "20dip"
         android:textColor = "#0b84aa"/>
@@ -18,7 +17,6 @@
     <EditText android:id = "@+id/txtUserName"
         android:layout_height = "wrap_content"
         android:layout_width = "fill_parent"
-        android:hint = "@string/user_name"
         android:inputType = "text"
         android:layout_marginTop = "25dip"/>
 
