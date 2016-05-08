@@ -9,6 +9,7 @@ public class Area {
     private String nombre ;
     private int capacidad ;
     private float area ; // esta area es en mt2
+    private int idDeporte ;
 
     public Area(int idArea, String nombre, int capacidad, float area) {
         this.idArea = idArea;
