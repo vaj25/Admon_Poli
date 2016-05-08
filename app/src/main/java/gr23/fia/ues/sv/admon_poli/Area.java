@@ -11,11 +11,12 @@ public class Area {
     private float area ; // esta area es en mt2
     private int idDeporte ;
 
-    public Area(int idArea, String nombre, int capacidad, float area) {
+    public Area(int idArea, String nombre, int capacidad, float area, int idDeporte) {
         this.idArea = idArea;
         this.nombre = nombre;
         this.capacidad = capacidad;
         this.area = area;
+        this.idDeporte = idDeporte;
     }
 
     public int getIdArea() {
@@ -48,5 +49,13 @@ public class Area {
 
     public void setArea(float area) {
         this.area = area;
+    }
+
+    public int getIdDeporte() {
+        return idDeporte;
+    }
+
+    public void setIdDeporte(int idDeporte) {
+        this.idDeporte = idDeporte;
     }
 }
