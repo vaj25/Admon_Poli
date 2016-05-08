@@ -7,11 +7,13 @@ public class Reserva {
 
 
     private int idReserva;
+    private int idHorario;
     private String fechaReserva;
     private Double tiempoReserva;
 
-    public Reserva(int idReserva, String fechaReserva, Double tiempoReserva){
+    public Reserva(int idReserva, int idHorario, String fechaReserva, Double tiempoReserva){
         this.idReserva = idReserva;
+        this.idHorario = idHorario;
         this.fechaReserva = fechaReserva;
         this.tiempoReserva = tiempoReserva;
     }
@@ -22,6 +24,14 @@ public class Reserva {
 
     public int getIdReserva() {
         return idReserva;
+    }
+
+    public int getIdHorario() {
+        return idHorario;
+    }
+
+    public void setIdHorario(int idHorario) {
+        this.idHorario = idHorario;
     }
 
     public String getFechaReserva(){
