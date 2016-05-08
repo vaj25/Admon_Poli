@@ -39,7 +39,8 @@
         <activity android:name=".AdministradorInsertarActivity" />
         <activity android:name=".AdministradorEliminarActivity" />
         <activity android:name=".AdministradorConsultarActivity" />
-        <activity android:name=".AdministradorActualizarActivity"></activity>
+        <activity android:name=".AdministradorActualizarActivity" />
+        <activity android:name=".SolicitudMenuActivity"></activity>
     </application>
 
 </manifest>

@@ -3,13 +3,13 @@ package gr23.fia.ues.sv.admon_poli;
 /**
  * Created by FAMILY on 07/05/2016.
  */
-public class Solicitud {/**
+public class Solicitud {
 
     private int idSolicitud ;
     private int idTarifa ;
     private String Estado ;
-    private Date FechaSolicitud ;
-    private Date FechaReserva ;
+    private String FechaSolicitud ;
+    private String FechaReserva ;
     private int CantAsistentes ;
 
     public int getIdSolicitud() {
@@ -20,6 +20,14 @@ public class Solicitud {/**
         this.idSolicitud = idSolicitud;
     }
 
+    public int getIdTarifa() {
+        return idTarifa;
+    }
+
+    public void setIdTarifa(int idTarifa) {
+        this.idTarifa = idTarifa;
+    }
+
     public String getEstado() {
         return Estado;
     }
@@ -28,19 +36,19 @@ public class Solicitud {/**
         Estado = estado;
     }
 
-    public Date getFechaSolicitud() {
+    public String getFechaSolicitud() {
         return FechaSolicitud;
     }
 
-    public void setFechaSolicitud(Date fechaSolicitud) {
+    public void setFechaSolicitud(String fechaSolicitud) {
         FechaSolicitud = fechaSolicitud;
     }
 
-    public Date getFechaReserva() {
+    public String getFechaReserva() {
         return FechaReserva;
     }
 
-    public void setFechaReserva(Date fechaReserva) {
+    public void setFechaReserva(String fechaReserva) {
         FechaReserva = fechaReserva;
     }
 
@@ -51,4 +59,4 @@ public class Solicitud {/**
     public void setCantAsistentes(int cantAsistentes) {
         CantAsistentes = cantAsistentes;
     }
-*/}
+}
