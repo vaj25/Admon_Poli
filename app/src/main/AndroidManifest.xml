@@ -40,7 +40,22 @@
         <activity android:name=".AdministradorEliminarActivity" />
         <activity android:name=".AdministradorConsultarActivity" />
         <activity android:name=".AdministradorActualizarActivity" />
-        <activity android:name=".SolicitudMenuActivity"></activity>
+        <activity android:name=".SolicitudMenuActivity" />
+        <activity android:name=".AreaActualizarActivity" />
+        <activity android:name=".AreaConsultarActivity" />
+        <activity android:name=".AreaEliminarActivity" />
+        <activity android:name=".AreaInsertarActivity" />
+        <activity android:name=".AreaMenuActivity" />
+        <activity android:name=".DeporteActualizarActivity" />
+        <activity android:name=".DeporteConsultarActivity" />
+        <activity android:name=".DeporteEliminarActivity" />
+        <activity android:name=".DeporteInsertarActivity" />
+        <activity android:name=".DeporteMenuActivity" />
+        <activity android:name=".DeporteAreaActualizarActivity" />
+        <activity android:name=".DeporteAreaConsultarActivity" />
+        <activity android:name=".DeporteAreaEliminarActivity" />
+        <activity android:name=".DeporteAreaInsertarActivity" />
+        <activity android:name=".DeporteAreaMenuActivity"></activity>
     </application>
 
 </manifest>
