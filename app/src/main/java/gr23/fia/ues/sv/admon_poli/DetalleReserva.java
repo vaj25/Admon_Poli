@@ -8,7 +8,6 @@ public class DetalleReserva {
 
     private int idReserva;
     private int idArea;
-    private
 
     public DetalleReserva(int idReserva, int idArea){
         this.idReserva = idReserva;

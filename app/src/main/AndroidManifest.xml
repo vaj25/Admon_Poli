@@ -15,6 +15,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".HorarioMenuActivity" />
+        <activity android:name=".ReservaMenuActivity" />
+        <activity android:name=".HorarioEliminarActivity" />
+        <activity android:name=".HorarioActualizarActivity" />
+        <activity android:name=".HorarioInsertarActivity" />
+        <activity android:name=".HorarioConsultarActivity" />
+        <activity android:name=".ReservaInsertarActivity" />
+        <activity android:name=".ReservaEliminarActivity" />
+        <activity android:name=".ReservaConsultarActivity" />
+        <activity android:name=".ReservaActualizarActivity" />
+        <activity android:name=".DetalleReservaMenuActivity" />
+        <activity android:name=".DetalleReservaInsertarActivity" />
+        <activity android:name=".DetalleReservaEliminarActivity" />
+        <activity android:name=".DetalleReservaConsultarActivity" />
+        <activity android:name=".DetalleReservaActualizarActivity" />
+        <activity android:name=".ActividadMenuActivity" />
+        <activity android:name=".ActividadInsertarActivity" />
+        <activity android:name=".ActividadEliminarActivity" />
+        <activity android:name=".ActividadActualizarActivity" />
+        <activity android:name=".ActividadConsultarActivity" />
+        <activity android:name=".AdministradorMenuActivity" />
+        <activity android:name=".AdministradorInsertarActivity" />
+        <activity android:name=".AdministradorEliminarActivity" />
+        <activity android:name=".AdministradorConsultarActivity" />
+        <activity android:name=".AdministradorActualizarActivity"></activity>
     </application>
 
 </manifest>
