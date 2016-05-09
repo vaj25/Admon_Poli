@@ -17,4 +17,9 @@
     <string name="fecha_reserva">Fecha Reserva</string>
     <string name="select_actividad">Seleccionar Actividad</string>
     <string name="enviar_solicitud">Enviar Solicitud</string>
+    <string name="eliminar_solicitud">Eliminar Solicitud</string>
+    <string name="consultar_solicitud">Consultar Solicitud</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="consultar">Consultar</string>
+    <string name="limpiar">Limpiar</string>
 </resources>
