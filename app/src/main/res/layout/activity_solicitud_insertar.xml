@@ -29,11 +29,10 @@
         android:inputType = "text"
         android:layout_marginTop = "25dip"/>
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
+    <Spinner
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/select_actividad"
+        android:prompt="@string/select_actividad"
         android:layout_marginTop = "25dip"
         android:id="@+id/selectButton" />
 
