@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:prompt="@string/select_actividad"
         android:layout_marginTop = "25dip"
-        android:id="@+id/selectButton" />
+        android:id="@+id/selectActividad" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
