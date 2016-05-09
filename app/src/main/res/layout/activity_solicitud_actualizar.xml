@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:prompt="@string/select_sol"
         android:layout_marginTop = "25dip"
-        android:id="@+id/selectButton" />
+        android:id="@+id/selectButton1" />
 
     <EditText android:id = "@+id/txtCantAsistentes"
         android:layout_height = "wrap_content"
