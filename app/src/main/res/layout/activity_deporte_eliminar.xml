@@ -1,12 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="gr23.fia.ues.sv.admon_poli.DeporteEliminarActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding = "20dip"
+    android:orientation="vertical">
 
-</RelativeLayout>
+    <TextView android:id = "@+id/title_eliminar_deporte"
+        android:layout_width = "fill_parent"
+        android:layout_height = "wrap_content"
+        android:layout_marginTop = "10dip"
+        android:layout_marginBottom = "20dip"
+        android:gravity = "center"
+        android:textSize = "25dip"
+        android:textColor = "@color/colorAccent"
+        android:text="@string/eliminar_deporte"/>
+
+    <EditText android:id = "@+id/id_deporte"
+        android:layout_height = "wrap_content"
+        android:layout_width = "fill_parent"
+        android:hint = "@string/txtelim_area"
+        android:inputType = "text"
+        android:layout_marginTop = "25dip"/>
+
+
+    <Button
+        android:id="@+id/botonConsultar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dip"
+        android:text="@string/eliminar"
+        android:onClick=""/>
+
+</LinearLayout>

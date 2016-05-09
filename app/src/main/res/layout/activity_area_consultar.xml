@@ -59,8 +59,4 @@
         android:inputType = "text"
         android:layout_marginTop = "25dip"/>
 
-
-
-
-
 </LinearLayout>
