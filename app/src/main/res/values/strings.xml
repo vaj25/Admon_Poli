@@ -25,6 +25,15 @@
     <string name="actualizar_deporte">Actualizar Deporte</string>
     <string name="consult_deporte">Consultar Deporte</string>
     <string name="eliminar_deporte">Eliminar Deporte</string>
+    <string name='txtinsert_deporte_area'>Insertar Deporte Area</string>string>
+    <string name="id_deporte_area">Identificador</string>
+    <string name="nombre_deporte_area">Nombre</string>
+    <string name="actualizar_deporte_area">Actualizar Deporte-Area</string>
+    <string name="consult_deporte_area">Consultar Deporte-Area</string>
+    <string name="eliminar_deporte_area">Eliminar Deporte-Area</string>
+    <string name="id_deporte1">Identificador Deporte</string>
+    <string name="id_area1">Identificador Area</string>
+    <string name="insert_deporte_area">Insertar Deporte Area</string>
 
     <string name="insert_horario">Insertar Horario</string>
     <string name="hora">Hora</string>
