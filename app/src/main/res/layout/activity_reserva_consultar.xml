@@ -1,12 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="gr23.fia.ues.sv.admon_poli.ReservaConsultarActivity">
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width = "fill_parent"
+    android:layout_height = "fill_parent"
+    android:padding = "20dip"
+    android:orientation = "vertical">
 
-</RelativeLayout>
+    <TextView android:id = "@+id/title_consultar_reserva"
+        android:layout_width = "fill_parent"
+        android:layout_height = "wrap_content"
+        android:layout_marginTop = "10dip"
+        android:layout_marginBottom = "20dip"
+        android:text = "@string/consult_reserva"
+        android:gravity = "center"
+        android:textSize = "25dip"
+        android:textColor = "@color/colorAccent"/>
+
+    <EditText android:id = "@+id/txtfechaReserv"
+        android:layout_height = "wrap_content"
+        android:layout_width = "fill_parent"
+        android:hint = "@string/fecha_reser"
+        android:inputType = "text"
+        android:layout_marginTop = "25dip"/>
+
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_height = "wrap_content"
+        android:layout_width = "fill_parent"
+        android:text="@string/consultReserva"
+        android:layout_marginTop = "25dip"
+        android:id="@+id/ConsultarButton"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_height = "wrap_content"
+        android:layout_width = "fill_parent"
+        android:text="@string/limpiar"
+        android:layout_marginTop = "25dip"
+        android:id="@+id/LimpiarButton"/>
+
+    <EditText android:id = "@+id/IdReserva"
+        android:layout_height = "wrap_content"
+        android:layout_width = "fill_parent"
+        android:hint = "@string/ident_reserva"
+        android:inputType = "text"
+        android:layout_marginTop = "25dip"/>
+
+    <EditText android:id = "@+id/IdHorario"
+        android:layout_height = "wrap_content"
+        android:layout_width = "fill_parent"
+        android:hint = "@string/ident_horario"
+        android:inputType = "text"
+        android:layout_marginTop = "25dip"/>
+
+    <EditText android:id = "@+id/txtTiempoReserv"
+        android:layout_height = "wrap_content"
+        android:layout_width = "fill_parent"
+        android:hint = "@string/tiempo_reserva"
+        android:inputType = "text"
+        android:layout_marginTop = "25dip"/>
+
+
+</LinearLayout>

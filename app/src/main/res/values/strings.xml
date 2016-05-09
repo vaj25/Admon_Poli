@@ -5,7 +5,6 @@
     <string name="fecha_reserva">Fecha Reserva</string>
     <string name="select_actividad">Seleccionar Actividad</string>
     <string name="enviar_solicitud">Enviar Solicitud</string>
-
     <string name="insert_area">Insertar Area</string>
     <string name="nombre_area">Nombre</string>
     <string name="capacidad_area">Capacidad</string>
@@ -39,24 +38,42 @@
     <string name="hora">Hora</string>
     <string name="dia">Día</string>
     <string name="Instruct">Instructor</string>
-    <string name="ingresar_horario">Ingresar Horario</string>
+    <string name="ingresar_horario">Insertar</string>
     <string name="update_horario">Actualizar Horario</string>
-    <string name="actualizar_horario">Actualizar Horario</string>
+    <string name="actualizar_horario">Actualizar</string>
     <string name="consult_horario">Consultar Horario</string>
     <string name="elim_horario">Eliminar Horario</string>
-
-
-
     <string name="eliminar_solicitud">Eliminar Solicitud</string>
     <string name="consultar_solicitud">Consultar Solicitud</string>
     <string name="eliminar">Eliminar</string>
     <string name="consultar">Consultar</string>
     <string name="limpiar">Limpiar</string>
-
     <string name="select_sol">Seleccionar Solicitud</string>
-    >
-
-
-
-
+    <string name="id_horario">Identificador</string>
+    <string name="limpiar_horario">Limpiar</string>
+    <string name="consultHorario">Consultar</string>
+    <string name="txtelim_horario">Identificador</string>
+    <string name="elimHorario">Eliminar</string>
+    <string name="insert_reserva">Insertar Reserva</string>
+    <string name="fecha_reser">Fecha de Reserva</string>
+    <string name="tiempo_reserva">Tiempo de Reserva</string>
+    <string name="update_reserva">Actualizar Reserva</string>
+    <string name="id_reserva">Identificador</string>
+    <string name="actualizar_reserva">Actualizar</string>
+    <string name="consult_reserva">Consultar Reserva</string>
+    <string name="consultReserva">Consultar</string>
+    <string name="insertReserv">Insertar</string>
+    <string name="elim_reserva">Eliminar Reserva</string>
+    <string name="identificador">Identificador</string>
+    <string name="ident_reserva">Identificador de Reserva</string>
+    <string name="ident_horario">Identificador de Horario</string>
+    <string name="insert_detalleReserva">Insertar Detalle de Reserva</string>
+    <string name="ident_area">Identificador de Area</string>
+    <string name="insertar_detalleReserva">Insertar</string>
+    <string name="actu_detalleReserva">Actualizar Detalle de Reserva</string>
+    <string name="actuDetalleReserva">Actualizar</string>
+    <string name="consult_detalleReserva">Consultar Detalle de Reserva</string>
+    <string name="ConsultDetalleReserva">Consultar</string>
+    <string name="elim_detalleReserva">Eliminar Detalle de Reserva</string>
+    <string name="ElimDetalleReserva">Eliminar</string>
 </resources>

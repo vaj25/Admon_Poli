@@ -15,24 +15,10 @@
         android:textSize = "25dip"
         android:textColor = "@color/colorAccent"/>
 
-    <EditText android:id = "@+id/txtHora"
+    <EditText android:id = "@+id/IdHorario"
         android:layout_height = "wrap_content"
         android:layout_width = "fill_parent"
-        android:hint = "@string/hora"
-        android:inputType = "text"
-        android:layout_marginTop = "25dip"/>
-
-    <EditText android:id = "@+id/txtDia"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:hint = "@string/dia"
-        android:inputType = "text"
-        android:layout_marginTop = "25dip"/>
-
-    <EditText android:id = "@+id/txtInstruct"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:hint = "@string/Instruct"
+        android:hint = "@string/ident_horario"
         android:inputType = "text"
         android:layout_marginTop = "25dip"/>
 
@@ -40,7 +26,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_height = "wrap_content"
         android:layout_width = "fill_parent"
-        android:text="@string/elim_horario"
+        android:text="@string/eliminar"
         android:layout_marginTop = "25dip"
         android:id="@+id/ElimHoraButton"/>
 

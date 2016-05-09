@@ -15,6 +15,29 @@
         android:textSize = "25dip"
         android:textColor = "@color/colorAccent"/>
 
+    <EditText android:id = "@+id/IdHorario"
+        android:layout_height = "wrap_content"
+        android:layout_width = "fill_parent"
+        android:hint = "@string/ident_horario"
+        android:inputType = "text"
+        android:layout_marginTop = "25dip"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_height = "wrap_content"
+        android:layout_width = "fill_parent"
+        android:text="@string/actualizar_horario"
+        android:layout_marginTop = "25dip"
+        android:id="@+id/UpdateHoraButton"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_height = "wrap_content"
+        android:layout_width = "fill_parent"
+        android:text="@string/limpiar_horario"
+        android:layout_marginTop = "25dip"
+        android:id="@+id/LimpiarButton"/>
+
     <EditText android:id = "@+id/txtHora"
         android:layout_height = "wrap_content"
         android:layout_width = "fill_parent"
@@ -35,14 +58,6 @@
         android:hint = "@string/Instruct"
         android:inputType = "text"
         android:layout_marginTop = "25dip"/>
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:text="@string/actualizar_horario"
-        android:layout_marginTop = "25dip"
-        android:id="@+id/UpdateHoraButton"/>
 
 
 </LinearLayout>
