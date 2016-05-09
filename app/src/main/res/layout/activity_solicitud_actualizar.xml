@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:prompt="@string/select_sol"
         android:layout_marginTop = "25dip"
-        android:id="@+id/selectButton1" />
+        android:id="@+id/selectSol" />
 
     <EditText android:id = "@+id/txtCantAsistentes"
         android:layout_height = "wrap_content"
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:prompt="@string/select_actividad"
         android:layout_marginTop = "25dip"
-        android:id="@+id/selectButton" />
+        android:id="@+id/selectActividad" />
 
     <Button
         style="?android:attr/buttonStyleSmall"

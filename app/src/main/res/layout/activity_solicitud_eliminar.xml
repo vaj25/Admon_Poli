@@ -16,7 +16,7 @@
         android:text="@string/eliminar_solicitud"/>
 
     <Spinner
-        android:id="@+id/editSolicitud"
+        android:id="@+id/SelectSolicitud"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dip"
