@@ -13,6 +13,13 @@
     <string name="limpiar_area">Limpiar</string>
     <string name="id_area">Identificador</string>
     <string name="area">Area(m2)</string>
+    <string name="eliminar_area">Eliminar Area</string>
+    <string name="txtelim_area">Identificador</string>
+    <string name="consult_area">Consultar Area</string>
+    <string name='consultar_area'>Consultar</string>string>
+    <string name='actualizar_area'>Actualizar Area</string>string>
+    <string name='btn_act_area'>Actualizar</string>string>
+
     <string name="insert_horario">Insertar Horario</string>
     <string name="hora">Hora</string>
     <string name="dia">Día</string>
