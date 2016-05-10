@@ -23,21 +23,21 @@
         android:layout_width = "fill_parent"
         android:hint = "@string/id_area1"
         android:inputType = "text"
-        android:layout_marginTop = "25dip"/>
+        android:layout_marginTop = "25dip"
+        android:numeric="integer"/>
 
     <EditText android:id = "@+id/id_deporte"
         android:layout_height = "wrap_content"
         android:layout_width = "fill_parent"
         android:hint = "@string/id_deporte1"
         android:inputType = "text"
-        android:layout_marginTop = "25dip"/>
+        android:layout_marginTop = "25dip"
+        android:numeric="integer"/>
 
 
     <Button
         android:id="@+id/botonConsultar"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dip"
+        style="@style/button"
         android:text="@string/eliminar"
         android:onClick=""/>
 

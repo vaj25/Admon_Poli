@@ -23,7 +23,8 @@
         android:layout_width = "fill_parent"
         android:hint = "@string/dui_solicitante"
         android:inputType = "number"
-        android:layout_marginTop = "5dip"/>
+        android:layout_marginTop = "5dip"
+        android:numeric="integer"/>
 
     <EditText android:id = "@+id/txtNombreSolicitante"
         android:layout_height = "wrap_content"
@@ -46,7 +47,8 @@
         android:ems="10"
         android:id="@+id/editText"
         android:hint="@string/telefono_solicitante"
-        android:layout_marginTop = "5dip"/>
+        android:layout_marginTop = "5dip"
+        android:numeric="integer"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -58,11 +60,8 @@
         android:layout_marginTop = "5dip"/>
 
     <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
+        style="@style/button"
         android:text="@string/enviar_solicitud"
-        android:layout_marginTop = "5dip"
         android:id="@+id/enviar_solicitante"/>
 
 

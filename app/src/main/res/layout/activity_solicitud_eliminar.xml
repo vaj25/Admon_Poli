@@ -29,9 +29,7 @@
 
     <Button
         android:id="@+id/botonConsultar"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dip"
+        style="@style/button"
         android:text="@string/eliminar"
         android:onClick=""/>
 

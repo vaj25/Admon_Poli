@@ -24,10 +24,8 @@
             android:id="@+id/spinner6" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/button"
             android:text="Eliminar"
-            android:id="@+id/button8"
-            android:layout_gravity="center_horizontal" />
+            android:id="@+id/button8"/>
     </LinearLayout>
 </ScrollView>

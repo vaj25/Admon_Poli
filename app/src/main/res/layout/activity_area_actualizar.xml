@@ -2,68 +2,62 @@
 <ScrollView xmlns:android = "http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
-    android:layout_width = "fill_parent"
-    android:layout_height = "fill_parent"
-    android:padding = "20dip"
-    android:orientation = "vertical">
-
-    <TextView android:id = "@+id/title_actualizar_area"
+    <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
         android:layout_width = "fill_parent"
-        android:layout_height = "wrap_content"
-        android:layout_marginTop = "10dip"
-        android:layout_marginBottom = "20dip"
-        android:text = "@string/actualizar_area"
-        android:gravity = "center"
-        android:textSize = "25dip"
-        android:textColor = "@color/colorAccent"/>
+        android:layout_height = "fill_parent"
+        android:padding = "20dip"
+        android:orientation = "vertical">
 
-    <EditText android:id = "@+id/IdArea"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:hint = "@string/id_area"
-        android:inputType = "text"
-        android:layout_marginTop = "25dip"/>
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:text="@string/btn_act_area"
-        android:layout_marginTop = "25dip"
-        android:id="@+id/EnviarButton"/>
+        <TextView android:id = "@+id/title_actualizar_area"
+            android:layout_width = "fill_parent"
+            android:layout_height = "wrap_content"
+            android:layout_marginTop = "10dip"
+            android:layout_marginBottom = "20dip"
+            android:text = "@string/actualizar_area"
+            android:gravity = "center"
+            android:textSize = "25dip"
+            android:textColor = "@color/colorAccent"/>
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:text="@string/limpiar_area"
-        android:layout_marginTop = "25dip"
-        android:id="@+id/LimpiarButton"/>
+        <EditText android:id = "@+id/IdArea"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
+            android:hint = "@string/id_area"
+            android:inputType = "text"
+            android:layout_marginTop = "25dip"
+            android:numeric="integer"/>
+        <Button
+            style="@style/button"
+            android:text="@string/btn_act_area"
+            android:id="@+id/EnviarButton"/>
 
-
-    <EditText android:id = "@+id/txtNombreArea"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:hint = "@string/nombre_area"
-        android:inputType = "text"
-        android:layout_marginTop = "25dip"/>
-
-    <EditText android:id = "@+id/txtCapacidadArea"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:hint = "@string/capacidad_area"
-        android:inputType = "text"
-        android:layout_marginTop = "25dip"/>
-
-    <EditText android:id = "@+id/txtArea"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:hint = "@string/area"
-        android:inputType = "text"
-        android:layout_marginTop = "25dip"/>
+        <Button
+            style="@style/button"
+            android:text="@string/limpiar_area"
+            android:id="@+id/LimpiarButton"/>
 
 
+        <EditText android:id = "@+id/txtNombreArea"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
+            android:hint = "@string/nombre_area"
+            android:inputType = "text"
+            android:layout_marginTop = "25dip"/>
 
+        <EditText android:id = "@+id/txtCapacidadArea"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
+            android:hint = "@string/capacidad_area"
+            android:inputType = "text"
+            android:layout_marginTop = "25dip"
+            android:numeric="integer"/>
 
-</LinearLayout>
+        <EditText android:id = "@+id/txtArea"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
+            android:hint = "@string/area"
+            android:inputType = "text"
+            android:layout_marginTop = "25dip"
+            android:numeric="decimal"/>
+
+    </LinearLayout>
 </ScrollView>

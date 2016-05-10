@@ -40,13 +40,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/editText12"
-            android:hint="DUI" />
+            android:hint="DUI"
+            android:numeric="integer"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/editText13"
-            android:hint="Telefono" />
+            android:hint="Telefono"
+            android:numeric="integer"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -55,11 +57,9 @@
             android:hint="Mail" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/button"
             android:text="Actualizar"
-            android:id="@+id/button4"
-            android:layout_gravity="center_horizontal" />
+            android:id="@+id/button4"/>
 
 
     </LinearLayout>

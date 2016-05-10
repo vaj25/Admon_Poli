@@ -2,66 +2,62 @@
 <ScrollView xmlns:android = "http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
-    android:layout_width = "fill_parent"
-    android:layout_height = "fill_parent"
-    android:padding = "20dip"
-    android:orientation = "vertical">
-
-    <TextView android:id = "@+id/title_consult_horario"
+    <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
         android:layout_width = "fill_parent"
-        android:layout_height = "wrap_content"
-        android:layout_marginTop = "10dip"
-        android:layout_marginBottom = "20dip"
-        android:text = "@string/consult_horario"
-        android:gravity = "center"
-        android:textSize = "25dip"
-        android:textColor = "@color/colorAccent"/>
+        android:layout_height = "fill_parent"
+        android:padding = "20dip"
+        android:orientation = "vertical">
 
-    <EditText android:id = "@+id/IdHorario"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:hint = "@string/ident_horario"
-        android:inputType = "text"
-        android:layout_marginTop = "25dip"/>
+        <TextView android:id = "@+id/title_consult_horario"
+            android:layout_width = "fill_parent"
+            android:layout_height = "wrap_content"
+            android:layout_marginTop = "10dip"
+            android:layout_marginBottom = "20dip"
+            android:text = "@string/consult_horario"
+            android:gravity = "center"
+            android:textSize = "25dip"
+            android:textColor = "@color/colorAccent"/>
 
-    <EditText android:id = "@+id/txtHora"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:hint = "@string/hora"
-        android:inputType = "text"
-        android:layout_marginTop = "25dip"/>
+        <EditText android:id = "@+id/IdHorario"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
+            android:hint = "@string/ident_horario"
+            android:inputType = "text"
+            android:layout_marginTop = "25dip"
+            android:numeric="integer"/>
 
-    <EditText android:id = "@+id/txtDia"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:hint = "@string/dia"
-        android:inputType = "text"
-        android:layout_marginTop = "25dip"/>
+        <EditText android:id = "@+id/txtHora"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
+            android:hint = "@string/hora"
+            android:inputType = "text"
+            android:layout_marginTop = "25dip"
+            android:numeric="decimal"/>
 
-    <EditText android:id = "@+id/txtInstruct"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:hint = "@string/Instruct"
-        android:inputType = "text"
-        android:layout_marginTop = "25dip"/>
+        <EditText android:id = "@+id/txtDia"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
+            android:hint = "@string/dia"
+            android:inputType = "text"
+            android:layout_marginTop = "25dip"/>
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:text="@string/consultHorario"
-        android:layout_marginTop = "25dip"
-        android:id="@+id/ConsultHoraButton"/>
+        <EditText android:id = "@+id/txtInstruct"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
+            android:hint = "@string/Instruct"
+            android:inputType = "text"
+            android:layout_marginTop = "25dip"/>
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:text="@string/limpiar_horario"
-        android:layout_marginTop = "25dip"
-        android:id="@+id/LimpiarButton"/>
+        <Button
+            style="@style/button"
+            android:text="@string/consultHorario"
+            android:id="@+id/ConsultHoraButton"/>
+
+        <Button
+            style="@style/button"
+            android:text="@string/limpiar_horario"
+            android:id="@+id/LimpiarButton"/>
 
 
-</LinearLayout>
+    </LinearLayout>
 </ScrollView>

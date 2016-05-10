@@ -30,7 +30,8 @@
         android:layout_width = "fill_parent"
         android:hint = "@string/cant_asistentes"
         android:inputType = "text"
-        android:layout_marginTop = "25dip"/>
+        android:layout_marginTop = "25dip"
+        android:numeric="integer"/>
 
     <EditText android:id = "@+id/txtFechaReserva"
         android:layout_height = "wrap_content"
@@ -52,11 +53,8 @@
         android:id="@+id/spinner" />
 
     <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
+        style="@style/button"
         android:text="@string/enviar_solicitud"
-        android:layout_marginTop = "25dip"
         android:id="@+id/EnviarButton"/>
 
 </LinearLayout>

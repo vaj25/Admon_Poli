@@ -24,14 +24,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText4"
-        android:hint="Cantidad De Horas" />
+        android:hint="Cantidad De Horas"
+        android:numeric="decimal"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText5"
         android:layout_gravity="center_horizontal"
-        android:hint="Cantidad De Personas" />
+        android:hint="Cantidad De Personas"
+        android:numeric="integer" />
 
     <EditText
         android:layout_width="match_parent"
@@ -40,12 +42,11 @@
         android:editable="false"
         android:enabled="false"
         android:hint="Monto"
-        android:longClickable="false" />
+        android:longClickable="false"
+        android:numeric="decimal"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/button"
         android:text="Modificar"
-        android:id="@+id/button5"
-        android:layout_gravity="center_horizontal" />
+        android:id="@+id/button5" />
 </LinearLayout>

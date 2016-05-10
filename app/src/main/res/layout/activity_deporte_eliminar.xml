@@ -2,37 +2,35 @@
 <ScrollView xmlns:android = "http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:padding = "20dip"
-    android:orientation="vertical">
-
-    <TextView android:id = "@+id/title_eliminar_deporte"
-        android:layout_width = "fill_parent"
-        android:layout_height = "wrap_content"
-        android:layout_marginTop = "10dip"
-        android:layout_marginBottom = "20dip"
-        android:gravity = "center"
-        android:textSize = "25dip"
-        android:textColor = "@color/colorAccent"
-        android:text="@string/eliminar_deporte"/>
-
-    <EditText android:id = "@+id/id_deporte"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:hint = "@string/eliminar_deporte"
-        android:inputType = "text"
-        android:layout_marginTop = "25dip"/>
-
-
-    <Button
-        android:id="@+id/botonConsultar"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dip"
-        android:text="@string/eliminar"
-        android:onClick=""/>
+        android:layout_height="fill_parent"
+        android:padding = "20dip"
+        android:orientation="vertical">
 
-</LinearLayout>
-    </ScrollView>
+        <TextView android:id = "@+id/title_eliminar_deporte"
+            android:layout_width = "fill_parent"
+            android:layout_height = "wrap_content"
+            android:layout_marginTop = "10dip"
+            android:layout_marginBottom = "20dip"
+            android:gravity = "center"
+            android:textSize = "25dip"
+            android:textColor = "@color/colorAccent"
+            android:text="@string/eliminar_deporte"/>
+
+        <EditText android:id = "@+id/id_deporte"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
+            android:hint = "@string/eliminar_deporte"
+            android:inputType = "text"
+            android:layout_marginTop = "25dip"
+            android:numeric="integer"/>
+
+        <Button
+            android:id="@+id/botonConsultar"
+            style="@style/button"
+            android:text="@string/eliminar"
+            android:onClick=""/>
+
+    </LinearLayout>
+</ScrollView>

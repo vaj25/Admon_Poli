@@ -2,91 +2,89 @@
 <ScrollView xmlns:android = "http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:padding = "20dip"
-    android:orientation="vertical">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding = "20dip"
+        android:orientation="vertical">
 
-    <TextView android:id = "@+id/title_consultar_solicitud"
-        android:layout_width = "fill_parent"
-        android:layout_height = "wrap_content"
-        android:layout_marginTop = "10dip"
-        android:layout_marginBottom = "10dip"
-        android:gravity = "center"
-        android:textSize = "25dip"
-        android:textColor = "@color/colorAccent"
-        android:text="@string/consultar_solicitante"/>
+        <TextView android:id = "@+id/title_consultar_solicitud"
+            android:layout_width = "fill_parent"
+            android:layout_height = "wrap_content"
+            android:layout_marginTop = "10dip"
+            android:layout_marginBottom = "10dip"
+            android:gravity = "center"
+            android:textSize = "25dip"
+            android:textColor = "@color/colorAccent"
+            android:text="@string/consultar_solicitante"/>
 
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner3"
-        android:layout_gravity="center_horizontal" />
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner3"
+            android:layout_gravity="center_horizontal" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Consultar"
-        android:id="@+id/button2"
-        android:layout_gravity="center_horizontal" />
+        <Button
+            style="@style/button"
+            android:text="Consultar"
+            android:id="@+id/button2" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Limpiar"
-        android:id="@+id/button3"
-        android:layout_gravity="center_horizontal" />
+        <Button
+            style="@style/button"
+            android:text="Limpiar"
+            android:id="@+id/button3"/>
 
-    <EditText
-        android:layout_width="343dp"
-        android:layout_height="40dp"
-        android:id="@+id/editText6"
-        android:editable="false"
-        android:enabled="false"
-        android:focusableInTouchMode="false"
-        android:longClickable="false"
-        android:hint="Nombre" />
+        <EditText
+            android:layout_width="343dp"
+            android:layout_height="40dp"
+            android:id="@+id/editText6"
+            android:editable="false"
+            android:enabled="false"
+            android:focusableInTouchMode="false"
+            android:longClickable="false"
+            android:hint="Nombre" />
 
-    <EditText
-        android:layout_width="338dp"
-        android:layout_height="40dp"
-        android:id="@+id/editText3"
-        android:editable="false"
-        android:enabled="false"
-        android:focusableInTouchMode="false"
-        android:longClickable="false"
-        android:hint="Apellido" />
+        <EditText
+            android:layout_width="338dp"
+            android:layout_height="40dp"
+            android:id="@+id/editText3"
+            android:editable="false"
+            android:enabled="false"
+            android:focusableInTouchMode="false"
+            android:longClickable="false"
+            android:hint="Apellido" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:id="@+id/editText7"
-        android:editable="false"
-        android:enabled="false"
-        android:focusableInTouchMode="false"
-        android:longClickable="false"
-        android:hint="DUI" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/editText7"
+            android:editable="false"
+            android:enabled="false"
+            android:focusableInTouchMode="false"
+            android:longClickable="false"
+            android:hint="DUI"
+            android:numeric="integer"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:id="@+id/editText8"
-        android:editable="false"
-        android:enabled="false"
-        android:focusableInTouchMode="false"
-        android:longClickable="false"
-        android:hint="Telefono" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/editText8"
+            android:editable="false"
+            android:enabled="false"
+            android:focusableInTouchMode="false"
+            android:longClickable="false"
+            android:hint="Telefono"
+            android:numeric="integer"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:id="@+id/editText9"
-        android:editable="false"
-        android:enabled="false"
-        android:focusableInTouchMode="false"
-        android:longClickable="false"
-        android:hint="Mail" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/editText9"
+            android:editable="false"
+            android:enabled="false"
+            android:focusableInTouchMode="false"
+            android:longClickable="false"
+            android:hint="Mail" />
 
-</LinearLayout>
+    </LinearLayout>
 </ScrollView>

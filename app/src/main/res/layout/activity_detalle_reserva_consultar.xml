@@ -23,29 +23,25 @@
         android:layout_width = "fill_parent"
         android:hint = "@string/ident_reserva"
         android:inputType = "text"
-        android:layout_marginTop = "25dip"/>
+        android:layout_marginTop = "25dip"
+        android:numeric="integer"/>
 
     <EditText android:id = "@+id/IdArea"
         android:layout_height = "wrap_content"
         android:layout_width = "fill_parent"
         android:hint = "@string/ident_area"
         android:inputType = "text"
-        android:layout_marginTop = "25dip"/>
+        android:layout_marginTop = "25dip"
+        android:numeric="integer"/>
 
     <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
+        style="@style/button"
         android:text="@string/ConsultDetalleReserva"
-        android:layout_marginTop = "25dip"
         android:id="@+id/ConsultDetalleReservaButton"/>
 
     <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
+        style="@style/button"
         android:text="@string/limpiar"
-        android:layout_marginTop = "25dip"
         android:id="@+id/LimpiarButton"/>
 
 </LinearLayout>
