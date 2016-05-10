@@ -26,13 +26,3 @@ public class DeporteEliminarActivity extends Activity {
         Toast.makeText(this, regEliminadas, Toast.LENGTH_SHORT).show();
     }
 }
-
-   /*
-    public void eliminarAlumno(View v){
-        String regEliminadas;
-        Deporte deporte=new Deporte();
-        deporte.setIdDeporte(IdDeporte.getText().toString());
-        controlhelper.abrir();
-        regEliminadas=controlhelper.eliminar(alumno);
-        controlhelper.cerrar();
-        Toast.makeText(this, regEliminadas, Toast.LENGTH_SHORT).show();*/
