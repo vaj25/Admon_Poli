@@ -7,15 +7,18 @@ public class Horario {
 
 
     private int idHorario;
-    private Double hora;
+    private String hora;
     private String dia;
     private Boolean instructor;
 
-    public Horario(int idHorario, Double hora, String dia, Boolean instructor){
+    public Horario(int idHorario, String hora, String dia, Boolean instructor){
         this.idHorario = idHorario;
         this.hora = hora;
         this.dia = dia;
         this.instructor = instructor;
+    }
+
+    public Horario() {
     }
 
     public int getIdHorario() {
@@ -26,10 +29,10 @@ public class Horario {
         this.idHorario = idHorario;
     }
 
-    public Double getHora() {
+    public String getHora() {
         return hora;
     }
-    public void setHora(Double hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
 

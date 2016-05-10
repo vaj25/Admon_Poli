@@ -9,13 +9,16 @@ public class Reserva {
     private int idReserva;
     private int idHorario;
     private String fechaReserva;
-    private Double tiempoReserva;
+    private String tiempoReserva;
 
-    public Reserva(int idReserva, int idHorario, String fechaReserva, Double tiempoReserva){
+    public Reserva(int idReserva, int idHorario, String fechaReserva, String tiempoReserva){
         this.idReserva = idReserva;
         this.idHorario = idHorario;
         this.fechaReserva = fechaReserva;
         this.tiempoReserva = tiempoReserva;
+    }
+
+    public Reserva() {
     }
 
     public void setIdReserva(int idReserva) {
@@ -41,11 +44,11 @@ public class Reserva {
         this.fechaReserva = fechaReserva;
     }
 
-    public Double getTiempoReserva() {
+    public String getTiempoReserva() {
         return tiempoReserva;
     }
 
-    public void setTiempoReserva(Double tiempoReserva) {
+    public void setTiempoReserva(String tiempoReserva) {
         this.tiempoReserva = tiempoReserva;
     }
 

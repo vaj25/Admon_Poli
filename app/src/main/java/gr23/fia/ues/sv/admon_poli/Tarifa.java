@@ -5,13 +5,16 @@ package gr23.fia.ues.sv.admon_poli;
  */
 public class Tarifa {
     public Double montoArea;
-    public double canthora;
+    public Double canthora;
     public int cantPersonas;
 
     public Tarifa(Double montoArea, double canthora, int cantPersonas) {
         this.montoArea = montoArea;
         this.canthora = canthora;
         this.cantPersonas = cantPersonas;
+    }
+
+    public Tarifa() {
     }
 
     public Double getMontoArea() {

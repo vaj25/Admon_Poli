@@ -1,48 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android = "http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width = "fill_parent"
+    android:layout_height = "fill_parent"
+    android:padding = "20dip"
+    android:orientation = "vertical">
+
+    <TextView android:id = "@+id/title_insert_deporte"
         android:layout_width = "fill_parent"
-        android:layout_height = "fill_parent"
-        android:padding = "20dip"
-        android:orientation = "vertical">
+        android:layout_height = "wrap_content"
+        android:layout_marginTop = "10dip"
+        android:layout_marginBottom = "20dip"
+        android:text = "@string/txtinsert_deporte"
+        android:gravity = "center"
+        android:textSize = "25dip"
+        android:textColor = "@color/colorAccent"/>
 
-        <TextView android:id = "@+id/title_insert_deporte"
-            android:layout_width = "fill_parent"
-            android:layout_height = "wrap_content"
-            android:layout_marginTop = "10dip"
-            android:layout_marginBottom = "20dip"
-            android:text = "@string/txtinsert_deporte"
-            android:gravity = "center"
-            android:textSize = "25dip"
-            android:textColor = "@color/colorAccent"/>
+    <EditText android:id = "@+id/IdDeporte"
+        android:layout_height = "wrap_content"
+        android:layout_width = "fill_parent"
+        android:hint = "@string/id_deporte"
+        android:inputType = "text"
+        android:layout_marginTop = "25dip"/>
 
-        <EditText android:id = "@+id/IdArea"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
-            android:hint = "@string/id_deporte"
-            android:inputType = "text"
-            android:layout_marginTop = "25dip"
-            android:numeric="integer"/>
+    <EditText android:id = "@+id/NombreDeporte"
+        android:layout_height = "wrap_content"
+        android:layout_width = "fill_parent"
+        android:hint = "@string/nombre_deporte"
+        android:inputType = "text"
+        android:layout_marginTop = "25dip"/>
 
-        <EditText android:id = "@+id/txtNombreArea"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
-            android:hint = "@string/nombre_deporte"
-            android:inputType = "text"
-            android:layout_marginTop = "25dip"/>
+       <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_height = "wrap_content"
+        android:layout_width = "fill_parent"
+        android:text="@string/enviar_area"
+           android:onClick="insertarDeporte"
+        android:layout_marginTop = "25dip"
+        android:id="@+id/EnviarButton"/>
 
-           <Button
-            style="@style/button"
-            android:text="@string/enviar_area"
-            android:id="@+id/EnviarButton"/>
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_height = "wrap_content"
+        android:layout_width = "fill_parent"
+        android:text="@string/limpiar_area"
+        android:onClick="limpiarTexto"
+        android:layout_marginTop = "25dip"
+        android:id="@+id/LimpiarButton"/>
 
-        <Button
-            style="@style/button"
-            android:text="@string/limpiar_area"
-            android:id="@+id/LimpiarButton"/>
 
-    </LinearLayout>
-</ScrollView>
 
+</LinearLayout>

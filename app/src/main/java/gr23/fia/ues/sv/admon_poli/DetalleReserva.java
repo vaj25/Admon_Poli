@@ -14,6 +14,9 @@ public class DetalleReserva {
         this.idArea =  idArea;
     }
 
+    public DetalleReserva() {
+    }
+
     public int getIdReserva() {
         return idReserva;
     }

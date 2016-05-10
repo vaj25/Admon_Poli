@@ -5,12 +5,31 @@ package gr23.fia.ues.sv.admon_poli;
  */
 public class Solicitud {
 
-    private int idSolicitud ;
-    private int idTarifa ;
-    private String Estado ;
-    private String FechaSolicitud ;
-    private String FechaReserva ;
-    private int CantAsistentes ;
+    private int idSolicitud;
+    private double montoArea;
+    private String estado;
+    private String fechaSolicitud;
+    private String fechaReserva;
+    private int cantAsistentes;
+    private int idAdministrador;
+    private int idActividad;
+    private String dui;
+
+    public Solicitud(int idSolicitud, double montoArea, String estado, String fechaSolicitud, String fechaReserva, int cantAsistentes, int idAdministrador, int idActividad, String dui) {
+        this.idSolicitud = idSolicitud;
+        this.montoArea = montoArea;
+        this.estado = estado;
+        this.fechaSolicitud = fechaSolicitud;
+        this.fechaReserva = fechaReserva;
+        this.cantAsistentes = cantAsistentes;
+        this.idAdministrador = idAdministrador;
+        this.idActividad = idActividad;
+        this.dui = dui;
+
+    }
+
+    public Solicitud() {
+    }
 
     public int getIdSolicitud() {
         return idSolicitud;
@@ -20,43 +39,67 @@ public class Solicitud {
         this.idSolicitud = idSolicitud;
     }
 
-    public int getIdTarifa() {
-        return idTarifa;
+    public double getMontoArea() {
+        return montoArea;
     }
 
-    public void setIdTarifa(int idTarifa) {
-        this.idTarifa = idTarifa;
+    public void setMontoArea(double montoArea) {
+        this.montoArea = montoArea;
     }
 
     public String getEstado() {
-        return Estado;
+        return estado;
     }
 
     public void setEstado(String estado) {
-        Estado = estado;
+        this.estado = estado;
     }
 
     public String getFechaSolicitud() {
-        return FechaSolicitud;
+        return fechaSolicitud;
     }
 
     public void setFechaSolicitud(String fechaSolicitud) {
-        FechaSolicitud = fechaSolicitud;
+        this.fechaSolicitud = fechaSolicitud;
     }
 
     public String getFechaReserva() {
-        return FechaReserva;
+        return fechaReserva;
     }
 
     public void setFechaReserva(String fechaReserva) {
-        FechaReserva = fechaReserva;
+        this.fechaReserva = fechaReserva;
     }
 
     public int getCantAsistentes() {
-        return CantAsistentes;
+        return cantAsistentes;
     }
 
     public void setCantAsistentes(int cantAsistentes) {
-        CantAsistentes = cantAsistentes;
+        this.cantAsistentes = cantAsistentes;
+    }
+
+    public int getIdAdministrador() {
+        return idAdministrador;
+    }
+
+    public void setIdAdministrador(int idAdministrador) {
+        this.idAdministrador = idAdministrador;
+    }
+
+    public int getIdActividad() {
+        return idActividad;
+    }
+
+    public void setIdActividad(int idActividad) {
+        this.idActividad = idActividad;
+    }
+
+    public String getDui() {
+        return dui;
+    }
+
+    public void setDui(String dui) {
+        this.dui = dui;
     }
 }

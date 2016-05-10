@@ -15,20 +15,21 @@ public class DeporteArea {
         this.idArea=idArea;
         this.idDeporte=idDeporte;
     }
-    public int getIdDeporte() {
-        return idDeporte;
-    }
 
-    public void setIdDeporte(int idDeporte) {
-        idDeporte = idDeporte;
-    }
     public int getIdArea() {
         return idArea;
     }
 
     public void setIdArea(int idArea) {
-        idArea = idArea;
+        this.idArea = idArea;
     }
 
+    public int getIdDeporte() {
+        return idDeporte;
+    }
+
+    public void setIdDeporte(int idDeporte) {
+        this.idDeporte = idDeporte;
+    }
 }
 
