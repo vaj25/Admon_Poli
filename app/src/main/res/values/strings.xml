@@ -5,6 +5,12 @@
     <string name="fecha_reserva">Fecha Reserva</string>
     <string name="select_actividad">Seleccionar Actividad</string>
     <string name="enviar_solicitud">Enviar Solicitud</string>
+    <string name="consultar_area">Consultar</string>
+    <string name="consult_area">Consultar</string>
+    <string name="txtelim_area">Eliminar Area</string>
+    <string name="eliminar_area">Eliminar Area</string>
+    <string name="btn_act_area">Actualizar</string>
+    <string name="actualizar_area">Actualizar Area</string>
     <string name="insert_area">Insertar Area</string>
     <string name="nombre_area">Nombre</string>
     <string name="capacidad_area">Capacidad</string>
@@ -12,43 +18,65 @@
     <string name="limpiar_area">Limpiar</string>
     <string name="id_area">Identificador</string>
     <string name="area">Area(m2)</string>
-    <string name="eliminar_area">Eliminar Area</string>
-    <string name="txtelim_area">Identificador</string>
-    <string name="consult_area">Consultar Area</string>
-    <string name='consultar_area'>Consultar</string>string>
-    <string name='actualizar_area'>Actualizar Area</string>string>
-    <string name='btn_act_area'>Actualizar</string>string>
-    <string name='txtinsert_deporte'>Insertar Deporte</string>string>
-    <string name="id_deporte">Identificador</string>
-    <string name="nombre_deporte">Nombre</string>
-    <string name="actualizar_deporte">Actualizar Deporte</string>
-    <string name="consult_deporte">Consultar Deporte</string>
-    <string name="eliminar_deporte">Eliminar Deporte</string>
-    <string name='txtinsert_deporte_area'>Insertar Deporte Area</string>string>
-    <string name="id_deporte_area">Identificador</string>
-    <string name="nombre_deporte_area">Nombre</string>
-    <string name="actualizar_deporte_area">Actualizar Deporte-Area</string>
-    <string name="consult_deporte_area">Consultar Deporte-Area</string>
-    <string name="eliminar_deporte_area">Eliminar Deporte-Area</string>
-    <string name="id_deporte1">Identificador Deporte</string>
-    <string name="id_area1">Identificador Area</string>
-    <string name="insert_deporte_area">Insertar Deporte Area</string>
-
     <string name="insert_horario">Insertar Horario</string>
     <string name="hora">Hora</string>
     <string name="dia">Día</string>
     <string name="Instruct">Instructor</string>
-    <string name="ingresar_horario">Insertar</string>
+    <string name="ingresar_horario">Ingresar Horario</string>
     <string name="update_horario">Actualizar Horario</string>
-    <string name="actualizar_horario">Actualizar</string>
+    <string name="actualizar_horario">Actualizar Horario</string>
     <string name="consult_horario">Consultar Horario</string>
     <string name="elim_horario">Eliminar Horario</string>
+    <string name="insert_deporte_area">Insertar Deporte</string>
+    <string name="consult_deporte">Consultar Deporte</string>
+    <string name="eliminar_deporte">Eliminar Deporte</string>
+    <string name="txtinsert_deporte">Insertar</string>
+    <string name="id_deporte">Id Deporte</string>
+    <string name="nombre_deporte">Nombre Deporte</string>
+
+
+
+
+
+
+    <string name="eliminar_deporte_area">Eliminar Deporte</string>
+
+    <string name="consult_deporte_area">Consultar deporte</string>
+
+    <string name="actualizar_deporte_area">Actualizar Deporte</string>
+    <string name="id_area1">ID Area</string>
+    <string name="id_deporte1">ID Deporte</string>
+    <string name="actualizar_deporte">Actualizar Deporte</string>
+
+
     <string name="eliminar_solicitud">Eliminar Solicitud</string>
     <string name="consultar_solicitud">Consultar Solicitud</string>
     <string name="eliminar">Eliminar</string>
     <string name="consultar">Consultar</string>
     <string name="limpiar">Limpiar</string>
     <string name="select_sol">Seleccionar Solicitud</string>
+
+    <string name="insertar_solicitante">Datos De Solicitante</string>
+    <string name="dui_solicitante">DUI</string>
+    <string name="nombre_solicitante">Nombre</string>
+    <string name="apellido_solicitante">Apellido</string>
+    <string name="telefono_solicitante">Telefono</string>
+    <string name="mail_solicitante">Mail</string>
+    <string name="enviar_solicitante">Enviar</string>
+    <string name="texto_solicitante">Seleccionar</string>
+    <string name="eliminarB_solicitante">Eliminar</string>
+    <string name="eliminar_solicitante">Eliminar Solicitante</string>
+    <string name="consultar_solicitante">Consultar Solicitante</string>
+    <string name="actualizar_solicitante">Actualizar Solicitante</string>
+
+    <string name="insertar_tarifa">Insertar Tarifas</string>
+    <string name="consultar_tarifa">Consultar Tarifas</string>
+    <string name="actualizar_tarifa">Modificar Tarifas</string>
+    <string name="eliminar_tarifa">Eliminar Tarifas</string>
+
+
+
+
     <string name="id_horario">Identificador</string>
     <string name="limpiar_horario">Limpiar</string>
     <string name="consultHorario">Consultar</string>

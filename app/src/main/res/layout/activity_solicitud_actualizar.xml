@@ -43,6 +43,11 @@
         android:layout_marginTop = "25dip"
         android:id="@+id/selectActividad" />
 
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner" />
+
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_height = "wrap_content"

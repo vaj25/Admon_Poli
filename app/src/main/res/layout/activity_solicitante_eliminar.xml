@@ -9,4 +9,32 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="gr23.fia.ues.sv.admon_poli.SolicitanteEliminarActivity">
 
+    <TextView android:id = "@+id/title_insert_solicitante"
+        android:layout_width = "fill_parent"
+        android:layout_height = "wrap_content"
+        android:layout_marginTop = "5dip"
+        android:layout_marginBottom = "20dip"
+        android:text = "@string/eliminar_solicitante"
+        android:gravity = "center"
+        android:textSize = "25dip"
+        android:textColor = "@color/colorAccent"/>
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner2"
+        android:layout_below="@+id/title_insert_solicitante"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="35dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/eliminarB_solicitante"
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="92dp"/>
+
 </RelativeLayout>

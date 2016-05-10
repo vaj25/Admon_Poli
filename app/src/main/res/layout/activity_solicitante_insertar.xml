@@ -1,12 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="gr23.fia.ues.sv.admon_poli.SolicitanteInsertarActivity">
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width = "fill_parent"
+    android:layout_height = "fill_parent"
+    android:padding = "20dip"
+    android:orientation = "vertical">
 
-</RelativeLayout>
+    <TextView android:id = "@+id/title_insert_solicitante"
+        android:layout_width = "fill_parent"
+        android:layout_height = "wrap_content"
+        android:layout_marginTop = "5dip"
+        android:layout_marginBottom = "20dip"
+        android:text = "@string/insertar_solicitante"
+        android:gravity = "center"
+        android:textSize = "25dip"
+        android:textColor = "@color/colorAccent"/>
+
+    <EditText android:id = "@+id/txtDuiSolicitante"
+        android:layout_height = "wrap_content"
+        android:layout_width = "fill_parent"
+        android:hint = "@string/dui_solicitante"
+        android:inputType = "number"
+        android:layout_marginTop = "5dip"/>
+
+    <EditText android:id = "@+id/txtNombreSolicitante"
+        android:layout_height = "wrap_content"
+        android:layout_width = "fill_parent"
+        android:hint = "@string/nombre_solicitante"
+        android:inputType = "text"
+        android:layout_marginTop = "5dip"/>
+
+    <EditText android:id = "@+id/txtApellidoSolicitante"
+        android:layout_height = "wrap_content"
+        android:layout_width = "fill_parent"
+        android:hint = "@string/apellido_solicitante"
+        android:inputType = "text"
+        android:layout_marginTop = "5dip"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:hint="@string/telefono_solicitante"
+        android:layout_marginTop = "5dip"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/editText2"
+        android:hint="@string/mail_solicitante"
+        android:layout_marginTop = "5dip"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_height = "wrap_content"
+        android:layout_width = "fill_parent"
+        android:text="@string/enviar_solicitud"
+        android:layout_marginTop = "5dip"
+        android:id="@+id/enviar_solicitante"/>
+
+
+</LinearLayout>

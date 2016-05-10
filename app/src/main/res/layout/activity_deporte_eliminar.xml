@@ -18,7 +18,7 @@
     <EditText android:id = "@+id/id_deporte"
         android:layout_height = "wrap_content"
         android:layout_width = "fill_parent"
-        android:hint = "@string/txtelim_area"
+        android:hint = "@string/eliminar_deporte"
         android:inputType = "text"
         android:layout_marginTop = "25dip"/>
 
