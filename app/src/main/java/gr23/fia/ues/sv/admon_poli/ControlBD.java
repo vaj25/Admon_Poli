@@ -313,7 +313,17 @@ public class ControlBD {
         return regInsertados;
     }
     public String actualizar(Deporte deporte){return null;}
-    public String consultarDeporte(int idDeporte){return null;}
+    public Deporte consultarDeporte(int idDeporte){
+
+        String[] id = {String.valueOf(idDeporte)};
+        Cursor cursor = db.query("deporte", camposDeporte, "iddeporte = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            Deporte deporte = new Deporte();
+            deporte.setIdDeporte(cursor.getInt(0));
+            deporte.setNombre(cursor.getString(1));
+            return deporte;
+        }else{ return null;
+        }}
     //------------------------------------------------------------------------
     private boolean verificarIntegridad(Object dato, int relacion) throws SQLException{
         switch(relacion){
