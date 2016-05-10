@@ -18,7 +18,7 @@
             android:textColor = "@color/colorAccent"
             android:text="@string/eliminar_deporte"/>
 
-        <EditText android:id = "@+id/iddeporte"
+        <EditText android:id = "@+id/IdDeporte"
             android:layout_height = "wrap_content"
             android:layout_width = "fill_parent"
             android:hint = "@string/eliminar_deporte"
@@ -26,10 +26,10 @@
             android:layout_marginTop = "25dip"/>
 
         <Button
-            android:id="@+id/botonConsultar"
+            android:id="@+id/botonEliminar"
             style="@style/button"
             android:text="@string/eliminar"
-            android:onClick=""/>
+            android:onClick="eliminarDeporte"/>
 
     </LinearLayout>
 </ScrollView>

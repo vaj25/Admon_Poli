@@ -13,16 +13,26 @@ public class DeporteEliminarActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deporte_eliminar);
         controlhelper=new ControlBD (this);
-        IdDeporte=(EditText)findViewById(R.id.iddeporte);
+        IdDeporte=(EditText)findViewById(R.id.IdDeporte);
     }
     public void eliminarDeporte(View v){
         String regEliminadas;
         Deporte deporte=new Deporte();
         String iddeporte=IdDeporte.getText().toString();
-        deporte.setIdDeporte(Integer.getInteger(iddeporte));
+        deporte.setIdDeporte(Integer.parseInt(iddeporte));
         controlhelper.abrir();
         regEliminadas=controlhelper.eliminar(deporte);
         controlhelper.cerrar();
         Toast.makeText(this, regEliminadas, Toast.LENGTH_SHORT).show();
     }
 }
+
+   /*
+    public void eliminarAlumno(View v){
+        String regEliminadas;
+        Deporte deporte=new Deporte();
+        deporte.setIdDeporte(IdDeporte.getText().toString());
+        controlhelper.abrir();
+        regEliminadas=controlhelper.eliminar(alumno);
+        controlhelper.cerrar();
+        Toast.makeText(this, regEliminadas, Toast.LENGTH_SHORT).show();*/
