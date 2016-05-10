@@ -65,6 +65,11 @@
         <activity android:name=".SolicitanteEliminarActivity" android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".SolicitanteConsultarActivity" android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".SolicitanteActualizarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".TarifaMenuActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".TarifaInsertarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".TarifaActualizarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".TarifaConsultarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".TarifaEliminarActivity" android:windowSoftInputMode="stateHidden"/>
     </application>
 
 </manifest>
