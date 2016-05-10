@@ -15,56 +15,56 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HorarioMenuActivity" />
+        <activity android:name=".HorarioMenuActivity" android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".ReservaMenuActivity" />
-        <activity android:name=".HorarioEliminarActivity" />
-        <activity android:name=".HorarioActualizarActivity" />
-        <activity android:name=".HorarioInsertarActivity" />
-        <activity android:name=".HorarioConsultarActivity" />
-        <activity android:name=".ReservaInsertarActivity" />
-        <activity android:name=".ReservaEliminarActivity" />
-        <activity android:name=".ReservaConsultarActivity" />
-        <activity android:name=".ReservaActualizarActivity" />
+        <activity android:name=".HorarioEliminarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".HorarioActualizarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".HorarioInsertarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".HorarioConsultarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".ReservaInsertarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".ReservaEliminarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".ReservaConsultarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".ReservaActualizarActivity" android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".DetalleReservaMenuActivity" />
-        <activity android:name=".DetalleReservaInsertarActivity" />
-        <activity android:name=".DetalleReservaEliminarActivity" />
-        <activity android:name=".DetalleReservaConsultarActivity" />
-        <activity android:name=".DetalleReservaActualizarActivity" />
+        <activity android:name=".DetalleReservaInsertarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".DetalleReservaEliminarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".DetalleReservaConsultarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".DetalleReservaActualizarActivity" android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".ActividadMenuActivity" />
-        <activity android:name=".ActividadInsertarActivity" />
-        <activity android:name=".ActividadEliminarActivity" />
-        <activity android:name=".ActividadActualizarActivity" />
-        <activity android:name=".ActividadConsultarActivity" />
+        <activity android:name=".ActividadInsertarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".ActividadEliminarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".ActividadActualizarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".ActividadConsultarActivity" android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".AdministradorMenuActivity" />
-        <activity android:name=".AdministradorInsertarActivity" />
-        <activity android:name=".AdministradorEliminarActivity" />
-        <activity android:name=".AdministradorConsultarActivity" />
-        <activity android:name=".AdministradorActualizarActivity" />
+        <activity android:name=".AdministradorInsertarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".AdministradorEliminarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".AdministradorConsultarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".AdministradorActualizarActivity" android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".SolicitudMenuActivity" />
-        <activity android:name=".SolicitudActualizarActivity" />
-        <activity android:name=".SolicitudInsertarActivity" />
-        <activity android:name=".SolicitudConsultarActivity" />
-        <activity android:name=".SolicitudEliminarActivity" />
-        <activity android:name=".AreaActualizarActivity" />
-        <activity android:name=".AreaConsultarActivity" />
-        <activity android:name=".AreaEliminarActivity" />
-        <activity android:name=".AreaInsertarActivity" />
+        <activity android:name=".SolicitudActualizarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".SolicitudInsertarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".SolicitudConsultarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".SolicitudEliminarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".AreaActualizarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".AreaConsultarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".AreaEliminarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".AreaInsertarActivity" android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".AreaMenuActivity" />
-        <activity android:name=".DeporteActualizarActivity" />
-        <activity android:name=".DeporteConsultarActivity" />
-        <activity android:name=".DeporteEliminarActivity" />
-        <activity android:name=".DeporteInsertarActivity" />
+        <activity android:name=".DeporteActualizarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".DeporteConsultarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".DeporteEliminarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".DeporteInsertarActivity" android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".DeporteMenuActivity" />
-        <activity android:name=".DeporteAreaActualizarActivity" />
-        <activity android:name=".DeporteAreaConsultarActivity" />
-        <activity android:name=".DeporteAreaEliminarActivity" />
-        <activity android:name=".DeporteAreaInsertarActivity" />
-        <activity android:name=".DeporteAreaMenuActivity" />
-        <activity android:name=".SolicitanteInsertarActivity"></activity>
-        <activity android:name=".SolicitanteMenuActivity"></activity>
-        <activity android:name=".SolicitanteEliminarActivity"></activity>
-        <activity android:name=".SolicitanteConsultarActivity"></activity>
-        <activity android:name=".SolicitanteActualizarActivity"></activity>
+        <activity android:name=".DeporteAreaActualizarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".DeporteAreaConsultarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".DeporteAreaEliminarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".DeporteAreaInsertarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".DeporteAreaMenuActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".SolicitanteInsertarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".SolicitanteMenuActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".SolicitanteEliminarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".SolicitanteConsultarActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".SolicitanteActualizarActivity" android:windowSoftInputMode="stateHidden"/>
     </application>
 
 </manifest>
