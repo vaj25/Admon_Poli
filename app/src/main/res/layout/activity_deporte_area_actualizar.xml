@@ -18,7 +18,7 @@
             android:textSize = "25dip"
             android:textColor = "@color/colorAccent"/>
 
-        <EditText android:id = "@+id/id_deporte_area"
+        <EditText android:id = "@+id/idDeporte"
             android:layout_height = "wrap_content"
             android:layout_width = "fill_parent"
             android:hint = "@string/id_area1"
@@ -26,7 +26,7 @@
             android:layout_marginTop = "25dip"
             android:numeric="integer"/>
 
-        <EditText android:id = "@+id/txtNombreArea"
+        <EditText android:id = "@+id/nombreDeporte"
             android:layout_height = "wrap_content"
             android:layout_width = "fill_parent"
             android:hint = "@string/id_deporte1"
@@ -36,11 +36,13 @@
         <Button
             style="@style/button"
             android:text="@string/btn_act_area"
+            android:onClick="actualizarDeporte"
             android:id="@+id/EnviarButton"/>
 
         <Button
             style="@style/button"
             android:text="@string/limpiar_area"
+            android:onClick="limpiarTexto"
             android:id="@+id/LimpiarButton"/>
 
     </LinearLayout>

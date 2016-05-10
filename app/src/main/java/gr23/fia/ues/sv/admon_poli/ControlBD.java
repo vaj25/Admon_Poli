@@ -312,7 +312,17 @@ public class ControlBD {
         }
         return regInsertados;
     }
-    public String actualizar(Deporte deporte){return null;}
+    public String actualizar(Deporte deporte){
+
+        if(verificarIntegridad(deporte, 5)){
+            String[] id = {String.valueOf(deporte.getIdDeporte())};
+            ContentValues cv = new ContentValues();
+            cv.put("nombre", deporte.getNombre());
+            db.update("deporte", cv, "iddeporte = ?", id);
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "Registro con idDeporte " + deporte.getIdDeporte() + " no existe";
+        }}
     public Deporte consultarDeporte(int idDeporte){
 
         String[] id = {String.valueOf(idDeporte)};
