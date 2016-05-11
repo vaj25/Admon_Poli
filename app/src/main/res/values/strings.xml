@@ -105,5 +105,12 @@
     <string name="ConsultDetalleReserva">Consultar</string>
     <string name="elim_detalleReserva">Eliminar Detalle de Reserva</string>
     <string name="ElimDetalleReserva">Eliminar</string>
+
+    <string name="iddescripcion">Descripcion</string>
+    <string name="idactivo">Activo</string>
+    <string name="consult">Consultar Deporte Area</string>
+
+
+
     <string name="nombre_de_la_actividad">Nombre de la actividad:</string>
 </resources>

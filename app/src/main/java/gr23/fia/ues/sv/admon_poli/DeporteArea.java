@@ -7,13 +7,17 @@ public class DeporteArea {
 
     private  int idArea;
     private int idDeporte;
+    private String descripcion;
+    private String activo;
 
-    public DeporteArea(){
-
+    public DeporteArea(int idArea, int idDeporte, String descripcion, String activo) {
+        this.idArea = idArea;
+        this.idDeporte = idDeporte;
+        this.descripcion = descripcion;
+        this.activo = activo;
     }
-    public DeporteArea(int idArea,int idDeporte){
-        this.idArea=idArea;
-        this.idDeporte=idDeporte;
+
+    public DeporteArea() {
     }
 
     public int getIdArea() {
@@ -30,6 +34,22 @@ public class DeporteArea {
 
     public void setIdDeporte(int idDeporte) {
         this.idDeporte = idDeporte;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String isActivo() {
+        return activo;
+    }
+
+    public void setActivo(String activo) {
+        this.activo = activo;
     }
 }
 

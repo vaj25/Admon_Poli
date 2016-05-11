@@ -13,7 +13,7 @@ import android.database.Cursor;
 public class ControlBD {
 
     private static final String[]camposDeporte = new String [] {"iddeporte","nombredeporte"};
-    private static final String[]camposDeporteArea = new String [] {"iddeporte","idarea"};
+    private static final String[]camposDeporteArea = new String [] {"iddeporte","idarea","descripcion","activo"};
     private static final String[] camposArea = new String [] {"idarea","nombrearea","capacidadarea","area"};
     private static final String[] camposReserva = new String [] {"idreserva","fechareserva","tiemporeserva","idhorario"};
     private static final String[] camposHorario = new String [] {"idhorario","hora","dia","instructor"};
@@ -38,7 +38,7 @@ public class ControlBD {
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
 
-        private static final String BASE_DATOS = "AdmonPoli.s3db" ;
+        private static final String BASE_DATOS = "AdmonPoliv2.s3db" ;
         private static final int VERSION = 1;
 
         DatabaseHelper(Context context) {
@@ -52,11 +52,13 @@ public class ControlBD {
                         "iddeporte INTEGER NOT NULL PRIMARY KEY," +
                         "nombredeporte VARCHAR(30));");
                 db.execSQL("CREATE TABLE deportearea(" +
-                        "iddeporte INTEGER NOT NULL ," +
+                        "iddeporte INTEGER NOT NULL," +
                         "idarea INTEGER NOT NULL," +
+                        "descripcion VARCHAR(100)," +
+                        "activo VARCHAR(25)," +
                         "PRIMARY KEY(iddeporte,idarea));");
                 db.execSQL("CREATE TABLE area(" +
-                        "idarea INTEGER NOT NULL PRIMARY KEY,\n" +
+                        "idarea INTEGER NOT NULL PRIMARY KEY," +
                         "nombrearea VARCHAR(50)," +
                         "capacidadarea INTEGER," +
                         "area FLOAT);");
@@ -105,7 +107,7 @@ public class ControlBD {
                 db.execSQL("CREATE TABLE detallesolicitud (" +
                         "idsolictud INTEGER  NOT NULL," +
                         "idarea INTEGER  NOT NULL," +
-                        "PRIMARY KEY (idsolictud,idarea)\n" +
+                        "PRIMARY KEY (idsolictud,idarea)" +
                         ")");
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -273,17 +275,94 @@ public class ControlBD {
 
 
 
-    //------------------------------------------------------------------------
+    //-----------------------------------------------------------------------------------------------
     //Tablas Moisés
     public String eliminar(Area area){return null;}
-    public String insertar(Area area){return null;}
+    public String insertar(Area area){
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        ContentValues ar = new ContentValues();
+        ar.put("idarea",area.getIdArea());
+        ar.put("nombrearea", area.getNombre());
+        ar.put("capacidadarea", area.getCapacidad());
+        ar.put("area",area.getArea());
+        contador=db.insert("area", null, ar);
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;}
     public String actualizar(Area area){return null;}
-    public String consultarArea(int idArea){return null;}
 
-    public String eliminar(DeporteArea deporteArea){return null;}
-    public String insertar(DeporteArea deporteArea){return null;}
-    public String actualizar(DeporteArea deporteArea){return null;}
-    public String consultarDeporteArea(int idDeporte,int idArea){return null;}
+    public Area consultarArea(int idArea){
+        String[] id = {String.valueOf(idArea)};
+        Cursor cursor = db.query("area", camposArea, "idarea = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            Area area = new Area();
+            area.setIdArea(cursor.getInt(0));
+            area.setNombre(cursor.getString(1));
+            area.setCapacidad(cursor.getInt(2));
+            area.setArea(cursor.getFloat(3));
+            return area;
+        }else{ return null;
+        }}
+
+    public String eliminar(DeporteArea deporteArea){
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        String where="iddeporte='"+deporteArea.getIdDeporte()+"'";
+        where=where+" AND idarea='"+deporteArea.getIdArea()+"'";
+        contador+=db.delete("deportearea", where, null);
+        regAfectados+=contador;
+        return regAfectados;}
+
+    public String insertar(DeporteArea deporteArea){
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        ContentValues deportarea = new ContentValues();
+        deportarea.put("iddeporte", deporteArea.getIdDeporte());
+        deportarea.put("idarea", deporteArea.getIdArea());
+        deportarea.put("descripcion", deporteArea.getDescripcion());
+        deportarea.put("activo", deporteArea.isActivo());
+        contador=db.insert("deportearea", null, deportarea);
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;}
+
+    public String actualizar(DeporteArea deporteArea){
+        if(verificarIntegridad(deporteArea, 6)){
+            String[] id = {String.valueOf(deporteArea.getIdDeporte()), String.valueOf(deporteArea.getIdArea())};
+            ContentValues cv = new ContentValues();
+            cv.put("descripcion", deporteArea.getDescripcion());
+            cv.put("activo", deporteArea.isActivo());
+            db.update("deportearea", cv, "iddeporte = ? AND idarea = ?", id);
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "Registro no Existe";
+        }}
+
+    public DeporteArea consultarDeporteArea(int idDeporte,int idArea){
+
+        String[] id = {String.valueOf(idDeporte), String.valueOf(idArea)};
+        Cursor cursor = db.query("deportearea", camposDeporteArea, "iddeporte = ? AND idarea = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            DeporteArea da = new DeporteArea();
+            da.setIdArea(cursor.getInt(0));
+            da.setIdDeporte(cursor.getInt(1));
+            da.setDescripcion(cursor.getString(2));
+            da.setActivo(cursor.getString(3));
+            return da;
+        }else{
+            return null;
+        }}
 
     public String eliminar(Deporte deporte){
         String regAfectados="filas afectadas= ";
@@ -334,7 +413,7 @@ public class ControlBD {
             return deporte;
         }else{ return null;
         }}
-    //------------------------------------------------------------------------
+    //------------------------------------------------------------------------------------------------
     private boolean verificarIntegridad(Object dato, int relacion) throws SQLException{
         switch(relacion){
             case 1:
@@ -581,13 +660,15 @@ public class ControlBD {
         final int[] VDiddeporte = {1,2,3,4};
         final String[] VDnombredeporte = {"Natación","Futbol","Basketball","Voleyball"};
 
-        final int[] VDAiddeporte = {1,2,3,4};
-        final int[] VDAidarea = {1,2,3,4};
-
         final int[] VAidarea = {1,2,3,4};
         final String[] VAnombrearea = {"Picsina","Cancha 11","Cancha Papi","Duela"};
         final int[] VAcapacidadarea = {110,5000,100,1000};
         final float[] VAarea = {1875,22500,600,1200};
+
+        final int[] VDAiddeporte = {1,2,3,4};
+        final int[] VDAidarea = {1,2,3,4};
+        final String[] VDAdescripcion={"Natación en Picsina","Futbol cancha reglamental","Basketball cancha Papi","Voleyball en Duela"};
+        final String[] VDAactivo={"activo","activo","inactivo","activo"};
 
         final int[] VDRidarea = {1,2,3,4};
         final int[] VDRidreserva = {1,2,3,4};
@@ -638,8 +719,8 @@ public class ControlBD {
 
         abrir();
         db.execSQL("DELETE FROM deporte");
-        db.execSQL("DELETE FROM deportearea");
         db.execSQL("DELETE FROM area");
+        db.execSQL("DELETE FROM deportearea");
         db.execSQL("DELETE FROM detallereserva");
         db.execSQL("DELETE FROM tarifa");
         db.execSQL("DELETE FROM solicitante");
@@ -656,12 +737,7 @@ public class ControlBD {
             deporte.setNombre(VDnombredeporte[i]);
             insertar(deporte);
         }
-        DeporteArea deportearea = new DeporteArea();
-        for(int i=0;i<4;i++){
-            deportearea.setIdArea(VDAidarea[i]);
-            deportearea.setIdDeporte(VDAiddeporte[i]);
-            insertar(deportearea);
-        }
+
         Area area = new Area();
         for(int i=0;i<4;i++){
             area.setIdArea(VAidarea[i]);
@@ -669,6 +745,14 @@ public class ControlBD {
             area.setCapacidad(VAcapacidadarea[i]);
             area.setArea(VAarea[i]);
             insertar(area);
+        }
+        DeporteArea deportearea = new DeporteArea();
+        for(int i=0;i<4;i++){
+            deportearea.setIdArea(VDAidarea[i]);
+            deportearea.setIdDeporte(VDAiddeporte[i]);
+            deportearea.setDescripcion(VDAdescripcion[i]);
+            deportearea.setActivo(VDAactivo[i]);
+            insertar(deportearea);
         }
         Reserva reserva = new Reserva();
         for(int i=0;i<4;i++){
