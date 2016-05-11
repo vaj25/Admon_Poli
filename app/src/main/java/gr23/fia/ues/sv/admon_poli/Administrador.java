@@ -18,15 +18,15 @@ public class Administrador {
     public Administrador() {
     }
 
-    public int getIdadministrador() {
+    public int getIdAdministrador() {
         return this.idadministrador;
     }
 
-    public void setIdadministrador(int idadmin) {
+    public void setIdAdministrador(int idadmin) {
         this.idadministrador = idadmin;
     }
 
-    public int gettelefonoadmin(){
+    public int getTelefonoadmin(){
         return this.telefonoadmin;
     }
 
@@ -34,7 +34,7 @@ public class Administrador {
         this.telefonoadmin=teladmin;
     }
 
-    public String getemailadmin(){
+    public String getEmailadmin(){
         return this.emailadmin;
     }
 

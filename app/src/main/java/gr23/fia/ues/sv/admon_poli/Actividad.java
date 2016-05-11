@@ -3,29 +3,32 @@ package gr23.fia.ues.sv.admon_poli;
 /**
  * Created by FAMILY on 07/05/2016.
  * Clase de actividad de la solicitud
+ *
  */
 public class Actividad {
+    private int idactividad;
+    private String nombreactividad;
 
-    private int idActividad ;
-    private String nombre ;
+    public Actividad (int idactiv, String nomactiv){
+        this.idactividad=idactiv;
+        this.nombreactividad=nomactiv;
+    }
+public Actividad(){
 
-    public Actividad() {
+}
+    public int getIdActividad(){
+        return this.idactividad;
     }
 
-    public int getIdActividad() {
-        return idActividad;
+    public void setIdActividad(int idactiv){
+        this.idactividad=idactiv;
     }
 
-
-    public void setIdActividad(int idActividad) {
-        this.idActividad = idActividad;
+    public String getNombreactividad(){
+        return this.nombreactividad;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreactividad(String nombreactiv){
+        this.nombreactividad=nombreactiv;
     }
 }

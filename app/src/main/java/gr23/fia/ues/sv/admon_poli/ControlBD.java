@@ -506,7 +506,7 @@ public class ControlBD {
             }
             case 13:
             {
-                //verificar que exista deportearea
+                //verificar que exista Actividad
                 Actividad actividad = (Actividad)dato;
                 String[] id = {String.valueOf(actividad.getIdActividad())};
                 abrir();
@@ -519,7 +519,7 @@ public class ControlBD {
             }
             case 14:
             {
-                //verificar que exista deportearea
+                //verificar que exista administrador
                 Administrador administrador = (Administrador)dato;
                 String[] id = {String.valueOf(administrador.getIdAdministrador())};
                 abrir();
@@ -716,15 +716,15 @@ public class ControlBD {
         Actividad actividad = new Actividad();
         for(int i=0;i<4;i++) {
             actividad.setIdActividad(VAidactividad[i]);
-            actividad.setNombre(VAnombreactividad[i]);
+            actividad.setNombreactividad(VAnombreactividad[i]);
             insertar(actividad);
         }
 
         Administrador administrador = new Administrador();
         for(int i=0;i<4;i++) {
             administrador.setIdAdministrador(VADidadministrador[i]);
-            administrador.setTelefono(VADtelefonoadmin[i]);
-            administrador.setEmail(VADemailadmin[i]);
+            administrador.setTelefonoadmin(VADtelefonoadmin[i]);
+            administrador.setEmailadmin(VADemailadmin[i]);
             insertar(administrador);
         }
 
