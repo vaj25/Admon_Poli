@@ -22,7 +22,7 @@ public class ControlBD {
     private static final String[] camposSolicitante = new String [] {"dui","apellidosol","telefonosol","emailsol"};
     private static final String[] camposActividad = new String [] {"idactividad","nombreactividad"};
     private static final String[] camposAdministrador = new String [] {"idadministrador","telefonoadmin","emailadmin"};
-    private static final String[] camposSolicitud = new String [] {"idsolicitud","estado","fechasolicitud","fechareserva","cantasistentes","idadministrador","idactividad","dui","montoarea"};
+    private static final String[] camposSolicitud = new String [] {"idsolicitud","estado","fechasolicitud","fechareserva","cantasistentes","idadministrador","idactividad","dui","montoarea", "horareserva"};
     private static final String[] camposDetalleSolicitud = new String [] {"idsolcitud","idarea"};
 
 
@@ -103,7 +103,8 @@ public class ControlBD {
                         "idadministrador INTEGER NOT NULL," +
                         "idactividad INTEGER NOT NULL," +
                         "dui INTEGER NOT NULL," +
-                        "montoarea FLOAT NOT NULL);");
+                        "montoarea FLOAT NOT NULL);" +
+                        "horareserva VARCHAR(8) NOT NULL");
                 db.execSQL("CREATE TABLE detallesolicitud (" +
                         "idsolictud INTEGER  NOT NULL," +
                         "idarea INTEGER  NOT NULL," +
@@ -210,6 +211,20 @@ public class ControlBD {
         return null;
     }
 
+    public Actividad consultar(int idactividad){
+        String[] id = {String.valueOf(idactividad)};
+        Cursor cursor = db.query("actividad" , camposActividad, "idactividad = ?" , id,
+                null, null, null);
+        if(cursor.moveToFirst()){
+            Actividad actividad = new Actividad() ;
+            actividad.setIdActividad(cursor.getInt(0));
+            actividad.setNombre(cursor.getString(1));
+            return actividad;
+        }else{
+            return null;
+        }
+    }
+
     public String consultar(Actividad actividad){
         return null;
     }
@@ -218,59 +233,165 @@ public class ControlBD {
         return null;
     }
 
-    public String insertar(Actividad actividad){
-        return null;
+    public String insertar(Actividad actividad) {
+
+        String regInsertados="Registro Insertado Nº= ";
+        long contador = 0;
+        ContentValues act = new ContentValues();
+        act.put("idactividad", actividad.getIdActividad());
+        act.put("nombreactividad", actividad.getNombre());
+        contador = db.insert("actividad", null, act);
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados = regInsertados+contador;
+        }
+        return regInsertados;
     }
 
-    public String insertar(Administrador administrador){
-        return null;
-    }
-
-    public String actualizar(Administrador administrador){
-        return null;
-    }
-
-    public String consultar(Administrador administrador){
-        return null;
-    }
-
-    public String eliminar(Administrador administrador){
-        return null;
-    }
-
+    //Tablas Alberto
     public String insertar(Solicitud solicitud){
-        return null;
+        String regInsertados="Registro Insertado Nº= ";
+        long contador = 0;
+        ContentValues solt = new ContentValues();
+        solt.put("idsolicitud", solicitud.getIdSolicitud()); // la genera el activity
+        solt.put("estado", solicitud.getEstado());
+        solt.put("fechasolicitud", solicitud.getFechaSolicitud());//la genera el activity
+        solt.put("fechareserva", solicitud.getFechaReserva());
+        solt.put("cantasistentes", solicitud.getCantAsistentes());
+        solt.put("idadministrador", solicitud.getIdAdministrador());
+        solt.put("idactividad", solicitud.getIdActividad());
+        solt.put("dui", solicitud.getDui()); //la recupera el activity
+        solt.put("montoarea", solicitud.getMontoArea());
+        solt.put("horareserva", solicitud.getHoraReservada());
+        contador = db.insert("solicitud", null, solt);
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados = regInsertados+contador;
+        }
+        return regInsertados;
     }
 
     public String actualizar(Solicitud solicitud){
-        return null;
+
+        if(verificarIntegridad(solicitud, 12)){
+            String[] id = {String.valueOf(solicitud.getIdSolicitud())};
+            ContentValues cv = new ContentValues();
+            cv.put("estado", solicitud.getEstado()); // solo lo modifica el admin
+            cv.put("montoarea",solicitud.getMontoArea());
+            cv.put("fechareserva",solicitud.getFechaReserva());
+            cv.put("fechasolicitud",solicitud.getFechaSolicitud());
+            cv.put("cantasistentes",solicitud.getCantAsistentes());
+            cv.put("idactividad",solicitud.getIdActividad());
+            cv.put("idadministrador",solicitud.getIdAdministrador());
+            cv.put("dui",solicitud.getDui());
+            cv.put("horareserva",solicitud.getHoraReservada());
+            db.update("solicitud", cv, "idsolicitud = ?", id);
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "Registro con idSolicitud " + solicitud.getIdSolicitud() + " no existe";
+        }
     }
 
-    public String consultar(Solicitud solicitud){
-        return null;
+    public Solicitud consultarSolicitud(int idsolicitud){
+
+        String[] id = {String.valueOf(idsolicitud)};
+        Cursor cursor = db.query("solicitud", camposSolicitud, "idsolicitud = ?" , id, null, null, null);
+        if(cursor.moveToFirst()){
+            Solicitud solicitud = new Solicitud() ;
+            solicitud.setIdSolicitud(cursor.getInt(0));
+            solicitud.setEstado(cursor.getString(1));
+            solicitud.setFechaReserva(cursor.getString(2));
+            solicitud.setFechaSolicitud(cursor.getString(3));
+            solicitud.setCantAsistentes(cursor.getInt(4));
+            solicitud.setIdAdministrador(cursor.getInt(5));
+            solicitud.setIdActividad(cursor.getInt(6));
+            solicitud.setDui(cursor.getString(7));
+            solicitud.setMontoArea(cursor.getDouble(8));
+            solicitud.setHoraReservada(cursor.getString(9));
+            return solicitud;
+        }else{
+            return null;
+        }
     }
 
     public String eliminar(Solicitud solicitud){
-        return null;
+
+        String regAfectados="Filas afectadas= ";
+        int contador = 0;
+        if (verificarIntegridad(solicitud,18)) {
+            contador+=db.delete("detallesolicitud", "idsolicitud='"+solicitud.getIdSolicitud()+"'", null);
+        }
+        contador+=db.delete("solicitud", "idsolcitud='"+solicitud.getIdSolicitud()+"'", null);
+        regAfectados+=contador;
+        return regAfectados;
+
     }
 
     public String insertar(DetalleSolicitud detalleSolicitud){
-        return null;
+        String regInsertados="Registro Insertado Nº= ";
+        long contador = 0;
+        ContentValues dsolt = new ContentValues();
+        dsolt.put("idsolicitud", detalleSolicitud.getIdSolicitud());
+        dsolt.put("idarea", detalleSolicitud.getIdArea());
+        contador = db.insert("detallesolicitud", null, dsolt);
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados = regInsertados+contador;
+        }
+        return regInsertados;
     }
 
     public String actualizar(DetalleSolicitud detalleSolicitud){
-        return null;
+        if(verificarIntegridad(detalleSolicitud, 3)){
+            String[] ids = {String.valueOf(detalleSolicitud.getIdSolicitud()), String.valueOf(detalleSolicitud.getIdArea())};
+            ContentValues cv = new ContentValues();
+            db.update("detallesolicitud", cv, "idsolicitud = ? AND idarea = ?", ids);
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "Registro con idSolicitud " + detalleSolicitud.getIdSolicitud() + " y idarea"+ detalleSolicitud.getIdArea()  +" no existe";
+        }
     }
 
-    public String consultar(DetalleSolicitud detalleSolicitud){
-        return null;
+    public DetalleSolicitud consultar(int idSolicitud, int idarea){
+        String[] ids = {String.valueOf(idSolicitud), String.valueOf(idarea)};
+        Cursor cursor = db.query("detallesolicitud", camposDetalleSolicitud, "idsolicitud = ? AND idarea = ?" , ids, null, null, null);
+        if(cursor.moveToFirst()){
+            DetalleSolicitud detsolicitud = new DetalleSolicitud() ;
+            detsolicitud.setIdSolicitud(cursor.getInt(0));
+            detsolicitud.setIdArea(cursor.getInt(1));
+            return detsolicitud;
+        }else{
+            return null;
+        }
     }
 
     public String eliminar(DetalleSolicitud detalleSolicitud){
-        return null;
+        String regAfectados="Filas afectadas= ";
+        int contador = 0;
+        if (verificarIntegridad(detalleSolicitud,3)) {
+            contador+=db.delete("detallesolicitud", "idsolicitud='"+ detalleSolicitud.getIdSolicitud() +"'", null);
+        }
+        regAfectados+=contador;
+        return regAfectados;
     }
 
-
+    public int count(String tabla){
+        int c = 0 ;
+        Cursor cursor = db.rawQuery("Select count(*) from " + tabla, null) ;
+        if(cursor.moveToFirst()){
+            c = cursor.getInt(0) ;
+        }
+        return c ;
+    }
 
 
 
@@ -648,6 +769,19 @@ public class ControlBD {
                 }
                 return false;
             }
+            case 18:
+            {
+                //verificar que al eliminar solicitud no exista en detallesolicitud
+                Solicitud solicitud = (Solicitud) dato;
+                String[] id1 = {String.valueOf(solicitud.getIdSolicitud())};
+                abrir();
+                Cursor cursor1 = db.query("detallesolicitud", null, "idsolicitud = ?", id1, null, null, null);
+                if (cursor1.moveToFirst()) {
+                    //Se encontraron datos
+                    return true;
+                }
+                return false;
+            }
 
             default:
                 return false;
@@ -709,6 +843,7 @@ public class ControlBD {
         final int[] VSOcantasistentes = {100,200,500,300};
         final int[] VSOidadministrador = {1,2,3,4};
         final int[] VSOidactividad = {1,2,3,4};
+        final String[] VSOhoraReserva = {"10.30.00", "12.00.00", "2.00.00", "4.30.00"};
 
         final String[] VSOdui = {"12897856234","78894556231","7889455628","78894556235"};
 
@@ -800,7 +935,7 @@ public class ControlBD {
         Actividad actividad = new Actividad();
         for(int i=0;i<4;i++) {
             actividad.setIdActividad(VAidactividad[i]);
-            actividad.setNombreactividad(VAnombreactividad[i]);
+            actividad.setNombre(VAnombreactividad[i]);
             insertar(actividad);
         }
 

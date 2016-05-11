@@ -27,7 +27,7 @@ public class ActividadInsertarActivity extends Activity {
         String regInsertados;
         Actividad actividad=new Actividad();
         actividad.setIdActividad(idActividad);
-        actividad.setNombreactividad(nombreActividad);
+        actividad.setNombre(nombreActividad);
         helper.abrir();
         regInsertados=helper.insertar(actividad);
         helper.cerrar();

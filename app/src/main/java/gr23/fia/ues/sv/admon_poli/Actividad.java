@@ -6,29 +6,35 @@ package gr23.fia.ues.sv.admon_poli;
  *
  */
 public class Actividad {
-    private int idactividad;
-    private String nombreactividad;
 
-    public Actividad (int idactiv, String nomactiv){
-        this.idactividad=idactiv;
-        this.nombreactividad=nomactiv;
-    }
-public Actividad(){
+    private int idActividad;
+    private String nombre;
 
-}
-    public int getIdActividad(){
-        return this.idactividad;
+    public Actividad(int idActividad, String nombre) {
+        this.idActividad = idActividad;
+        this.nombre = nombre;
     }
 
-    public void setIdActividad(int idactiv){
-        this.idactividad=idactiv;
+    public Actividad(){}
+
+    public int getIdActividad() {
+        return idActividad;
     }
 
-    public String getNombreactividad(){
-        return this.nombreactividad;
+    public void setIdActividad(int idactividad) {
+        this.idActividad = idactividad;
     }
 
-    public void setNombreactividad(String nombreactiv){
-        this.nombreactividad=nombreactiv;
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    @Override
+    public String toString() {
+        return nombre;
     }
 }

@@ -6,7 +6,6 @@ package gr23.fia.ues.sv.admon_poli;
 public class Solicitud {
 
     private int idSolicitud;
-    private double montoArea;
     private String estado;
     private String fechaSolicitud;
     private String fechaReserva;
@@ -14,8 +13,10 @@ public class Solicitud {
     private int idAdministrador;
     private int idActividad;
     private String dui;
+    private double montoArea;
+    private String horaReservada;
 
-    public Solicitud(int idSolicitud, double montoArea, String estado, String fechaSolicitud, String fechaReserva, int cantAsistentes, int idAdministrador, int idActividad, String dui) {
+    public Solicitud(int idSolicitud, double montoArea, String estado, String fechaSolicitud, String fechaReserva, int cantAsistentes, int idAdministrador, int idActividad, String dui, String horaReservada) {
         this.idSolicitud = idSolicitud;
         this.montoArea = montoArea;
         this.estado = estado;
@@ -25,7 +26,7 @@ public class Solicitud {
         this.idAdministrador = idAdministrador;
         this.idActividad = idActividad;
         this.dui = dui;
-
+        this.horaReservada = horaReservada;
     }
 
     public Solicitud() {
@@ -101,5 +102,13 @@ public class Solicitud {
 
     public void setDui(String dui) {
         this.dui = dui;
+    }
+
+    public String getHoraReservada() {
+        return horaReservada;
+    }
+
+    public void setHoraReservada(String horaReservada) {
+        this.horaReservada = horaReservada;
     }
 }
