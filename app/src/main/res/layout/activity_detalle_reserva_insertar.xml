@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
-    android:layout_width = "fill_parent"
-    android:layout_height = "fill_parent"
-    android:padding = "20dip"
-    android:orientation = "vertical">
-
-    <TextView android:id = "@+id/title_insert_detalleReserva"
+<ScrollView xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
         android:layout_width = "fill_parent"
-        android:layout_height = "wrap_content"
-        android:layout_marginTop = "10dip"
-        android:layout_marginBottom = "20dip"
-        android:text = "@string/insert_detalleReserva"
-        android:gravity = "center"
-        android:textSize = "25dip"
-        android:textColor = "@color/colorAccent"/>
+        android:layout_height = "fill_parent"
+        android:padding = "20dip"
+        android:orientation = "vertical">
 
-    <EditText android:id = "@+id/IdReserva"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:hint = "@string/ident_reserva"
-        android:inputType = "text"
-        android:layout_marginTop = "25dip"/>
+        <TextView android:id = "@+id/title_insert_detalleReserva"
+            android:layout_width = "fill_parent"
+            android:layout_height = "wrap_content"
+            android:layout_marginTop = "10dip"
+            android:layout_marginBottom = "20dip"
+            android:text = "@string/insert_detalleReserva"
+            android:gravity = "center"
+            android:textSize = "25dip"
+            android:textColor = "@color/colorAccent"/>
 
-    <EditText android:id = "@+id/IdArea"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:hint = "@string/ident_area"
-        android:inputType = "text"
-        android:layout_marginTop = "25dip"/>
+        <EditText android:id = "@+id/IdReserva"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
+            android:hint = "@string/ident_reserva"
+            android:inputType = "text"
+            android:layout_marginTop = "25dip"
+            android:numeric="integer"/>
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:text="@string/insertar_detalleReserva"
-        android:layout_marginTop = "25dip"
-        android:id="@+id/InsertDetalleReservaButton"/>
+        <EditText android:id = "@+id/IdArea"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
+            android:hint = "@string/ident_area"
+            android:inputType = "text"
+            android:layout_marginTop = "25dip"
+            android:numeric="integer"/>
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:text="@string/limpiar"
-        android:layout_marginTop = "25dip"
-        android:id="@+id/LimpiarButton"/>
+        <Button
+            style="@style/button"
+            android:text="@string/insertar_detalleReserva"
+            android:id="@+id/InsertDetalleReservaButton"/>
 
-</LinearLayout>
+        <Button
+            style="@style/button"
+            android:text="@string/limpiar"
+            android:id="@+id/LimpiarButton"/>
+
+    </LinearLayout>
+</ScrollView>

@@ -30,6 +30,7 @@
     <string name="insert_deporte_area">Insertar Deporte</string>
     <string name="consult_deporte">Consultar Deporte</string>
     <string name="eliminar_deporte">Eliminar Deporte</string>
+    <string name="iddeporte">Identificador</string>
     <string name="txtinsert_deporte">Insertar</string>
     <string name="id_deporte">Id Deporte</string>
     <string name="nombre_deporte">Nombre Deporte</string>

@@ -8,6 +8,9 @@ public class DetalleSolicitud {
     private int idSolicitud ;
     private int idArea ;
 
+    public DetalleSolicitud() {
+    }
+
     public DetalleSolicitud(int idArea, int idSolicitud) {
         this.idArea = idArea;
         this.idSolicitud = idSolicitud;

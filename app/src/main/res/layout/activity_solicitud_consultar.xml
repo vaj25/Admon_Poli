@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -26,17 +29,13 @@
 
     <Button
         android:id="@+id/botonConsultar"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dip"
+        style="@style/button"
         android:text="@string/consultar"
         android:onClick=""/>
 
     <Button
         android:id="@+id/botonLimpiar"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dip"
+        style="@style/button"
         android:text="@string/limpiar"
         android:onClick="limpiarTexto"/>
 
@@ -50,7 +49,8 @@
         android:focusableInTouchMode="false"
         android:cursorVisible="false"
         android:longClickable="false"
-        android:hint = "@string/cant_asistentes"/>
+        android:hint = "@string/cant_asistentes"
+        android:numeric="integer"/>
 
     <EditText
         android:id="@+id/editUnidadesval"
@@ -64,3 +64,4 @@
         android:longClickable="false"
         android:hint = "@string/fecha_reserva"/>
 </LinearLayout>
+</ScrollView>

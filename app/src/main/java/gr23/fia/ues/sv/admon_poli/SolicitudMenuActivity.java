@@ -28,7 +28,7 @@ public class SolicitudMenuActivity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id){
         super.onListItemClick(l, v, position, id);
         String nombreValue=activities[position];
-        l.getChildAt(position).setBackgroundColor(Color.rgb(128, 128, 255));
+        l.getChildAt(position).setBackgroundColor(Color.rgb(192, 195, 208));
         try{
             Class<?> clase=Class.forName("gr23.fia.ues.sv.admon_poli."+nombreValue);
             Intent inte = new Intent(this,clase);

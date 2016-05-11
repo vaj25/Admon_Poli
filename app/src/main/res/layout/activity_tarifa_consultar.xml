@@ -1,17 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
-    android:layout_width = "fill_parent"
-    android:layout_height = "fill_parent"
-    android:padding = "20dip"
-    android:orientation = "vertical">
-
-    <TextView android:id = "@+id/title_consultar_tarifa"
+<ScrollView xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
         android:layout_width = "fill_parent"
-        android:layout_height = "wrap_content"
-        android:layout_marginTop = "10dip"
-        android:layout_marginBottom = "20dip"
-        android:text = "@string/consultar_tarifa"
-        android:gravity = "center"
-        android:textSize = "25dip"
-        android:textColor = "@color/colorAccent"/>
-</LinearLayout>
+        android:layout_height = "fill_parent"
+        android:padding = "20dip"
+        android:orientation = "vertical">
+
+        <TextView android:id = "@+id/title_consultar_tarifa"
+            android:layout_width = "fill_parent"
+            android:layout_height = "wrap_content"
+            android:layout_marginTop = "10dip"
+            android:layout_marginBottom = "20dip"
+            android:text = "@string/consultar_tarifa"
+            android:gravity = "center"
+            android:textSize = "25dip"
+            android:textColor = "@color/colorAccent"/>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner5" />
+
+        <Button
+            style="@style/button"
+            android:text="Consultar"
+            android:id="@+id/button6"/>
+
+        <Button
+            style="@style/button"
+            android:text="Limpiar"
+            android:id="@+id/button7"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText16"
+            android:longClickable="false"
+            android:enabled="false"
+            android:focusable="false"
+            android:editable="false"
+            android:clickable="false"
+            android:hint="Cantidad De Horas"
+            android:numeric="decimal"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText17"
+            android:longClickable="false"
+            android:enabled="false"
+            android:focusable="false"
+            android:editable="false"
+            android:clickable="false"
+            android:hint="Cantidad De Personas"
+            android:numeric="integer"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText18"
+            android:longClickable="false"
+            android:enabled="false"
+            android:focusable="false"
+            android:editable="false"
+            android:clickable="false"
+            android:hint="Monto"
+            android:numeric="decimal"/>
+    </LinearLayout>
+</ScrollView>

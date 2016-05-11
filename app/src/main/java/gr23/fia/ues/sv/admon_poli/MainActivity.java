@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 public class MainActivity extends ListActivity {
     String[] menu={"Tabla Actividad","Tabla Administrador","Tabla Area","Tabla Deporte","Tabla DeporteArea",
             "Tabla Detalle Reserva","Tabla Detalle Solicitud","Tabla Horario","Tabla Reserva","Tabla Solicitante",
@@ -15,10 +16,13 @@ public class MainActivity extends ListActivity {
             "DeporteAreaMenuActivity","DetalleReservaMenuActivity","DetalleSolicitudMenuActivity","HorarioMenuActivity",
             "ReservaMenuActivity","SolicitanteMenuActivity","SolicitudMenuActivity","TarifaMenuActivity"};
 
+    ControlBD BDhelper;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menu));
+        BDhelper = new ControlBD(this);
     }
 
     @Override
@@ -34,7 +38,10 @@ public class MainActivity extends ListActivity {
                 e.printStackTrace();
             }
         }else{
-            //CODIGO PARA LLENAR BASE DE DATOS
+            BDhelper.abrir();
+            String tost = BDhelper.llenarBD();
+            BDhelper.cerrar();
+            Toast.makeText(this, tost, Toast.LENGTH_SHORT).show();
         }
     }
 }

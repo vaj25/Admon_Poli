@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
     android:layout_width = "fill_parent"
     android:layout_height = "fill_parent"
@@ -20,14 +23,16 @@
         android:layout_width = "fill_parent"
         android:hint = "@string/ident_reserva"
         android:inputType = "text"
-        android:layout_marginTop = "25dip"/>
+        android:layout_marginTop = "25dip"
+        android:numeric="integer"/>
 
     <EditText android:id = "@+id/IdHorario"
         android:layout_height = "wrap_content"
         android:layout_width = "fill_parent"
         android:hint = "@string/ident_horario"
         android:inputType = "text"
-        android:layout_marginTop = "25dip"/>
+        android:layout_marginTop = "25dip"
+        android:numeric="integer"/>
 
     <EditText android:id = "@+id/txtfechaReserv"
         android:layout_height = "wrap_content"
@@ -41,15 +46,13 @@
         android:layout_width = "fill_parent"
         android:hint = "@string/tiempo_reserva"
         android:inputType = "text"
-        android:layout_marginTop = "25dip"/>
+        android:layout_marginTop = "25dip"
+        android:numeric="decimal"/>
 
 
     <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
+        style="@style/button"
         android:text="@string/insertReserv"
-        android:layout_marginTop = "25dip"
         android:id="@+id/InsertReservButton"/>
 
     <Button
@@ -62,3 +65,4 @@
 
 
 </LinearLayout>
+</ScrollView>
