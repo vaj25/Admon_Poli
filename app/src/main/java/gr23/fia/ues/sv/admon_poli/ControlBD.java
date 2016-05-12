@@ -439,7 +439,19 @@ public class ControlBD {
             regInsertados=regInsertados+contador;
         }
         return regInsertados;}
-    public String actualizar(Area area){return null;}
+
+    public String actualizar(Area area){
+        if(verificarIntegridad(area, 7)){
+            String[] id = {String.valueOf(area.getIdArea())};
+            ContentValues cv = new ContentValues();
+            cv.put("nombrearea", area.getNombre());
+            cv.put("capacidadarea", area.getCapacidad());
+            cv.put("area", area.getArea());
+            db.update("area", cv, "idarea = ?", id);
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "Registro con idArea " + area.getIdArea() + " no existe";
+        }}
 
     public Area consultarArea(int idArea){
         String[] id = {String.valueOf(idArea)};
@@ -540,7 +552,7 @@ public class ControlBD {
         if(verificarIntegridad(deporte, 5)){
             String[] id = {String.valueOf(deporte.getIdDeporte())};
             ContentValues cv = new ContentValues();
-            cv.put("nombre", deporte.getNombre());
+            cv.put("nombredeporte", deporte.getNombre());
             db.update("deporte", cv, "iddeporte = ?", id);
             return "Registro Actualizado Correctamente";
         }else{
