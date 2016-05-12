@@ -195,11 +195,27 @@ public class ControlBD {
         return null;
     }
 
-    public String insertar(Solicitante solicitante){
+    public Administrador consultar(int idAdministrador){
         return null;
     }
 
-    public String consultar(Solicitante solicitante){
+    public String eliminar(Administrador administrador){
+        return null;
+    }
+
+    public String insertar(Administrador administrador){
+        return null;
+    }
+
+    public String actualizar(Administrador administrador){
+        return null;
+    }
+
+    public String actualizar(Solicitante solicitante){
+        return null;
+    }
+
+    public Solicitante consultarSolicitante(int idSolicitante){
         return null;
     }
 
@@ -207,11 +223,11 @@ public class ControlBD {
         return null;
     }
 
-    public String actualizar(Actividad actividad){
+    public String insertar(Solicitante solicitante){
         return null;
     }
 
-    public Actividad consultar(int idactividad){
+    public Actividad consultarActividad(int idactividad){
         String[] id = {String.valueOf(idactividad)};
         Cursor cursor = db.query("actividad" , camposActividad, "idactividad = ?" , id,
                 null, null, null);
@@ -225,9 +241,7 @@ public class ControlBD {
         }
     }
 
-    public String consultar(Actividad actividad){
-        return null;
-    }
+    public String actualizar (Actividad actividad){ return null; }
 
     public String eliminar(Actividad actividad){
         return null;

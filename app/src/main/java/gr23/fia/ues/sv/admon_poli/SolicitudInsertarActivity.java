@@ -32,7 +32,7 @@ public class SolicitudInsertarActivity extends AppCompatActivity {
         helper.abrir();
         int count = helper.count("actividad");
         for(int i = 1; i<=count; i++){
-            Actividad act = helper.consultar(i) ;
+            Actividad act = helper.consultarActividad(i) ;
             acts.add(new Actividad(act.getIdActividad(), act.getNombre()));
         }
         ArrayAdapter spinner_adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, acts);
