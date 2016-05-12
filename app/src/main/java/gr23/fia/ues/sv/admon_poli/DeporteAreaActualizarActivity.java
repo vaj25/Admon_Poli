@@ -20,7 +20,7 @@ public class DeporteAreaActualizarActivity extends Activity {
         idDeporte = (EditText) findViewById(R.id.idDeporte);
         idArea = (EditText) findViewById(R.id.idArea);
         idDescripcion = (EditText) findViewById(R.id.idDescripcion);
-        idActivo = (EditText) findViewById(R.id.idActivo);;
+        idActivo = (EditText) findViewById(R.id.idActivo);
     }
     public void actualizarDeporteArea(View v) {
         DeporteArea da = new DeporteArea();

@@ -106,7 +106,8 @@
     <string name="iddescripcion">Descripcion</string>
     <string name="idactivo">Activo</string>
     <string name="consult">Consultar Deporte Area</string>
-
+    <string name="ActualizarDS">Actualizar Detalle de Solicitud</string>
+    <string name="actualizar">Actualizar</string>
 
     <string name="nombre_de_la_actividad">Nombre de la actividad:</string>
     <string name="insetarDetalleSolicitud">Insertar Detalle de Solicitud </string>
