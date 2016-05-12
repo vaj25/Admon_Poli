@@ -6,8 +6,8 @@
     <string name="select_actividad">Seleccionar Actividad</string>
     <string name="enviar_solicitud">Enviar Solicitud</string>
     <string name="consultar_area">Consultar</string>
-    <string name="consult_area">Consultar</string>
-    <string name="txtelim_area">Eliminar Area</string>
+    <string name="consult_area">Consultar Area</string>
+    <string name="txtelim_area">Identificador</string>
     <string name="eliminar_area">Eliminar Area</string>
     <string name="btn_act_area">Actualizar</string>
     <string name="actualizar_area">Actualizar Area</string>
@@ -40,7 +40,7 @@
 
 
 
-    <string name="eliminar_deporte_area">Eliminar Deporte</string>
+    <string name="eliminar_deporte_area">Eliminar Deporte-Area</string>
 
     <string name="consult_deporte_area">Consultar deporte</string>
 

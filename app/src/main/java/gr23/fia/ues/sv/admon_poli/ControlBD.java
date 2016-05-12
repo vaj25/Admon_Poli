@@ -412,7 +412,16 @@ public class ControlBD {
 
     //-----------------------------------------------------------------------------------------------
     //Tablas Moisés
-    public String eliminar(Area area){return null;}
+    public String eliminar(Area area){
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        if (verificarIntegridad(area,19)) {
+            contador+=db.delete("deportearea", "idarea='"+area.getIdArea()+"'", null);
+        }
+        contador+=db.delete("area", "idarea='"+area.getIdArea()+"'", null);
+        regAfectados+=contador;
+        return regAfectados;}
+
     public String insertar(Area area){
         String regInsertados="Registro Insertado Nº= ";
         long contador=0;
@@ -790,6 +799,19 @@ public class ControlBD {
                 String[] id1 = {String.valueOf(solicitud.getIdSolicitud())};
                 abrir();
                 Cursor cursor1 = db.query("detallesolicitud", null, "idsolicitud = ?", id1, null, null, null);
+                if (cursor1.moveToFirst()) {
+                    //Se encontraron datos
+                    return true;
+                }
+                return false;
+            }
+            case 19:
+            {
+                //verificar que al area no exista en deporteArea
+                Area area = (Area) dato;
+                String[] id1 = {String.valueOf(area.getIdArea())};
+                abrir();
+                Cursor cursor1 = db.query("deportearea", null, "idarea = ?", id1, null, null, null);
                 if (cursor1.moveToFirst()) {
                     //Se encontraron datos
                     return true;

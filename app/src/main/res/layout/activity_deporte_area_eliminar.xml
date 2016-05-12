@@ -8,7 +8,7 @@
     android:padding = "20dip"
     android:orientation="vertical">
 
-    <TextView android:id = "@+id/title_eliminar_deporte"
+    <TextView android:id = "@+id/eliminarDA"
         android:layout_width = "fill_parent"
         android:layout_height = "wrap_content"
         android:layout_marginTop = "10dip"
@@ -18,7 +18,7 @@
         android:textColor = "@color/colorAccent"
         android:text="@string/eliminar_deporte_area"/>
 
-    <EditText android:id = "@+id/id_deporte_area"
+    <EditText android:id = "@+id/idArea"
         android:layout_height = "wrap_content"
         android:layout_width = "fill_parent"
         android:hint = "@string/id_area1"
@@ -26,7 +26,7 @@
         android:layout_marginTop = "25dip"
         android:numeric="integer"/>
 
-    <EditText android:id = "@+id/id_deporte"
+    <EditText android:id = "@+id/idDeporte"
         android:layout_height = "wrap_content"
         android:layout_width = "fill_parent"
         android:hint = "@string/id_deporte1"
@@ -39,7 +39,7 @@
         android:id="@+id/botonConsultar"
         style="@style/button"
         android:text="@string/eliminar"
-        android:onClick=""/>
+        android:onClick="eliminarDeporteArea"/>
 
 </LinearLayout>
 </ScrollView>
