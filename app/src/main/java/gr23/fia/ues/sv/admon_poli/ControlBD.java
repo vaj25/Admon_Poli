@@ -474,10 +474,12 @@ public class ControlBD {
         contador+=db.delete("deportearea", where, null);
         regAfectados+=contador;
         return regAfectados;}
-
+//Insertar deportearea deben existir deporte y area antes
     public String insertar(DeporteArea deporteArea){
+
         String regInsertados="Registro Insertado Nº= ";
         long contador=0;
+        if(verificarIntegridad(deporteArea,1)){
         ContentValues deportarea = new ContentValues();
         deportarea.put("iddeporte", deporteArea.getIdDeporte());
         deportarea.put("idarea", deporteArea.getIdArea());
@@ -490,6 +492,8 @@ public class ControlBD {
         }
         else {
             regInsertados=regInsertados+contador;
+        }}else{
+             regInsertados="No existen relaciones Area y Deporte ";
         }
         return regInsertados;}
 
@@ -532,6 +536,7 @@ public class ControlBD {
     }
 
     public String insertar(Deporte deporte) {
+
         String regInsertados="Registro Insertado Nº= ";
         long contador=0;
         ContentValues deport = new ContentValues();
@@ -545,6 +550,7 @@ public class ControlBD {
         else {
             regInsertados=regInsertados+contador;
         }
+
         return regInsertados;
     }
     public String actualizar(Deporte deporte){

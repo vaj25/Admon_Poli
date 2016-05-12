@@ -27,7 +27,7 @@
     <string name="actualizar_horario">Actualizar Horario</string>
     <string name="consult_horario">Consultar Horario</string>
     <string name="elim_horario">Eliminar Horario</string>
-    <string name="insert_deporte_area">Insertar Deporte</string>
+    <string name="insert_deporte_area">Insertar Deporte-Area</string>
     <string name="consult_deporte">Consultar Deporte</string>
     <string name="eliminar_deporte">Eliminar Deporte</string>
     <string name="iddeporte">Identificador</string>
