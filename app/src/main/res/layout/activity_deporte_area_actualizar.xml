@@ -21,22 +21,23 @@
         <EditText android:id = "@+id/idDeporte"
             android:layout_height = "wrap_content"
             android:layout_width = "fill_parent"
+            android:hint = "@string/id_deporte1"
+            android:inputType = "text"
+            android:layout_marginTop = "25dip"
+            android:numeric="integer"/>
+
+        <EditText android:id = "@+id/idArea"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
             android:hint = "@string/id_area1"
             android:inputType = "text"
             android:layout_marginTop = "25dip"
             android:numeric="integer"/>
 
-        <EditText android:id = "@+id/nombreDeporte"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
-            android:hint = "@string/id_deporte1"
-            android:inputType = "text"
-            android:layout_marginTop = "25dip"
-            android:numeric="integer"/>
         <Button
             style="@style/button"
             android:text="@string/btn_act_area"
-            android:onClick="actualizarDeporte"
+            android:onClick="actualizarDeporteArea"
             android:id="@+id/EnviarButton"/>
 
         <Button
@@ -44,6 +45,22 @@
             android:text="@string/limpiar_area"
             android:onClick="limpiarTexto"
             android:id="@+id/LimpiarButton"/>
+
+        <EditText android:id = "@+id/idDescripcion"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
+            android:hint = "@string/iddescripcion"
+            android:inputType = "text"
+            android:layout_marginTop = "25dip"
+            android:numeric="integer"/>
+
+        <EditText android:id = "@+id/idActivo"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
+            android:hint = "@string/idactivo"
+            android:inputType = "text"
+            android:layout_marginTop = "25dip"
+            android:numeric="integer"/>
 
     </LinearLayout>
 </ScrollView>
