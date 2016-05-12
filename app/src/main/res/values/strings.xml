@@ -7,7 +7,7 @@
     <string name="enviar_solicitud">Enviar Solicitud</string>
     <string name="consultar_area">Consultar</string>
     <string name="consult_area">Consultar Area</string>
-    <string name="txtelim_area">Eliminar Area</string>
+    <string name="txtelim_area">Identificador</string>
     <string name="eliminar_area">Eliminar Area</string>
     <string name="btn_act_area">Actualizar</string>
     <string name="actualizar_area">Actualizar Area</string>

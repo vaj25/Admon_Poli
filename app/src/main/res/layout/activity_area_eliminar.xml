@@ -18,7 +18,7 @@
             android:textColor = "@color/colorAccent"
             android:text="@string/eliminar_area"/>
 
-        <EditText android:id = "@+id/txtEliminarArea"
+        <EditText android:id = "@+id/idArea"
             android:layout_height = "wrap_content"
             android:layout_width = "fill_parent"
             android:hint = "@string/txtelim_area"
@@ -30,7 +30,7 @@
             android:id="@+id/botonConsultar"
             style="@style/button"
             android:text="@string/eliminar"
-            android:onClick=""/>
+            android:onClick="eliminarArea"/>
 
     </LinearLayout>
 </ScrollView>
