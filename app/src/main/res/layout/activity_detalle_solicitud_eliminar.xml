@@ -1,12 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android = "http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="gr23.fia.ues.sv.admon_poli.DetalleSolicitudEliminarActivity">
+    android:layout_height="match_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding = "20dip"
+        android:orientation="vertical">
 
-</RelativeLayout>
+        <TextView android:id = "@+id/eliminarDA"
+            android:layout_width = "fill_parent"
+            android:layout_height = "wrap_content"
+            android:layout_marginTop = "10dip"
+            android:layout_marginBottom = "20dip"
+            android:gravity = "center"
+            android:textSize = "25dip"
+            android:textColor = "@color/colorAccent"
+            android:text="@string/EliDetalleSolcitud"/>
+
+
+        <EditText android:id = "@+id/editIdSolicitud"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
+            android:hint = "@string/solicitud"
+            android:inputType = "number"
+            android:layout_marginTop = "25dip"
+            android:numeric="integer"/>
+
+        <EditText android:id = "@+id/editIdArea"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
+            android:hint = "@string/id_area1"
+            android:inputType = "number"
+            android:layout_marginTop = "25dip"
+            android:numeric="integer"/>
+
+        <Button
+            android:id="@+id/botonEliminar"
+            style="@style/button"
+            android:text="@string/eliminar"
+            android:onClick="eliminarDetalleSolicitud"/>
+
+    </LinearLayout>
+</ScrollView>

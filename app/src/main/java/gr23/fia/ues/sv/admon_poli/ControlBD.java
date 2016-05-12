@@ -23,7 +23,7 @@ public class ControlBD {
     private static final String[] camposActividad = new String [] {"idactividad","nombreactividad"};
     private static final String[] camposAdministrador = new String [] {"idadministrador","telefonoadmin","emailadmin"};
     private static final String[] camposSolicitud = new String [] {"idsolicitud","estado","fechasolicitud","fechareserva","cantasistentes","idadministrador","idactividad","dui","montoarea", "horareserva"};
-    private static final String[] camposDetalleSolicitud = new String [] {"idsolcitud","idarea"};
+    private static final String[] camposDetalleSolicitud = new String [] {"idsolicitud","idarea"};
 
 
 
@@ -375,7 +375,7 @@ public class ControlBD {
         }
     }
 
-    public DetalleSolicitud consultar(int idSolicitud, int idarea){
+    public DetalleSolicitud consultarDS(int idSolicitud, int idarea){
         String[] ids = {String.valueOf(idSolicitud), String.valueOf(idarea)};
         Cursor cursor = db.query("detallesolicitud", camposDetalleSolicitud, "idsolicitud = ? AND idarea = ?" , ids, null, null, null);
         if(cursor.moveToFirst()){
