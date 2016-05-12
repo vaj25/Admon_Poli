@@ -38,7 +38,7 @@ public class ControlBD {
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
 
-        private static final String BASE_DATOS = "AdmonPoliv4.s3db" ;
+        private static final String BASE_DATOS = "AdmonPoliv6.s3db" ;
         private static final int VERSION = 1;
 
         DatabaseHelper(Context context) {
@@ -106,9 +106,9 @@ public class ControlBD {
                         "montoarea FLOAT NOT NULL," +
                         "horareserva TIME NOT NULL);");
                 db.execSQL("CREATE TABLE detallesolicitud (" +
-                        "idsolictud INTEGER  NOT NULL," +
+                        "idsolicitud INTEGER  NOT NULL," +
                         "idarea INTEGER  NOT NULL," +
-                        "PRIMARY KEY (idsolictud,idarea)" +
+                        "PRIMARY KEY (idsolicitud,idarea)" +
                         ")");
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -351,8 +351,8 @@ public class ControlBD {
         String regInsertados="Registro Insertado Nº= ";
         long contador = 0;
         ContentValues dsolt = new ContentValues();
-        dsolt.put("idsolicitud", detalleSolicitud.getIdSolicitud());
         dsolt.put("idarea", detalleSolicitud.getIdArea());
+        dsolt.put("idsolicitud", detalleSolicitud.getIdSolicitud());
         contador = db.insert("detallesolicitud", null, dsolt);
         if(contador==-1 || contador==0)
         {

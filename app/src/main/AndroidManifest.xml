@@ -169,7 +169,8 @@
         <activity android:name=".DetalleSolicitudActualizarActivity" />
         <activity android:name=".DetalleSolicitudInsertarActivity" />
         <activity android:name=".DetalleSolicitudEliminarActivity" />
-        <activity android:name=".DetalleSolicitudConsultarActivity"></activity>
+        <activity android:name=".DetalleSolicitudConsultarActivity" />
+        <activity android:name=".DetalleSolicitudMenuActivity"></activity>
     </application>
 
 </manifest>
