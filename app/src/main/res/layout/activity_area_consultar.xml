@@ -18,24 +18,7 @@
             android:textSize = "25dip"
             android:textColor = "@color/colorAccent"/>
 
-        <EditText android:id = "@+id/txtNombreArea"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
-            android:hint = "@string/nombre_area"
-            android:inputType = "text"
-            android:layout_marginTop = "25dip"/>
-
-        <Button
-            style="@style/button"
-            android:text="@string/consultar_area"
-            android:id="@+id/EnviarButton"/>
-
-        <Button
-            style="@style/button"
-            android:text="@string/limpiar_area"
-            android:id="@+id/LimpiarButton"/>
-
-        <EditText android:id = "@+id/IdArea"
+        <EditText android:id = "@+id/idArea"
             android:layout_height = "wrap_content"
             android:layout_width = "fill_parent"
             android:hint = "@string/id_area"
@@ -43,7 +26,27 @@
             android:layout_marginTop = "25dip"
             android:numeric="integer"/>
 
-        <EditText android:id = "@+id/txtCapacidadArea"
+
+        <Button
+            style="@style/button"
+            android:text="@string/consultar_area"
+            android:onClick="consultarArea"
+            android:id="@+id/EnviarButton"/>
+
+        <Button
+            style="@style/button"
+            android:text="@string/limpiar_area"
+            android:onClick="limpiarTexto"
+            android:id="@+id/LimpiarButton"/>
+
+        <EditText android:id = "@+id/nombreArea"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
+            android:hint = "@string/nombre_area"
+            android:inputType = "text"
+            android:layout_marginTop = "25dip"/>
+
+        <EditText android:id = "@+id/capacidadArea"
             android:layout_height = "wrap_content"
             android:layout_width = "fill_parent"
             android:hint = "@string/capacidad_area"
@@ -51,7 +54,7 @@
             android:layout_marginTop = "25dip"
             android:numeric="integer"/>
 
-        <EditText android:id = "@+id/txtArea"
+        <EditText android:id = "@+id/aream2"
             android:layout_height = "wrap_content"
             android:layout_width = "fill_parent"
             android:hint = "@string/area"
