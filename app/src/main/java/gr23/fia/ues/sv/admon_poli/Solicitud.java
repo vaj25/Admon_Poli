@@ -40,13 +40,9 @@ public class Solicitud {
         this.idSolicitud = idSolicitud;
     }
 
-    public double getMontoArea() {
-        return montoArea;
-    }
+    public double getMontoArea() { return montoArea; }
 
-    public void setMontoArea(double montoArea) {
-        this.montoArea = montoArea;
-    }
+    public void setMontoArea(double montoArea) { this.montoArea = montoArea; }
 
     public String getEstado() {
         return estado;

@@ -8,50 +8,36 @@
         android:padding = "20dip"
         android:orientation = "vertical">
 
-        <TextView android:id = "@+id/title_insert_solicitud"
+        <TextView android:id = "@+id/title_insert_detalle_solicitud"
             android:layout_width = "fill_parent"
             android:layout_height = "wrap_content"
             android:layout_marginTop = "10dip"
             android:layout_marginBottom = "20dip"
-            android:text = "@string/insert_solicitud"
+            android:text = "@string/insetarDetalleSolicitud"
             android:gravity = "center"
             android:textSize = "25dip"
             android:textColor = "@color/colorAccent"/>
 
-        <EditText android:id = "@+id/txtCantAsistentes"
+        <EditText android:id = "@+id/editIdSolicitud"
             android:layout_height = "wrap_content"
             android:layout_width = "fill_parent"
-            android:hint = "@string/cant_asistentes"
+            android:hint = "@string/solicitud"
             android:inputType = "number"
             android:layout_marginTop = "25dip"
             android:numeric="integer"/>
 
-        <EditText android:id = "@+id/txtFechaReserva"
+        <EditText android:id = "@+id/editIdArea"
             android:layout_height = "wrap_content"
             android:layout_width = "fill_parent"
-            android:hint = "@string/fecha_reserva"
-            android:inputType = "text"
+            android:hint = "@string/area"
+            android:inputType = "number"
             android:layout_marginTop = "25dip"/>
-
-        <EditText android:id = "@+id/txtHorasReservadas"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
-            android:hint = "@string/hora_reserva"
-            android:inputType = "text"
-            android:layout_marginTop = "25dip"/>
-
-        <Spinner
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:prompt="@string/select_actividad"
-            android:layout_marginTop = "25dip"
-            android:id="@+id/selectActividad" />
 
         <Button
             style="@style/button"
-            android:text="@string/enviar_solicitud"
+            android:text="@string/insetarDetalleSolicitud"
             android:id="@+id/EnviarButton"
-            android:onClick="insertarSolicitud"/>
+            android:onClick="insertarDetalleSolicitud"/>
 
         <Button
             style="@style/button"

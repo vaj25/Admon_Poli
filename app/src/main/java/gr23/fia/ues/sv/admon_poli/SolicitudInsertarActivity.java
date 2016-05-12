@@ -13,11 +13,9 @@ import java.util.LinkedList;
 public class SolicitudInsertarActivity extends AppCompatActivity {
 
     ControlBD helper;
-    EditText idSolicitud;
-    EditText fechaSolicitud;
+    EditText fechaReserva;
     EditText cantAsistentes;
-    EditText montoArea;
-    EditText area;
+    EditText horasReserva;
     Spinner actividad;
 
 
@@ -27,6 +25,9 @@ public class SolicitudInsertarActivity extends AppCompatActivity {
         helper = new ControlBD(this);
 
         actividad = (Spinner) findViewById(R.id.selectActividad) ;
+        cantAsistentes = (EditText) findViewById(R.id.txtCantAsistentes) ;
+        fechaReserva = (EditText) findViewById(R.id.txtFechaReserva) ;
+        horasReserva = (EditText) findViewById(R.id.txtHorasReservadas) ;
 
         LinkedList acts = new LinkedList();
         helper.abrir();
@@ -40,21 +41,31 @@ public class SolicitudInsertarActivity extends AppCompatActivity {
         actividad.setAdapter(spinner_adapter);
     }
 
-    /*public void insertarDeporte(View v) {
-        String iddeporte=IdDeporte.getText().toString();
-        String nombre=NombreDeporte.getText().toString();
+    public void insertarSolicitud(View v) {
+        int cantAs = Integer.parseInt(cantAsistentes.getText().toString()) ;
+        String fecha = fechaReserva.getText().toString() ;
+        int idact = 1 ;
+        String horas = horasReserva.getText().toString();
         String regInsertados;
-        Deporte deporte=new Deporte();
-        deporte.setIdDeporte(Integer.parseInt(iddeporte));
-        deporte.setNombre(nombre);
+        Solicitud solicitud = new Solicitud();
+        solicitud.setIdSolicitud(5);
+        solicitud.setEstado("En Proceso"); //siempre se tiene ese estado al principio
+        solicitud.setFechaSolicitud("11/05/2016");
+        solicitud.setFechaReserva(fecha);
+        solicitud.setCantAsistentes(cantAs);
+        solicitud.setIdAdministrador(1);
+        solicitud.setIdActividad(idact);
+        solicitud.setDui("12897856234");
+        solicitud.setMontoArea(20.30);
+        solicitud.setHoraReservada(horas+".00");
+
         helper.abrir();
-        regInsertados=helper.insertar(deporte);
+        regInsertados = helper.insertar(solicitud);
         helper.cerrar();
         Toast.makeText(this, regInsertados, Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v) {
-        IdDeporte.setText("");
-        NombreDeporte.setText("");
-    }*/
+
+    }
 }

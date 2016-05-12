@@ -13,17 +13,29 @@
         android:layout_height = "wrap_content"
         android:layout_marginTop = "10dip"
         android:layout_marginBottom = "20dip"
-        android:text = "@string/consultar_solicitud"
+        android:text = "@string/actualizar_solicitud"
         android:gravity = "center"
         android:textSize = "25dip"
         android:textColor = "@color/colorAccent"/>
 
-    <Spinner
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:prompt="@string/select_sol"
+    <EditText android:id = "@+id/txtIdSolicitud"
+        android:layout_height = "wrap_content"
+        android:layout_width = "fill_parent"
+        android:hint = "@string/select_sol"
+        android:inputType = "number"
         android:layout_marginTop = "25dip"
-        android:id="@+id/selectSol" />
+        android:numeric="integer"/>
+
+    <Button
+        style="@style/button"
+        android:text="@string/enviar_solicitud"
+        android:id="@+id/actualizarSolicitud"/>
+
+    <Button
+        style="@style/button"
+        android:text="@string/limpiar_area"
+        android:onClick="limpiarTexto"
+        android:id="@+id/LimpiarButton"/>
 
     <EditText android:id = "@+id/txtCantAsistentes"
         android:layout_height = "wrap_content"
@@ -40,22 +52,18 @@
         android:inputType = "text"
         android:layout_marginTop = "25dip"/>
 
-    <Spinner
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:prompt="@string/select_actividad"
-        android:layout_marginTop = "25dip"
-        android:id="@+id/selectActividad" />
+    <EditText android:id = "@+id/txtFechaSolicitud"
+        android:layout_height = "wrap_content"
+        android:layout_width = "fill_parent"
+        android:hint = "@string/fecha_sol"
+        android:inputType = "text"
+        android:layout_marginTop = "25dip"/>
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner" />
-
-    <Button
-        style="@style/button"
-        android:text="@string/enviar_solicitud"
-        android:id="@+id/EnviarButton"/>
-
+    <EditText android:id = "@+id/txtActividad"
+        android:layout_height = "wrap_content"
+        android:layout_width = "fill_parent"
+        android:hint = "@string/actividad"
+        android:inputType = "number"
+        android:layout_marginTop = "25dip"/>
 </LinearLayout>
     </ScrollView>

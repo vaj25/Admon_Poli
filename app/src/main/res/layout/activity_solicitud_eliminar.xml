@@ -18,20 +18,19 @@
         android:textColor = "@color/colorAccent"
         android:text="@string/eliminar_solicitud"/>
 
-    <Spinner
-        android:id="@+id/SelectSolicitud"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dip"
-        android:inputType="text"
-        android:prompt="@string/select_sol"
-        android:maxLength="7"/>
+    <EditText android:id = "@+id/txtIdSolicitud"
+        android:layout_height = "wrap_content"
+        android:layout_width = "fill_parent"
+        android:hint = "@string/select_sol"
+        android:inputType = "number"
+        android:layout_marginTop = "25dip"
+        android:numeric="integer"/>
 
     <Button
         android:id="@+id/botonConsultar"
         style="@style/button"
         android:text="@string/eliminar"
-        android:onClick=""/>
+        android:onClick="eliminarSolicitud"/>
 
 </LinearLayout>
     </ScrollView>

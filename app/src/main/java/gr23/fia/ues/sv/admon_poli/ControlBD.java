@@ -38,7 +38,7 @@ public class ControlBD {
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
 
-        private static final String BASE_DATOS = "AdmonPoliv2.s3db" ;
+        private static final String BASE_DATOS = "AdmonPoliv4.s3db" ;
         private static final int VERSION = 1;
 
         DatabaseHelper(Context context) {
@@ -82,7 +82,7 @@ public class ControlBD {
                         "canthora TIME," +
                         "cantpersona INTEGER);");
                 db.execSQL("CREATE TABLE solicitante(" +
-                        "dui INTEGER PRIMARY KEY NOT NULL," +
+                        "dui VARCHAR(9) PRIMARY KEY NOT NULL," +
                         "nombresol VARCHAR(25)," +
                         "apellidosol VARCHAR(25)," +
                         "telefonosol INTEGER," +
@@ -102,9 +102,9 @@ public class ControlBD {
                         "cantasistentes INTEGER," +
                         "idadministrador INTEGER NOT NULL," +
                         "idactividad INTEGER NOT NULL," +
-                        "dui INTEGER NOT NULL," +
-                        "montoarea FLOAT NOT NULL);" +
-                        "horareserva VARCHAR(8) NOT NULL");
+                        "dui VARCHAR(9) NOT NULL," +
+                        "montoarea FLOAT NOT NULL," +
+                        "horareserva TIME NOT NULL);");
                 db.execSQL("CREATE TABLE detallesolicitud (" +
                         "idsolictud INTEGER  NOT NULL," +
                         "idarea INTEGER  NOT NULL," +
@@ -338,10 +338,10 @@ public class ControlBD {
 
         String regAfectados="Filas afectadas= ";
         int contador = 0;
-        if (verificarIntegridad(solicitud,18)) {
+        /*if (verificarIntegridad(solicitud,18)) {
             contador+=db.delete("detallesolicitud", "idsolicitud='"+solicitud.getIdSolicitud()+"'", null);
-        }
-        contador+=db.delete("solicitud", "idsolcitud='"+solicitud.getIdSolicitud()+"'", null);
+        }*/
+        contador+=db.delete("solicitud", "idsolicitud='"+solicitud.getIdSolicitud()+"'", null);
         regAfectados+=contador;
         return regAfectados;
 
@@ -729,7 +729,7 @@ public class ControlBD {
             case 12:
             {
                 //verificar que exista deportearea
-                Solicitud solicitud = (Solicitud)dato;
+                Solicitud solicitud = (Solicitud) dato;
                 String[] id = {String.valueOf(solicitud.getIdSolicitud())};
                 abrir();
                 Cursor cursor = db.query("solicitud", null, "idsolicitud = ?", id, null, null, null);
@@ -1006,6 +1006,7 @@ public class ControlBD {
             solicitud.setIdActividad(VSOidactividad[i]);
             solicitud.setDui(VSOdui[i]);
             solicitud.setMontoArea(VSOmontoarea[i]);
+            solicitud.setHoraReservada(VSOhoraReserva[i]);
             insertar(solicitud);
         }
 

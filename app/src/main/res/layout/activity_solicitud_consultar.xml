@@ -2,66 +2,115 @@
 <ScrollView xmlns:android = "http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:padding = "20dip"
-    android:orientation="vertical">
-
-    <TextView android:id = "@+id/title_consultar_solicitud"
-        android:layout_width = "fill_parent"
-        android:layout_height = "wrap_content"
-        android:layout_marginTop = "10dip"
-        android:layout_marginBottom = "20dip"
-        android:gravity = "center"
-        android:textSize = "25dip"
-        android:textColor = "@color/colorAccent"
-        android:text="@string/consultar_solicitud"/>
-
-    <Spinner
-        android:id="@+id/selectSol"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dip"
-        android:inputType="text"
-        android:prompt="@string/select_sol"
-        android:maxLength="7"/>
+        android:layout_height="fill_parent"
+        android:padding = "20dip"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/botonConsultar"
-        style="@style/button"
-        android:text="@string/consultar"
-        android:onClick=""/>
+        <TextView android:id = "@+id/title_consultar_solicitud"
+            android:layout_width = "fill_parent"
+            android:layout_height = "wrap_content"
+            android:layout_marginTop = "10dip"
+            android:layout_marginBottom = "20dip"
+            android:gravity = "center"
+            android:textSize = "25dip"
+            android:textColor = "@color/colorAccent"
+            android:text="@string/consultar_solicitud"/>
 
-    <Button
-        android:id="@+id/botonLimpiar"
-        style="@style/button"
-        android:text="@string/limpiar"
-        android:onClick="limpiarTexto"/>
+        <EditText android:id = "@+id/txtIdSolicitud"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
+            android:hint = "@string/select_sol"
+            android:inputType = "number"
+            android:layout_marginTop = "25dip"
+            android:numeric="integer"/>
 
-    <EditText
-        android:id="@+id/editNommateria"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:enabled ="false"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:cursorVisible="false"
-        android:longClickable="false"
-        android:hint = "@string/cant_asistentes"
-        android:numeric="integer"/>
+        <Button
+            android:id="@+id/botonconsultar"
+            style="@style/button"
+            android:text="@string/consultar"
+            android:onClick="consultarSolicitud"/>
 
-    <EditText
-        android:id="@+id/editUnidadesval"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:enabled="false"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:cursorVisible="false"
-        android:longClickable="false"
-        android:hint = "@string/fecha_reserva"/>
-</LinearLayout>
+        <Button
+            android:id="@+id/botonLimpiar"
+            style="@style/button"
+            android:text="@string/limpiar"
+            android:onClick="limpiarTexto"/>
+
+        <EditText
+            android:id="@+id/editCanAsistentes"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:enabled ="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:cursorVisible="false"
+            android:longClickable="false"
+            android:hint = "@string/cant_asistentes"
+            android:numeric="integer"/>
+
+
+        <EditText
+            android:id="@+id/ediFechaReserva"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:enabled="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:cursorVisible="false"
+            android:longClickable="false"
+            android:hint = "@string/fecha_reserva"/>
+
+        <EditText
+            android:id="@+id/ediFechaSolicitud"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:enabled="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:cursorVisible="false"
+            android:longClickable="false"
+            android:hint = "@string/fecha_sol"/>
+
+        <EditText
+            android:id="@+id/ediActividad"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:enabled="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:cursorVisible="false"
+            android:longClickable="false"
+            android:hint = "@string/actividad"/>
+
+        <EditText
+            android:id="@+id/ediMonto"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:enabled="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:cursorVisible="false"
+            android:longClickable="false"
+            android:hint = "@string/monto"/>
+
+        <EditText
+            android:id="@+id/ediEstado"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:enabled="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:cursorVisible="false"
+            android:longClickable="false"
+            android:hint = "@string/estado"/>
+
+    </LinearLayout>
 </ScrollView>
