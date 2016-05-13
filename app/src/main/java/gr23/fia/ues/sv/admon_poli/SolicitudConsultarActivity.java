@@ -15,6 +15,8 @@ public class SolicitudConsultarActivity extends Activity {
     EditText fechaSolicitud;
     EditText estado;
     EditText monto;
+    EditText dui;
+    EditText horaReserva;
 
     /** Called when the activity is first created. */
 
@@ -31,6 +33,8 @@ public class SolicitudConsultarActivity extends Activity {
         actividad = (EditText) findViewById(R.id.ediActividad);
         estado = (EditText) findViewById(R.id.ediEstado);
         monto = (EditText) findViewById(R.id.ediMonto);
+        dui = (EditText) findViewById(R.id.editDui);
+        horaReserva = (EditText) findViewById(R.id.editHorasReservadas);
 
     }
 
@@ -49,6 +53,8 @@ public class SolicitudConsultarActivity extends Activity {
             actividad.setText(String.valueOf(solicitud.getIdActividad())) ;
             estado.setText(solicitud.getEstado()) ;
             monto.setText(String.valueOf(solicitud.getMontoArea())) ;
+            dui.setText(String.valueOf(solicitud.getDui())) ;
+            horaReserva.setText(String.valueOf(solicitud.getHoraReservada())) ;
         }
     }
     public void limpiarTexto(View v){
@@ -59,6 +65,8 @@ public class SolicitudConsultarActivity extends Activity {
         actividad.setText("") ;
         estado.setText("") ;
         monto.setText("") ;
+        dui.setText("") ;
+        horaReserva.setText("") ;
     }
 }
 

@@ -16,7 +16,9 @@ public class SolicitudInsertarActivity extends AppCompatActivity {
     EditText fechaReserva;
     EditText cantAsistentes;
     EditText horasReserva;
+    EditText dui;
     Spinner actividad;
+    int idSolicitud;
 
 
     public void onCreate(Bundle savedInstanceState) {
@@ -28,9 +30,11 @@ public class SolicitudInsertarActivity extends AppCompatActivity {
         cantAsistentes = (EditText) findViewById(R.id.txtCantAsistentes) ;
         fechaReserva = (EditText) findViewById(R.id.txtFechaReserva) ;
         horasReserva = (EditText) findViewById(R.id.txtHorasReservadas) ;
+        dui = (EditText) findViewById(R.id.txtDui) ;
 
         LinkedList acts = new LinkedList();
         helper.abrir();
+        idSolicitud = helper.count("solicitud") + 1;
         int count = helper.count("actividad");
         for(int i = 1; i<=count; i++){
             Actividad act = helper.consultarActividad(i) ;
@@ -44,18 +48,20 @@ public class SolicitudInsertarActivity extends AppCompatActivity {
     public void insertarSolicitud(View v) {
         int cantAs = Integer.parseInt(cantAsistentes.getText().toString()) ;
         String fecha = fechaReserva.getText().toString() ;
-        int idact = 1 ;
+        int idact = 1 ; //cambiar
         String horas = horasReserva.getText().toString();
+        String duiString = dui.getText().toString() ;
+
         String regInsertados;
         Solicitud solicitud = new Solicitud();
-        solicitud.setIdSolicitud(5);
+        solicitud.setIdSolicitud(idSolicitud);
         solicitud.setEstado("En Proceso"); //siempre se tiene ese estado al principio
         solicitud.setFechaSolicitud("11/05/2016");
         solicitud.setFechaReserva(fecha);
         solicitud.setCantAsistentes(cantAs);
         solicitud.setIdAdministrador(1);
         solicitud.setIdActividad(idact);
-        solicitud.setDui("12897856234");
+        solicitud.setDui(duiString);
         solicitud.setMontoArea(20.30);
         solicitud.setHoraReservada(horas+".00");
 
