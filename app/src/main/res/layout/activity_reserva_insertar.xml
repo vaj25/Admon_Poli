@@ -34,14 +34,14 @@
         android:layout_marginTop = "25dip"
         android:numeric="integer"/>
 
-    <EditText android:id = "@+id/txtfechaReserv"
+    <EditText android:id = "@+id/FechaReserva"
         android:layout_height = "wrap_content"
         android:layout_width = "fill_parent"
         android:hint = "@string/fecha_reser"
         android:inputType = "text"
         android:layout_marginTop = "25dip"/>
 
-    <EditText android:id = "@+id/txtTiempoReserv"
+    <EditText android:id = "@+id/TiempoReserva"
         android:layout_height = "wrap_content"
         android:layout_width = "fill_parent"
         android:hint = "@string/tiempo_reserva"
@@ -53,6 +53,7 @@
     <Button
         style="@style/button"
         android:text="@string/insertReserv"
+        android:onClick="insertarReserva"
         android:id="@+id/InsertReservButton"/>
 
     <Button
@@ -60,6 +61,7 @@
         android:layout_height = "wrap_content"
         android:layout_width = "fill_parent"
         android:text="@string/limpiar"
+        android:onClick="limpiarTexto"
         android:layout_marginTop = "25dip"
         android:id="@+id/LimpiarButton"/>
 

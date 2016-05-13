@@ -29,6 +29,7 @@
         <Button
             style="@style/button"
             android:text="@string/eliminar"
+            android:onClick="eliminarHorario"
             android:id="@+id/ElimHoraButton"/>
 
     </LinearLayout>

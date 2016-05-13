@@ -26,17 +26,8 @@
             android:layout_marginTop = "25dip"
             android:numeric="integer"/>
 
-        <Button
-            style="@style/button"
-            android:text="@string/actualizar_horario"
-            android:id="@+id/UpdateHoraButton"/>
 
-        <Button
-            style="@style/button"
-            android:text="@string/limpiar_horario"
-            android:id="@+id/LimpiarButton"/>
-
-        <EditText android:id = "@+id/txtHora"
+        <EditText android:id = "@+id/Hora"
             android:layout_height = "wrap_content"
             android:layout_width = "fill_parent"
             android:hint = "@string/hora"
@@ -44,20 +35,30 @@
             android:layout_marginTop = "25dip"
             android:numeric="decimal"/>
 
-        <EditText android:id = "@+id/txtDia"
+        <EditText android:id = "@+id/Dia"
             android:layout_height = "wrap_content"
             android:layout_width = "fill_parent"
             android:hint = "@string/dia"
             android:inputType = "text"
             android:layout_marginTop = "25dip"/>
 
-        <EditText android:id = "@+id/txtInstruct"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
-            android:hint = "@string/Instruct"
-            android:inputType = "text"
-            android:layout_marginTop = "25dip"
-            />
+        <CheckBox android:id="@+id/Instruct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Instruct"
+            android:layout_marginTop = "25dip"/>
+
+        <Button
+            style="@style/button"
+            android:text="@string/actualizar_horario"
+            android:onClick="actualizarHorario"
+            android:id="@+id/UpdateHoraButton"/>
+
+        <Button
+            style="@style/button"
+            android:text="@string/limpiar_horario"
+            android:onClick="limpiarTexto"
+            android:id="@+id/LimpiarButton"/>
 
     </LinearLayout>
 </ScrollView>

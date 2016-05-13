@@ -135,51 +135,180 @@ public class ControlBD {
     //------------------------------------------------------------------------------------
     // metodos CRUD de cada tabla
     public String eliminar(Horario horario){
-        return null;
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        if (verificarIntegridad(horario,20)) {
+            contador+=db.delete("reserva", "idhorario='"+horario.getIdHorario()+"'", null);
+        }
+        contador+=db.delete("horario", "idhorario='"+horario.getIdHorario()+"'", null);
+        regAfectados+=contador;
+        return regAfectados;
     }
 
     public String insertar(Horario horario){
-        return null;
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        ContentValues horar = new ContentValues();
+        horar.put("idhorario", horario.getIdHorario());   //idhorario var creada aqui,
+        horar.put("dia", horario.getDia());
+        horar.put("hora", horario.getHora());
+        horar.put("instructor", horario.getInstructor());
+        contador=db.insert("horario", null, horar);
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
     }
 
     public String actualizar(Horario horario){
-        return null;
+        if(verificarIntegridad(horario, 10)){
+            String[] id = {String.valueOf(horario.getIdHorario())};
+            ContentValues cv = new ContentValues();
+            cv.put("dia", horario.getDia());
+            cv.put("hora", horario.getHora());
+            cv.put("instructor", horario.getInstructor());
+            db.update("horario", cv, "idhorario = ?", id);
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "Registro con id " + horario.getIdHorario() + " no existe";
+        }
     }
 
-    public Horario consultarHorario(int idHorario){
-        return null;
+    public Horario consultarHorario(int idHorario)
+    {
+        String[] id = {String.valueOf(idHorario)};
+        Cursor cursor = db.query("horario", camposHorario, "idhorario = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            Horario horario = new Horario();
+            horario.setIdHorario(cursor.getInt(0));
+            horario.setHora(cursor.getString(1));
+            horario.setDia(cursor.getString(2));
+            Integer aux= cursor.getInt(3);
+            if (aux==0){
+                horario.setInstructor(false);
+            }
+            else{
+                horario.setInstructor(true);
+            }
+            return horario;
+        }else{ return null;
+        }
     }
 
     public String eliminar(Reserva reserva){
-        return null;
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        if (verificarIntegridad(reserva,21)) {
+            contador+=db.delete("detallereserva", "idreserva='"+reserva.getIdReserva()+"'", null);
+        }
+        contador+=db.delete("reserva", "idreserva='"+reserva.getIdReserva()+"'", null);
+        regAfectados+=contador;
+        return regAfectados;
     }
 
     public String insertar(Reserva reserva){
-        return null;
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        ContentValues reserv = new ContentValues();
+        reserv.put("idreserva", reserva.getIdReserva());   //idreserva campo en la tabla
+        reserv.put("fechareserva", reserva.getFechaReserva());
+        reserv.put("tiemporeserva", reserva.getTiempoReserva());
+        reserv.put("idhorario", reserva.getIdHorario());
+        contador=db.insert("reserva", null, reserv);
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
     }
 
     public String actualizar(Reserva reserva){
-        return null;
+        if(verificarIntegridad(reserva, 9)){
+            String[] id = {String.valueOf(reserva.getIdReserva())};
+            ContentValues cv = new ContentValues();
+            cv.put("fechareserva", reserva.getFechaReserva());
+            cv.put("tiemporeserva", reserva.getTiempoReserva());
+            cv.put("idhorario", reserva.getIdHorario());
+            db.update("reserva", cv, "idreserva = ?", id);
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "Registro con id " + reserva.getIdReserva() + " no existe";
+        }
     }
 
     public Reserva consultarReserva(int idReserva){
-        return null;
+        String[] id = {String.valueOf(idReserva)};
+        Cursor cursor = db.query("reserva", camposReserva, "idreserva = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            Reserva reserva = new Reserva();
+            reserva.setIdReserva(cursor.getInt(0));
+            reserva.setFechaReserva(cursor.getString(1));
+            reserva.setTiempoReserva(cursor.getString(2));
+            reserva.setIdHorario(cursor.getInt(3));
+            return reserva;
+        }else{ return null;
+        }
     }
 
     public String insertar(DetalleReserva detalleReserva){
-        return null;
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        ContentValues detallereserv = new ContentValues();
+        detallereserv.put("idreserva", detalleReserva.getIdReserva());   //idreserva campo en la tabla
+        detallereserv.put("idarea", detalleReserva.getIdArea());   //idreserva campo en la tabla
+        contador=db.insert("detallereserva", null, detallereserv);
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
     }
 
-    public String consultar(DetalleReserva detalleReserva){
-        return null;
+    public DetalleReserva consultarDetalleReserva(int idReserva){
+        String[] id = {String.valueOf(idReserva)};
+        Cursor cursor = db.query("detallereserva", camposDetalleReserva, "idreserva = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            DetalleReserva detalleReserva = new DetalleReserva();
+            detalleReserva.setIdReserva(cursor.getInt(0));
+            detalleReserva.setIdArea(cursor.getInt(1));
+            return detalleReserva;
+        }else{ return null;
+        }
     }
 
     public String eliminar(DetalleReserva detalleReserva){
-        return null;
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+
+        /*if (verificarIntegridad(detalleReserva,20)) {
+            contador+=db.delete("detallereserva", "idreserva='"+reserva.getIdReserva()+"'", null);
+        }*/
+        contador+=db.delete("detallereserva", "idreserva='"+detalleReserva.getIdReserva()+"'", null);
+        regAfectados+=contador;
+        return regAfectados;
     }
 
     public String actualizar(DetalleReserva detalleReserva){
-        return null;
+        if(verificarIntegridad(detalleReserva, 8)){
+            String[] ids = {String.valueOf(detalleReserva.getIdReserva() ), String.valueOf(detalleReserva.getIdArea())};
+            ContentValues cv = new ContentValues();
+            cv.put("idreserva", detalleReserva.getIdReserva());
+            cv.put("idarea", detalleReserva.getIdArea());
+            db.update("detallereserva", cv, "idreserva = ? AND idarea = ?", ids);
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "Registro no existe";
+        }
     }
 
     public String actualizar(Tarifa tarifa){
@@ -760,38 +889,38 @@ public String insertar(Administrador administrador) {
             }
             case 8:
             {
-                //verificar que exista deportearea
+                //verificar que exista detallereserva
                 DetalleReserva detalleReserva = (DetalleReserva)dato;
-                String[] ids = {String.valueOf(detalleReserva.getIdArea() ), String.valueOf(detalleReserva.getIdReserva())};
+                String[] ids = {String.valueOf(detalleReserva.getIdReserva() ), String.valueOf(detalleReserva.getIdArea())};
                 abrir();
-                Cursor cursor = db.query("detallereserva", null, "idarea = ? AND idreserva = ?", ids, null, null, null);
+                Cursor cursor = db.query("detallereserva", null, "idreserva = ? AND idarea = ?", ids, null, null, null);
                 if(cursor.moveToFirst()){
-                    //Se encontro Alumno
+                    //Se encontro detallereserva
                     return true;
                 }
                 return false;
             }
             case 9:{
-                //verificar que exista deportearea
+                //verificar que exista reserva
                 Reserva reserva = (Reserva)dato;
                 String[] id = {String.valueOf(reserva.getIdReserva())};
                 abrir();
                 Cursor cursor = db.query("reserva", null, "idreserva = ?", id, null, null, null);
                 if(cursor.moveToFirst()){
-                    //Se encontro Alumno
+                    //Se encontro reserva
                     return true;
                 }
                 return false;
             }
             case 10:
             {
-                //verificar que exista deportearea
+                //verificar que exista horario
                 Horario horario = (Horario)dato;
                 String[] id = {String.valueOf(horario.getIdHorario())};
                 abrir();
                 Cursor cursor = db.query("horario", null, "idhorario = ?", id, null, null, null);
                 if(cursor.moveToFirst()){
-                    //Se encontro Alumno
+                    //Se encontro idhorario
                     return true;
                 }
                 return false;
@@ -914,6 +1043,34 @@ public String insertar(Administrador administrador) {
                 return false;
             }
 
+            case 20:
+            {
+                //verificar que al eliminar horario no exista en reserva
+                Horario horario = (Horario) dato;
+                String[] id1 = {String.valueOf(horario.getIdHorario())};
+                abrir();
+                Cursor cursor1 = db.query("reserva", null, "idhorario = ?", id1, null, null, null);
+                if (cursor1.moveToFirst()) {
+                    //Se encontraron datos
+                    return true;
+                }
+                return false;
+            }
+
+            case 21:
+            {
+                //verificar que al eliminar reserva no exista en detalleReserva
+                Reserva reserva = (Reserva) dato;
+                String[] id1 = {String.valueOf(reserva.getIdReserva())};
+                abrir();
+                Cursor cursor1 = db.query("detallereserva", null, "idreserva = ?", id1, null, null, null);
+                if (cursor1.moveToFirst()) {
+                    //Se encontraron datos
+                    return true;
+                }
+                return false;
+            }
+
             default:
                 return false;
         }
@@ -939,12 +1096,12 @@ public String insertar(Administrador administrador) {
         final int[] VDRidreserva = {1,2,3,4};
 
         final int[] VRidreserva = {1,2,3,4};
-        final int[] VRidhorario = {1,2,3,4};
         final String[] VRfechareserva = {"10/05/16","10/05/16","10/05/16","10/05/16"};
-        final String[] VRtiemporeserva = {"10.05.16","10.05.16","10.05.16","10.05.16"};
+        final String[] VRtiemporeserva = {"10:05:16","10:05:16","10:05:16","10:05:16"};
+        final int[] VRidhorario = {1,2,3,4};
 
         final int [] VHidhorario = {1,2,3,4};
-        final String[] VHhora = {"10.05.16","10.05.16","10.05.16","10.05.16"};
+        final String[] VHhora = {"10:05:16","10:05:16","10:05:16","10:05:16"};
         final String[] VHdia = {"Lunes","Martes","Miercoles","Jueves"};
         final boolean[] VHinstructor = {true,false,true,false};
 

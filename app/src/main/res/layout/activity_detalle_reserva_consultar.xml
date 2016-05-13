@@ -37,11 +37,13 @@
     <Button
         style="@style/button"
         android:text="@string/ConsultDetalleReserva"
+        android:onClick="consultarDetalleReserva"
         android:id="@+id/ConsultDetalleReservaButton"/>
 
     <Button
         style="@style/button"
         android:text="@string/limpiar"
+        android:onClick="limpiarTexto"
         android:id="@+id/LimpiarButton"/>
 
 </LinearLayout>
