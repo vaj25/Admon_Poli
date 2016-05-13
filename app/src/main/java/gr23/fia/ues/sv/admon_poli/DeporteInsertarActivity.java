@@ -1,10 +1,12 @@
 package gr23.fia.ues.sv.admon_poli;
 
 import android.app.Activity;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
 
 public class DeporteInsertarActivity extends Activity {
 
@@ -21,11 +23,11 @@ public class DeporteInsertarActivity extends Activity {
     }
 
     public void insertarDeporte(View v) {
-        String iddeporte=IdDeporte.getText().toString();
+        int iddeporte=helper.contarRegistros("deporte","iddeporte");
         String nombre=NombreDeporte.getText().toString();
         String regInsertados;
         Deporte deporte=new Deporte();
-        deporte.setIdDeporte(Integer.parseInt(iddeporte));
+        deporte.setIdDeporte(iddeporte+1);
         deporte.setNombre(nombre);
         helper.abrir();
         regInsertados=helper.insertar(deporte);

@@ -840,10 +840,10 @@ public class ControlBD {
             default:
                 return false;
         }
-
-
-
 }
+
+
+
     public String llenarBD(){
         final int[] VDiddeporte = {1,2,3,4};
         final String[] VDnombredeporte = {"Natación","Futbol","Basketball","Voleyball"};
@@ -1025,6 +1025,20 @@ public class ControlBD {
         cerrar();
         return "Guardo Correctamente";
     }
+    //by Moisés Herrera!!!
+    public int contarRegistros(String tabla,String id) {
+        String[] campos = new String[]{id};
+        abrir();
+        int contador=0;
+        Cursor c = db.query(tabla, campos, null, null, null, null,null);
+        if (c.moveToFirst()) {
+            do {
+                contador++;
+            } while (c.moveToNext());
+        }
+        return contador;
+    }
+
 }
 
 

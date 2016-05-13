@@ -26,13 +26,14 @@ public class AreaInsertarActivity extends Activity {
     }
 
     public void insertarArea(View v) {
-        String idarea=idArea.getText().toString();
+
+        int idarea=helper.contarRegistros("area","idarea");
         String nombrearea=nombreArea.getText().toString();
         String capacidadarea=capacidadArea.getText().toString();
         String aream=aream2.getText().toString();
         String regInsertados;
         Area area=new Area();
-        area.setIdArea(Integer.parseInt(idarea));
+        area.setIdArea(idarea+1);
         area.setNombre(nombrearea);
         area.setCapacidad(Integer.parseInt(capacidadarea));
         area.setArea(Float.parseFloat(aream));

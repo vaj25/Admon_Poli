@@ -18,13 +18,6 @@
             android:textSize = "25dip"
             android:textColor = "@color/colorAccent"/>
 
-        <EditText android:id = "@+id/IdDeporte"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
-            android:hint = "@string/id_deporte"
-            android:inputType = "text"
-            android:layout_marginTop = "25dip"/>
-
         <EditText android:id = "@+id/NombreDeporte"
             android:layout_height = "wrap_content"
             android:layout_width = "fill_parent"
