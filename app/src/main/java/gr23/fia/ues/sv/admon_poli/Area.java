@@ -9,14 +9,14 @@ public class Area {
     private String nombre ;
     private int capacidad ;
     private float area ; // esta area es en mt2
-    private int idDeporte ;
 
-    public Area(int idArea, String nombre, int capacidad, float area, int idDeporte) {
+
+    public Area(int idArea, String nombre, int capacidad, float area) {
         this.idArea = idArea;
         this.nombre = nombre;
         this.capacidad = capacidad;
         this.area = area;
-        this.idDeporte = idDeporte;
+
     }
     public Area(){}
 
@@ -52,11 +52,4 @@ public class Area {
         this.area = area;
     }
 
-    public int getIdDeporte() {
-        return idDeporte;
-    }
-
-    public void setIdDeporte(int idDeporte) {
-        this.idDeporte = idDeporte;
-    }
 }

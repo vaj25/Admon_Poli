@@ -7,6 +7,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by FAMILY on 07/05/2016.
  */
@@ -1111,6 +1114,31 @@ public String insertar(Administrador administrador) {
             } while (c.moveToNext());
         }
         return contador;
+    }
+
+    public List consultaArea(){
+        abrir();
+        //String resultado="";
+        List<String> lista= new ArrayList<>();
+        Cursor cur=db.rawQuery("select idarea,nombrearea from area",null );
+        while(cur.moveToNext()){
+            lista.add(cur.getString(0)+"-"+cur.getString(1));
+        }
+        cur.close();
+        db.close();
+        return(lista);
+    }
+    public List consultaDeporte(){
+        abrir();
+        //String resultado="";
+        List<String> lista= new ArrayList<>();
+        Cursor cur=db.rawQuery("select iddeporte,nombredeporte from deporte",null );
+        while(cur.moveToNext()){
+            lista.add(cur.getString(0)+"-"+cur.getString(1));
+        }
+        cur.close();
+        db.close();
+        return(lista);
     }
 
 }
