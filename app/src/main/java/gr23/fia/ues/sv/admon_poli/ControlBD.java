@@ -258,20 +258,24 @@ public class ControlBD {
     }
 
     public String insertar(DetalleReserva detalleReserva){
-        String regInsertados="Registro Insertado Nº= ";
-        long contador=0;
-        ContentValues detallereserv = new ContentValues();
-        detallereserv.put("idreserva", detalleReserva.getIdReserva());   //idreserva campo en la tabla
-        detallereserv.put("idarea", detalleReserva.getIdArea());   //idreserva campo en la tabla
-        contador=db.insert("detallereserva", null, detallereserv);
-        if(contador==-1 || contador==0)
-        {
-            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+
+        if (verificarIntegridad(detalleReserva, 2)){
+            String regInsertados="Registro Insertado Nº= ";
+            long contador=0;
+            ContentValues detallereserv = new ContentValues();
+            detallereserv.put("idreserva", detalleReserva.getIdReserva());   //idreserva campo en la tabla
+            detallereserv.put("idarea", detalleReserva.getIdArea());   //idreserva campo en la tabla
+            contador=db.insert("detallereserva", null, detallereserv);
+            if(contador==-1 || contador==0)
+            {
+                regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+            }
+            else {
+                regInsertados=regInsertados+contador;
+            }
+            return regInsertados;
         }
-        else {
-            regInsertados=regInsertados+contador;
-        }
-        return regInsertados;
+         return "Error al Insertar el registro, no existen campos en tablas padre";
     }
 
     public DetalleReserva consultarDetalleReserva(int idReserva){
