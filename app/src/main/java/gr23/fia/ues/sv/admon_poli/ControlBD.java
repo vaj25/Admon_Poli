@@ -1118,7 +1118,6 @@ public String insertar(Administrador administrador) {
 
     public List consultaArea(){
         abrir();
-        //String resultado="";
         List<String> lista= new ArrayList<>();
         Cursor cur=db.rawQuery("select idarea,nombrearea from area",null );
         while(cur.moveToNext()){
@@ -1130,7 +1129,6 @@ public String insertar(Administrador administrador) {
     }
     public List consultaDeporte(){
         abrir();
-        //String resultado="";
         List<String> lista= new ArrayList<>();
         Cursor cur=db.rawQuery("select iddeporte,nombredeporte from deporte",null );
         while(cur.moveToNext()){

@@ -18,22 +18,19 @@
             android:textColor = "@color/colorAccent"
             android:text="@string/eliminar_deporte_area"/>
 
-        <EditText android:id = "@+id/idArea"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
-            android:hint = "@string/id_area1"
-            android:inputType = "text"
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/select_actividad"
             android:layout_marginTop = "25dip"
-            android:numeric="integer"/>
+            android:id="@+id/selectDeporte" />
 
-        <EditText android:id = "@+id/idDeporte"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
-            android:hint = "@string/id_deporte1"
-            android:inputType = "text"
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/select_actividad"
             android:layout_marginTop = "25dip"
-            android:numeric="integer"/>
-
+            android:id="@+id/selectArea" />
 
         <Button
             android:id="@+id/botonConsultar"

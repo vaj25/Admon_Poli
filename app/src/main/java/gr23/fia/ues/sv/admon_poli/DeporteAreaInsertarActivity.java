@@ -3,7 +3,6 @@ package gr23.fia.ues.sv.admon_poli;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -13,8 +12,6 @@ import java.util.List;
 
 public class DeporteAreaInsertarActivity extends AppCompatActivity {
     ControlBD helper;
-   // EditText idDeporte;
-    //EditText idArea;
     EditText idDescripcion;
     EditText idActivo;
     Spinner sDeporte;
@@ -26,8 +23,6 @@ public class DeporteAreaInsertarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deporte_area_insertar);
         helper = new ControlBD(this);
-        //idDeporte = (EditText) findViewById(R.id.idDeporte);
-        //idArea = (EditText) findViewById(R.id.idArea);
         sDeporte = (Spinner) findViewById(R.id.selectDeporte);
         sArea = (Spinner) findViewById(R.id.selectArea);
         idDescripcion = (EditText) findViewById(R.id.idDescripcion);
@@ -44,18 +39,15 @@ public class DeporteAreaInsertarActivity extends AppCompatActivity {
         ArrayAdapter<String> adaptador1 =new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,lista1);
         adaptador1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sDeporte.setAdapter(adaptador1);
-
     }
     public void insertarDeporteArea(View v) {
         String regInsertados;
-        //Integer iddeporte=Integer.parseInt(idDeporte.getText().toString());
-        //Integer idarea=Integer.parseInt(idArea.getText().toString());
         String iddescripcion=idDescripcion.getText().toString();
         String idactivo=idActivo.getText().toString();
         DeporteArea da= new DeporteArea();
 
-        da.setIdDeporte(sDeporte.getLastVisiblePosition());
-        da.setIdArea(sArea.getLastVisiblePosition());
+        da.setIdDeporte(sDeporte.getSelectedItemPosition()+1);
+        da.setIdArea(sArea.getSelectedItemPosition()+1);
         da.setDescripcion(iddescripcion);
         da.setActivo(idactivo);
         helper.abrir();
