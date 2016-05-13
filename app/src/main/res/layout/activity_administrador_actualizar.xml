@@ -9,4 +9,93 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="gr23.fia.ues.sv.admon_poli.AdministradorActualizarActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="id administrador"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="79dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Telefono"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="65dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editIdAdminActualizar"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_toRightOf="@+id/btnActualizar"
+        android:layout_toEndOf="@+id/btnActualizar" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTelefonoActualizar"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/btnActualizar"
+        android:layout_toRightOf="@+id/btnActualizar" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Actualizar"
+        android:id="@+id/btnActualizar"
+        android:onClick="actualizarAdministrador"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="71dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Limpiar"
+        android:id="@+id/btnLimpiar"
+        android:onClick="limpiarTexto"
+        android:layout_alignTop="@+id/btnActualizar"
+        android:layout_alignRight="@+id/editTelefonoActualizar"
+        android:layout_alignEnd="@+id/editTelefonoActualizar"
+        android:layout_marginRight="77dp"
+        android:layout_marginEnd="77dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="25dip"
+        android:textColor="@color/colorAccent"
+        android:text="Actualizar Administrador "
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:id="@+id/textView9"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="65dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editEmailActualizar"
+        android:layout_alignBottom="@+id/textView9"
+        android:layout_alignLeft="@+id/editTelefonoActualizar"
+        android:layout_alignStart="@+id/editTelefonoActualizar" />
+
 </RelativeLayout>

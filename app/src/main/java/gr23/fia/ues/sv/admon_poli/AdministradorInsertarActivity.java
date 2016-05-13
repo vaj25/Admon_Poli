@@ -1,7 +1,6 @@
 package gr23.fia.ues.sv.admon_poli;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -18,7 +17,7 @@ public class AdministradorInsertarActivity extends Activity {
         setContentView(R.layout.activity_administrador_insertar);
         helper =new ControlBD(this);
         editIdAdmin=(EditText)findViewById(R.id.editIdAdmin);
-        editTelefono=(EditText)findViewById(R.id.editTelefono);
+        editTelefono=(EditText)findViewById(R.id.editTelefonoActualizar);
         editEmail=(EditText)findViewById(R.id.editEmail);
     }
 

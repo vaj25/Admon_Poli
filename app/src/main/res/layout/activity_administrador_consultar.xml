@@ -75,7 +75,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editTelefono"
+        android:id="@+id/editTelefonoActualizar"
         android:layout_alignTop="@+id/textView6"
         android:layout_alignRight="@+id/editIdActualizarAdmin"
         android:layout_alignEnd="@+id/editIdActualizarAdmin"
@@ -87,7 +87,7 @@
         android:layout_height="wrap_content"
         android:text="Email"
         android:id="@+id/textView8"
-        android:layout_below="@+id/editTelefono"
+        android:layout_below="@+id/editTelefonoActualizar"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="50dp" />
@@ -97,9 +97,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/editEmail"
         android:layout_alignBottom="@+id/textView8"
-        android:layout_alignLeft="@+id/editTelefono"
-        android:layout_alignStart="@+id/editTelefono"
-        android:layout_alignRight="@+id/editTelefono"
-        android:layout_alignEnd="@+id/editTelefono" />
+        android:layout_alignLeft="@+id/editTelefonoActualizar"
+        android:layout_alignStart="@+id/editTelefonoActualizar"
+        android:layout_alignRight="@+id/editTelefonoActualizar"
+        android:layout_alignEnd="@+id/editTelefonoActualizar" />
 
 </RelativeLayout>

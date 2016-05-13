@@ -195,7 +195,7 @@ public class ControlBD {
         return null;
     }
 
-    public Administrador consultar(int idAdministrador){
+   /* public Administrador consultar(int idAdministrador){
         return null;
     }
 
@@ -209,7 +209,7 @@ public class ControlBD {
 
     public String actualizar(Administrador administrador){
         return null;
-    }
+    }*/
 
     public String actualizar(Solicitante solicitante){
         return null;
@@ -226,7 +226,7 @@ public class ControlBD {
     public String insertar(Solicitante solicitante){
         return null;
     }
-
+//////////////////////ACTIVIDAD //////////////////////////////////////////////////////////////////////
     public Actividad consultarActividad(int idactividad){
         String[] id = {String.valueOf(idactividad)};
         Cursor cursor = db.query("actividad" , camposActividad, "idactividad = ?" , id,
@@ -241,10 +241,30 @@ public class ControlBD {
         }
     }
 
-    public String actualizar (Actividad actividad){ return null; }
+    public String actualizar (Actividad actividad){
+        if(verificarIntegridad(actividad, 13)){
+
+            String[] id = {String.valueOf(actividad.getIdActividad())};
+            ContentValues cv = new ContentValues();
+            cv.put("nombreactividad",actividad.getNombre() );
+            db.update("actividad", cv, "idactividad = ?", id);
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "Registro de la actividad " +actividad.getIdActividad()  + " no existe";
+        }
+    }
 
     public String eliminar(Actividad actividad){
-        return null;
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        if (verificarIntegridad(actividad,13)) {
+            contador+=db.delete("solicitud", "idactividad='"+actividad.getIdActividad()+"'", null);
+        }
+        contador+=db.delete("actividad", "idactividad='"+actividad.getIdActividad()+"'", null);
+        regAfectados+=contador;
+        return regAfectados;
+
+
     }
 
     public String insertar(Actividad actividad) {
@@ -264,6 +284,60 @@ public class ControlBD {
         }
         return regInsertados;
     }
+///////////////////////////////ADMINISTRADOR ///////////////////////////////////////////////
+public String insertar(Administrador administrador) {
+    String regInsertados="Registro Insertado Nº= ";
+    long contador=0;
+    ContentValues admin = new ContentValues();
+    admin.put("idadministrador", administrador.getIdAdministrador());
+    admin.put("telefonoadmin", administrador.getTelefonoadmin());
+    admin.put("emailadmin",administrador.getEmailadmin());
+    contador=db.insert("administrador", null, admin);
+    if(contador==-1 || contador==0)
+    {
+        regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+    }
+    else {
+        regInsertados=regInsertados+contador;
+    }
+    return regInsertados;
+}
+
+
+    public String actualizar(Administrador administrador){
+        if(verificarIntegridad(administrador, 14)){
+            String[] id = {String.valueOf(administrador.getIdAdministrador())};
+            ContentValues cv = new ContentValues();
+            cv.put("telefonoadmin", administrador.getTelefonoadmin());
+            cv.put("emailadmin", administrador.getEmailadmin());
+            db.update("admininistrador", cv, "idadministrador = ?", id);
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "Registro con credenciales de administrador " + administrador.getIdAdministrador() + " no existe";
+        }
+    }
+
+    public Administrador consultar(int idadministrador){
+        String[] id = {String.valueOf(idadministrador)};
+        Cursor cursor = db.query("administrador", camposAdministrador, "idadministrador = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            Administrador administrador = new Administrador();
+            administrador.setIdAdministrador(cursor.getInt(0));
+            administrador.setTelefonoadmin(Integer.parseInt(cursor.getString(1)));
+            return administrador;
+        }else{ return null;
+        }
+    }
+
+    public String eliminar(Administrador administrador){
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        String where="idadministrador='"+administrador.getIdAdministrador()+"'";
+        contador+=db.delete("administrador", where, null);
+        regAfectados+=contador;
+        return regAfectados;
+    }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //Tablas Alberto
     public String insertar(Solicitud solicitud){
