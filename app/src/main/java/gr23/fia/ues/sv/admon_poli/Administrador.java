@@ -9,10 +9,10 @@ public class Administrador {
     private int telefonoadmin;
     private String emailadmin;
 
-    public Administrador(int idadmin, int teladmin, String email) {
+    public Administrador(int idadmin, int teladmin, String emailadmin) {
         this.idadministrador = idadmin;
         this.telefonoadmin = teladmin;
-        this.emailadmin = email;
+        this.emailadmin = emailadmin;
     }
 
     public Administrador() {
@@ -35,11 +35,11 @@ public class Administrador {
     }
 
     public String getEmailadmin(){
-        return this.emailadmin;
+        return emailadmin;
     }
 
-    public void setEmailadmin(String email){
-        this.emailadmin=email;
+    public void setEmailadmin(String emailadmin){
+        this.emailadmin=emailadmin;
     }
 
 

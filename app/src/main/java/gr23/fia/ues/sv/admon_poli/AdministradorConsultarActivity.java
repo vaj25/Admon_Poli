@@ -16,9 +16,9 @@ public class AdministradorConsultarActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_administrador_consultar);
         helper= new ControlBD(this);
-        editIdAdmin= (EditText)findViewById(R.id.editIdAdmin);
-        editTelefono= (EditText)findViewById(R.id.editTelefonoActualizar);
-        editEmail= (EditText)findViewById(R.id.editEmail);
+        editIdAdmin= (EditText)findViewById(R.id.editIdConsultarAdmin);
+        editTelefono= (EditText)findViewById(R.id.editTelefonoConsultar);
+        editEmail= (EditText)findViewById(R.id.editEmailAdConsultar);
     }
     public void consultarAdministrador(View v){
         helper.abrir();
@@ -28,7 +28,9 @@ public class AdministradorConsultarActivity extends Activity {
             Toast.makeText(this, "El administrador " + editIdAdmin.getText().toString() +
                     " no fue encontrado", Toast.LENGTH_LONG).show();
         else {
-            editTelefono.setText(administrador.getTelefonoadmin());
+            Toast.makeText(this,"el emaail"+administrador.getEmailadmin(),Toast.LENGTH_LONG);
+
+            editTelefono.setText(String.valueOf(administrador.getTelefonoadmin()));
             editEmail.setText(administrador.getEmailadmin());
         }
     }

@@ -17,7 +17,7 @@ public class AdministradorActualizarActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_administrador_actualizar);
         helper= new ControlBD(this);
-        editIdAdmin = (EditText)findViewById(R.id.editIdActualizarAdmin);
+        editIdAdmin = (EditText)findViewById(R.id.editIdAdminActualizar);
         editTelefono=(EditText) findViewById(R.id.editTelefonoActualizar);
         editEmail=(EditText)findViewById(R.id.editEmailActualizar);
     }

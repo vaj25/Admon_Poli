@@ -10,18 +10,20 @@ import android.widget.Toast;
 public class ActividadConsultarActivity extends Activity {
     ControlBD helper;
     EditText editNombreActividad;
-    EditText editIdActualizar;
+    EditText editIdConsultar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_consultar);
         helper = new ControlBD(this);
+        editIdConsultar=(EditText) findViewById(R.id.editIdConsultar);
         editNombreActividad= (EditText) findViewById(R.id.editNombreActividad);
     }
 
-    public void consultarActividad(View v){
+    public void consultar(View v){
         helper.abrir();
-        Actividad actividad= helper.consultarActividad(Integer.parseInt(editIdActualizar.getText().toString()));
+        //Toast.makeText(this,"id actividad"+Integer.parseInt(editIdConsultar.getText().toString()),Toast.LENGTH_LONG).show();
+        Actividad actividad= helper.consultarActividad(Integer.parseInt(editIdConsultar.getText().toString()));
         helper.cerrar();
         if (actividad==null)
             Toast.makeText(this, "La Actividad " + editNombreActividad.getText().toString() +
@@ -32,7 +34,7 @@ public class ActividadConsultarActivity extends Activity {
     }
 
     public void limpiarTexto(View v){
-        editIdActualizar.setText("");
+        editIdConsultar.setText("");
         editNombreActividad.setText("");
     }
 }

@@ -420,8 +420,8 @@ public class ControlBD {
 //////////////////////ACTIVIDAD //////////////////////////////////////////////////////////////////////
     public Actividad consultarActividad(int idactividad){
         String[] id = {String.valueOf(idactividad)};
-        Cursor cursor = db.query("actividad" , camposActividad, "idactividad = ?" , id,
-                null, null, null);
+
+        Cursor cursor = db.query("actividad" , camposActividad, "idactividad = ?",id,null, null, null);
         if(cursor.moveToFirst()){
             Actividad actividad = new Actividad() ;
             actividad.setIdActividad(cursor.getInt(0));
@@ -501,7 +501,7 @@ public String insertar(Administrador administrador) {
             ContentValues cv = new ContentValues();
             cv.put("telefonoadmin", administrador.getTelefonoadmin());
             cv.put("emailadmin", administrador.getEmailadmin());
-            db.update("admininistrador", cv, "idadministrador = ?", id);
+            db.update("administrador", cv, "idadministrador = ?", id);/////
             return "Registro Actualizado Correctamente";
         }else{
             return "Registro con credenciales de administrador " + administrador.getIdAdministrador() + " no existe";
@@ -515,6 +515,7 @@ public String insertar(Administrador administrador) {
             Administrador administrador = new Administrador();
             administrador.setIdAdministrador(cursor.getInt(0));
             administrador.setTelefonoadmin(Integer.parseInt(cursor.getString(1)));
+            administrador.setEmailadmin(cursor.getString(2));
             return administrador;
         }else{ return null;
         }
