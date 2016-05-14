@@ -112,4 +112,8 @@
     <string name="nombre_de_la_actividad">Nombre de la actividad:</string>
     <string name="insetarDetalleSolicitud">Insertar Detalle de Solicitud </string>
     <string name="solicitud">Solicitud </string>
+
+    <string name="user_name">Username</string>
+    <string name="user_password">Password</string>
+    <string name="login_button">Login</string>
 </resources>

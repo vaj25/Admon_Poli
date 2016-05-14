@@ -27,6 +27,10 @@ public class ControlBD {
     private static final String[] camposAdministrador = new String [] {"idadministrador","telefonoadmin","emailadmin"};
     private static final String[] camposSolicitud = new String [] {"idsolicitud","estado","fechasolicitud","fechareserva","cantasistentes","idadministrador","idactividad","dui","montoarea", "horareserva"};
     private static final String[] camposDetalleSolicitud = new String [] {"idsolicitud","idarea"};
+    //tablas de seguridad
+    private static final String[] camposUsuario = new String [] {"idusuario", "nomusuario", "clave"} ;
+    private static final String[] camposAccesoUsuario = new String [] {"idusuario", "idopcion"} ;
+    private static final String[] camposOpcionCrud = new String [] {"idopcion", "desopcion", "numcrud"} ;
 
 
 
@@ -41,7 +45,7 @@ public class ControlBD {
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
 
-        private static final String BASE_DATOS = "AdmonPoliv6.s3db" ;
+        private static final String BASE_DATOS = "AdmonPoliv7.s3db" ;
         private static final int VERSION = 1;
 
         DatabaseHelper(Context context) {
@@ -112,7 +116,23 @@ public class ControlBD {
                         "idsolicitud INTEGER  NOT NULL," +
                         "idarea INTEGER  NOT NULL," +
                         "PRIMARY KEY (idsolicitud,idarea)" +
-                        ")");
+                        ");");
+                //tablas de db de seguridad
+                db.execSQL("CREATE TABLE usuario (" +
+                        "idusuario CHAR(2) NOT NULL PRIMARY KEY," +
+                        "nomusuario VARCHAR(10) NOT NULL," +
+                        "clave CHAR(5)  NOT NULL" +
+                        ");");
+                db.execSQL("CREATE TABLE accesousuario (" +
+                        "idusuario CHAR(2) NOT NULL," +
+                        "idopcion CHAR(3) NOT NULL," +
+                        "PRIMARY KEY (idusuario, idopcion)" +
+                        ");");
+                db.execSQL("CREATE TABLE opcioncrud (" +
+                        "idopcion CHAR(3) NOT NULL PRIMARY KEY," +
+                        "desopcion VARCHAR(30) NOT NULL," +
+                        "numcrud INTEGER  NOT NULL" +
+                        ");");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -786,6 +806,91 @@ public String insertar(Administrador administrador) {
         }else{ return null;
         }}
     //------------------------------------------------------------------------------------------------
+    /**
+    * * TABLAS DE SEGURIDAD
+    * */
+
+    public String insertar(Usuario usuario) {
+
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        ContentValues user = new ContentValues();
+        user.put("idusuario", usuario.getIdUsuario());
+        user.put("nomusuario", usuario.getNomUsuario());
+        user.put("clave", usuario.getClave());
+        contador=db.insert("usuario", null, user);
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados = regInsertados+contador;
+        }
+
+        return regInsertados;
+    }
+
+    public String insertar(OpcionCrud opcionCrud) {
+
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        ContentValues opc = new ContentValues();
+        opc.put("idopcion", opcionCrud.getIdOpcion());
+        opc.put("desopcion", opcionCrud.getDesOpcion());
+        opc.put("numcrud", opcionCrud.getNumCrud());
+        contador=db.insert("opcioncrud", null, opc);
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados = regInsertados+contador;
+        }
+
+        return regInsertados;
+    }
+
+    public String insertar(AccesoUsuario accesoUsuario) {
+
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        ContentValues accUser = new ContentValues();
+        accUser.put("idopcion", accesoUsuario.getIdOpcion());
+        accUser.put("idusuario", accesoUsuario.getIdUsuario());
+        contador=db.insert("accesousuario", null, accUser);
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados = regInsertados+contador;
+        }
+
+        return regInsertados;
+    }
+
+    //verifica al usuario
+    public Usuario verificarCredenciales(Usuario u){
+
+        abrir();
+        String [] ids = {u.getNomUsuario(), u.getClave()} ;
+        Cursor cursor = db.query("usuario", null,"nomusuario = ? AND clave = ?", ids, null , null ,null) ;
+        if (cursor.moveToFirst()){
+            u.setIdUsuario(cursor.getString(0));
+            u.setNomUsuario(cursor.getString(1));
+            u.setClave(cursor.getString(2));
+            cursor.close();
+            db.close();
+            return u ;
+        }
+        cursor.close();
+        db.close();
+        return null ;
+    }
+
+
+    //------------------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------------------------
     private boolean verificarIntegridad(Object dato, int relacion) throws SQLException{
         switch(relacion){
             case 1:
@@ -1121,8 +1226,8 @@ public String insertar(Administrador administrador) {
         final int[] VStelefonosol = {78895612,73235689,71235689,79455612};
         final String[] VSemailsol = {"moises.oct@gmail.com","sanchez@gmail.com","tobar@gmail.com","jovel@gmail.com"};
 
-        final int[] VAidactividad = {1,2,3,4};
-        final String[] VAnombreactividad = {"Politica","Cultural","Religiosa","Politica"};
+        final int[] VAidactividad = {1,2,3};
+        final String[] VAnombreactividad = {"Politica","Cultural","Religiosa"};
 
         final int[] VADidadministrador = {1,2,3,4};
         final int[] VADtelefonoadmin = {78894556,65231245,78895612,75231256};
@@ -1144,6 +1249,23 @@ public String insertar(Administrador administrador) {
         final int[] VDSidsolicitud = {1,2,3,4};
         final int[] VDSidarea = {1,2,3,4};
 
+        //tablas seguridad
+        //tabla usuario
+        final String[] VUidusuario = {"01", "02"} ;
+        final String[] VUnomusuario = {"admin", "user"} ;
+        final String[] VUclave = {"admin", "user"} ;
+
+        //tabla opcioncrud
+        final String[] VOCidopcion = {"000","001","002","003","004"} ;
+        final String[] VOCdesopcion = {"Menu Deporte","Ingresar Deporte","Eliminar Deporte","Actualizar Deporte","Consultar Deporte"} ;
+        final int[] VOCnumcrud = {0,1,2,3,4} ;
+
+        //tabla accesousuario
+        final String[] VAUidusuario = {"00","00","00","00","00",
+                                       "01","01","01","01","01"} ;
+        final String[] VAUidopcion = {"000","001","002","003","004",
+                                      "000","001","002","003","004"} ;
+
         abrir();
         db.execSQL("DELETE FROM deporte");
         db.execSQL("DELETE FROM area");
@@ -1156,7 +1278,9 @@ public String insertar(Administrador administrador) {
         db.execSQL("DELETE FROM horario");
         db.execSQL("DELETE FROM administrador");
         db.execSQL("DELETE FROM solicitud");
-        db.execSQL("DELETE FROM detallesolicitud");
+        db.execSQL("DELETE FROM usuario");
+        db.execSQL("DELETE FROM opcioncrud");
+        db.execSQL("DELETE FROM accesousuario");
 
         Deporte deporte = new Deporte();
         for(int i=0;i<4;i++){
@@ -1225,7 +1349,7 @@ public String insertar(Administrador administrador) {
         }
 
         Actividad actividad = new Actividad();
-        for(int i=0;i<4;i++) {
+        for(int i=0;i<3;i++) {
             actividad.setIdActividad(VAidactividad[i]);
             actividad.setNombre(VAnombreactividad[i]);
             insertar(actividad);
@@ -1260,6 +1384,33 @@ public String insertar(Administrador administrador) {
             detalleSolicitud.setIdArea(VDSidarea[i]);
             insertar(detalleSolicitud);
         }
+
+        //tablas usuario
+        Usuario usuario = new Usuario() ;
+        for(int i=0;i<2;i++){
+            usuario.setIdUsuario(VUidusuario[i]);
+            usuario.setNomUsuario(VUnomusuario[i]);
+            usuario.setClave(VUclave[i]);
+            insertar(usuario) ;
+        }
+
+        //tabla opcioncrud
+        OpcionCrud opcionCrud = new OpcionCrud() ;
+        for(int i=0; i<5;i++){
+            opcionCrud.setIdOpcion(VOCidopcion[i]);
+            opcionCrud.setDesOpcion(VOCdesopcion[i]);
+            opcionCrud.setNumCrud(VOCnumcrud[i]);
+            insertar(opcionCrud) ;
+        }
+
+        //tabla accesousuario
+        AccesoUsuario accesoUsuario = new AccesoUsuario() ;
+        for(int i=0; i<10;i++){
+            accesoUsuario.setIdOpcion(VAUidusuario[i]);
+            accesoUsuario.setIdUsuario(VAUidopcion[i]);
+            insertar(accesoUsuario) ;
+        }
+
         cerrar();
         return "Guardo Correctamente";
     }
