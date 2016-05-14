@@ -107,4 +107,9 @@ public class Solicitud {
     public void setHoraReservada(String horaReservada) {
         this.horaReservada = horaReservada;
     }
+
+    @Override
+    public String toString() {
+        return idSolicitud +"-"+ fechaReserva;
+    }
 }

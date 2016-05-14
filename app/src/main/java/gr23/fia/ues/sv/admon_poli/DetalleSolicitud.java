@@ -7,13 +7,16 @@ public class DetalleSolicitud {
 
     private int idSolicitud ;
     private int idArea ;
+    private String descripcion;
+
 
     public DetalleSolicitud() {
     }
 
-    public DetalleSolicitud(int idArea, int idSolicitud) {
-        this.idArea = idArea;
+    public DetalleSolicitud(int idSolicitud, int idArea, String descripcion) {
         this.idSolicitud = idSolicitud;
+        this.idArea = idArea;
+        this.descripcion = descripcion;
     }
 
     public int getIdSolicitud() {
@@ -31,4 +34,11 @@ public class DetalleSolicitud {
     public void setIdArea(int idArea) {
         this.idArea = idArea;
     }
+
+
+    public String getDescripcion() { return descripcion; }
+
+    public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
+
+
 }

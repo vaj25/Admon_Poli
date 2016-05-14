@@ -26,7 +26,7 @@ public class ControlBD {
     private static final String[] camposActividad = new String [] {"idactividad","nombreactividad"};
     private static final String[] camposAdministrador = new String [] {"idadministrador","telefonoadmin","emailadmin"};
     private static final String[] camposSolicitud = new String [] {"idsolicitud","estado","fechasolicitud","fechareserva","cantasistentes","idadministrador","idactividad","dui","montoarea", "horareserva"};
-    private static final String[] camposDetalleSolicitud = new String [] {"idsolicitud","idarea"};
+    private static final String[] camposDetalleSolicitud = new String [] {"idsolicitud","idarea","descripcion"};
     //tablas de seguridad
     private static final String[] camposUsuario = new String [] {"idusuario", "nomusuario", "clave"} ;
     private static final String[] camposAccesoUsuario = new String [] {"idusuario", "idopcion"} ;
@@ -45,8 +45,8 @@ public class ControlBD {
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
 
-        private static final String BASE_DATOS = "AdmonPoliv7.s3db" ;
-        private static final int VERSION = 1;
+        private static final String BASE_DATOS = "AdmonPoliv10.s3db" ;
+        private static final int VERSION = 2;
 
         DatabaseHelper(Context context) {
             super(context, BASE_DATOS, null, VERSION);
@@ -115,6 +115,7 @@ public class ControlBD {
                 db.execSQL("CREATE TABLE detallesolicitud (" +
                         "idsolicitud INTEGER  NOT NULL," +
                         "idarea INTEGER  NOT NULL," +
+                        "descripcion VARCHAR(50)," +
                         "PRIMARY KEY (idsolicitud,idarea)" +
                         ");");
                 //tablas de db de seguridad
@@ -616,9 +617,11 @@ public String insertar(Administrador administrador) {
     public String insertar(DetalleSolicitud detalleSolicitud){
         String regInsertados="Registro Insertado Nº= ";
         long contador = 0;
+        if(verificarIntegridad(detalleSolicitud,3)){
         ContentValues dsolt = new ContentValues();
-        dsolt.put("idarea", detalleSolicitud.getIdArea());
         dsolt.put("idsolicitud", detalleSolicitud.getIdSolicitud());
+        dsolt.put("idarea", detalleSolicitud.getIdArea());
+        dsolt.put("descripcion", detalleSolicitud.getDescripcion());
         contador = db.insert("detallesolicitud", null, dsolt);
         if(contador==-1 || contador==0)
         {
@@ -626,6 +629,8 @@ public String insertar(Administrador administrador) {
         }
         else {
             regInsertados = regInsertados+contador;
+        }}else{
+            regInsertados="No existe Relacion Solicitud y Area";
         }
         return regInsertados;
     }
@@ -634,6 +639,7 @@ public String insertar(Administrador administrador) {
         if(verificarIntegridad(detalleSolicitud, 3)){
             String[] ids = {String.valueOf(detalleSolicitud.getIdSolicitud()), String.valueOf(detalleSolicitud.getIdArea())};
             ContentValues cv = new ContentValues();
+            cv.put("descripcion", detalleSolicitud.getDescripcion());
             db.update("detallesolicitud", cv, "idsolicitud = ? AND idarea = ?", ids);
             return "Registro Actualizado Correctamente";
         }else{
@@ -648,6 +654,7 @@ public String insertar(Administrador administrador) {
             DetalleSolicitud detsolicitud = new DetalleSolicitud() ;
             detsolicitud.setIdSolicitud(cursor.getInt(0));
             detsolicitud.setIdArea(cursor.getInt(1));
+            detsolicitud.setDescripcion(cursor.getString(1));
             return detsolicitud;
         }else{
             return null;
@@ -655,11 +662,11 @@ public String insertar(Administrador administrador) {
     }
 
     public String eliminar(DetalleSolicitud detalleSolicitud){
-        String regAfectados="Filas afectadas= ";
-        int contador = 0;
-        if (verificarIntegridad(detalleSolicitud,3)) {
-            contador+=db.delete("detallesolicitud", "idsolicitud='"+ detalleSolicitud.getIdSolicitud() +"'", null);
-        }
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        String where="idsolicitud='"+detalleSolicitud.getIdSolicitud()+"'";
+        where=where+" AND idarea='"+detalleSolicitud.getIdArea()+"'";
+        contador+=db.delete("detallesolicitud", where, null);
         regAfectados+=contador;
         return regAfectados;
     }
@@ -923,7 +930,6 @@ public String insertar(Administrador administrador) {
         db.close();
         return null ;
     }
-
 
     //------------------------------------------------------------------------------------------------
     //------------------------------------------------------------------------------------------------
@@ -1222,7 +1228,6 @@ public String insertar(Administrador administrador) {
 }
 
 
-
     public String llenarBD(){
         final int[] VDiddeporte = {1,2,3,4};
         final String[] VDnombredeporte = {"Natación","Futbol","Basketball","Voleyball"};
@@ -1284,6 +1289,7 @@ public String insertar(Administrador administrador) {
 
         final int[] VDSidsolicitud = {1,2,3,4};
         final int[] VDSidarea = {1,2,3,4};
+        final String[] VDSdescripcion = {"solicita piscina","solicita cancha 11","solicita cancha papi","solicita duela"};
 
         //tablas seguridad
         //tabla usuario
@@ -1307,6 +1313,7 @@ public String insertar(Administrador administrador) {
         db.execSQL("DELETE FROM area");
         db.execSQL("DELETE FROM deportearea");
         db.execSQL("DELETE FROM detallereserva");
+        db.execSQL("DELETE FROM detallesolicitud");
         db.execSQL("DELETE FROM tarifa");
         db.execSQL("DELETE FROM solicitante");
         db.execSQL("DELETE FROM reserva");
@@ -1314,6 +1321,7 @@ public String insertar(Administrador administrador) {
         db.execSQL("DELETE FROM horario");
         db.execSQL("DELETE FROM administrador");
         db.execSQL("DELETE FROM solicitud");
+
         db.execSQL("DELETE FROM usuario");
         db.execSQL("DELETE FROM opcioncrud");
         db.execSQL("DELETE FROM accesousuario");
@@ -1418,6 +1426,7 @@ public String insertar(Administrador administrador) {
         for(int i=0;i<4;i++) {
             detalleSolicitud.setIdSolicitud(VDSidsolicitud[i]);
             detalleSolicitud.setIdArea(VDSidarea[i]);
+            detalleSolicitud.setDescripcion(VDSdescripcion[i]);
             insertar(detalleSolicitud);
         }
 
@@ -1484,6 +1493,21 @@ public String insertar(Administrador administrador) {
             Deporte dep=new Deporte();
             dep.setIdDeporte(cur.getInt(0));
             dep.setNombre(cur.getString(1));
+            lista.add(dep);
+        }
+        cur.close();
+        db.close();
+        return(lista);
+    }
+
+    public List consultaSolicitud(){
+        abrir();
+        List<Solicitud> lista= new ArrayList<>();
+        Cursor cur=db.rawQuery("select idsolicitud,fechareserva from solicitud",null );
+        while(cur.moveToNext()){
+            Solicitud dep=new Solicitud();
+            dep.setIdSolicitud(cur.getInt(0));
+            dep.setFechaReserva(cur.getString(1));
             lista.add(dep);
         }
         cur.close();
