@@ -133,6 +133,9 @@ public class ControlBD {
                         "desopcion VARCHAR(30) NOT NULL," +
                         "numcrud INTEGER  NOT NULL" +
                         ");");
+                db.execSQL("INSERT INTO USUARIO " +
+                        "(idusuario, nomusuario, clave) " +
+                        "VALUES ('03', 'user1', 'user') ;");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -1449,6 +1452,22 @@ public String insertar(Administrador administrador) {
         cur.close();
         db.close();
         return(lista);
+    }
+
+    /*
+    *   metodos para obtener los menus
+    *   by Alberto Castaneda
+    * */
+
+    public Cursor obtenerMenuUsuario(String id){
+        String sql = "select oc.desopcion, oc.numcrud from usuario u "+
+                "join accesousuario au on u.idusuario = au.idusuario and u.idusuario='"+id+"'\n" +
+                "join opcioncrud oc on au.idopcion = oc.idopcion and oc.numcrud='0'";
+
+        abrir();
+        Cursor cursor = db.rawQuery(sql, null);
+        db.close();
+        return cursor ;
     }
 
 }
