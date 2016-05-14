@@ -654,7 +654,7 @@ public String insertar(Administrador administrador) {
             DetalleSolicitud detsolicitud = new DetalleSolicitud() ;
             detsolicitud.setIdSolicitud(cursor.getInt(0));
             detsolicitud.setIdArea(cursor.getInt(1));
-            detsolicitud.setDescripcion(cursor.getString(1));
+            detsolicitud.setDescripcion(cursor.getString(2));
             return detsolicitud;
         }else{
             return null;

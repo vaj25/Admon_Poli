@@ -18,19 +18,19 @@
             android:textSize = "25dip"
             android:textColor = "@color/colorAccent"/>
 
-        <EditText android:id = "@+id/editIdSolicitud"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
-            android:hint = "@string/solicitud"
-            android:inputType = "number"
-            android:layout_marginTop = "25dip"/>
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/select_actividad"
+            android:layout_marginTop = "25dip"
+            android:id="@+id/selectSolicitud" />
 
-        <EditText android:id = "@+id/editIdArea"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
-            android:hint = "@string/id_area1"
-            android:inputType = "number"
-            android:layout_marginTop = "25dip"/>
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/select_actividad"
+            android:layout_marginTop = "25dip"
+            android:id="@+id/selectArea" />
 
 
         <Button
@@ -45,7 +45,7 @@
             android:onClick="limpiarTexto"
             android:id="@+id/LimpiarButton"/>
 
-        <EditText android:id = "@+id/editDescripcion"
+        <EditText android:id = "@+id/idDescripcion"
             android:layout_height = "wrap_content"
             android:layout_width = "fill_parent"
             android:hint = "@string/iddescripcion"

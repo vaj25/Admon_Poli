@@ -14,8 +14,6 @@ import java.util.List;
 
 public class DeporteAreaConsultarActivity extends Activity {
     ControlBD helper;
-    //EditText idDeporte;
-    //EditText idArea;
     EditText idDescripcion;
     EditText idActivo;
     Spinner sDeporte;
