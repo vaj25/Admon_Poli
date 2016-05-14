@@ -134,9 +134,6 @@ public class ControlBD {
                         "desopcion VARCHAR(30) NOT NULL," +
                         "numcrud INTEGER  NOT NULL" +
                         ");");
-                db.execSQL("INSERT INTO USUARIO " +
-                        "(idusuario, nomusuario, clave) " +
-                        "VALUES ('03', 'user1', 'user') ;");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -1298,15 +1295,81 @@ public String insertar(Administrador administrador) {
         final String[] VUclave = {"admin", "user"} ;
 
         //tabla opcioncrud
-        final String[] VOCidopcion = {"000","001","002","003","004"} ;
-        final String[] VOCdesopcion = {"Menu Deporte","Ingresar Deporte","Eliminar Deporte","Actualizar Deporte","Consultar Deporte"} ;
-        final int[] VOCnumcrud = {0,1,2,3,4} ;
+        final String[] VOCidopcion = {
+                "000","001","002","003","004",
+                "010","011","012","013","014",
+                "020","021","022","023","024",
+                "030","031","032","033","034",
+                "040","041","042","043","044",
+                "050","051","052","053","054",
+                "060","061","062","063","064",
+                "070","071","072","073","074",
+                "080","081","082","083","084",
+                "090","091","092","093","094",
+                "100","101","102","103","104",
+                "110","111","112","113","114"};
+        final String[] VOCdesopcion = {
+                /*0*/"Menu Actividad","Nueva Actividad","Eliminar Actividad","Consultar Actividad", "Actualizar Actividad",
+                /*1*/"Menu Administrador","Nuevo Administrador","Eliminar Administrador","Consultar Administrador", "Actualizar Administrador",
+                /*2*/"Menu Area","Insertar Area","Eliminar Area","Consultar Area", "Actualizar Area",
+                /*3*/"Menu DeporteArea","Insertar DeporteArea","Eliminar DeporteArea","Consultar DeporteArea", "Actualizar DeporteArea",
+                /*4*/"Menu Deporte","Insertar Deporte","Eliminar Deporte","Consultar Deporte", "Actualizar Deporte",
+                /*5*/"Menu Detalle de Reserva","Insertar Detalle de Reserva","Eliminar Detalle de Reserva","Consultar Detalle de Reserva", "Actualizar Detalle de Reserva",
+                /*6*/"Menu Detalle de Solicitud","Insertar Detalle de Solicitud","Eliminar Detalle de Solicitud","Consultar Detalle de Solicitud","Actualizar Detalle d Solicitud",
+                /*7*/"Menu Horario","Insertar Horario","Eliminar Horario","Consultar Horario", "Actualizar Horario",
+                /*8*/"Menu Reserva","Insertar Reserva","Eliminar Reserva","Consultar Reserva", "Actualizar Reserva",
+                /*9*/"Menu Solicitante","Insertar Solicitante","Eliminar Solicitante","Consultar Solicitante", "Actualizar Solicitante",
+                /*10*/"Menu Solicitud","Insertar Solicitud","Eliminar Solicitud","Consultar Solicitud", "Actualizar Solicitud",
+                /*11*/"Menu Tarifa","Insertar Tarifa","Eliminar Tarifa","Consultar Tarifa", "Actualizar Tarifa"} ;
+        final int[] VOCnumcrud = {
+                0,1,2,3,4,
+                0,1,2,3,4,
+                0,1,2,3,4,
+                0,1,2,3,4,
+                0,1,2,3,4,
+                0,1,2,3,4,
+                0,1,2,3,4,
+                0,1,2,3,4,
+                0,1,2,3,4,
+                0,1,2,3,4,
+                0,1,2,3,4,
+                0,1,2,3,4};
 
         //tabla accesousuario
-        final String[] VAUidusuario = {"00","00","00","00","00",
-                                       "01","01","01","01","01"} ;
-        final String[] VAUidopcion = {"000","001","002","003","004",
-                                      "000","001","002","003","004"} ;
+        final String[] VAUidusuario = {
+                "01","01","01","01","01",
+                "01","01","01","01","01",
+                "01","01","01","01","01",
+                "01","01","01","01","01",
+                "01","01","01","01","01",
+                "01","01","01","01","01",
+                "01","01","01","01","01",
+                "01","01","01","01","01",
+                "01","01","01","01","01",
+                "01","01","01","01","01",
+                "01","01","01","01","01",
+                "01","01","01","01","01",
+                "02","02","02","02","02",
+                "02","02","02","02","02",
+                "02","02","02","02","02",
+                "02","02"} ;
+        final String[] VAUidopcion =  {
+                "000","001","002","003","004",
+                "010","011","012","013","014",
+                "020","021","022","023","024",
+                "030","031","032","033","034",
+                "040","041","042","043","044",
+                "050","051","052","053","054",
+                "060","061","062","063","064",
+                "070","071","072","073","074",
+                "080","081","082","083","084",
+                "090","091","092","093","094",
+                "100","101","102","103","104",
+                "110","111","112","113","114",
+                "003","013","023","033","043",
+                "053","063","064","073","083",
+                "093","100","101","102","103",
+                "104","114"} ;
 
         abrir();
         db.execSQL("DELETE FROM deporte");
@@ -1441,7 +1504,7 @@ public String insertar(Administrador administrador) {
 
         //tabla opcioncrud
         OpcionCrud opcionCrud = new OpcionCrud() ;
-        for(int i=0; i<5;i++){
+        for(int i=0; i<60;i++){
             opcionCrud.setIdOpcion(VOCidopcion[i]);
             opcionCrud.setDesOpcion(VOCdesopcion[i]);
             opcionCrud.setNumCrud(VOCnumcrud[i]);
@@ -1450,9 +1513,9 @@ public String insertar(Administrador administrador) {
 
         //tabla accesousuario
         AccesoUsuario accesoUsuario = new AccesoUsuario() ;
-        for(int i=0; i<10;i++){
-            accesoUsuario.setIdOpcion(VAUidusuario[i]);
-            accesoUsuario.setIdUsuario(VAUidopcion[i]);
+        for(int i=0; i<65;i++){
+            accesoUsuario.setIdOpcion(VAUidopcion[i]);
+            accesoUsuario.setIdUsuario(VAUidusuario[i]);
             insertar(accesoUsuario) ;
         }
 
@@ -1524,11 +1587,16 @@ public String insertar(Administrador administrador) {
         String sql = "select oc.desopcion, oc.numcrud from usuario u "+
                 "join accesousuario au on u.idusuario = au.idusuario and u.idusuario='"+id+"'\n" +
                 "join opcioncrud oc on au.idopcion = oc.idopcion and oc.numcrud='0'";
+        db = DBHelper.getWritableDatabase();
+        return db.rawQuery(sql, null);
+    }
 
+    public Cursor obtenerSubMenu(String id, String idOpcion){
+        String sql = "select oc.desopcion, oc.numcrud from usuario u "+
+                "join accesousuario au on u.idusuario = au.idusuario and u.idusuario='"+id+"'\n" +
+                "join opcioncrud oc on au.idopcion = oc.idopcion and oc.numcrud!='0' and au.idopcion like '"+idOpcion+"'";
         abrir();
-        Cursor cursor = db.rawQuery(sql, null);
-        db.close();
-        return cursor ;
+        return db.rawQuery(sql, null);
     }
 
 }
