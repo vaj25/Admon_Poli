@@ -33,7 +33,7 @@ public class AreaInsertarActivity extends Activity {
         String aream=aream2.getText().toString();
         String regInsertados;
         Area area=new Area();
-        area.setIdArea(idarea+1);
+        area.setIdArea(idarea);
         area.setNombre(nombrearea);
         area.setCapacidad(Integer.parseInt(capacidadarea));
         area.setArea(Float.parseFloat(aream));

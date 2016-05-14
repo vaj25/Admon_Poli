@@ -52,4 +52,8 @@ public class Area {
         this.area = area;
     }
 
+    @Override
+    public String toString() {
+        return idArea +"-"+ nombre;
+    }
 }

@@ -21,7 +21,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText19"
+            android:id="@+id/cantHoras"
             android:layout_gravity="center_horizontal"
             android:hint="Cantidad De Horas"
             android:numeric="decimal"/>
@@ -29,7 +29,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText20"
+            android:id="@+id/cantPersonas"
             android:layout_gravity="center_horizontal"
             android:hint="Cantidad De Personas"
             android:numeric="integer"/>
@@ -37,10 +37,10 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText21"
+            android:id="@+id/monto"
             android:hint="Monto"
             android:clickable="false"
-            android:editable="false"
+            android:editable="true"
             android:enabled="false"
             android:focusable="false"
             android:numeric="integer"/>
@@ -48,6 +48,7 @@
         <Button
             style="@style/button"
             android:text="Insertar"
-            android:id="@+id/button9"/>
+            android:id="@+id/button9"
+            android:onClick="insertarTarifa"/>
     </LinearLayout>
 </ScrollView>

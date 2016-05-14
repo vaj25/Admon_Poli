@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class DeporteAreaEliminarActivity extends Activity {
@@ -34,11 +35,35 @@ public class DeporteAreaEliminarActivity extends Activity {
         adaptador1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sDeporte.setAdapter(adaptador1);
     }
+
     public void eliminarDeporteArea(View v){
+        int position= sArea.getSelectedItemPosition();
+        int position1= sDeporte.getSelectedItemPosition();
+        Iterator iterador = lista.listIterator();
+        Iterator iterador1 = lista1.listIterator();
+
+        int count=0;
+        int idarea=0;
+        int iddeporte=0;
+        while( iterador.hasNext() ) {
+            Area area = (Area) iterador.next();
+            if(count==position){
+                idarea=area.getIdArea();
+            }
+            count++;
+        }
+        int count1=0;
+        while( iterador1.hasNext() ) {
+            Deporte dep = (Deporte) iterador1.next();
+            if(count1==position1){
+                iddeporte=dep.getIdDeporte();
+            }
+            count1++;
+        }
         String regEliminadas;
         DeporteArea da=new DeporteArea();
-        da.setIdDeporte(sDeporte.getSelectedItemPosition()+1);
-        da.setIdArea(sArea.getSelectedItemPosition()+1);
+        da.setIdDeporte(iddeporte);
+        da.setIdArea(idarea);
         helper.abrir();
         regEliminadas=helper.eliminar(da);
         helper.cerrar();
