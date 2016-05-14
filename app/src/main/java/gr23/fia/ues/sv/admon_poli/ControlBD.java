@@ -54,6 +54,7 @@ public class ControlBD {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
+
             try {
                 db.execSQL("CREATE TABLE deporte(" +
                         "iddeporte INTEGER NOT NULL PRIMARY KEY," +
