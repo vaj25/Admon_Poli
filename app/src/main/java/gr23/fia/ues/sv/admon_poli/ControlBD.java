@@ -86,7 +86,7 @@ public class ControlBD {
                         ");");
                 db.execSQL("CREATE TABLE tarifa(" +
                         "montoarea FLOAT PRIMARY KEY NOT NULL," +
-                        "canthora TIME," +
+                        "canthora FLOAT," +
                         "cantpersona INTEGER);");
                 db.execSQL("CREATE TABLE solicitante(" +
                         "dui VARCHAR(9) PRIMARY KEY NOT NULL," +
@@ -335,21 +335,7 @@ public class ControlBD {
         }
     }
 
-    public String actualizar(Tarifa tarifa){
-        return null;
-    }
 
-    public String consultar(Tarifa tarifa){
-        return null;
-    }
-
-    public String eliminar(Tarifa tarifa){
-        return null;
-    }
-
-    public String insertar(Tarifa tarifa){
-        return null;
-    }
 
    /* public Administrador consultar(int idAdministrador){
         return null;
@@ -367,19 +353,65 @@ public class ControlBD {
         return null;
     }*/
 
-    public String actualizar(Solicitante solicitante){
+    //Tablas samuel.................................................................................
+    public Tarifa consultarTarifa(int cantHora, int cantPersona){
+        String[] id={String.valueOf(cantHora),String.valueOf(cantPersona)};
+        Cursor cursor=db.query("tarifa", camposTarifa, "canthora=? and  cantpersona=?", id,null,null,null );
+        if(cursor.moveToFirst()){
+            Tarifa tarifa=new Tarifa();
+            tarifa.setCanthora(cursor.getDouble(0));
+            tarifa.setCantPersonas(cursor.getInt(1));
+            return tarifa;
+        }else{
+            return null;
+        }
+    }
+
+    public String actualizar(Tarifa tarifa){
+
         return null;
     }
+
+    public String eliminar(Tarifa tarifa){
+
+        return null;
+    }
+
+    public String insertar(Tarifa tarifa){
+        String regInsertados="Registro Insertado n°=";
+        long contador=0;
+        ContentValues tar=new ContentValues();
+        tar.put("canthora", tarifa.getCanthora());
+        tar.put("cantpersona", tarifa.getCantPersonas());
+        tar.put("montoarea",tarifa.getMontoArea());
+        contador=db.insert("tarifa", null, tar);
+
+        if(contador==-1 || contador==0){
+            regInsertados="Error al insertar el registrooooooooo, Registro duplicado. verifivcar insercion";
+
+        }else{
+            regInsertados=regInsertados+contador;
+
+        }
+    return regInsertados;
+    }
+    //-----------------------------------------------------------------------------------------------
 
     public Solicitante consultarSolicitante(int idSolicitante){
         return null;
     }
 
+    public String actualizar(Solicitante solicitante){
+        return null;
+    }
+
     public String eliminar(Solicitante solicitante){
+
         return null;
     }
 
     public String insertar(Solicitante solicitante){
+
         return null;
     }
 //////////////////////ACTIVIDAD //////////////////////////////////////////////////////////////////////
@@ -1194,7 +1226,7 @@ public String insertar(Administrador administrador) {
         final int[] VAidarea = {1,2,3,4};
         final String[] VAnombrearea = {"Picsina","Cancha 11","Cancha Papi","Duela"};
         final int[] VAcapacidadarea = {110,5000,100,1000};
-        final float[] VAarea = {1875,22500,600,1200};
+        final float[] VAarea = {1875,22500,600,1300};
 
         final int[] VDAiddeporte = {1,2,3,4};
         final int[] VDAidarea = {1,2,3,4};
@@ -1215,7 +1247,7 @@ public String insertar(Administrador administrador) {
         final boolean[] VHinstructor = {true,false,true,false};
 
 
-        final double[] VTmontoarea = {56.89,32.4,123.5,789.3};
+       // final double[] VTmontoarea = {56.89,32.4,123.5,789.3};
         final double[] VTcanthora = {1.3,5.6,9.3,7.8};
         final int[] VTcantpersona = {100,200,500,500};
 
@@ -1332,7 +1364,7 @@ public String insertar(Administrador administrador) {
 
         Tarifa tarifa = new Tarifa();
         for(int i=0;i<4;i++){
-            tarifa.setMontoArea(VTmontoarea[i]);
+            //tarifa.setMontoArea(VTmontoarea[i]);
             tarifa.setCanthora(VTcanthora[i]);
             tarifa.setCantPersonas(VTcantpersona[i]);
             insertar(tarifa);
@@ -1416,24 +1448,25 @@ public String insertar(Administrador administrador) {
     }
     //by Moisés Herrera!!!
     public int contarRegistros(String tabla,String id) {
+        Integer aux=0;
         String[] campos = new String[]{id};
         abrir();
         int contador=0;
         Cursor c = db.query(tabla, campos, null, null, null, null,null);
-        if (c.moveToFirst()) {
-            do {
-                contador++;
-            } while (c.moveToNext());
-        }
-        return contador;
+        c.moveToLast();
+        aux=c.getInt(0)+1;
+        return aux;
     }
 
     public List consultaArea(){
         abrir();
-        List<String> lista= new ArrayList<>();
+        List<Area> lista= new ArrayList<>();
         Cursor cur=db.rawQuery("select idarea,nombrearea from area",null );
         while(cur.moveToNext()){
-            lista.add(cur.getString(0)+"-"+cur.getString(1));
+            Area area=new Area();
+            area.setIdArea(cur.getInt(0));
+            area.setNombre(cur.getString(1));
+            lista.add(area);
         }
         cur.close();
         db.close();
@@ -1441,10 +1474,13 @@ public String insertar(Administrador administrador) {
     }
     public List consultaDeporte(){
         abrir();
-        List<String> lista= new ArrayList<>();
+        List<Deporte> lista= new ArrayList<>();
         Cursor cur=db.rawQuery("select iddeporte,nombredeporte from deporte",null );
         while(cur.moveToNext()){
-            lista.add(cur.getString(0)+"-"+cur.getString(1));
+            Deporte dep=new Deporte();
+            dep.setIdDeporte(cur.getInt(0));
+            dep.setNombre(cur.getString(1));
+            lista.add(dep);
         }
         cur.close();
         db.close();

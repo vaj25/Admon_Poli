@@ -1,5 +1,7 @@
 package gr23.fia.ues.sv.admon_poli;
 
+import java.sql.Time;
+
 /**
  * Created by FAMILY on 07/05/2016.
  */
@@ -8,10 +10,16 @@ public class Tarifa {
     public Double canthora;
     public int cantPersonas;
 
-    public Tarifa(Double montoArea, double canthora, int cantPersonas) {
-        this.montoArea = montoArea;
+    public Double monto(){
+
+        return 0.5*canthora+1*cantPersonas;
+    }
+
+    public Tarifa(Double canthora, int cantPersonas) {
+
         this.canthora = canthora;
         this.cantPersonas = cantPersonas;
+        setMontoArea();
     }
 
     public Tarifa() {
@@ -21,15 +29,15 @@ public class Tarifa {
         return montoArea;
     }
 
-    public void setMontoArea(Double montoArea) {
-        this.montoArea = montoArea;
+    public void setMontoArea() {
+        this.montoArea = monto();
     }
 
-    public double getCanthora() {
+    public Double getCanthora() {
         return canthora;
     }
 
-    public void setCanthora(double canthora) {
+    public void setCanthora(Double canthora) {
         this.canthora = canthora;
     }
 

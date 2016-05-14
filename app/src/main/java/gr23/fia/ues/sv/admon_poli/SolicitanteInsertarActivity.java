@@ -1,13 +1,11 @@
 package gr23.fia.ues.sv.admon_poli;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
-public class SolicitanteInsertarActivity extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_solicitante_insertar);
-    }
-}
+

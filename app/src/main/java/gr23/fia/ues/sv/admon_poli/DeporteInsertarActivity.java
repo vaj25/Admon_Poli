@@ -27,7 +27,7 @@ public class DeporteInsertarActivity extends Activity {
         String nombre=NombreDeporte.getText().toString();
         String regInsertados;
         Deporte deporte=new Deporte();
-        deporte.setIdDeporte(iddeporte+1);
+        deporte.setIdDeporte(iddeporte);
         deporte.setNombre(nombre);
         helper.abrir();
         regInsertados=helper.insertar(deporte);

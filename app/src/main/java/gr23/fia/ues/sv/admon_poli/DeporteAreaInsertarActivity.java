@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class DeporteAreaInsertarActivity extends AppCompatActivity {
@@ -16,8 +17,8 @@ public class DeporteAreaInsertarActivity extends AppCompatActivity {
     EditText idActivo;
     Spinner sDeporte;
     Spinner sArea;
-    List<String> lista;
-    List<String> lista1;
+    List<Area> lista;
+    List<Deporte> lista1;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,13 +31,13 @@ public class DeporteAreaInsertarActivity extends AppCompatActivity {
 
         lista = new ArrayList<>();
         lista=helper.consultaArea();
-        ArrayAdapter<String> adaptador =new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,lista);
+        ArrayAdapter<Area> adaptador =new ArrayAdapter<Area>(this,android.R.layout.simple_spinner_item,lista);
         adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sArea.setAdapter(adaptador);
 
         lista1 =new ArrayList<>();
         lista1=helper.consultaDeporte();
-        ArrayAdapter<String> adaptador1 =new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,lista1);
+        ArrayAdapter<Deporte> adaptador1 =new ArrayAdapter<Deporte>(this,android.R.layout.simple_spinner_item,lista1);
         adaptador1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sDeporte.setAdapter(adaptador1);
     }
@@ -45,9 +46,31 @@ public class DeporteAreaInsertarActivity extends AppCompatActivity {
         String iddescripcion=idDescripcion.getText().toString();
         String idactivo=idActivo.getText().toString();
         DeporteArea da= new DeporteArea();
+        int position= sArea.getSelectedItemPosition();
+        int position1= sDeporte.getSelectedItemPosition();
+        Iterator iterador = lista.listIterator();
+        Iterator iterador1 = lista1.listIterator();
 
-        da.setIdDeporte(sDeporte.getSelectedItemPosition()+1);
-        da.setIdArea(sArea.getSelectedItemPosition()+1);
+        int count=0;
+        int idarea=0;
+        int iddeporte=0;
+        while( iterador.hasNext() ) {
+            Area area = (Area) iterador.next();
+            if(count==position){
+                idarea=area.getIdArea();
+            }
+            count++;
+        }
+        int count1=0;
+        while( iterador1.hasNext() ) {
+            Deporte dep = (Deporte) iterador1.next();
+            if(count1==position1){
+                iddeporte=dep.getIdDeporte();
+            }
+            count1++;
+        }
+        da.setIdDeporte(iddeporte);
+        da.setIdArea(idarea);
         da.setDescripcion(iddescripcion);
         da.setActivo(idactivo);
         helper.abrir();

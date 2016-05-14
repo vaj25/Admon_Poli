@@ -9,6 +9,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class DeporteAreaConsultarActivity extends Activity {
@@ -48,8 +49,30 @@ public class DeporteAreaConsultarActivity extends Activity {
     }
     public void consultarDeporteArea(View v) {
         helper.abrir();
-        DeporteArea da = helper.consultarDeporteArea(sDeporte.getSelectedItemPosition()+1,
-        sArea.getSelectedItemPosition()+1);
+        int position= sArea.getSelectedItemPosition();
+        int position1= sDeporte.getSelectedItemPosition();
+        //int count = helper.count("area");
+        Iterator iterador = lista.listIterator();
+        Iterator iterador1 = lista1.listIterator();
+        int count=0;
+        int idarea=0;
+        int iddeporte=0;
+        while( iterador.hasNext() ) {
+            Area area = (Area) iterador.next();
+            if(count==position){
+                idarea=area.getIdArea();
+            }
+            count++;
+        }
+        int count1=0;
+        while( iterador1.hasNext() ) {
+            Deporte deporte = (Deporte) iterador1.next();
+            if(count1==position1){
+                iddeporte=deporte.getIdDeporte();
+            }
+            count1++;
+        }
+        DeporteArea da = helper.consultarDeporteArea(iddeporte,idarea);
         helper.cerrar();
         if(da == null)
             Toast.makeText(this, "Deporte-Area no registrado", Toast.LENGTH_LONG).show();
