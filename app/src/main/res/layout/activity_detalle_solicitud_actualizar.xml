@@ -45,12 +45,9 @@
             android:onClick="limpiarTexto"/>
 
         <EditText android:id = "@+id/idDescripcion"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
             android:hint = "@string/iddescripcion"
             android:inputType = "text"
-            android:layout_marginTop = "25dip"
-            android:numeric="integer"/>
+            style="@style/noEditText"/>
 
     </LinearLayout>
 </ScrollView>
