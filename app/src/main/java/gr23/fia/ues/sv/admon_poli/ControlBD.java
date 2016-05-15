@@ -603,9 +603,9 @@ public String insertar(Administrador administrador) {
 
         String regAfectados="Filas afectadas= ";
         int contador = 0;
-        /*if (verificarIntegridad(solicitud,18)) {
+        if (verificarIntegridad(solicitud,18)) {
             contador+=db.delete("detallesolicitud", "idsolicitud='"+solicitud.getIdSolicitud()+"'", null);
-        }*/
+        }
         contador+=db.delete("solicitud", "idsolicitud='"+solicitud.getIdSolicitud()+"'", null);
         regAfectados+=contador;
         return regAfectados;
