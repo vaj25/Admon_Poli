@@ -18,12 +18,12 @@
             android:textColor = "@color/colorAccent"
             android:text="@string/eliminar_area"/>
 
-        <EditText android:id = "@+id/idArea"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
-            android:hint = "@string/txtelim_area"
-            android:inputType = "text"
-            android:layout_marginTop = "25dip"/>
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/select_actividad"
+            android:layout_marginTop = "25dip"
+            android:id="@+id/selectArea" />
 
 
         <Button
