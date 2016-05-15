@@ -129,4 +129,5 @@
     <string name="id_administrador">Código de Administrador</string>
     <string name="telefono_administrador">Telefono de Administrador</string>
     <string name="email_administrador">Email de Administrador</string>
+    <string name="horario">Horario</string>
 </resources>

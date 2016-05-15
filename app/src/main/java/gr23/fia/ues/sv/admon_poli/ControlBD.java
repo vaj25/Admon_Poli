@@ -156,6 +156,8 @@ public class ControlBD {
 
     //------------------------------------------------------------------------------------
     // metodos CRUD de cada tabla
+
+    //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ METODOS PABLO @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     public String eliminar(Horario horario){
         String regAfectados="filas afectadas= ";
         int contador=0;
@@ -1562,8 +1564,8 @@ public String insertar(Administrador administrador) {
         cerrar();
         return "Guardo Correctamente";
     }
-    //by Moisés Herrera, Pablo Tobar the great!!!
-    public int contarRegistros(String tabla, String id) {
+    //by Moisés Herrera
+    public int contarRegistros(String tabla,String id) {
         Integer aux=0;
         String[] campos = new String[]{id};
         abrir();
@@ -1618,26 +1620,43 @@ public String insertar(Administrador administrador) {
         return(lista);
     }
 
+    // by Pablo Tobar the great!!!
+
     public List consultaHorario(){
         abrir();
         List<Horario> lista= new ArrayList<>();
         Cursor cur=db.rawQuery("select idhorario,hora,dia,instructor     from horario",null );
         while(cur.moveToNext()){
-            Horario dep=new Horario();
-            dep.setIdHorario(cur.getInt(0));
-            dep.setHora(cur.getString(1));
-            dep.setDia(cur.getString(2));
+            Horario tab=new Horario();
+            tab.setIdHorario(cur.getInt(0));
+            tab.setHora(cur.getString(1));
+            tab.setDia(cur.getString(2));
             Integer aux= cur.getInt(3);
             if (aux==0){
-                dep.setInstructor(false);
+                tab.setInstructor(false);
             }
             else{
-                dep.setInstructor(true);
-            }            lista.add(dep);
+                tab.setInstructor(true);
+            }
+            lista.add(tab);
         }
         cur.close();
         db.close();
         return(lista);
+    }
+
+    public List consultaReserva(){
+        abrir();
+        List<Reserva> lista= new ArrayList<>();
+        Cursor cur=db.rawQuery("select idreserva,fechareserva,tiemporeserva,idhorario from reserva",null );
+        while(cur.moveToNext()){
+            Reserva tab=new Reserva();
+            tab.setIdReserva(cur.getInt(0));
+            tab.setFechaReserva(cur.getString(1));
+            tab.setTiempoReserva(cur.getString(2));
+            tab.setIdHorario(cur.getInt(3));
+            lista.add(tab);
+        }
     }
 
     /*
@@ -1662,3 +1681,6 @@ public String insertar(Administrador administrador) {
     }
 
 }
+
+
+

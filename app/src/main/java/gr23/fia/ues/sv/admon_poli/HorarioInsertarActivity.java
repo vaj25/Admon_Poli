@@ -25,6 +25,7 @@ public class HorarioInsertarActivity extends Activity {
         Hora = (EditText) findViewById(R.id.Hora);
         Dia = (EditText) findViewById(R.id.Dia);
         Cheked = (CheckBox) findViewById(R.id.Instruct);
+
     }
 
     public void insertarHorario(View v) {                  //metodo convocado en el evento onclick del boton insertar en el layout
