@@ -634,7 +634,7 @@ public String insertar(Administrador administrador) {
     }
 
     public String actualizar(DetalleSolicitud detalleSolicitud){
-        if(verificarIntegridad(detalleSolicitud, 3)){
+        if(verificarIntegridad(detalleSolicitud, 11)){
             String[] ids = {String.valueOf(detalleSolicitud.getIdSolicitud()), String.valueOf(detalleSolicitud.getIdArea())};
             ContentValues cv = new ContentValues();
             cv.put("descripcion", detalleSolicitud.getDescripcion());
