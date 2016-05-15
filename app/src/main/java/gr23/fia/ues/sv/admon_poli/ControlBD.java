@@ -1657,6 +1657,7 @@ public String insertar(Administrador administrador) {
             tab.setIdHorario(cur.getInt(3));
             lista.add(tab);
         }
+        return lista;
     }
 
     /*
