@@ -1,5 +1,6 @@
 package gr23.fia.ues.sv.admon_poli;
 
+import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
 public class SolicitudInsertarActivity extends AppCompatActivity {
@@ -19,6 +23,8 @@ public class SolicitudInsertarActivity extends AppCompatActivity {
     EditText dui;
     Spinner actividad;
     int idSolicitud;
+    Calendar fechaActual = GregorianCalendar.getInstance() ;
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 
     public void onCreate(Bundle savedInstanceState) {
@@ -34,7 +40,7 @@ public class SolicitudInsertarActivity extends AppCompatActivity {
 
         LinkedList acts = new LinkedList();
         helper.abrir();
-        idSolicitud = helper.count("solicitud") + 1;
+        idSolicitud = helper.contarRegistros("solicitud","idsolicitud") + 1;
         int count = helper.count("actividad");
         for(int i = 1; i<=count; i++){
             Actividad act = helper.consultarActividad(i) ;
@@ -48,7 +54,7 @@ public class SolicitudInsertarActivity extends AppCompatActivity {
     public void insertarSolicitud(View v) {
         int cantAs = Integer.parseInt(cantAsistentes.getText().toString()) ;
         String fecha = fechaReserva.getText().toString() ;
-        int idact = 1 ; //cambiar
+        int idact = actividad.getSelectedItemPosition() + 1 ; //cambiar
         String horas = horasReserva.getText().toString();
         String duiString = dui.getText().toString() ;
 
@@ -56,7 +62,7 @@ public class SolicitudInsertarActivity extends AppCompatActivity {
         Solicitud solicitud = new Solicitud();
         solicitud.setIdSolicitud(idSolicitud);
         solicitud.setEstado("En Proceso"); //siempre se tiene ese estado al principio
-        solicitud.setFechaSolicitud("11/05/2016");
+        solicitud.setFechaSolicitud(sdf.format(fechaActual.getTime()));
         solicitud.setFechaReserva(fecha);
         solicitud.setCantAsistentes(cantAs);
         solicitud.setIdAdministrador(1);
@@ -72,6 +78,9 @@ public class SolicitudInsertarActivity extends AppCompatActivity {
     }
 
     public void limpiarTexto(View v) {
-
+        fechaReserva.setText("");
+        cantAsistentes.setText("");
+        horasReserva.setText("");
+        dui.setText("");
     }
 }
