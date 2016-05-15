@@ -28,7 +28,7 @@
             android:inputType = "text"
             style="@style/editText"/>
 
-        <EditText android:id = "@+id/editEmailConsultar"
+        <EditText android:id = "@+id/editEmailAdConsultar"
             android:hint = "@string/email_administrador"
             android:inputType = "text"
             style="@style/editText"/>
