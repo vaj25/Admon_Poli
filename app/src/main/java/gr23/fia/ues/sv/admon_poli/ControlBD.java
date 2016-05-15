@@ -689,6 +689,13 @@ public String insertar(Administrador administrador) {
         if (verificarIntegridad(area,19)) {
             contador+=db.delete("deportearea", "idarea='"+area.getIdArea()+"'", null);
         }
+        if (verificarIntegridad(area,22)) {
+            contador+=db.delete("detallereserva", "idarea='"+area.getIdArea()+"'", null);
+        }
+        if (verificarIntegridad(area,23)) {
+            contador+=db.delete("detallesolicitud", "idarea='"+area.getIdArea()+"'", null);
+        }
+
         contador+=db.delete("area", "idarea='"+area.getIdArea()+"'", null);
         regAfectados+=contador;
         return regAfectados;}
@@ -1213,6 +1220,32 @@ public String insertar(Administrador administrador) {
                 String[] id1 = {String.valueOf(reserva.getIdReserva())};
                 abrir();
                 Cursor cursor1 = db.query("detallereserva", null, "idreserva = ?", id1, null, null, null);
+                if (cursor1.moveToFirst()) {
+                    //Se encontraron datos
+                    return true;
+                }
+                return false;
+            }
+            case 22:
+            {
+                //verificar que al area exista en detalleReserva
+                Area area = (Area) dato;
+                String[] id1 = {String.valueOf(area.getIdArea())};
+                abrir();
+                Cursor cursor1 = db.query("detallereserva", null, "idarea = ?", id1, null, null, null);
+                if (cursor1.moveToFirst()) {
+                    //Se encontraron datos
+                    return true;
+                }
+                return false;
+            }
+            case 23:
+            {
+                //verificar que al area exista en detalleSolicitud
+                Area area = (Area) dato;
+                String[] id1 = {String.valueOf(area.getIdArea())};
+                abrir();
+                Cursor cursor1 = db.query("detallesolicitud", null, "idarea = ?", id1, null, null, null);
                 if (cursor1.moveToFirst()) {
                     //Se encontraron datos
                     return true;
