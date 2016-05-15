@@ -18,13 +18,6 @@
             android:textSize = "25dip"
             android:textColor = "@color/colorAccent"/>
 
-        <EditText android:id = "@+id/IdHorario"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
-            android:hint = "@string/ident_horario"
-            android:inputType = "text"
-            android:layout_marginTop = "25dip"
-            android:numeric="integer"/>
 
         <EditText android:id = "@+id/Hora"
             android:layout_height = "wrap_content"

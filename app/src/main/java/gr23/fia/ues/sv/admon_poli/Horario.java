@@ -49,4 +49,9 @@ public class Horario {
     public void setInstructor(Boolean instructor) {
         this.instructor = instructor;
     }
+
+    @Override
+    public String toString() {
+        return idHorario +"-"+ dia + " " +hora;
+    }
 }

@@ -167,7 +167,7 @@
         <activity android:name=".DetalleSolicitudEliminarActivity" />
         <activity android:name=".DetalleSolicitudConsultarActivity" />
         <activity android:name=".DetalleSolicitudMenuActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LoginActivity" android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

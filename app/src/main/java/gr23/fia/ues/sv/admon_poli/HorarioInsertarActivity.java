@@ -28,13 +28,13 @@ public class HorarioInsertarActivity extends Activity {
     }
 
     public void insertarHorario(View v) {                  //metodo convocado en el evento onclick del boton insertar en el layout
-        String idhorario=IdHorario.getText().toString();
+        int idhorario=helper.contarRegistros("horario ","idhorario");
         String hora=Hora.getText().toString();
         String dia=Dia.getText().toString();
         boolean checked = Cheked.isChecked();
         String regInsertados;
         Horario horario =new Horario();
-        horario.setIdHorario(Integer.parseInt(idhorario));
+        horario.setIdHorario(idhorario);
         horario.setHora(hora);
         horario.setDia(dia);
         horario.setInstructor(checked);
@@ -45,7 +45,6 @@ public class HorarioInsertarActivity extends Activity {
     }
 
     public void limpiarTexto(View v) {   //metodo convocado en el evento onclick del boton limpiar en el layout
-        IdHorario.setText("");
         Hora.setText("");
         Dia.setText("");
         Cheked.setChecked(false);

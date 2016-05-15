@@ -36,7 +36,6 @@ public class DeporteInsertarActivity extends Activity {
     }
 
     public void limpiarTexto(View v) {
-        IdDeporte.setText("");
         NombreDeporte.setText("");
     }
 }

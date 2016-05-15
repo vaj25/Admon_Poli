@@ -1529,7 +1529,7 @@ public String insertar(Administrador administrador) {
         cerrar();
         return "Guardo Correctamente";
     }
-    //by Moisés Herrera!!!
+    //by Moisés Herrera, Pablo Tobar the great!!!
     public int contarRegistros(String tabla,String id) {
         Integer aux=0;
         String[] campos = new String[]{id};
@@ -1579,6 +1579,28 @@ public String insertar(Administrador administrador) {
             dep.setIdSolicitud(cur.getInt(0));
             dep.setFechaReserva(cur.getString(1));
             lista.add(dep);
+        }
+        cur.close();
+        db.close();
+        return(lista);
+    }
+
+    public List consultaHorario(){
+        abrir();
+        List<Horario> lista= new ArrayList<>();
+        Cursor cur=db.rawQuery("select idhorario,hora,dia,instructor     from horario",null );
+        while(cur.moveToNext()){
+            Horario dep=new Horario();
+            dep.setIdHorario(cur.getInt(0));
+            dep.setHora(cur.getString(1));
+            dep.setDia(cur.getString(2));
+            Integer aux= cur.getInt(3);
+            if (aux==0){
+                dep.setInstructor(false);
+            }
+            else{
+                dep.setInstructor(true);
+            }            lista.add(dep);
         }
         cur.close();
         db.close();

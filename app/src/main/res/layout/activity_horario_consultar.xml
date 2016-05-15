@@ -18,13 +18,12 @@
             android:textSize = "25dip"
             android:textColor = "@color/colorAccent"/>
 
-        <EditText android:id = "@+id/IdHorario"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
-            android:hint = "@string/ident_horario"
-            android:inputType = "text"
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/select_actividad"
             android:layout_marginTop = "25dip"
-            android:numeric="integer"/>
+            android:id="@+id/selectHorario" />
 
         <Button
             style="@style/button"
