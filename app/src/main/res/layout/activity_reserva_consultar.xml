@@ -18,12 +18,12 @@
             android:textSize = "25dip"
             android:textColor = "@color/colorAccent"/>
 
-        <EditText android:id = "@+id/IdReserva"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
-            android:hint = "@string/ident_reserva"
-            android:inputType = "text"
-            android:layout_marginTop = "25dip"/>
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/select_actividad"
+            android:layout_marginTop = "25dip"
+            android:id="@+id/selectReserva" />
 
         <Button
             style="@style/button"
@@ -57,7 +57,7 @@
         <EditText android:id = "@+id/IdHorario"
             android:layout_height = "wrap_content"
             android:layout_width = "fill_parent"
-            android:hint = "@string/ident_horario"
+            android:hint = "@string/horario"
             android:inputType = "text"
             android:layout_marginTop = "25dip"/>
 

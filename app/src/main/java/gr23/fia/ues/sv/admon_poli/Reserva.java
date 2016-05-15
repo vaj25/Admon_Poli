@@ -52,5 +52,10 @@ public class Reserva {
         this.tiempoReserva = tiempoReserva;
     }
 
+    @Override
+    public String toString() {
+        return idReserva +"-"+ fechaReserva;
+    }
+
 
 }
