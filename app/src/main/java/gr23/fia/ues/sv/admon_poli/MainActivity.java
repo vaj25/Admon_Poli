@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class MainActivity extends ListActivity {
     String[] menu={"Tabla Actividad","Tabla Administrador","Tabla Area","Tabla Deporte","Tabla DeporteArea",
             "Tabla Detalle Reserva","Tabla Detalle Solicitud","Tabla Horario","Tabla Reserva","Tabla Solicitante",
-            "Tabla Solicitud","Tabla Tarifa","LLenar Base de Datos"};
+            "Tabla Solicitud","Tabla Tarifa"};
 
     String[] activities={"ActividadMenuActivity","AdministradorMenuActivity","AreaMenuActivity","DeporteMenuActivity",
             "DeporteAreaMenuActivity","DetalleReservaMenuActivity","DetalleSolicitudMenuActivity","HorarioMenuActivity",
@@ -59,18 +59,16 @@ public class MainActivity extends ListActivity {
     protected void onListItemClick(ListView l,View v,int position,long id){
         super.onListItemClick(l, v, position, id);
 
-        /*String nombreValue = "";
+        /*String nombreValue="";
         String r = resultados.get(position);
 
-        for(int i=0;i<menu.length;i++){
-            if (r.equals(menu[i])){
-                nombreValue = activities[i];
+        for (int i=0;i<menu.length;i++)
+            if (r.compareTo(menu[i])==0){
+                nombreValue=activities[i];
                 break;
             }
-        }
-
-        try {
-            Class<?> clase = Class.forName("gr23.fia.ues.sv.admon_poli."+nombreValue);
+        try{
+            Class<?> clase=Class.forName("gr23.fia.ues.sv.admon_poli."+nombreValue);
             Intent inte = new Intent(this,clase);
             inte.putExtra("idUsuario",idUser);
             this.startActivity(inte);
@@ -88,11 +86,6 @@ public class MainActivity extends ListActivity {
             }catch(ClassNotFoundException e){
                 e.printStackTrace();
             }
-        }else{
-            helper.abrir();
-            String tost = helper.llenarBD();
-            helper.cerrar();
-            Toast.makeText(this, tost, Toast.LENGTH_SHORT).show();
         }
     }
 }

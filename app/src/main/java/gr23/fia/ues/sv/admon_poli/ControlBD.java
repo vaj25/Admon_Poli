@@ -45,7 +45,7 @@ public class ControlBD {
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
 
-        private static final String BASE_DATOS = "AdmonPoliv10.s3db" ;
+        private static final String BASE_DATOS = "AdmonPoliv1.s3db" ;
         private static final int VERSION = 2;
 
         DatabaseHelper(Context context) {
@@ -1393,7 +1393,7 @@ public String insertar(Administrador administrador) {
                 "02","02","02","02","02",
                 "02","02"} ;
         final String[] VAUidopcion =  {
-                "000","001","002","003","004",
+                "000","001","002","003","004",//admin
                 "010","011","012","013","014",
                 "020","021","022","023","024",
                 "030","031","032","033","034",
@@ -1405,7 +1405,7 @@ public String insertar(Administrador administrador) {
                 "090","091","092","093","094",
                 "100","101","102","103","104",
                 "110","111","112","113","114",
-                "003","013","023","033","043",
+                "003","013","023","033","043",//user
                 "053","063","064","073","083",
                 "093","100","101","102","103",
                 "104","114",
@@ -1555,7 +1555,7 @@ public String insertar(Administrador administrador) {
 
         //tabla accesousuario
         AccesoUsuario accesoUsuario = new AccesoUsuario() ;
-        for(int i=0; i<65;i++){
+        for(int i=0; i<89;i++){
             accesoUsuario.setIdOpcion(VAUidopcion[i]);
             accesoUsuario.setIdUsuario(VAUidusuario[i]);
             insertar(accesoUsuario) ;
