@@ -18,8 +18,8 @@ public class DetalleSolicitudConsultarActivity extends Activity {
     EditText idDescripcion;
     Spinner sSolicitud;
     Spinner sArea;
-    List<String> lista;
-    List<String> lista1;
+    List<Area> lista;
+    List<Solicitud> lista1;
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,22 +30,22 @@ public class DetalleSolicitudConsultarActivity extends Activity {
         sSolicitud = (Spinner) findViewById(R.id.selectSolicitud);
         sArea = (Spinner) findViewById(R.id.selectArea);
 
-        lista = new ArrayList<>();
+        lista = new ArrayList<Area>();
         lista=helper.consultaArea();
-        ArrayAdapter<String> adaptador =new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,lista);
+        ArrayAdapter<Area> adaptador =new ArrayAdapter<Area>(this,android.R.layout.simple_spinner_item,lista);
         adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sArea.setAdapter(adaptador);
 
         lista1 =new ArrayList<>();
         lista1=helper.consultaSolicitud();
-        ArrayAdapter<String> adaptador1 =new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,lista1);
+        ArrayAdapter<Solicitud> adaptador1 =new ArrayAdapter<Solicitud>(this,android.R.layout.simple_spinner_item,lista1);
         adaptador1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sSolicitud.setAdapter(adaptador1);
     }
     public void consultarDetalleSolicitud(View v) {
         helper.abrir();
-        int position= sSolicitud.getSelectedItemPosition();
-        int position1= sArea.getSelectedItemPosition();
+        int position1= sSolicitud.getSelectedItemPosition();
+        int position= sArea.getSelectedItemPosition();
         //int count = helper.count("area");
         Iterator iterador = lista.listIterator();
         Iterator iterador1 = lista1.listIterator();
