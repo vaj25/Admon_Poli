@@ -18,13 +18,11 @@
         android:textColor = "@color/colorAccent"
         android:text="@string/eliminar_solicitud"/>
 
-    <EditText android:id = "@+id/txtIdSolicitud"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:hint = "@string/select_sol"
-        android:inputType = "number"
+    <Spinner
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop = "25dip"
-        android:numeric="integer"/>
+        android:id="@+id/selectSolicitud" />
 
     <Button
         android:id="@+id/botonConsultar"
