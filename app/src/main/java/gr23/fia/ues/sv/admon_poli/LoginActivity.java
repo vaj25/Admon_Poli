@@ -18,9 +18,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        helper = new ControlBD(this) ;
+        helper = new ControlBD(this);
         helper.abrir();
-        String tost = helper.llenarBD();
+        if(helper.count("usuario") == 0) {
+            String tost = helper.llenarBD();
+        }
         helper.cerrar();
 
         username = (EditText)findViewById(R.id.editUsername);

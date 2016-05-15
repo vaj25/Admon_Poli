@@ -1563,7 +1563,7 @@ public String insertar(Administrador administrador) {
         return "Guardo Correctamente";
     }
     //by Moisés Herrera, Pablo Tobar the great!!!
-    public int contarRegistros(String tabla,String id) {
+    public int contarRegistros(String tabla, String id) {
         Integer aux=0;
         String[] campos = new String[]{id};
         abrir();
@@ -1662,6 +1662,3 @@ public String insertar(Administrador administrador) {
     }
 
 }
-
-
-
