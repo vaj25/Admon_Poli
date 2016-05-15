@@ -19,6 +19,7 @@ public class ActividadEliminarActivity extends Activity {
     }
 
     public void eliminarActividad(View v){
+
         String regEliminadas;
         Actividad actividad= new Actividad();
         actividad.setIdActividad(Integer.parseInt(editId.getText().toString()));
