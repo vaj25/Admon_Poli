@@ -46,16 +46,17 @@
             android:inputType = "text"
             style="@style/editText"/>
 
-        <EditText android:id = "@+id/txtFechaSolicitud"
-            android:hint = "@string/fecha_sol"
-            android:inputType = "text"
-            style="@style/editText"/>
-
         <Spinner
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop = "25dip"
             android:id="@+id/selectActividad" />
+
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop = "25dip"
+            android:id="@+id/selectEstado" />
 
     </LinearLayout>
 </ScrollView>

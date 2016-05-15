@@ -20,8 +20,10 @@ public class SolicitudActualizarActivity extends Activity {
     EditText cantAsistentes;
     Spinner actividad;
     EditText fechaReserva;
-    EditText fechaSolicitud;
+    Spinner estado ;
     List<Solicitud> lista ;
+    String id;
+    String idCompare = "01" ;
 
     /** Called when the activity is first created. */
     @Override
@@ -33,8 +35,24 @@ public class SolicitudActualizarActivity extends Activity {
         idSolicitud = (Spinner) findViewById(R.id.selectSolicitud);
         cantAsistentes = (EditText) findViewById(R.id.txtCantAsistentes);
         fechaReserva= (EditText) findViewById(R.id.txtFechaReserva);
-        fechaSolicitud = (EditText) findViewById(R.id.txtFechaSolicitud);
         actividad = (Spinner) findViewById(R.id.selectActividad);
+        estado = (Spinner) findViewById(R.id.selectEstado);
+
+        Bundle bundle = getIntent().getExtras();
+        id = bundle.getString("idUsuario");
+
+        if(id.compareTo(idCompare) != 0){
+            estado.setEnabled(false);
+        }else{
+            cantAsistentes.setEnabled(false);
+            fechaReserva.setEnabled(false);
+            actividad.setEnabled(false);
+        }
+
+        ArrayAdapter adapter =
+                ArrayAdapter.createFromResource(this,R.array.estados,android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        estado.setAdapter(adapter);
 
         LinkedList acts = new LinkedList();
         helper.abrir();
@@ -70,9 +88,21 @@ public class SolicitudActualizarActivity extends Activity {
             count++;
         }
         Solicitud solicitud = helper.consultarSolicitud(idsolicitud);
-        solicitud.setCantAsistentes(Integer.parseInt(cantAsistentes.getText().toString()));
-        solicitud.setFechaReserva(fechaReserva.getText().toString());
-        solicitud.setIdActividad(actividad.getSelectedItemPosition() + 1);
+
+        if(id.compareTo(idCompare) != 0){
+            solicitud.setCantAsistentes(Integer.parseInt(cantAsistentes.getText().toString()));
+            solicitud.setFechaReserva(fechaReserva.getText().toString());
+            solicitud.setIdActividad(actividad.getSelectedItemPosition() + 1);
+        }else{
+            String [] estados = getResources().getStringArray(R.array.estados);
+            String es = "";
+            for (int i=0; i<3; i++) {
+                if(estado.getSelectedItemPosition() == i){
+                    es = estados[i] ;
+                }
+            }
+            solicitud.setEstado(es);
+        }
 
         String estado = helper.actualizar(solicitud);
         helper.cerrar();
@@ -81,6 +111,5 @@ public class SolicitudActualizarActivity extends Activity {
     public void limpiarTexto(View v) {
         cantAsistentes.setText("") ;
         fechaReserva.setText("") ;
-        fechaSolicitud.setText("") ;
     }
 }
