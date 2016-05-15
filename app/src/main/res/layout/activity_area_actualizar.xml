@@ -48,7 +48,7 @@
             android:layout_height = "wrap_content"
             android:layout_width = "fill_parent"
             android:hint = "@string/capacidad_area"
-            android:inputType = "text"
+            android:inputType = "number|text"
             android:layout_marginTop = "25dip"
             android:numeric="integer"/>
 
@@ -56,7 +56,7 @@
             android:layout_height = "wrap_content"
             android:layout_width = "fill_parent"
             android:hint = "@string/area"
-            android:inputType = "text"
+            android:inputType = "text|numberDecimal"
             android:layout_marginTop = "25dip"
             android:numeric="decimal"/>
 
