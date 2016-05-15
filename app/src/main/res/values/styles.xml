@@ -22,4 +22,18 @@
         <item name="android:background">@drawable/botonpulsado</item>
     </style>
 
+    <style name="editText">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_marginTop">25dip</item>
+    </style>
+
+    <style name="noEditText" parent="@style/editText">
+        <item name="android:enabled">false</item>
+        <item name="android:focusable">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+        <item name="android:cursorVisible">false</item>
+        <item name="android:longClickable">false</item>
+    </style>
+
 </resources>

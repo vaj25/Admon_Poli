@@ -19,12 +19,9 @@
             android:text="@string/consultar_solicitud"/>
 
         <EditText android:id = "@+id/txtIdSolicitud"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
             android:hint = "@string/select_sol"
             android:inputType = "number"
-            android:layout_marginTop = "25dip"
-            android:numeric="integer"/>
+            style="@style/editText"/>
 
         <Button
             android:id="@+id/botonconsultar"
@@ -40,101 +37,51 @@
 
         <EditText
             android:id="@+id/editDui"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
             android:inputType="number"
-            android:enabled ="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:cursorVisible="false"
-            android:longClickable="false"
+            style="@style/noEditText"
             android:hint = "@string/dui_solicitante"/>
 
         <EditText
             android:id="@+id/editCanAsistentes"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
             android:inputType="number"
-            android:enabled ="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:cursorVisible="false"
-            android:longClickable="false"
-            android:hint = "@string/cant_asistentes"
-            android:numeric="integer"/>
+            style="@style/noEditText"
+            android:hint = "@string/cant_asistentes"/>
 
 
         <EditText
             android:id="@+id/ediFechaReserva"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
             android:inputType="text"
-            android:enabled="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:cursorVisible="false"
-            android:longClickable="false"
+            style="@style/noEditText"
             android:hint = "@string/fecha_reserva"/>
 
         <EditText
             android:id="@+id/ediFechaSolicitud"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
             android:inputType="text"
-            android:enabled="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:cursorVisible="false"
-            android:longClickable="false"
+            style="@style/noEditText"
             android:hint = "@string/fecha_sol"/>
 
         <EditText
-        android:id="@+id/ediActividad"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:enabled="false"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:cursorVisible="false"
-        android:longClickable="false"
-        android:hint = "@string/actividad"/>
+            android:id="@+id/ediActividad"
+            android:inputType="text"
+            style="@style/noEditText"
+            android:hint = "@string/actividad"/>
 
         <EditText
             android:id="@+id/editHorasReservadas"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
             android:inputType="number"
-            android:enabled ="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:cursorVisible="false"
-            android:longClickable="false"
-            android:hint = "@string/hora_reserva"
-            android:numeric="integer"/>
+            style="@style/noEditText"
+            android:hint = "@string/hora_reserva"/>
 
         <EditText
             android:id="@+id/ediMonto"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
             android:inputType="text"
-            android:enabled="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:cursorVisible="false"
-            android:longClickable="false"
+            style="@style/noEditText"
             android:hint = "@string/monto"/>
 
         <EditText
             android:id="@+id/ediEstado"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
             android:inputType="text"
-            android:enabled="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:cursorVisible="false"
-            android:longClickable="false"
+            style="@style/noEditText"
             android:hint = "@string/estado"/>
 
     </LinearLayout>

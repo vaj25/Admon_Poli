@@ -1,105 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android = "http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="gr23.fia.ues.sv.admon_poli.AdministradorConsultarActivity">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Id Administrador"
-        android:id="@+id/textView4"
-        android:layout_below="@+id/textView5"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="86dp" />
+    android:layout_height="match_parent">
+    <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+        android:layout_width = "fill_parent"
+        android:layout_height = "fill_parent"
+        android:padding = "20dip"
+        android:orientation = "vertical">
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="25dip"
-        android:textColor="@color/colorAccent"
-        android:text="Consultar Administrador"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        <TextView android:id = "@+id/title_insert_solicitud"
+            android:layout_width = "fill_parent"
+            android:layout_height = "wrap_content"
+            android:layout_marginTop = "10dip"
+            android:layout_marginBottom = "20dip"
+            android:text = "@string/consultar_administrador"
+            android:gravity = "center"
+            android:textSize = "25dip"
+            android:textColor = "@color/colorAccent"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editIdConsultarAdmin"
-        android:layout_alignBottom="@+id/textView4"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/textView4"
-        android:layout_toEndOf="@+id/textView4" />
+        <EditText android:id = "@+id/editIdConsultarAdmin"
+            android:hint = "@string/id_administrador"
+            android:inputType = "number"
+            style="@style/editText"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Consultar"
-        android:id="@+id/btnConsultar"
-        android:onClick="consultarAdministrador"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/textView6"
-        android:layout_toEndOf="@+id/textView6"
-        android:layout_marginBottom="56dp" />
+        <EditText android:id = "@+id/editTelefonoConsultar"
+            android:hint = "@string/telefono_administrador"
+            android:inputType = "text"
+            style="@style/editText"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Limpiar"
-        android:id="@+id/btnLimpiar"
-        android:layout_alignTop="@+id/btnConsultar"
-        android:layout_toRightOf="@+id/btnConsultar"
-        android:layout_toEndOf="@+id/btnConsultar"
-        android:layout_marginLeft="40dp"
-        android:layout_marginStart="40dp"
-        android:onClick="limpiarTexto"/>
+        <EditText android:id = "@+id/editEmailConsultar"
+            android:hint = "@string/email_administrador"
+            android:inputType = "text"
+            style="@style/editText"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Telefono"
-        android:id="@+id/textView6"
-        android:layout_below="@+id/textView4"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="57dp" />
+        <Button
+            style="@style/button"
+            android:text="@string/consultar_administrador"
+            android:onClick="consultarAdministrador"
+            android:id="@+id/btnConsultar"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editTelefonoConsultar"
+        <Button
+            style="@style/button"
+            android:text="@string/limpiar_area"
+            android:onClick="limpiarTexto"
+            android:id="@+id/btnLimpiarTexto"/>
 
-        android:layout_alignBottom="@+id/textView6"
-        android:layout_toRightOf="@+id/textView4"
-        android:layout_alignRight="@+id/textView5"
-        android:layout_alignEnd="@+id/textView5" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Email"
-        android:id="@+id/textView8"
-        android:layout_below="@+id/textView6"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="63dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editEmailAdConsultar"
-        android:layout_alignBottom="@+id/textView8"
-        android:layout_alignRight="@+id/editTelefonoConsultar"
-        android:layout_alignEnd="@+id/editTelefonoConsultar"
-        android:layout_alignLeft="@+id/editTelefonoConsultar"
-        android:layout_alignStart="@+id/editTelefonoConsultar" />
-
-</RelativeLayout>
+    </LinearLayout>
+</ScrollView>

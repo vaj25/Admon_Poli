@@ -2,68 +2,57 @@
 <ScrollView xmlns:android = "http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
-    android:layout_width = "fill_parent"
-    android:layout_height = "fill_parent"
-    android:padding = "20dip"
-    android:orientation = "vertical">
-
-    <TextView android:id = "@+id/title_insert_solicitud"
+    <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
         android:layout_width = "fill_parent"
-        android:layout_height = "wrap_content"
-        android:layout_marginTop = "10dip"
-        android:layout_marginBottom = "20dip"
-        android:text = "@string/actualizar_solicitud"
-        android:gravity = "center"
-        android:textSize = "25dip"
-        android:textColor = "@color/colorAccent"/>
+        android:layout_height = "fill_parent"
+        android:padding = "20dip"
+        android:orientation = "vertical">
 
-    <EditText android:id = "@+id/txtIdSolicitud"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:hint = "@string/select_sol"
-        android:inputType = "number"
-        android:layout_marginTop = "25dip"
-        android:numeric="integer"/>
+        <TextView android:id = "@+id/title_insert_solicitud"
+            android:layout_width = "fill_parent"
+            android:layout_height = "wrap_content"
+            android:layout_marginTop = "10dip"
+            android:layout_marginBottom = "20dip"
+            android:text = "@string/actualizar_solicitud"
+            android:gravity = "center"
+            android:textSize = "25dip"
+            android:textColor = "@color/colorAccent"/>
 
-    <Button
-        style="@style/button"
-        android:text="@string/enviar_solicitud"
-        android:id="@+id/actualizarSolicitud"/>
+        <EditText android:id = "@+id/txtIdSolicitud"
+            android:hint = "@string/select_sol"
+            android:inputType = "number"
+            style="@style/editText"/>
 
-    <Button
-        style="@style/button"
-        android:text="@string/limpiar_area"
-        android:onClick="limpiarTexto"
-        android:id="@+id/LimpiarButton"/>
+        <Button
+            style="@style/button"
+            android:text="@string/enviar_solicitud"
+            android:onClick="actualizarSolicitud"
+            android:id="@+id/actualizarSolicitud"/>
 
-    <EditText android:id = "@+id/txtCantAsistentes"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:hint = "@string/cant_asistentes"
-        android:inputType = "text"
-        android:layout_marginTop = "25dip"
-        android:numeric="integer"/>
+        <Button
+            style="@style/button"
+            android:text="@string/limpiar_area"
+            android:onClick="limpiarTexto"
+            android:id="@+id/LimpiarButton"/>
 
-    <EditText android:id = "@+id/txtFechaReserva"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:hint = "@string/fecha_reserva"
-        android:inputType = "text"
-        android:layout_marginTop = "25dip"/>
+        <EditText android:id = "@+id/txtCantAsistentes"
+            android:hint = "@string/cant_asistentes"
+            android:inputType = "number"
+            style="@style/editText"/>
 
-    <EditText android:id = "@+id/txtFechaSolicitud"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:hint = "@string/fecha_sol"
-        android:inputType = "text"
-        android:layout_marginTop = "25dip"/>
+        <EditText android:id = "@+id/txtFechaReserva"
+            android:hint = "@string/fecha_reserva"
+            android:inputType = "text"
+            style="@style/editText"/>
 
-    <EditText android:id = "@+id/txtActividad"
-        android:layout_height = "wrap_content"
-        android:layout_width = "fill_parent"
-        android:hint = "@string/actividad"
-        android:inputType = "number"
-        android:layout_marginTop = "25dip"/>
-</LinearLayout>
-    </ScrollView>
+        <EditText android:id = "@+id/txtFechaSolicitud"
+            android:hint = "@string/fecha_sol"
+            android:inputType = "text"
+            style="@style/editText"/>
+
+        <EditText android:id = "@+id/txtActividad"
+            android:hint = "@string/actividad"
+            android:inputType = "number"
+            style="@style/editText"/>
+    </LinearLayout>
+</ScrollView>

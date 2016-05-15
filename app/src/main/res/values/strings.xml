@@ -116,4 +116,17 @@
     <string name="user_name">Username</string>
     <string name="user_password">Password</string>
     <string name="login_button">Login</string>
+    <string name="id_actividad">Codigo de Actividad</string>
+    <string name="nombre_actividad">Nombre de la Actividad</string>
+    <string name="actualizar_actividad">Actualizar Actividad</string>
+    <string name="consultar_actividad">Consultar Actividad</string>
+    <string name="eliminar_actividad">Eliminar Actividad</string>
+    <string name="insertar_actividad">Insertar Actividad</string>
+    <string name="insertar_administrador">Insertar Administrador</string>
+    <string name="consultar_administrador">Consultar Administrador</string>
+    <string name="eliminar_administrador">Eliminar Administrador</string>
+    <string name="actualizar_administrador">Actualizar Administrador</string>
+    <string name="id_administrador">Código de Administrador</string>
+    <string name="telefono_administrador">Telefono de Administrador</string>
+    <string name="email_administrador">Email de Administrador</string>
 </resources>

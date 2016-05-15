@@ -1,83 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android = "http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="gr23.fia.ues.sv.admon_poli.ActividadActualizarActivity">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="id actividad"
-        android:id="@+id/textView2"
-        android:layout_above="@+id/editNombreActividad"
-        android:layout_marginBottom="56dp"
-        android:layout_alignLeft="@+id/btnInsertar"
-        android:layout_alignStart="@+id/btnInsertar" />
+    android:layout_height="match_parent">
+    <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+        android:layout_width = "fill_parent"
+        android:layout_height = "fill_parent"
+        android:padding = "20dip"
+        android:orientation = "vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nombre de la Actividad"
-        android:id="@+id/textView3"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <TextView android:id = "@+id/title_insert_solicitud"
+            android:layout_width = "fill_parent"
+            android:layout_height = "wrap_content"
+            android:layout_marginTop = "10dip"
+            android:layout_marginBottom = "20dip"
+            android:text = "@string/actualizar_actividad"
+            android:gravity = "center"
+            android:textSize = "25dip"
+            android:textColor = "@color/colorAccent"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editIdActividad"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_toRightOf="@+id/textView3"
-        android:layout_alignRight="@+id/editNombreActividad"
-        android:layout_alignEnd="@+id/editNombreActividad" />
+        <EditText android:id = "@+id/editIdActividad"
+            android:hint = "@string/id_actividad"
+            android:inputType = "number"
+            style="@style/editText"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editNombreActividad"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/textView3"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        <EditText android:id = "@+id/editNombreActividad"
+            android:hint = "@string/nombre_actividad"
+            android:inputType = "text"
+            style="@style/editText"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Actualizar"
-        android:id="@+id/btnActualizar"
-        android:layout_marginTop="58dp"
-        android:onClick="actualizarActividad"
-        android:layout_below="@+id/editNombreActividad"
-        android:layout_toLeftOf="@+id/editNombreActividad"
-        android:layout_toStartOf="@+id/editNombreActividad" />
+        <Button
+            style="@style/button"
+            android:text="@string/actualizar_actividad"
+            android:onClick="actualizarActividad"
+            android:id="@+id/actualizarActividad"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Limpiar"
-        android:id="@+id/btnLimpiar"
-        android:onClick="limpiarTexto"
-        android:layout_alignTop="@+id/btnActualizar"
-        android:layout_alignRight="@+id/editNombreActividad"
-        android:layout_alignEnd="@+id/editNombreActividad"
-        android:layout_marginRight="58dp"
-        android:layout_marginEnd="58dp" />
+        <Button
+            style="@style/button"
+            android:text="@string/limpiar_area"
+            android:onClick="limpiarTexto"
+            android:id="@+id/btnLimpiarTexto"/>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="25dip"
-        android:textColor="@color/colorAccent"
-        android:text="Actualizar Actividad"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-</RelativeLayout>
+    </LinearLayout>
+</ScrollView>
