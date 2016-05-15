@@ -68,6 +68,7 @@ public class SolicitudMenuActivity extends ListActivity {
             Class<?>
                     clase=Class.forName("gr23.fia.ues.sv.admon_poli."+nombreValue);
             Intent inte = new Intent(this,clase);
+
             this.startActivity(inte);
         }catch (ClassNotFoundException e){
             e.printStackTrace();

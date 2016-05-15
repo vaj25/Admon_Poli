@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         } else{
-            Toast.makeText(getBaseContext(), "Error Credenciales Incorrectas", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Error \nCredenciales Incorrectas", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -65,15 +65,15 @@ public class LoginActivity extends AppCompatActivity {
         String pass = password.getText().toString();
 
         if (user.isEmpty()) {
-            Toast.makeText(getBaseContext(), "Error Usuario NULL", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Error \nUsuario NULL", Toast.LENGTH_LONG).show();
             r = true ;
         }
 
         if(pass.isEmpty()){
-            Toast.makeText(getBaseContext(), "Error Contraseña NULL", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Error \nContraseña NULL", Toast.LENGTH_LONG).show();
             r = true ;
         } else if(pass.length() < 3 || pass.length() > 5){
-            Toast.makeText(getBaseContext(), "Error Contraseña Entre 3 y 5 Caracteres", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Error \n Contraseña Entre 3 y 5 Caracteres", Toast.LENGTH_LONG).show();
             r = true ;
         }
 

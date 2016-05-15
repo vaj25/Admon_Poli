@@ -40,7 +40,7 @@ public class SolicitudInsertarActivity extends AppCompatActivity {
 
         LinkedList acts = new LinkedList();
         helper.abrir();
-        idSolicitud = helper.contarRegistros("solicitud","idsolicitud") + 1;
+        idSolicitud = helper.contarRegistros("solicitud","idsolicitud");
         int count = helper.count("actividad");
         for(int i = 1; i<=count; i++){
             Actividad act = helper.consultarActividad(i) ;
