@@ -7,6 +7,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -451,8 +452,13 @@ public class ControlBD {
         String regAfectados="filas afectadas= ";
         int contador=0;
         if (verificarIntegridad(actividad,13)) {
+            String[] id = {String.valueOf(actividad.getIdActividad())};
+            Cursor c = db.query("solicitud" , camposSolicitud, "idactividad = ?",id,null, null, null);
+            if (c.moveToFirst()) {
+                    int idsolicitud= c.getInt(0);
+                contador+=db.delete("detallesolicitud", "idsolicitud='"+idsolicitud+"'", null);
+            }
             contador+=db.delete("solicitud", "idactividad='"+actividad.getIdActividad()+"'", null);
-            contador+=db.delete("detallesolicitud","idactividad='"+actividad.getIdActividad()+"'", null);
         }
         contador+=db.delete("actividad", "idactividad='"+actividad.getIdActividad()+"'", null);
         regAfectados+=contador;
@@ -528,8 +534,14 @@ public String insertar(Administrador administrador) {
         String regAfectados="filas afectadas= ";
         int contador=0;
         if (verificarIntegridad(administrador,14)) {
+            String[] id = {String.valueOf(administrador.getIdAdministrador())};
+            Cursor c = db.query("solicitud" , camposSolicitud, "idadministrador = ?",id,null, null, null);
+            if (c.moveToFirst()) {
+                int idsolicitud= c.getInt(0);
+                contador+=db.delete("detallesolicitud", "idsolicitud='"+idsolicitud+"'", null);
+            }
             contador+=db.delete("solicitud", "idadministrador='"+administrador.getIdAdministrador()+"'", null);
-            contador+=db.delete("detallesolicitud","idadministrador='"+administrador.getIdAdministrador()+"'", null);
+
         }
         contador+=db.delete("administrador", "idadministrador='"+administrador.getIdAdministrador()+"'", null);
         regAfectados+=contador;
