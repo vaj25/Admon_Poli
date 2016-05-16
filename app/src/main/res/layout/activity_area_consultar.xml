@@ -18,13 +18,13 @@
             android:textSize = "25dip"
             android:textColor = "@color/colorAccent"/>
 
-        <EditText android:id = "@+id/idArea"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
-            android:hint = "@string/id_area"
-            android:inputType = "text"
+
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/select_actividad"
             android:layout_marginTop = "25dip"
-            android:numeric="integer"/>
+            android:id="@+id/selectArea" />
 
 
         <Button
@@ -44,7 +44,12 @@
             android:layout_width = "fill_parent"
             android:hint = "@string/nombre_area"
             android:inputType = "text"
-            android:layout_marginTop = "25dip"/>
+            android:layout_marginTop = "25dip"
+            android:clickable="false"
+            android:nestedScrollingEnabled="true"
+            android:textIsSelectable="false"
+            android:enabled="false"
+            android:visibility="visible" />
 
         <EditText android:id = "@+id/capacidadArea"
             android:layout_height = "wrap_content"
@@ -52,6 +57,7 @@
             android:hint = "@string/capacidad_area"
             android:inputType = "text"
             android:layout_marginTop = "25dip"
+            android:enabled="false"
             android:numeric="integer"/>
 
         <EditText android:id = "@+id/aream2"
@@ -60,7 +66,9 @@
             android:hint = "@string/area"
             android:inputType = "text"
             android:layout_marginTop = "25dip"
+            android:enabled="false"
             android:numeric="decimal"/>
+
 
     </LinearLayout>
 </ScrollView>

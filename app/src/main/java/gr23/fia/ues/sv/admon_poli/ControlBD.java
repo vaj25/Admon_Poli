@@ -20,7 +20,7 @@ public class ControlBD {
     private static final String[] camposArea = new String [] {"idarea","nombrearea","capacidadarea","area"};
     private static final String[] camposReserva = new String [] {"idreserva","fechareserva","tiemporeserva","idhorario"};
     private static final String[] camposHorario = new String [] {"idhorario","hora","dia","instructor"};
-    private static final String[] camposDetalleReserva = new String [] {"idreserva","idarea"};
+    private static final String[] camposDetalleReserva = new String [] {"idreserva","idarea","descripcion"};
     private static final String[] camposTarifa = new String [] {"montoarea","canthora","cantpersona"};
     private static final String[] camposSolicitante = new String [] {"dui","apellidosol","telefonosol","emailsol"};
     private static final String[] camposActividad = new String [] {"idactividad","nombreactividad"};
@@ -45,7 +45,7 @@ public class ControlBD {
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
 
-        private static final String BASE_DATOS = "AdmonPoliv10.s3db" ;
+        private static final String BASE_DATOS = "AdmonPoliv3.s3db" ;
         private static final int VERSION = 2;
 
         DatabaseHelper(Context context) {
@@ -83,6 +83,7 @@ public class ControlBD {
                 db.execSQL("CREATE TABLE detallereserva(" +
                         "idreserva INTEGER NOT NULL," +
                         "idarea INTEGER NOT NULL," +
+                        "descripcion VARCHAR(50)," +
                         "PRIMARY KEY(idreserva,idarea)" +
                         ");");
                 db.execSQL("CREATE TABLE tarifa(" +
@@ -288,7 +289,8 @@ public class ControlBD {
             long contador=0;
             ContentValues detallereserv = new ContentValues();
             detallereserv.put("idreserva", detalleReserva.getIdReserva());   //idreserva campo en la tabla
-            detallereserv.put("idarea", detalleReserva.getIdArea());   //idreserva campo en la tabla
+            detallereserv.put("idarea", detalleReserva.getIdArea());
+            detallereserv.put("descripcion", detalleReserva.getDescripcion());
             contador=db.insert("detallereserva", null, detallereserv);
             if(contador==-1 || contador==0)
             {
@@ -302,13 +304,17 @@ public class ControlBD {
          return "Error al Insertar el registro, no existen campos en tablas padre";
     }
 
-    public DetalleReserva consultarDetalleReserva(int idReserva){
-        String[] id = {String.valueOf(idReserva)};
-        Cursor cursor = db.query("detallereserva", camposDetalleReserva, "idreserva = ?", id, null, null, null);
+    public DetalleReserva consultarDetalleReserva(int idReserva,int idArea){
+        String[] id = {String.valueOf(idReserva), (String.valueOf(idArea))};
+        Cursor cursor = db.query("detallereserva", camposDetalleReserva, "idreserva = ? AND idarea = ?", id, null, null, null);
+
+        //String[] id = {String.valueOf(idReserva)};
+        //Cursor cursor = db.query("detallereserva", camposDetalleReserva, "idreserva = ?", id, null, null, null);
         if(cursor.moveToFirst()){
             DetalleReserva detalleReserva = new DetalleReserva();
             detalleReserva.setIdReserva(cursor.getInt(0));
             detalleReserva.setIdArea(cursor.getInt(1));
+            detalleReserva.setDescripcion(cursor.getString(2));
             return detalleReserva;
         }else{ return null;
         }
@@ -317,28 +323,23 @@ public class ControlBD {
     public String eliminar(DetalleReserva detalleReserva){
         String regAfectados="filas afectadas= ";
         int contador=0;
-
-        /*if (verificarIntegridad(detalleReserva,20)) {
-            contador+=db.delete("detallereserva", "idreserva='"+reserva.getIdReserva()+"'", null);
-        }*/
-        contador+=db.delete("detallereserva", "idreserva='"+detalleReserva.getIdReserva()+"'", null);
+        String where="idreserva='"+detalleReserva.getIdReserva()+"'";
+        where=where+" AND idarea='"+detalleReserva.getIdArea()+"'";
+        contador+=db.delete("detallereserva", where, null);
         regAfectados+=contador;
-        return regAfectados;
-    }
+        return regAfectados;}
 
     public String actualizar(DetalleReserva detalleReserva){
         if(verificarIntegridad(detalleReserva, 8)){
             String[] ids = {String.valueOf(detalleReserva.getIdReserva() ), String.valueOf(detalleReserva.getIdArea())};
             ContentValues cv = new ContentValues();
-            cv.put("idreserva", detalleReserva.getIdReserva());
-            cv.put("idarea", detalleReserva.getIdArea());
+            cv.put("descripcion", detalleReserva.getDescripcion());
             db.update("detallereserva", cv, "idreserva = ? AND idarea = ?", ids);
             return "Registro Actualizado Correctamente";
         }else{
             return "Registro no existe";
         }
     }
-
 
 
    /* public Administrador consultar(int idAdministrador){
@@ -1281,6 +1282,7 @@ public String insertar(Administrador administrador) {
 
         final int[] VDRidarea = {1,2,3,4};
         final int[] VDRidreserva = {1,2,3,4};
+        final String[] VDRdescripcion = {"reserva1","reserva2","reserva3","reserva4"};
 
         final int[] VRidreserva = {1,2,3,4};
         final String[] VRfechareserva = {"10/05/16","10/05/16","10/05/16","10/05/16"};
@@ -1397,7 +1399,7 @@ public String insertar(Administrador administrador) {
                 "02","02","02","02","02",
                 "02","02"} ;
         final String[] VAUidopcion =  {
-                "000","001","002","003","004",
+                "000","001","002","003","004",//admin
                 "010","011","012","013","014",
                 "020","021","022","023","024",
                 "030","031","032","033","034",
@@ -1409,7 +1411,7 @@ public String insertar(Administrador administrador) {
                 "090","091","092","093","094",
                 "100","101","102","103","104",
                 "110","111","112","113","114",
-                "003","013","023","033","043",
+                "003","013","023","033","043",//user
                 "053","063","064","073","083",
                 "093","100","101","102","103",
                 "104","114",
@@ -1430,7 +1432,6 @@ public String insertar(Administrador administrador) {
         db.execSQL("DELETE FROM horario");
         db.execSQL("DELETE FROM administrador");
         db.execSQL("DELETE FROM solicitud");
-
         db.execSQL("DELETE FROM usuario");
         db.execSQL("DELETE FROM opcioncrud");
         db.execSQL("DELETE FROM accesousuario");
@@ -1479,6 +1480,8 @@ public String insertar(Administrador administrador) {
         for(int i=0;i<4;i++){
             detallereserva.setIdReserva(VDRidreserva[i]);
             detallereserva.setIdArea(VDRidarea[i]);
+            detallereserva.setDescripcion(VDRdescripcion[i]);
+
 
             insertar(detallereserva);
         }
@@ -1559,7 +1562,7 @@ public String insertar(Administrador administrador) {
 
         //tabla accesousuario
         AccesoUsuario accesoUsuario = new AccesoUsuario() ;
-        for(int i=0; i<65;i++){
+        for(int i=0; i<89;i++){
             accesoUsuario.setIdOpcion(VAUidopcion[i]);
             accesoUsuario.setIdUsuario(VAUidusuario[i]);
             insertar(accesoUsuario) ;

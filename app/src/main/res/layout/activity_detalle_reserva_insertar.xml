@@ -18,21 +18,28 @@
             android:textSize = "25dip"
             android:textColor = "@color/colorAccent"/>
 
-        <EditText android:id = "@+id/IdReserva"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
-            android:hint = "@string/ident_reserva"
-            android:inputType = "text"
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/select_actividad"
             android:layout_marginTop = "25dip"
-            android:numeric="integer"/>
+            android:id="@+id/selectReserva" />
 
-        <EditText android:id = "@+id/IdArea"
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/select_actividad"
+            android:layout_marginTop = "25dip"
+            android:id="@+id/selectArea" />
+
+        <EditText android:id = "@+id/idDescripcion"
             android:layout_height = "wrap_content"
             android:layout_width = "fill_parent"
-            android:hint = "@string/ident_area"
+            android:hint = "@string/iddescripcion"
             android:inputType = "text"
             android:layout_marginTop = "25dip"
-            android:numeric="integer"/>
+            android:numeric="integer"
+            android:enabled="true" />
 
         <Button
             style="@style/button"

@@ -11,14 +11,12 @@ import android.widget.Toast;
 public class DeporteInsertarActivity extends Activity {
 
     ControlBD helper;
-    EditText IdDeporte;
     EditText NombreDeporte;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deporte_insertar);
         helper = new ControlBD(this);
-        IdDeporte = (EditText) findViewById(R.id.IdDeporte);
         NombreDeporte = (EditText) findViewById(R.id.NombreDeporte);
     }
 

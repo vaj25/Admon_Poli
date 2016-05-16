@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class SolicitudMenuActivity extends ListActivity {
 
     public ArrayList<String> resultados= new ArrayList<>();
-    String id;
+    String idUser;
     ControlBD helper;
     String[] menu = {"Insertar Solicitud","Eliminar Solicitud","Consultar Solicitud", "Actualizar Solicitud"};
     String[] activities = {"SolicitudInsertarActivity","SolicitudEliminarActivity","SolicitudConsultarActivity",
@@ -28,11 +28,11 @@ public class SolicitudMenuActivity extends ListActivity {
         super.onCreate(savedInstanceState);
 
         Bundle bundle = getIntent().getExtras();
-        id = bundle.getString("idUsuario");
+        idUser = bundle.getString("idUsuario");
 
         try{
             helper=new ControlBD(this);
-            Cursor c = helper.obtenerSubMenu(id,"10_");
+            Cursor c = helper.obtenerSubMenu(idUser,"10_");
             if(c!=null) {
                 if (c.moveToFirst())
                     do {
@@ -68,6 +68,7 @@ public class SolicitudMenuActivity extends ListActivity {
             Class<?>
                     clase=Class.forName("gr23.fia.ues.sv.admon_poli."+nombreValue);
             Intent inte = new Intent(this,clase);
+            inte.putExtra("idUsuario",idUser);
             this.startActivity(inte);
         }catch (ClassNotFoundException e){
             e.printStackTrace();

@@ -46,11 +46,9 @@
             android:id="@+id/LimpiarButton"/>
 
         <EditText android:id = "@+id/idDescripcion"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
+            style="@style/noEditText"
             android:hint = "@string/iddescripcion"
-            android:inputType = "text"
-            android:layout_marginTop = "25dip"/>
+            android:inputType = "text"/>
 
     </LinearLayout>
 </ScrollView>

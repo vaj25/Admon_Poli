@@ -19,7 +19,6 @@ public class AreaInsertarActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_area_insertar);
         helper = new ControlBD(this);
-        idArea = (EditText) findViewById(R.id.idArea);
         nombreArea = (EditText) findViewById(R.id.nombreArea);
         capacidadArea = (EditText) findViewById(R.id.capacidadArea);
         aream2 = (EditText) findViewById(R.id.aream2);
@@ -44,7 +43,6 @@ public class AreaInsertarActivity extends Activity {
     }
 
     public void limpiarTexto(View v) {
-        idArea.setText("");
         nombreArea.setText("");
         capacidadArea.setText("");
         aream2.setText("");

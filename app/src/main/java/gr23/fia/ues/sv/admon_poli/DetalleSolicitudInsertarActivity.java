@@ -1,7 +1,6 @@
 package gr23.fia.ues.sv.admon_poli;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -13,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class DetalleSolicitudInsertarActivity extends AppCompatActivity {
+public class DetalleSolicitudInsertarActivity extends Activity {
 
     ControlBD helper;
     EditText idDescripcion;

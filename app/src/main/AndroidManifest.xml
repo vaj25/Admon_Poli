@@ -162,12 +162,23 @@
         <activity
             android:name=".TarifaEliminarActivity"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".DetalleSolicitudActualizarActivity" />
-        <activity android:name=".DetalleSolicitudInsertarActivity" />
-        <activity android:name=".DetalleSolicitudEliminarActivity" />
-        <activity android:name=".DetalleSolicitudConsultarActivity" />
-        <activity android:name=".DetalleSolicitudMenuActivity" />
-        <activity android:name=".LoginActivity" android:windowSoftInputMode="stateHidden">
+        <activity
+            android:name=".DetalleSolicitudActualizarActivity"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name=".DetalleSolicitudInsertarActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".DetalleSolicitudEliminarActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".DetalleSolicitudConsultarActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".DetalleSolicitudMenuActivity" />
+        <activity
+            android:name=".LoginActivity"
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

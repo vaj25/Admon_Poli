@@ -38,7 +38,8 @@
         android:hint = "@string/iddescripcion"
         android:inputType = "text"
         android:layout_marginTop = "25dip"
-        android:numeric="integer"/>
+        android:numeric="integer"
+        android:enabled="true"/>
 
     <EditText android:id = "@+id/idActivo"
         android:layout_height = "wrap_content"
@@ -46,7 +47,8 @@
         android:hint = "@string/idactivo"
         android:inputType = "text"
         android:layout_marginTop = "25dip"
-        android:numeric="integer"/>
+        android:enabled="true"/>
+
     <Button
         style="@style/button"
         android:text="@string/enviar_area"
