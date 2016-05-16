@@ -18,11 +18,6 @@
             android:textSize = "25dip"
             android:textColor = "@color/colorAccent"/>
 
-        <EditText android:id = "@+id/editIdAdmin"
-            android:hint = "@string/id_administrador"
-            android:inputType = "number"
-            style="@style/editText"/>
-
         <EditText android:id = "@+id/editTelefonoActualizar"
             android:hint = "@string/telefono_administrador"
             android:inputType = "text"

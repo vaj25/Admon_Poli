@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 public class AdministradorInsertarActivity extends Activity {
     ControlBD helper;
-    EditText editIdAdmin;
+   // EditText editIdAdmin;
     EditText editTelefono;
     EditText editEmail;
     @Override
@@ -16,15 +16,16 @@ public class AdministradorInsertarActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_administrador_insertar);
         helper =new ControlBD(this);
-        editIdAdmin=(EditText)findViewById(R.id.editIdAdmin);
+        //editIdAdmin=(EditText)findViewById(R.id.editIdAdmin);
         editTelefono=(EditText)findViewById(R.id.editTelefonoActualizar);
         editEmail=(EditText)findViewById(R.id.editEmail);
     }
 
     public void insertarAdministrador(View v){
-        int idAdmin = Integer.parseInt(editIdAdmin.getText().toString());
+        //int idAdmin = Integer.parseInt(editIdAdmin.getText().toString());
         int telAdmin = Integer.parseInt(editTelefono.getText().toString());
         String email= editEmail.getText().toString();
+        int idAdmin=helper.contarRegistros("administrador","idadministrador");
         String regInsertados;
         Administrador administrador= new Administrador();
         administrador.setIdAdministrador(idAdmin);
@@ -37,7 +38,7 @@ public class AdministradorInsertarActivity extends Activity {
     }
 
     public void limpiarTexto(View v){
-        editIdAdmin.setText("");
+        //editIdAdmin.setText("");
         editTelefono.setText("");
         editEmail.setText("");
     }

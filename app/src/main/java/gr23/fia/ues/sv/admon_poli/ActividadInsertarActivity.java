@@ -10,23 +10,25 @@ import android.widget.Toast;
 public class ActividadInsertarActivity extends Activity {
 
     ControlBD helper;
-    EditText editIdActividad;
+   // EditText editIdActividad;
     EditText editNombreActividad;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_insertar);
         helper = new ControlBD(this);
-        editIdActividad = (EditText) findViewById(R.id.editIdActividad);
+       // editIdActividad = (EditText) findViewById(R.id.editIdActividad);
         editNombreActividad = (EditText) findViewById(R.id.editNombreActividad);
     }
 
     public void insertarActividad(View v){
-        int idActividad = Integer.parseInt(editIdActividad.getText().toString());
+      //  int idActividad = Integer.parseInt(editIdActividad.getText().toString());
         String nombreActividad=editNombreActividad.getText().toString();
         String regInsertados;
         Actividad actividad=new Actividad();
-        actividad.setIdActividad(idActividad);
+        //actividad.setIdActividad(idActividad);
+        int idactiv=helper.contarRegistros("actividad","idactividad");
+        actividad.setIdActividad(idactiv);
         actividad.setNombre(nombreActividad);
         helper.abrir();
         regInsertados=helper.insertar(actividad);
@@ -35,7 +37,7 @@ public class ActividadInsertarActivity extends Activity {
     }
 
     public void limpiarTexto(View v){
-        editIdActividad.setText("");
+       // editIdActividad.setText("");
         editNombreActividad.setText("");
     }
 }

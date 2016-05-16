@@ -451,6 +451,7 @@ public class ControlBD {
         int contador=0;
         if (verificarIntegridad(actividad,13)) {
             contador+=db.delete("solicitud", "idactividad='"+actividad.getIdActividad()+"'", null);
+            contador+=db.delete("detallesolicitud","idactividad='"+actividad.getIdActividad()+"'", null);
         }
         contador+=db.delete("actividad", "idactividad='"+actividad.getIdActividad()+"'", null);
         regAfectados+=contador;
@@ -525,11 +526,14 @@ public String insertar(Administrador administrador) {
     public String eliminar(Administrador administrador){
         String regAfectados="filas afectadas= ";
         int contador=0;
-        String where="idadministrador='"+administrador.getIdAdministrador()+"'";
-        contador+=db.delete("administrador", where, null);
+        if (verificarIntegridad(administrador,14)) {
+            contador+=db.delete("solicitud", "idadministrador='"+administrador.getIdAdministrador()+"'", null);
+            contador+=db.delete("detallesolicitud","idadministrador='"+administrador.getIdAdministrador()+"'", null);
+        }
+        contador+=db.delete("administrador", "idadministrador='"+administrador.getIdAdministrador()+"'", null);
         regAfectados+=contador;
         return regAfectados;
-    }
+        }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //Tablas Alberto
