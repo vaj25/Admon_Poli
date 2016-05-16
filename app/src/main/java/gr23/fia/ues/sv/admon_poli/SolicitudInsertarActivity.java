@@ -1,7 +1,7 @@
 package gr23.fia.ues.sv.admon_poli;
 
+import android.app.Activity;
 import android.provider.CalendarContract;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -14,7 +14,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
-public class SolicitudInsertarActivity extends AppCompatActivity {
+public class SolicitudInsertarActivity extends Activity {
 
     ControlBD helper;
     EditText fechaReserva;
