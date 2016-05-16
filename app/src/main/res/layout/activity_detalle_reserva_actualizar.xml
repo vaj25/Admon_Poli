@@ -18,31 +18,39 @@
             android:textSize = "25dip"
             android:textColor = "@color/colorAccent"/>
 
-        <EditText android:id = "@+id/IdReserva"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
-            android:hint = "@string/ident_reserva"
-            android:inputType = "text"
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/select_actividad"
             android:layout_marginTop = "25dip"
-            android:numeric="integer"/>
+            android:id="@+id/selectReserva" />
 
-        <EditText android:id = "@+id/IdArea"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
-            android:hint = "@string/ident_area"
-            android:inputType = "text"
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/select_actividad"
             android:layout_marginTop = "25dip"
-            android:numeric="integer"/>
+            android:id="@+id/selectArea" />
 
         <Button
             style="@style/button"
             android:text="@string/actuDetalleReserva"
+            android:onClick="actualizarDetalleReserva"
             android:id="@+id/ActuDetalleReservaButton"/>
 
         <Button
             style="@style/button"
             android:text="@string/limpiar"
+            android:onClick="limpiarTexto"
             android:id="@+id/LimpiarButton"/>
+
+        <EditText android:id = "@+id/idDescripcion"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
+            android:hint = "@string/iddescripcion"
+            android:inputType = "text"
+            android:layout_marginTop = "25dip"
+            android:numeric="integer"/>
 
     </LinearLayout>
 </ScrollView>

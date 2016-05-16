@@ -8,10 +8,12 @@ public class DetalleReserva {
 
     private int idReserva;
     private int idArea;
+    private String descripcion;
 
-    public DetalleReserva(int idReserva, int idArea){
+    public DetalleReserva(int idReserva, int idArea, String descripcion){
         this.idReserva = idReserva;
         this.idArea =  idArea;
+        this.descripcion = descripcion;
     }
 
     public DetalleReserva() {
@@ -25,9 +27,12 @@ public class DetalleReserva {
         this.idReserva = idReserva;
     }
 
-    public int getIdArea() {
-        return idArea;
-    }
+    public int getIdArea() {return idArea; }
+
+
+    public String getDescripcion() {return descripcion; }
+
+    public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
 
     public void setIdArea(int idArea) {
         this.idArea = idArea;
