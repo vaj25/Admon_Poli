@@ -46,6 +46,11 @@
             android:inputType = "text"
             style="@style/editText"/>
 
+        <EditText android:id = "@+id/txtHoraReserva"
+            android:hint = "@string/hora_reserva"
+            android:inputType = "number"
+            style="@style/editText"/>
+
         <Spinner
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

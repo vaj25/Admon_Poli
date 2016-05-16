@@ -20,6 +20,7 @@ public class SolicitudActualizarActivity extends Activity {
     EditText cantAsistentes;
     Spinner actividad;
     EditText fechaReserva;
+    EditText horaReserva;
     Spinner estado ;
     List<Solicitud> lista ;
     String id;
@@ -35,6 +36,7 @@ public class SolicitudActualizarActivity extends Activity {
         idSolicitud = (Spinner) findViewById(R.id.selectSolicitud);
         cantAsistentes = (EditText) findViewById(R.id.txtCantAsistentes);
         fechaReserva= (EditText) findViewById(R.id.txtFechaReserva);
+        horaReserva= (EditText) findViewById(R.id.txtHoraReserva);
         actividad = (Spinner) findViewById(R.id.selectActividad);
         estado = (Spinner) findViewById(R.id.selectEstado);
 
@@ -92,6 +94,7 @@ public class SolicitudActualizarActivity extends Activity {
         if(id.compareTo(idCompare) != 0){
             solicitud.setCantAsistentes(Integer.parseInt(cantAsistentes.getText().toString()));
             solicitud.setFechaReserva(fechaReserva.getText().toString());
+            solicitud.setHoraReservada(String.valueOf(horaReserva.getText().toString()));
             solicitud.setIdActividad(actividad.getSelectedItemPosition() + 1);
         }else{
             String [] estados = getResources().getStringArray(R.array.estados);
@@ -111,5 +114,6 @@ public class SolicitudActualizarActivity extends Activity {
     public void limpiarTexto(View v) {
         cantAsistentes.setText("") ;
         fechaReserva.setText("") ;
+        horaReserva.setText("") ;
     }
 }
