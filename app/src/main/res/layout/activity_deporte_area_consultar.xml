@@ -50,13 +50,16 @@
             android:layout_width = "fill_parent"
             android:hint = "@string/iddescripcion"
             android:inputType = "text"
+            android:enabled="false"
             android:layout_marginTop = "25dip"/>
+
 
         <EditText android:id = "@+id/idActivo"
             android:layout_height = "wrap_content"
             android:layout_width = "fill_parent"
             android:hint = "@string/idactivo"
             android:inputType = "text"
+            android:enabled="false"
             android:layout_marginTop = "25dip"/>
 
 

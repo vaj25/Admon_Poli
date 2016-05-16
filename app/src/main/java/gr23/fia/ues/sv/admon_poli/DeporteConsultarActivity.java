@@ -50,7 +50,7 @@ public class DeporteConsultarActivity extends Activity {
         if(deporte == null)
             Toast.makeText(this, "Deporte-Area no registrado", Toast.LENGTH_LONG).show();
         else{
-            idNombre.setText(String.valueOf(deporte.getNombre()));
+            idNombre.setText("Nombre Deporte: "+String.valueOf(deporte.getNombre()));
             }
     }
     public void limpiarTexto(View v) {
