@@ -75,8 +75,8 @@ public class DeporteAreaConsultarActivity extends Activity {
         if(da == null)
             Toast.makeText(this, "Deporte-Area no registrado", Toast.LENGTH_LONG).show();
         else{
-            idDescripcion.setText(String.valueOf(da.getDescripcion()));
-            idActivo.setText(String.valueOf(da.isActivo()));
+            idDescripcion.setText("Descripción: "+String.valueOf(da.getDescripcion()));
+            idActivo.setText("Status: "+String.valueOf(da.isActivo()));
         }
     }
     public void limpiarTexto(View v) {

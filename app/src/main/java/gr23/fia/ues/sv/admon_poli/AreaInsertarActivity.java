@@ -43,7 +43,6 @@ public class AreaInsertarActivity extends Activity {
     }
 
     public void limpiarTexto(View v) {
-        idArea.setText("");
         nombreArea.setText("");
         capacidadArea.setText("");
         aream2.setText("");

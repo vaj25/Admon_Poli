@@ -42,7 +42,9 @@
             android:layout_width = "fill_parent"
             android:hint = "@string/nombre_area"
             android:inputType = "text"
+            android:enabled="false"
             android:layout_marginTop = "25dip"/>
+
 
     </LinearLayout>
 </ScrollView>
