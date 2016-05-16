@@ -47,7 +47,7 @@
         <EditText android:id = "@+id/idDescripcion"
             android:hint = "@string/iddescripcion"
             android:inputType = "text"
-            style="@style/noEditText"/>
+            style="@style/editText"/>
 
     </LinearLayout>
 </ScrollView>
