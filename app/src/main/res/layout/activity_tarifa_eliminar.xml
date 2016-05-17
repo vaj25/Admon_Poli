@@ -25,7 +25,7 @@
 
         <Button
             style="@style/button"
-            android:text="Eliminar"
+            android:text="@string/eliminar"
             android:id="@+id/button8"/>
     </LinearLayout>
 </ScrollView>

@@ -26,65 +26,38 @@
 
         <Button
             style="@style/button"
-            android:text="Consultar"
+            android:text="@string/consultar"
             android:id="@+id/button2" />
 
         <Button
             style="@style/button"
-            android:text="Limpiar"
+            android:text="@string/limpiar"
             android:id="@+id/button3"/>
 
         <EditText
-            android:layout_width="343dp"
-            android:layout_height="40dp"
+            style="@style/noEditText"
             android:id="@+id/editText6"
-            android:editable="false"
-            android:enabled="false"
-            android:focusableInTouchMode="false"
-            android:longClickable="false"
-            android:hint="Nombre" />
+            android:hint="@string/nombre_area" />
 
         <EditText
-            android:layout_width="338dp"
-            android:layout_height="40dp"
+            style="@style/noEditText"
             android:id="@+id/editText3"
-            android:editable="false"
-            android:enabled="false"
-            android:focusableInTouchMode="false"
-            android:longClickable="false"
-            android:hint="Apellido" />
+            android:hint="@string/apellido_solicitante" />
 
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
+            style="@style/noEditText"
             android:id="@+id/editText7"
-            android:editable="false"
-            android:enabled="false"
-            android:focusableInTouchMode="false"
-            android:longClickable="false"
-            android:hint="DUI"
-            android:numeric="integer"/>
+            android:hint="@string/dui_solicitante"/>
 
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
+            style="@style/noEditText"
             android:id="@+id/editText8"
-            android:editable="false"
-            android:enabled="false"
-            android:focusableInTouchMode="false"
-            android:longClickable="false"
-            android:hint="Telefono"
-            android:numeric="integer"/>
+            android:hint="@string/telefono_solicitante"/>
 
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
+            style="@style/noEditText"
             android:id="@+id/editText9"
-            android:editable="false"
-            android:enabled="false"
-            android:focusableInTouchMode="false"
-            android:longClickable="false"
-            android:hint="Mail" />
+            android:hint="@string/mail_solicitante" />
 
     </LinearLayout>
 </ScrollView>

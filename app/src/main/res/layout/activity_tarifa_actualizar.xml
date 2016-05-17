@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText4"
-        android:hint="Cantidad De Horas"
+        android:hint="@string/numeros_horas"
         android:numeric="decimal"/>
 
     <EditText
@@ -41,12 +41,12 @@
         android:id="@+id/editText15"
         android:editable="false"
         android:enabled="false"
-        android:hint="Monto"
+        android:hint="@string/monto"
         android:longClickable="false"
         android:numeric="decimal"/>
 
     <Button
         style="@style/button"
-        android:text="Modificar"
+        android:text="@string/actualizar"
         android:id="@+id/button5" />
 </LinearLayout>

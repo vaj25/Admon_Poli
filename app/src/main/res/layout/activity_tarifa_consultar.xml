@@ -25,48 +25,30 @@
 
         <Button
             style="@style/button"
-            android:text="Consultar"
+            android:text="@string/consultar"
             android:id="@+id/button6"/>
 
         <Button
             style="@style/button"
-            android:text="Limpiar"
+            android:text="@string/limpiar"
             android:id="@+id/button7"/>
 
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/noEditText"
             android:id="@+id/editText16"
-            android:longClickable="false"
-            android:enabled="false"
-            android:focusable="false"
-            android:editable="false"
-            android:clickable="false"
-            android:hint="Cantidad De Horas"
-            android:numeric="decimal"/>
+            android:inputType="numberDecimal"
+            android:hint="@string/numeros_horas"/>
 
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/noEditText"
             android:id="@+id/editText17"
-            android:longClickable="false"
-            android:enabled="false"
-            android:focusable="false"
-            android:editable="false"
-            android:clickable="false"
-            android:hint="Cantidad De Personas"
-            android:numeric="integer"/>
+            android:inputType="number"
+            android:hint="@string/numeros_personas"/>
 
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/noEditText"
             android:id="@+id/editText18"
-            android:longClickable="false"
-            android:enabled="false"
-            android:focusable="false"
-            android:editable="false"
-            android:clickable="false"
-            android:hint="Monto"
-            android:numeric="decimal"/>
+            android:hint="@string/monto"
+            android:inputType="numberDecimal"/>
     </LinearLayout>
 </ScrollView>

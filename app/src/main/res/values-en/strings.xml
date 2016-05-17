@@ -121,4 +121,6 @@
     <string name="id_administrador">Code of Administrator</string>
     <string name="telefono_administrador">Phone of Administrator</string>
     <string name="email_administrador">Email of Administrator</string>
+    <string name="numeros_horas">Number of hours</string>
+    <string name="numeros_personas">Amount of people</string>
 </resources>

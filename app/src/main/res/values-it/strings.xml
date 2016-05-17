@@ -131,4 +131,6 @@
     <string name="telefono_administrador">Telefono di Amministratore</string>
     <string name="email_administrador">Email di Amministratore</string>
     <string name="horario">Programma</string>
+    <string name="numeros_horas">Numero di ore</string>
+    <string name="numeros_personas">Numero di persone</string>
 </resources>
