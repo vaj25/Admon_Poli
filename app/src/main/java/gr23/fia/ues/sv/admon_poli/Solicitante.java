@@ -63,6 +63,6 @@ public class Solicitante {
 
     @Override
     public String toString() {
-        return nombreSol;
+        return nombreSol+ " " +apellidoSol;
     }
 }

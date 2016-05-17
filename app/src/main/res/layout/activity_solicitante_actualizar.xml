@@ -22,43 +22,27 @@
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner4" />
+            android:id="@+id/selectSolicitante"/>
+
+
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText10"
-            android:hint="@string/nombre_area" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText11"
-            android:hint="@string/apellido_solicitante" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText12"
-            android:hint="DUI"
-            android:numeric="integer"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText13"
+            android:id="@+id/telefono"
             android:hint="@string/telefono_solicitante"
             android:numeric="integer"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText14"
+            android:id="@+id/email"
             android:hint="@string/mail_solicitante" />
 
         <Button
             style="@style/button"
             android:text="@string/actualizar"
+            android:onClick="actualizarSolicitante"
             android:id="@+id/button4"/>
 
 

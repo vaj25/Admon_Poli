@@ -438,7 +438,18 @@ public class ControlBD {
     }
 
     public String actualizar(Solicitante solicitante){
-        return null;
+        if(verificarIntegridad(solicitante, 15)){
+            String[] id = {solicitante.getDui()};
+            ContentValues cv = new ContentValues();
+            cv.put("nombresol", solicitante.getNombreSol());
+            cv.put("apellidosol", solicitante.getApellidoSol());
+            cv.put("telefonosol", solicitante.getTelefonoSol());
+            cv.put("emailsol", solicitante.getMail());
+            db.update("solicitante", cv, "dui = ?", id);
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "Registro con id " + solicitante.getDui() + " no existe";
+        }
     }
 
     public int eliminar(Solicitante solicitante){
@@ -1232,7 +1243,7 @@ public String insertar(Administrador administrador) {
             }
             case 15:
             {
-                //verificar que exista deportearea
+                //verificar que exista solicitante
                 Solicitante solicitante = (Solicitante)dato;
                 String[] id = {String.valueOf(solicitante.getDui())};
                 abrir();
