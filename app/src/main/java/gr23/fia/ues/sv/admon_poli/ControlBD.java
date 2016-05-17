@@ -47,7 +47,7 @@ public class ControlBD {
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
 
-        private static final String BASE_DATOS = "AdmonPoliv7.s3db" ;
+        private static final String BASE_DATOS = "AdmonPoliv10.s3db" ;
         private static final int VERSION = 2;
 
         DatabaseHelper(Context context) {
@@ -541,7 +541,7 @@ public class ControlBD {
     public int eliminar(Actividad actividad){
         int contador=0;
         String [] id={String.valueOf(actividad.getIdActividad())};
-        if (verificarIntegridad(actividad,13)) {
+        if (verificarIntegridad(actividad,25)) {
             Cursor cursor = db.query("solicitud", camposSolicitud, "idactividad = ?",id, null, null, null);
             cursor.moveToFirst();
             Solicitud sol = new Solicitud();
@@ -643,7 +643,7 @@ public String insertar(Administrador administrador) {
     public int eliminar(Administrador administrador){
         int contador=0;
         String [] id={String.valueOf(administrador.getIdAdministrador())};
-        if (verificarIntegridad(administrador,14)) {
+        if (verificarIntegridad(administrador,26)) {
             Cursor cursor = db.query("solicitud", camposSolicitud, "idadministrador = ?",id, null, null, null);
             cursor.moveToFirst();
             Solicitud sol = new Solicitud();
@@ -1408,7 +1408,35 @@ public String insertar(Administrador administrador) {
                 Solicitante solicitante = (Solicitante) dato;
                 String[] id1 = {solicitante.getDui()};
                 abrir();
-                Cursor cursor1 = db.query("solicitante", null, "dui = ?", id1, null, null, null);
+                Cursor cursor1 = db.query("solicitud", null, "dui = ?", id1, null, null, null);
+                if (cursor1.moveToFirst()) {
+                    //Se encontraron datos
+                    return true;
+                }
+                return false;
+            }
+
+            case 25:
+            {
+                //verificar que al eliminar actividad no exista en solicitud
+                Actividad actividad = (Actividad) dato;
+                String[] id1 = {String.valueOf(actividad.getIdActividad())};
+                abrir();
+                Cursor cursor1 = db.query("solicitud", null, "idactividad = ?", id1, null, null, null);
+                if (cursor1.moveToFirst()) {
+                    //Se encontraron datos
+                    return true;
+                }
+                return false;
+            }
+
+            case 26:
+            {
+                //verificar que al eliminar administrador no exista en solicitud
+                Administrador administrador = (Administrador) dato;
+                String[] id1 = {String.valueOf(administrador.getIdAdministrador())};
+                abrir();
+                Cursor cursor1 = db.query("solicitud", null, "idadministrador = ?", id1, null, null, null);
                 if (cursor1.moveToFirst()) {
                     //Se encontraron datos
                     return true;

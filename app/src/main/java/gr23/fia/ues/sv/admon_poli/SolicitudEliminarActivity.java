@@ -53,6 +53,6 @@ public class SolicitudEliminarActivity extends Activity {
         helper.abrir();
         regEliminadas = helper.eliminar(solicitud);
         helper.cerrar();
-        Toast.makeText(this, regEliminadas, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"filas afectadas=" + regEliminadas, Toast.LENGTH_SHORT).show();
     }
 }
