@@ -54,6 +54,13 @@
             android:layout_marginTop = "25dip"
             android:id="@+id/selectActividad" />
 
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/select_actividad"
+            android:layout_marginTop = "25dip"
+            android:id="@+id/selectAdmin" />
+
         <Button
             style="@style/button"
             android:text="@string/enviar_solicitud"

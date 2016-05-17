@@ -10,9 +10,12 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 
 public class SolicitudInsertarActivity extends Activity {
 
@@ -22,6 +25,8 @@ public class SolicitudInsertarActivity extends Activity {
     EditText horasReserva;
     EditText dui;
     Spinner actividad;
+    Spinner sAdmin;
+    List<String> lista;
     int idSolicitud;
     Calendar fechaActual = GregorianCalendar.getInstance() ;
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -33,6 +38,7 @@ public class SolicitudInsertarActivity extends Activity {
         helper = new ControlBD(this);
 
         actividad = (Spinner) findViewById(R.id.selectActividad) ;
+        sAdmin = (Spinner) findViewById(R.id.selectAdmin);
         cantAsistentes = (EditText) findViewById(R.id.txtCantAsistentes) ;
         fechaReserva = (EditText) findViewById(R.id.txtFechaReserva) ;
         horasReserva = (EditText) findViewById(R.id.txtHorasReservadas) ;
@@ -46,12 +52,34 @@ public class SolicitudInsertarActivity extends Activity {
             Actividad act = helper.consultarActividad(i) ;
             acts.add(new Actividad(act.getIdActividad(), act.getNombre()));
         }
+
+        lista = new ArrayList<>();
+        lista=helper.consultaAdministrador();
+        ArrayAdapter<String> adaptador =new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,lista);
+        adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sAdmin.setAdapter(adaptador);
+
+
         ArrayAdapter spinner_adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, acts);
         spinner_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         actividad.setAdapter(spinner_adapter);
     }
 
     public void insertarSolicitud(View v) {
+        int position= sAdmin.getSelectedItemPosition();
+        Iterator iterador = lista.listIterator();
+        int count=0;
+        int idadmin=0;
+        while( iterador.hasNext() ) {
+            Administrador admin = (Administrador) iterador.next();
+            if(count==position){
+                idadmin=admin.getIdAdministrador();
+            }
+            count++;
+        }
+
+
+
         int cantAs = Integer.parseInt(cantAsistentes.getText().toString()) ;
         String fecha = fechaReserva.getText().toString() ;
         int idact = actividad.getSelectedItemPosition() + 1 ; //cambiar
@@ -65,7 +93,8 @@ public class SolicitudInsertarActivity extends Activity {
         solicitud.setFechaSolicitud(sdf.format(fechaActual.getTime()));
         solicitud.setFechaReserva(fecha);
         solicitud.setCantAsistentes(cantAs);
-        solicitud.setIdAdministrador(1);
+
+        solicitud.setIdAdministrador(idadmin);
         solicitud.setIdActividad(idact);
         solicitud.setDui(duiString);
         solicitud.setMontoArea(20.30);

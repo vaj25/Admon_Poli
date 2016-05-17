@@ -73,7 +73,11 @@ public class SolicitudConsultarActivity extends Activity {
             cantAsistentes.setText(String.valueOf(solicitud.getCantAsistentes())) ;
             fechaReserva.setText(solicitud.getFechaReserva()) ;
             fechaSolicitud.setText(solicitud.getFechaSolicitud()) ;
-            actividad.setText(String.valueOf(solicitud.getIdActividad())) ;
+            Actividad act = new Actividad();
+            helper.abrir();
+            act = helper.consultarActividad(solicitud.getIdActividad());
+            helper.cerrar();
+            actividad.setText(act.getNombre());
             estado.setText(solicitud.getEstado()) ;
             monto.setText(String.valueOf(solicitud.getMontoArea())) ;
             dui.setText(String.valueOf(solicitud.getDui())) ;

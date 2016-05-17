@@ -47,7 +47,7 @@ public class ControlBD {
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
 
-        private static final String BASE_DATOS = "AdmonPoliv15.s3db" ;
+        private static final String BASE_DATOS = "AdmonPoliv16.s3db" ;
         private static final int VERSION = 2;
 
         DatabaseHelper(Context context) {
