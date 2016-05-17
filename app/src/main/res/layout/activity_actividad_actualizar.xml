@@ -18,16 +18,12 @@
             android:textSize = "25dip"
             android:textColor = "@color/colorAccent"/>
 
-        <EditText android:id = "@+id/editIdActividad"
-            android:hint = "@string/id_actividad"
-            android:inputType = "number"
-            style="@style/editText"/>
-
-        <EditText android:id = "@+id/editNombreActividad"
-            android:hint = "@string/nombre_actividad"
-            android:inputType = "text"
-            style="@style/editText"/>
-
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/select_actividad"
+            android:layout_marginTop = "25dip"
+            android:id="@+id/selecActualizarActividad" />
         <Button
             style="@style/button"
             android:text="@string/actualizar_actividad"
@@ -39,6 +35,13 @@
             android:text="@string/limpiar_area"
             android:onClick="limpiarTexto"
             android:id="@+id/btnLimpiarTexto"/>
+
+        <EditText android:id = "@+id/editNombreActividad"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
+            android:hint = "@string/nombre_area"
+            android:inputType = "text"
+            android:layout_marginTop = "25dip"/>
 
     </LinearLayout>
 </ScrollView>
