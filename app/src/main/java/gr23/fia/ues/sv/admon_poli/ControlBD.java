@@ -23,7 +23,7 @@ public class ControlBD {
     private static final String[] camposReserva = new String [] {"idreserva","fechareserva","tiemporeserva","idhorario"};
     private static final String[] camposHorario = new String [] {"idhorario","hora","dia","instructor"};
     private static final String[] camposDetalleReserva = new String [] {"idreserva","idarea","descripcion"};
-    private static final String[] camposTarifa = new String [] {"montoarea","canthora","cantpersona"};
+    private static final String[] camposTarifa = new String [] {"idtarifa","precio","canthora","cantpersona"};
     private static final String[] camposSolicitante = new String [] {"dui","nombresol","apellidosol","telefonosol","emailsol"};
     private static final String[] camposActividad = new String [] {"idactividad","nombreactividad"};
     private static final String[] camposAdministrador = new String [] {"idadministrador","telefonoadmin","emailadmin"};
@@ -47,7 +47,7 @@ public class ControlBD {
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
 
-        private static final String BASE_DATOS = "AdmonPoliv10.s3db" ;
+        private static final String BASE_DATOS = "AdmonPoliv15.s3db" ;
         private static final int VERSION = 2;
 
         DatabaseHelper(Context context) {
@@ -89,7 +89,8 @@ public class ControlBD {
                         "PRIMARY KEY(idreserva,idarea)" +
                         ");");
                 db.execSQL("CREATE TABLE tarifa(" +
-                        "montoarea FLOAT PRIMARY KEY NOT NULL," +
+                        "idtarifa INTEGER PRIMARY KEY NOT NULL," +
+                        "precio FLOAT NOT NULL," +
                         "canthora FLOAT," +
                         "cantpersona INTEGER);");
                 db.execSQL("CREATE TABLE solicitante(" +
@@ -378,13 +379,18 @@ public class ControlBD {
     }*/
 
     //Tablas samuel.................................................................................
-    public Tarifa consultarTarifa(int cantHora, int cantPersona){
-        String[] id={String.valueOf(cantHora),String.valueOf(cantPersona)};
-        Cursor cursor=db.query("tarifa", camposTarifa, "canthora=? and  cantpersona=?", id,null,null,null );
+    public Tarifa consultarTarifa(int idtarifa){
+        String[] id = {String.valueOf(idtarifa)} ;
+        Cursor cursor=db.query("tarifa", camposTarifa , "idtarifa=?", id,null,null,null );
+
+
         if(cursor.moveToFirst()){
             Tarifa tarifa=new Tarifa();
-            tarifa.setCanthora(cursor.getDouble(0));
-            tarifa.setCantPersonas(cursor.getInt(1));
+
+            tarifa.setIdTarifa(cursor.getInt(0));
+            tarifa.setPrecio(cursor.getDouble(1));
+            tarifa.setCanthora(cursor.getDouble(2));
+            tarifa.setCantPersonas(cursor.getInt(3));
             return tarifa;
         }else{
             return null;
@@ -392,32 +398,44 @@ public class ControlBD {
     }
 
     public String actualizar(Tarifa tarifa){
-
-        return null;
+        if(verificarIntegridad(tarifa, 27)){
+            String[] id = {String.valueOf(tarifa.getIdTarifa())};
+            ContentValues cv = new ContentValues();
+            cv.put("precio", tarifa.getPrecio());
+            cv.put("canthora", tarifa.getCanthora());
+            cv.put("cantpersona", tarifa.getCantPersonas());
+            db.update("tarifa", cv, "idtarifa = ?", id);
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "Registro con id " + tarifa.getIdTarifa() + " no existe";
+        }
     }
 
     public String eliminar(Tarifa tarifa){
-
-        return null;
+        //String regAfectados="filas afectadas= ";
+        String contador="";
+        contador+=db.delete("tarifa", "idtarifa='"+tarifa.getIdTarifa()+"'", null);
+        //regAfectados+=contador;
+        return contador;
     }
 
     public String insertar(Tarifa tarifa){
         String regInsertados="Registro Insertado n°=";
         long contador=0;
-        ContentValues tar=new ContentValues();
+        ContentValues tar = new ContentValues();
+        tar.put("idtarifa", tarifa.getIdTarifa());
         tar.put("canthora", tarifa.getCanthora());
         tar.put("cantpersona", tarifa.getCantPersonas());
-        tar.put("montoarea",tarifa.getMontoArea());
+        tar.put("precio",tarifa.getPrecio());
         contador=db.insert("tarifa", null, tar);
 
         if(contador==-1 || contador==0){
-            regInsertados="Error al insertar el registrooooooooo, Registro duplicado. verifivcar insercion";
+            regInsertados="Error al insertar el registro, Registro duplicado. verifivcar insercion";
 
         }else{
             regInsertados=regInsertados+contador;
-
         }
-    return regInsertados;
+        return regInsertados;
     }
     //-----------------------------------------------------------------------------------------------
 
@@ -1444,6 +1462,20 @@ public String insertar(Administrador administrador) {
                 return false;
             }
 
+            case 27:
+            {
+                //verificar que exista tarifa
+                Tarifa tarifa = (Tarifa)dato;
+                String[] id = {String.valueOf(tarifa.getIdTarifa())};
+                abrir();
+                Cursor cursor = db.query("tarifa", null, "idtarifa = ?", id, null, null, null);
+                if(cursor.moveToFirst()){
+                    //Se encontro Alumno
+                    return true;
+                }
+                return false;
+            }
+
             default:
                 return false;
         }
@@ -1479,8 +1511,9 @@ public String insertar(Administrador administrador) {
         final boolean[] VHinstructor = {true,false,true,false};
 
 
-       // final double[] VTmontoarea = {56.89,32.4,123.5,789.3};
-        final double[] VTcanthora = {1.3,5.6,9.3,7.8};
+        final int[] VTidTarifa = {1,2,3,4} ;
+        final double[] VTprecio = {56.89,32.4,123.5,789.3};
+        final double[] VTcanthora = {2.0,4.0,3.0,7.0};
         final int[] VTcantpersona = {100,200,500,500};
 
 
@@ -1672,7 +1705,8 @@ public String insertar(Administrador administrador) {
 
         Tarifa tarifa = new Tarifa();
         for(int i=0;i<4;i++){
-            //tarifa.setMontoArea(VTmontoarea[i]);
+            tarifa.setIdTarifa(VTidTarifa[i]);
+            tarifa.setPrecio(VTprecio[i]);
             tarifa.setCanthora(VTcanthora[i]);
             tarifa.setCantPersonas(VTcantpersona[i]);
             insertar(tarifa);
@@ -1790,6 +1824,23 @@ public String insertar(Administrador administrador) {
             dep.setIdDeporte(cur.getInt(0));
             dep.setNombre(cur.getString(1));
             lista.add(dep);
+        }
+        cur.close();
+        db.close();
+        return(lista);
+    }
+
+    public List consultaTarifa(){
+        abrir();
+        List<Tarifa> lista= new ArrayList<Tarifa>();
+        Cursor cur=db.rawQuery("select idtarifa, precio, canthora, cantpersona from tarifa",null );
+        while(cur.moveToNext()){
+            Tarifa tarif = new Tarifa();
+            tarif.setIdTarifa(cur.getInt(0));
+            tarif.setPrecio(cur.getDouble(1));
+            tarif.setCanthora(cur.getDouble(2));
+            tarif.setCantPersonas(cur.getInt(3));
+            lista.add(tarif);
         }
         cur.close();
         db.close();

@@ -44,7 +44,7 @@ public class Administrador {
 
     @Override
     public String toString() {
-        return String.valueOf(idadministrador);
+        return emailadmin;
     }
 }
 

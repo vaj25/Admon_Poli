@@ -21,34 +21,60 @@
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner5" />
+            android:id="@+id/spinnerConsultar" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText16" />
 
         <Button
             style="@style/button"
-            android:text="@string/consultar"
-            android:id="@+id/button6"/>
+            android:text="Consultar"
+            android:id="@+id/buttonConsultar"
+            android:onClick="consultarTarifa"
+            android:hint="Cantidad De Horas"/>
 
         <Button
             style="@style/button"
-            android:text="@string/limpiar"
-            android:id="@+id/button7"/>
+            android:text="Limpiar"
+            android:id="@+id/buttonLimpiar"
+            android:onClick="limpiarTexto"/>
 
         <EditText
-            style="@style/noEditText"
-            android:id="@+id/editText16"
-            android:inputType="numberDecimal"
-            android:hint="@string/numeros_horas"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cantHorasTarifa"
+            android:longClickable="false"
+            android:enabled="false"
+            android:focusable="false"
+            android:editable="true"
+            android:clickable="false"
+            android:hint="Cantidad De Horas"
+            android:numeric="decimal"/>
 
         <EditText
-            style="@style/noEditText"
-            android:id="@+id/editText17"
-            android:inputType="number"
-            android:hint="@string/numeros_personas"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cantidadPersonasTarifa"
+            android:longClickable="false"
+            android:enabled="false"
+            android:focusable="false"
+            android:editable="true"
+            android:clickable="false"
+            android:hint="Cantidad De Personas"
+            android:numeric="integer"/>
 
         <EditText
-            style="@style/noEditText"
-            android:id="@+id/editText18"
-            android:hint="@string/monto"
-            android:inputType="numberDecimal"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/montoTarifa"
+            android:longClickable="false"
+            android:enabled="false"
+            android:focusable="false"
+            android:editable="true"
+            android:clickable="false"
+            android:hint="Monto"
+            android:numeric="decimal"/>
     </LinearLayout>
 </ScrollView>

@@ -19,22 +19,20 @@
             android:textColor = "@color/colorAccent"/>
 
         <EditText
-            style="@style/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/cantHoras"
-            android:hint="@string/numeros_horas"
-            android:inputType="number"/>
+            android:layout_gravity="center_horizontal"
+            android:hint="Cantidad De Horas"
+            android:numeric="decimal"/>
 
         <EditText
-            style="@style/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/cantPersonas"
-            android:hint="@string/numeros_personas"
-            android:inputType="number"/>
-
-        <EditText
-            style="@style/editText"
-            android:id="@+id/monto"
-            android:hint="@string/monto"
-            android:inputType="numberDecimal"/>
+            android:layout_gravity="center_horizontal"
+            android:hint="Cantidad De Personas"
+            android:numeric="integer"/>
 
         <Button
             style="@style/button"

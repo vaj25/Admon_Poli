@@ -28,11 +28,13 @@
         <EditText android:id = "@+id/editTelefonoConsultar"
             android:hint = "@string/telefono_administrador"
             android:inputType = "text"
+            android:enabled="false"
             style="@style/editText"/>
 
         <EditText android:id = "@+id/editEmailAdConsultar"
             android:hint = "@string/email_administrador"
             android:inputType = "text"
+            android:enabled="false"
             style="@style/editText"/>
 
         <Button

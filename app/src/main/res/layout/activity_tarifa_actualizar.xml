@@ -18,19 +18,19 @@
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner7" />
+        android:id="@+id/selectTarifa" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText4"
+        android:id="@+id/cantHoras"
         android:hint="@string/numeros_horas"
         android:numeric="decimal"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText5"
+        android:id="@+id/cantPersonas"
         android:layout_gravity="center_horizontal"
         android:hint="Cantidad De Personas"
         android:numeric="integer" />
@@ -38,7 +38,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText15"
+        android:id="@+id/monto"
         android:editable="false"
         android:enabled="false"
         android:hint="@string/monto"
@@ -48,5 +48,7 @@
     <Button
         style="@style/button"
         android:text="@string/actualizar"
+        android:onClick="actualizarTarifa"
         android:id="@+id/button5" />
+    an
 </LinearLayout>
