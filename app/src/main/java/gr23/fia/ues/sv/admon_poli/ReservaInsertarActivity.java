@@ -1,9 +1,6 @@
 package gr23.fia.ues.sv.admon_poli;
 
 
-
-
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;

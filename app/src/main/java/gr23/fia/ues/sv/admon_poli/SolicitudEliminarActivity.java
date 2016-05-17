@@ -47,7 +47,7 @@ public class SolicitudEliminarActivity extends Activity {
             count++;
         }
 
-        String regEliminadas;
+        int regEliminadas;
         Solicitud solicitud = new Solicitud();
         solicitud.setIdSolicitud(idsolicitud);
         helper.abrir();

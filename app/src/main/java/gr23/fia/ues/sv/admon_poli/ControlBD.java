@@ -24,7 +24,7 @@ public class ControlBD {
     private static final String[] camposHorario = new String [] {"idhorario","hora","dia","instructor"};
     private static final String[] camposDetalleReserva = new String [] {"idreserva","idarea","descripcion"};
     private static final String[] camposTarifa = new String [] {"montoarea","canthora","cantpersona"};
-    private static final String[] camposSolicitante = new String [] {"dui","apellidosol","telefonosol","emailsol"};
+    private static final String[] camposSolicitante = new String [] {"dui","nombresol","apellidosol","telefonosol","emailsol"};
     private static final String[] camposActividad = new String [] {"idactividad","nombreactividad"};
     private static final String[] camposAdministrador = new String [] {"idadministrador","telefonoadmin","emailadmin"};
     private static final String[] camposSolicitud = new String [] {"idsolicitud","estado","fechasolicitud","fechareserva","cantasistentes","idadministrador","idactividad","dui","montoarea", "horareserva"};
@@ -47,7 +47,7 @@ public class ControlBD {
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
 
-        private static final String BASE_DATOS = "AdmonPoliv3.s3db" ;
+        private static final String BASE_DATOS = "AdmonPoliv6.s3db" ;
         private static final int VERSION = 2;
 
         DatabaseHelper(Context context) {
@@ -421,22 +421,83 @@ public class ControlBD {
     }
     //-----------------------------------------------------------------------------------------------
 
-    public Solicitante consultarSolicitante(int idSolicitante){
-        return null;
+    public Solicitante consultarSolicitante(String idSolicitante){
+        String[] id = {idSolicitante};
+        Cursor cursor = db.query("solicitante", camposSolicitante, "dui = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            Solicitante solicitante = new Solicitante();
+            solicitante.setDui(cursor.getString(0));
+            solicitante.setNombreSol(cursor.getString(1));
+            solicitante.setApellidoSol(cursor.getString(2));
+            solicitante.setTelefonoSol(cursor.getInt(3));
+            solicitante.setMail(cursor.getString(4));
+
+            return solicitante;
+        }else{ return null;
+        }
     }
 
     public String actualizar(Solicitante solicitante){
         return null;
     }
 
-    public String eliminar(Solicitante solicitante){
-
-        return null;
+    public int eliminar(Solicitante solicitante){
+        int contador=0;
+        String [] id={solicitante.getDui()};
+        if (verificarIntegridad(solicitante,24)) {
+            Cursor cursor = db.query("solicitud", camposSolicitud, "dui = ?",id, null, null, null);
+            cursor.moveToFirst();
+            Solicitud sol = new Solicitud();
+            sol.setIdSolicitud(cursor.getInt(0));
+            sol.setEstado(cursor.getString(1));
+            sol.setFechaSolicitud(cursor.getString(2));
+            sol.setFechaReserva(cursor.getString(3));
+            sol.setCantAsistentes(cursor.getInt(4));
+            sol.setIdAdministrador(cursor.getInt(5));
+            sol.setIdActividad(cursor.getInt(6));
+            sol.setDui(cursor.getString(7));
+            sol.setMontoArea(cursor.getInt(8));
+            sol.setHoraReservada(cursor.getString(9));
+            contador+=eliminar(sol);
+            while (cursor.moveToNext()){
+                Solicitud soli = new Solicitud();
+                soli.setIdSolicitud(cursor.getInt(0));
+                soli.setEstado(cursor.getString(1));
+                soli.setFechaSolicitud(cursor.getString(2));
+                soli.setFechaReserva(cursor.getString(3));
+                soli.setCantAsistentes(cursor.getInt(4));
+                soli.setIdAdministrador(cursor.getInt(5));
+                soli.setIdActividad(cursor.getInt(6));
+                soli.setDui(cursor.getString(7));
+                soli.setMontoArea(cursor.getInt(8));
+                soli.setHoraReservada(cursor.getString(9));
+                contador+=eliminar(soli);
+            }
+            // contador+=db.delete("reserva", "idhorario='"+horario.getIdHorario()+"'", null);
+        }
+        contador+=db.delete("solicitante", "dui='"+solicitante.getDui()+"'", null);
+        //regAfectados+=contador;
+        return contador;
     }
 
     public String insertar(Solicitante solicitante){
-
-        return null;
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        ContentValues sol = new ContentValues();
+        sol.put("dui", solicitante.getDui());   //idreserva campo en la tabla
+        sol.put("nombresol", solicitante.getNombreSol());
+        sol.put("apellidosol", solicitante.getApellidoSol());
+        sol.put("telefonosol", solicitante.getTelefonoSol());
+        sol.put("emailsol", solicitante.getMail());
+        contador=db.insert("solicitante", null, sol);
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
     }
 //////////////////////ACTIVIDAD //////////////////////////////////////////////////////////////////////
     public Actividad consultarActividad(int idactividad){
@@ -636,16 +697,15 @@ public String insertar(Administrador administrador) {
         }
     }
 
-    public String eliminar(Solicitud solicitud){
+    public int eliminar(Solicitud solicitud){
 
-        String regAfectados="Filas afectadas= ";
         int contador = 0;
         if (verificarIntegridad(solicitud,18)) {
             contador+=db.delete("detallesolicitud", "idsolicitud='"+solicitud.getIdSolicitud()+"'", null);
         }
         contador+=db.delete("solicitud", "idsolicitud='"+solicitud.getIdSolicitud()+"'", null);
-        regAfectados+=contador;
-        return regAfectados;
+        return contador;
+
 
     }
 
@@ -1290,6 +1350,20 @@ public String insertar(Administrador administrador) {
                 return false;
             }
 
+            case 24:
+            {
+                //verificar que al eliminar solicitante no exista en solicitud
+                Solicitante solicitante = (Solicitante) dato;
+                String[] id1 = {solicitante.getDui()};
+                abrir();
+                Cursor cursor1 = db.query("solicitante", null, "dui = ?", id1, null, null, null);
+                if (cursor1.moveToFirst()) {
+                    //Se encontraron datos
+                    return true;
+                }
+                return false;
+            }
+
             default:
                 return false;
         }
@@ -1692,6 +1766,23 @@ public String insertar(Administrador administrador) {
             tab.setFechaReserva(cur.getString(1));
             tab.setTiempoReserva(cur.getString(2));
             tab.setIdHorario(cur.getInt(3));
+            lista.add(tab);
+        }
+        return lista;
+    }
+
+
+    public List consultaSolicitante(){
+        abrir();
+        List<Solicitante> lista= new ArrayList<>();
+        Cursor cur=db.rawQuery("select dui,nombresol,apellidosol,telefonosol,emailsol from solicitante",null );
+        while(cur.moveToNext()){
+            Solicitante tab=new Solicitante();
+            tab.setDui(cur.getString(0));
+            tab.setNombreSol(cur.getString(1));
+            tab.setApellidoSol(cur.getString(2));
+            tab.setTelefonoSol(cur.getInt(3));
+            tab.setMail(cur.getString(4));
             lista.add(tab);
         }
         return lista;

@@ -19,7 +19,7 @@
             android:text="@string/eliminarB_solicitante"/>
 
         <Spinner
-            android:id="@+id/SelectSolicitud"
+            android:id="@+id/SelectSolicitante"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dip"
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dip"
             android:text="@string/eliminar"
-            android:onClick=""/>
+            android:onClick="eliminarSolicitante"/>
 
     </LinearLayout>
 </ScrollView>

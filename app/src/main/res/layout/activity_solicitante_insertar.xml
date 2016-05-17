@@ -18,7 +18,7 @@
         android:textSize = "25dip"
         android:textColor = "@color/colorAccent"/>
 
-    <EditText android:id = "@+id/txtDuiSolicitante"
+    <EditText android:id = "@+id/dui"
         android:layout_height = "wrap_content"
         android:layout_width = "fill_parent"
         android:hint = "@string/dui_solicitante"
@@ -26,14 +26,14 @@
         android:layout_marginTop = "5dip"
         android:numeric="integer"/>
 
-    <EditText android:id = "@+id/txtNombreSolicitante"
+    <EditText android:id = "@+id/nombreSol"
         android:layout_height = "wrap_content"
         android:layout_width = "fill_parent"
         android:hint = "@string/nombre_solicitante"
         android:inputType = "text"
         android:layout_marginTop = "5dip"/>
 
-    <EditText android:id = "@+id/txtApellidoSolicitante"
+    <EditText android:id = "@+id/apellidoSol"
         android:layout_height = "wrap_content"
         android:layout_width = "fill_parent"
         android:hint = "@string/apellido_solicitante"
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/telefono"
         android:hint="@string/telefono_solicitante"
         android:layout_marginTop = "5dip"
         android:numeric="integer"/>
@@ -55,15 +55,24 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/email"
         android:hint="@string/mail_solicitante"
         android:layout_marginTop = "5dip"/>
 
     <Button
         style="@style/button"
         android:text="@string/enviar_solicitud"
+        android:onClick="insertarSolicitante"
         android:id="@+id/enviar_solicitante"/>
 
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_height = "wrap_content"
+        android:layout_width = "fill_parent"
+        android:text="@string/limpiar"
+        android:onClick="limpiarTexto"
+        android:layout_marginTop = "25dip"
+        android:id="@+id/LimpiarButton"/>
 
 </LinearLayout>
 </ScrollView>
