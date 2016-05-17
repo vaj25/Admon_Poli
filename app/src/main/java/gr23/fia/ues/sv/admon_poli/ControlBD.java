@@ -9,6 +9,7 @@ import android.database.Cursor;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -160,15 +161,32 @@ public class ControlBD {
     // metodos CRUD de cada tabla
 
     //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ METODOS PABLO @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    public String eliminar(Horario horario){
-        String regAfectados="filas afectadas= ";
+    public int eliminar(Horario horario){
+        //String regAfectados="filas afectadas= ";
         int contador=0;
+        String [] id={String.valueOf(horario.getIdHorario()) };
         if (verificarIntegridad(horario,20)) {
-            contador+=db.delete("reserva", "idhorario='"+horario.getIdHorario()+"'", null);
+            Cursor cursor = db.query("reserva", camposReserva, "idhorario = ?",id, null, null, null);
+            cursor.moveToFirst();
+            Reserva reser = new Reserva();
+            reser.setIdReserva(cursor.getInt(0));
+            reser.setFechaReserva(cursor.getString(1));
+            reser.setTiempoReserva(cursor.getString(2));
+            reser.setIdHorario(cursor.getInt(3));
+            contador+=eliminar(reser);
+            while (cursor.moveToNext()){
+                Reserva reserv = new Reserva();
+                reserv.setIdReserva(cursor.getInt(0));
+                reserv.setFechaReserva(cursor.getString(1));
+                reserv.setTiempoReserva(cursor.getString(2));
+                reserv.setIdHorario(cursor.getInt(3));
+                contador+=eliminar(reserv);
+            }
+           // contador+=db.delete("reserva", "idhorario='"+horario.getIdHorario()+"'", null);
         }
         contador+=db.delete("horario", "idhorario='"+horario.getIdHorario()+"'", null);
-        regAfectados+=contador;
-        return regAfectados;
+        //regAfectados+=contador;
+        return contador;
     }
 
     public String insertar(Horario horario){
@@ -225,15 +243,15 @@ public class ControlBD {
         }
     }
 
-    public String eliminar(Reserva reserva){
-        String regAfectados="filas afectadas= ";
+    public int eliminar(Reserva reserva){
+        //String regAfectados="filas afectadas= ";
         int contador=0;
         if (verificarIntegridad(reserva,21)) {
             contador+=db.delete("detallereserva", "idreserva='"+reserva.getIdReserva()+"'", null);
         }
         contador+=db.delete("reserva", "idreserva='"+reserva.getIdReserva()+"'", null);
-        regAfectados+=contador;
-        return regAfectados;
+        //regAfectados+=contador;
+        return contador;
     }
 
     public String insertar(Reserva reserva){

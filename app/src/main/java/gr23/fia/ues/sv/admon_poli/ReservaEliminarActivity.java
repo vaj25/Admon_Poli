@@ -47,7 +47,7 @@ public class ReservaEliminarActivity extends Activity {
             }
             count++;
         }
-        String regEliminadas;
+        int regEliminadas;
         Reserva reserva=new Reserva();
         reserva.setIdReserva(idreserva);
         helper.abrir();

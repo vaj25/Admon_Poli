@@ -43,13 +43,13 @@ public class HorarioEliminarActivity extends Activity {
             }
             count++;
         }
-        String regEliminadas;
+        int regEliminadas;
         Horario horario=new Horario();
         //String idhorario=IdHorario.getText().toString();
         horario.setIdHorario(idhorario);
         helper.abrir();
         regEliminadas=helper.eliminar(horario);
         helper.cerrar();
-        Toast.makeText(this, regEliminadas, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"filas afectadas="+ regEliminadas, Toast.LENGTH_SHORT).show();
     }
 }
