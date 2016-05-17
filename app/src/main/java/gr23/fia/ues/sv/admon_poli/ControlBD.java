@@ -47,7 +47,7 @@ public class ControlBD {
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
 
-        private static final String BASE_DATOS = "AdmonPoliv6.s3db" ;
+        private static final String BASE_DATOS = "AdmonPoliv7.s3db" ;
         private static final int VERSION = 2;
 
         DatabaseHelper(Context context) {
@@ -528,22 +528,42 @@ public class ControlBD {
     }
 
     public int eliminar(Actividad actividad){
-        //String regAfectados="filas afectadas= ";
         int contador=0;
+        String [] id={String.valueOf(actividad.getIdActividad())};
         if (verificarIntegridad(actividad,13)) {
-            String[] id = {String.valueOf(actividad.getIdActividad())};
-            Cursor c = db.query("solicitud" , camposSolicitud, "idactividad = ?",id,null, null, null);
-            if (c.moveToFirst()) {
-                    int idsolicitud= c.getInt(0);
-                contador+=db.delete("detallesolicitud", "idsolicitud='"+idsolicitud+"'", null);
+            Cursor cursor = db.query("solicitud", camposSolicitud, "idactividad = ?",id, null, null, null);
+            cursor.moveToFirst();
+            Solicitud sol = new Solicitud();
+            sol.setIdSolicitud(cursor.getInt(0));
+            sol.setEstado(cursor.getString(1));
+            sol.setFechaSolicitud(cursor.getString(2));
+            sol.setFechaReserva(cursor.getString(3));
+            sol.setCantAsistentes(cursor.getInt(4));
+            sol.setIdAdministrador(cursor.getInt(5));
+            sol.setIdActividad(cursor.getInt(6));
+            sol.setDui(cursor.getString(7));
+            sol.setMontoArea(cursor.getInt(8));
+            sol.setHoraReservada(cursor.getString(9));
+            contador+=eliminar(sol);
+            while (cursor.moveToNext()){
+                Solicitud soli = new Solicitud();
+                soli.setIdSolicitud(cursor.getInt(0));
+                soli.setEstado(cursor.getString(1));
+                soli.setFechaSolicitud(cursor.getString(2));
+                soli.setFechaReserva(cursor.getString(3));
+                soli.setCantAsistentes(cursor.getInt(4));
+                soli.setIdAdministrador(cursor.getInt(5));
+                soli.setIdActividad(cursor.getInt(6));
+                soli.setDui(cursor.getString(7));
+                soli.setMontoArea(cursor.getInt(8));
+                soli.setHoraReservada(cursor.getString(9));
+                contador+=eliminar(soli);
             }
-            contador+=db.delete("solicitud", "idactividad='"+actividad.getIdActividad()+"'", null);
+            // contador+=db.delete("reserva", "idhorario='"+horario.getIdHorario()+"'", null);
         }
         contador+=db.delete("actividad", "idactividad='"+actividad.getIdActividad()+"'", null);
         //regAfectados+=contador;
         return contador;
-
-
     }
 
     public String insertar(Actividad actividad) {
@@ -609,22 +629,43 @@ public String insertar(Administrador administrador) {
         }
     }
 
-    public String eliminar(Administrador administrador){
-        String regAfectados="filas afectadas= ";
+    public int eliminar(Administrador administrador){
         int contador=0;
+        String [] id={String.valueOf(administrador.getIdAdministrador())};
         if (verificarIntegridad(administrador,14)) {
-            String[] id = {String.valueOf(administrador.getIdAdministrador())};
-            Cursor c = db.query("solicitud" , camposSolicitud, "idadministrador = ?",id,null, null, null);
-            if (c.moveToFirst()) {
-                int idsolicitud= c.getInt(0);
-                contador+=db.delete("detallesolicitud", "idsolicitud='"+idsolicitud+"'", null);
+            Cursor cursor = db.query("solicitud", camposSolicitud, "idadministrador = ?",id, null, null, null);
+            cursor.moveToFirst();
+            Solicitud sol = new Solicitud();
+            sol.setIdSolicitud(cursor.getInt(0));
+            sol.setEstado(cursor.getString(1));
+            sol.setFechaSolicitud(cursor.getString(2));
+            sol.setFechaReserva(cursor.getString(3));
+            sol.setCantAsistentes(cursor.getInt(4));
+            sol.setIdAdministrador(cursor.getInt(5));
+            sol.setIdActividad(cursor.getInt(6));
+            sol.setDui(cursor.getString(7));
+            sol.setMontoArea(cursor.getInt(8));
+            sol.setHoraReservada(cursor.getString(9));
+            contador+=eliminar(sol);
+            while (cursor.moveToNext()){
+                Solicitud soli = new Solicitud();
+                soli.setIdSolicitud(cursor.getInt(0));
+                soli.setEstado(cursor.getString(1));
+                soli.setFechaSolicitud(cursor.getString(2));
+                soli.setFechaReserva(cursor.getString(3));
+                soli.setCantAsistentes(cursor.getInt(4));
+                soli.setIdAdministrador(cursor.getInt(5));
+                soli.setIdActividad(cursor.getInt(6));
+                soli.setDui(cursor.getString(7));
+                soli.setMontoArea(cursor.getInt(8));
+                soli.setHoraReservada(cursor.getString(9));
+                contador+=eliminar(soli);
             }
-            contador+=db.delete("solicitud", "idadministrador='"+administrador.getIdAdministrador()+"'", null);
-
+            // contador+=db.delete("reserva", "idhorario='"+horario.getIdHorario()+"'", null);
         }
         contador+=db.delete("administrador", "idadministrador='"+administrador.getIdAdministrador()+"'", null);
-        regAfectados+=contador;
-        return regAfectados;
+        //regAfectados+=contador;
+        return contador;
         }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 

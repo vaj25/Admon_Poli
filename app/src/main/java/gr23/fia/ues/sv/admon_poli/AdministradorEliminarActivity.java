@@ -44,12 +44,12 @@ public class AdministradorEliminarActivity extends Activity {
             }
             count++;
         }
-        String regEliminadas;
+        int regEliminadas;
         Administrador administrador= new Administrador();
         administrador.setIdAdministrador(idadmin);
         controlhelper.abrir();
         regEliminadas=controlhelper.eliminar(administrador);
         controlhelper.cerrar();
-        Toast.makeText(this, regEliminadas, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"filas afectadas="+ regEliminadas, Toast.LENGTH_SHORT).show();
     }
 }
