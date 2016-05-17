@@ -527,8 +527,8 @@ public class ControlBD {
         }
     }
 
-    public String eliminar(Actividad actividad){
-        String regAfectados="filas afectadas= ";
+    public int eliminar(Actividad actividad){
+        //String regAfectados="filas afectadas= ";
         int contador=0;
         if (verificarIntegridad(actividad,13)) {
             String[] id = {String.valueOf(actividad.getIdActividad())};
@@ -540,8 +540,8 @@ public class ControlBD {
             contador+=db.delete("solicitud", "idactividad='"+actividad.getIdActividad()+"'", null);
         }
         contador+=db.delete("actividad", "idactividad='"+actividad.getIdActividad()+"'", null);
-        regAfectados+=contador;
-        return regAfectados;
+        //regAfectados+=contador;
+        return contador;
 
 
     }
@@ -602,7 +602,7 @@ public String insertar(Administrador administrador) {
         if(cursor.moveToFirst()){
             Administrador administrador = new Administrador();
             administrador.setIdAdministrador(cursor.getInt(0));
-            administrador.setTelefonoadmin(Integer.parseInt(cursor.getString(1)));
+            administrador.setTelefonoadmin(cursor.getInt(1));
             administrador.setEmailadmin(cursor.getString(2));
             return administrador;
         }else{ return null;
@@ -1787,7 +1787,37 @@ public String insertar(Administrador administrador) {
         }
         return lista;
     }
+    /////////////////////////by karla villavicencio
+    public List consultaActividad(){
+        abrir();
+        List<Actividad> lista= new ArrayList<>();
+        Cursor cur=db.rawQuery("select idactividad,nombreactividad from actividad",null );
+        while(cur.moveToNext()){
+            Actividad act= new Actividad();
+            act.setIdActividad(cur.getInt(0));
+            act.setNombre(cur.getString(1));
+            lista.add(act);
+        }
+        cur.close();
+        db.close();
+        return(lista);
+    }
 
+    public List consultaAdministrador(){
+        abrir();
+        List<Administrador> lista= new ArrayList<>();
+        Cursor cur=db.rawQuery("select idadministrador,telefonoadmin,emailadmin from administrador",null );
+        while(cur.moveToNext()){
+            Administrador admin= new Administrador();
+            admin.setIdAdministrador(cur.getInt(0));
+            admin.setTelefonoadmin(cur.getInt(1));
+            admin.setEmailadmin(cur.getString(2));
+            lista.add(admin);
+        }
+        cur.close();
+        db.close();
+        return(lista);
+    }
     /*
     *   metodos para obtener los menus
     *   by Alberto Castaneda

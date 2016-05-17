@@ -42,6 +42,9 @@ public class Administrador {
         this.emailadmin=emailadmin;
     }
 
-
+    @Override
+    public String toString() {
+        return String.valueOf(idadministrador);
+    }
 }
 

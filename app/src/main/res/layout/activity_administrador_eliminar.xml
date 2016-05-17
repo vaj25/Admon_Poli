@@ -18,10 +18,12 @@
             android:textSize = "25dip"
             android:textColor = "@color/colorAccent"/>
 
-        <EditText android:id = "@+id/editIdEliminarAdmin"
-            android:hint = "@string/id_administrador"
-            android:inputType = "number"
-            style="@style/editText"/>
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/select_actividad"
+            android:layout_marginTop = "25dip"
+            android:id="@+id/selectEliminarAdministrador" />
 
         <Button
             style="@style/button"
