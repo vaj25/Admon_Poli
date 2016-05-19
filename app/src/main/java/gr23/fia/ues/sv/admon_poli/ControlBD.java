@@ -1611,7 +1611,7 @@ public String insertar(Administrador administrador) {
                 "02","02","02","02","02",
                 "02","02","02","02","02",
                 "02","02","02","02","02",
-                "02","02",
+                "02","02","02","02",
                 "02","02","02","02","02",
                 "02","02","02","02","02",
                 "02","02"} ;
@@ -1631,7 +1631,7 @@ public String insertar(Administrador administrador) {
                 "003","013","023","033","043",//user
                 "053","063","064","073","083",
                 "093","100","101","102","103",
-                "104","114",
+                "104","113","061","062",
                 "000","010","020","030","040",
                 "050","060","070","080","090",
                 "100","110"} ;
@@ -1780,7 +1780,7 @@ public String insertar(Administrador administrador) {
 
         //tabla accesousuario
         AccesoUsuario accesoUsuario = new AccesoUsuario() ;
-        for(int i=0; i<89;i++){
+        for(int i=0; i<91;i++){
             accesoUsuario.setIdOpcion(VAUidopcion[i]);
             accesoUsuario.setIdUsuario(VAUidusuario[i]);
             insertar(accesoUsuario) ;

@@ -48,6 +48,8 @@ public class LoginActivity extends AppCompatActivity {
                 Intent inte = new Intent(LoginActivity.this, clase);
                 inte.putExtra("nomUsuario", u.getNomUsuario());
                 inte.putExtra("idUsuario", u.getIdUsuario());
+                username.setText("");
+                password.setText("");
                 startActivity(inte);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
