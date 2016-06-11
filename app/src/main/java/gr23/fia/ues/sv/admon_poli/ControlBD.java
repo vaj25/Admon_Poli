@@ -702,18 +702,20 @@ public String insertar(Administrador administrador) {
     public String insertar(Solicitud solicitud){
         String regInsertados="Registro Insertado Nº= ";
         long contador = 0;
-        ContentValues solt = new ContentValues();
-        solt.put("idsolicitud", solicitud.getIdSolicitud()); // la genera el activity
-        solt.put("estado", solicitud.getEstado());
-        solt.put("fechasolicitud", solicitud.getFechaSolicitud());//la genera el activity
-        solt.put("fechareserva", solicitud.getFechaReserva());
-        solt.put("cantasistentes", solicitud.getCantAsistentes());
-        solt.put("idadministrador", solicitud.getIdAdministrador());
-        solt.put("idactividad", solicitud.getIdActividad());
-        solt.put("dui", solicitud.getDui()); //la recupera el activity
-        solt.put("montoarea", solicitud.getMontoArea());
-        solt.put("horareserva", solicitud.getHoraReservada());
-        contador = db.insert("solicitud", null, solt);
+        if(verificarIntegridad(solicitud, 28)){
+            ContentValues solt = new ContentValues();
+            solt.put("idsolicitud", solicitud.getIdSolicitud()); // la genera el activity
+            solt.put("estado", solicitud.getEstado());
+            solt.put("fechasolicitud", solicitud.getFechaSolicitud());//la genera el activity
+            solt.put("fechareserva", solicitud.getFechaReserva());
+            solt.put("cantasistentes", solicitud.getCantAsistentes());
+            solt.put("idadministrador", solicitud.getIdAdministrador());
+            solt.put("idactividad", solicitud.getIdActividad());
+            solt.put("dui", solicitud.getDui()); //la recupera el activity
+            solt.put("montoarea", solicitud.getMontoArea());
+            solt.put("horareserva", solicitud.getHoraReservada());
+            contador = db.insert("solicitud", null, solt);
+        }
         if(contador==-1 || contador==0)
         {
             regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
@@ -1471,6 +1473,17 @@ public String insertar(Administrador administrador) {
                 Cursor cursor = db.query("tarifa", null, "idtarifa = ?", id, null, null, null);
                 if(cursor.moveToFirst()){
                     //Se encontro Alumno
+                    return true;
+                }
+                return false;
+            }
+
+            case 28:{
+                Solicitud solicitud = (Solicitud)dato;
+                String[] id = {solicitud.getDui()};
+                abrir();
+                Cursor cursor = db.query("solicitante", null, "dui = ?", id, null, null, null);
+                if(cursor.moveToFirst()){
                     return true;
                 }
                 return false;
