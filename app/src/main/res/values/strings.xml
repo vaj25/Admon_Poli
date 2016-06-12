@@ -133,4 +133,5 @@
     <string name="numeros_horas">Cantidad De Horas</string>
     <string name="numeros_personas">Cantidad De Personas</string>
     <string name="actualizar_services">Actualizar con Servicios</string>
+    <string name="resultado">Resultador</string>
 </resources>

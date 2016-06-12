@@ -59,7 +59,6 @@ public class SolicitudInsertarActivity extends Activity {
         adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sAdmin.setAdapter(adaptador);
 
-
         ArrayAdapter spinner_adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, acts);
         spinner_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         actividad.setAdapter(spinner_adapter);
@@ -77,8 +76,6 @@ public class SolicitudInsertarActivity extends Activity {
             }
             count++;
         }
-
-
 
         int cantAs = Integer.parseInt(cantAsistentes.getText().toString()) ;
         String fecha = fechaReserva.getText().toString() ;

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding = "20dip"
+        android:orientation="vertical">
+
+        <TextView android:id = "@+id/title_consultar_solicitud"
+            android:layout_width = "fill_parent"
+            android:layout_height = "wrap_content"
+            android:layout_marginTop = "10dip"
+            android:layout_marginBottom = "10dip"
+            android:gravity = "center"
+            android:textSize = "25dip"
+            android:textColor = "@color/colorAccent"
+            android:text="@string/consultar_solicitud"/>
+
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop = "25dip"
+            android:id="@+id/selectEstado" />
+
+        <EditText
+            style="@style/noEditText"
+            android:id="@+id/resultado"
+            android:hint="@string/resultado" />
+
+        <Button
+            style="@style/button"
+            android:text="@string/consultar"
+            android:onClick="consultarSolicitud"
+            android:id="@+id/button2" />
+
+        <Button
+            style="@style/button"
+            android:text="@string/limpiar"
+            android:onClick="limpiarTexto"
+            android:id="@+id/button3"/>
+
+    </LinearLayout>
+</ScrollView>

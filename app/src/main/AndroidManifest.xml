@@ -10,9 +10,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity
             android:name=".HorarioMenuActivity"
             android:windowSoftInputMode="stateHidden" />
@@ -166,7 +164,7 @@
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".DetalleSolicitudActualizarActivity"
-            android:windowSoftInputMode="stateHidden"/>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".DetalleSolicitudInsertarActivity"
             android:windowSoftInputMode="stateHidden" />
@@ -176,8 +174,7 @@
         <activity
             android:name=".DetalleSolicitudConsultarActivity"
             android:windowSoftInputMode="stateHidden" />
-        <activity
-            android:name=".DetalleSolicitudMenuActivity" />
+        <activity android:name=".DetalleSolicitudMenuActivity" />
         <activity
             android:name=".LoginActivity"
             android:windowSoftInputMode="stateHidden">
@@ -187,6 +184,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SolicitudPConsultarActivity"></activity>
     </application>
 
 </manifest>
