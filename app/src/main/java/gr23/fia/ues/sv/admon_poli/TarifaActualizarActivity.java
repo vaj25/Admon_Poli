@@ -43,7 +43,7 @@ public class TarifaActualizarActivity extends AppCompatActivity {
                 StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-       // EditMonto=(EditText)findViewById(R.id.editText16);
+        //EditMonto=(EditText)findViewById(R.id.editText16);
         HorasTarifa=(EditText)findViewById(R.id.cantHoras);
         PersonasTarifa=(EditText)findViewById(R.id.cantPersonas);
         montoTarifa=(EditText)findViewById(R.id.monto);
@@ -75,11 +75,10 @@ public class TarifaActualizarActivity extends AppCompatActivity {
     }
 
     public void actualizarTarifaServices(View v){
-        String url = conexion.getURLLocal() + service + "idtarifa=" + posicion() + "&precio=" + (20*
-                (Double.parseDouble(HorasTarifa.getText().toString())))+(
-                1*(Double.parseDouble(PersonasTarifa.getText().toString()))) + "&canthora=" +
+        String url = conexion.getURLLocal() + service + "idtarifa=" + posicion() + "&precio=" + 20.0 + "&canthora=" +
                 HorasTarifa.getText().toString() + "&cantpersona=" +
                 PersonasTarifa.getText().toString();
+        Toast.makeText(this, url, Toast.LENGTH_LONG).show();
         String tarifaActualizada = ControlServicio.obtenerRespuestaPeticion(url, this);
         int dato = 0;
         try {
