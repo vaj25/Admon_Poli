@@ -11,6 +11,10 @@ import android.widget.Space;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -77,7 +81,18 @@ public class TarifaActualizarActivity extends AppCompatActivity {
                 HorasTarifa.getText().toString() + "&cantpersona=" +
                 PersonasTarifa.getText().toString();
         String tarifaActualizada = ControlServicio.obtenerRespuestaPeticion(url, this);
-        Toast.makeText(this, tarifaActualizada, Toast.LENGTH_LONG).show();
+        int dato = 0;
+        try {
+            JSONArray solicitudesJSON = new JSONArray(tarifaActualizada);
+            JSONObject obj = solicitudesJSON.getJSONObject(0);
+            dato = obj.getInt("resultado");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        if(dato == 0)
+            Toast.makeText(this, "Registro no actualizado", Toast.LENGTH_LONG).show();
+        else
+            Toast.makeText(this, "Registro actualizado", Toast.LENGTH_LONG).show();
     }
 
     public void limpiarTexto(View v) {   //metodo convocado en el evento onclick del boton limpiar en el layout

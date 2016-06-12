@@ -86,7 +86,7 @@ public class SolicitudInsertarActivity extends Activity {
         String regInsertados;
         Solicitud solicitud = new Solicitud();
         solicitud.setIdSolicitud(idSolicitud);
-        solicitud.setEstado("En Proceso"); //siempre se tiene ese estado al principio
+        solicitud.setEstado("Pendiente"); //siempre se tiene ese estado al principio
         solicitud.setFechaSolicitud(sdf.format(fechaActual.getTime()));
         solicitud.setFechaReserva(fecha);
         solicitud.setCantAsistentes(cantAs);

@@ -9,11 +9,19 @@ import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by FAMILY on 11/06/2016.
@@ -37,7 +45,7 @@ public class ControlServicio {
             int codigoEstado = estado.getStatusCode();
             if (codigoEstado == 200) {
                 HttpEntity entidad = httpRespuesta.getEntity();
-                respuesta = "exito";
+                respuesta = EntityUtils. toString(entidad);
             }
         } catch (Exception e) {
             Toast.makeText(ctx, "Error en la conexion", Toast.LENGTH_LONG).show();
@@ -46,5 +54,23 @@ public class ControlServicio {
         }
 
         return respuesta;
+    }
+
+    public static List<Solicitud> obtenerSolicitudes(String json, Context ctx){
+        List<Solicitud> listaSolicitud = new ArrayList<Solicitud>();
+        try {
+            JSONArray solicitudesJSON = new JSONArray(json);
+            for (int i = 0; i < solicitudesJSON.length(); i++){
+                Solicitud solicitud = new Solicitud();
+                JSONObject obj = solicitudesJSON.getJSONObject(i);
+                solicitud.setIdSolicitud(obj.getInt("idsolicitud"));
+                solicitud.setFechaReserva(obj.getString("fechareserva"));
+                listaSolicitud.add(solicitud);
+            }
+            return listaSolicitud;
+        } catch (JSONException e) {
+            Toast. makeText(ctx, "Error en parseo de JSON", Toast. LENGTH_LONG).show();
+            return null;
+        }
     }
 }

@@ -6,7 +6,8 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:padding = "20dip"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="1">
 
         <TextView android:id = "@+id/title_consultar_solicitud"
             android:layout_width = "fill_parent"
@@ -24,22 +25,16 @@
             android:layout_marginTop = "25dip"
             android:id="@+id/selectEstado" />
 
-        <EditText
-            style="@style/noEditText"
-            android:id="@+id/resultado"
-            android:hint="@string/resultado" />
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="206dp" />
 
         <Button
             style="@style/button"
             android:text="@string/consultar"
             android:onClick="consultarSolicitud"
             android:id="@+id/button2" />
-
-        <Button
-            style="@style/button"
-            android:text="@string/limpiar"
-            android:onClick="limpiarTexto"
-            android:id="@+id/button3"/>
 
     </LinearLayout>
 </ScrollView>
