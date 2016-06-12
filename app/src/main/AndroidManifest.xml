@@ -185,7 +185,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SolicitudPConsultarActivity" />
-        <activity android:name=".SolicitudesPorActividadActivity"></activity>
+        <activity android:name=".SolicitudesPorActividadActivity" />
+        <activity android:name=".TotalSolicitudesActivity"></activity>
     </application>
 
 </manifest>

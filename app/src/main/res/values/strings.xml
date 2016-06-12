@@ -135,4 +135,6 @@
     <string name="actualizar_services">Actualizar con Servicios</string>
     <string name="resultado">Resultador</string>
     <string name="consultar_solicitud2">Solicitudes por Actividad</string>
+    <string name="consultar_solicitud3">Total de Solicitudes</string>
+    <string name="montoSol">total</string>
 </resources>

@@ -19,9 +19,9 @@ public class SolicitudMenuActivity extends ListActivity {
     public ArrayList<String> resultados= new ArrayList<>();
     String idUser;
     ControlBD helper;
-    String[] menu = {"Insertar Solicitud","Eliminar Solicitud","Consultar Solicitud", "Actualizar Solicitud", "Consultar Estado Solicitud","Solicitudes por Actividad"};
+    String[] menu = {"Insertar Solicitud","Eliminar Solicitud","Consultar Solicitud", "Actualizar Solicitud", "Consultar Estado Solicitud","Solicitudes por Actividad","Total Solicitudes"};
     String[] activities = {"SolicitudInsertarActivity","SolicitudEliminarActivity","SolicitudConsultarActivity",
-            "SolicitudActualizarActivity", "SolicitudPConsultarActivity","SolicitudesPorActividadActivity"};
+            "SolicitudActualizarActivity", "SolicitudPConsultarActivity","SolicitudesPorActividadActivity","TotalSolicitudesActivity"};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
