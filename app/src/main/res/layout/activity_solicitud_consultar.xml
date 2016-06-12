@@ -42,11 +42,6 @@
             style="@style/noEditText"
             android:hint = "@string/dui_solicitante"/>
 
-        <EditText
-            android:id="@+id/editCanAsistentes"
-            android:inputType="number"
-            style="@style/noEditText"
-            android:hint = "@string/cant_asistentes"/>
 
 
         <EditText
@@ -68,16 +63,11 @@
             android:hint = "@string/actividad"/>
 
         <EditText
-            android:id="@+id/editHorasReservadas"
-            android:inputType="number"
-            style="@style/noEditText"
-            android:hint = "@string/hora_reserva"/>
-
-        <EditText
-            android:id="@+id/ediMonto"
+            android:id="@+id/montoTarifa"
             android:inputType="text"
             style="@style/noEditText"
             android:hint = "@string/monto"/>
+
 
         <EditText
             android:id="@+id/ediEstado"

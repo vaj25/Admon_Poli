@@ -16,14 +16,13 @@ public class SolicitudConsultarActivity extends Activity {
     ControlBD helper;
     Spinner idSolicitud;
     List<Solicitud> lista ;
-    EditText cantAsistentes;
     EditText actividad;
     EditText fechaReserva;
     EditText fechaSolicitud;
     EditText estado;
-    EditText monto;
     EditText dui;
-    EditText horaReserva;
+    EditText monto;
+
 
     /** Called when the activity is first created. */
 
@@ -34,14 +33,12 @@ public class SolicitudConsultarActivity extends Activity {
         helper = new ControlBD(this);
 
         idSolicitud = (Spinner) findViewById(R.id.selectSolicitud) ;
-        cantAsistentes = (EditText) findViewById(R.id.editCanAsistentes);
         fechaReserva= (EditText) findViewById(R.id.ediFechaReserva);
         fechaSolicitud = (EditText) findViewById(R.id.ediFechaSolicitud);
         actividad = (EditText) findViewById(R.id.ediActividad);
         estado = (EditText) findViewById(R.id.ediEstado);
-        monto = (EditText) findViewById(R.id.ediMonto);
         dui = (EditText) findViewById(R.id.editDui);
-        horaReserva = (EditText) findViewById(R.id.editHorasReservadas);
+        monto = (EditText) findViewById(R.id.montoTarifa);
 
         lista =new ArrayList<>();
         lista=helper.consultaSolicitud();
@@ -70,30 +67,30 @@ public class SolicitudConsultarActivity extends Activity {
             Toast.makeText(this, "Solicitud con Id " + idsolicitud +
                     " no encontrado", Toast.LENGTH_LONG).show();
         else{
-            cantAsistentes.setText(String.valueOf(solicitud.getCantAsistentes())) ;
-            fechaReserva.setText(solicitud.getFechaReserva()) ;
-            fechaSolicitud.setText(solicitud.getFechaSolicitud()) ;
-            Actividad act = new Actividad();
+            //cantAsistentes.setText(String.valueOf(solicitud.getCantAsistentes())) ;
+            fechaReserva.setText("Fecha Reserva: "+solicitud.getFechaReserva()) ;
+            fechaSolicitud.setText("Fecha Solicitud: "+solicitud.getFechaSolicitud()) ;
+            Actividad act;
+            Tarifa tar;
             helper.abrir();
             act = helper.consultarActividad(solicitud.getIdActividad());
+            tar=helper.consultarTarifa(solicitud.getIdTarifa());
             helper.cerrar();
-            actividad.setText(act.getNombre());
-            estado.setText(solicitud.getEstado()) ;
-            monto.setText(String.valueOf(solicitud.getMontoArea())) ;
-            dui.setText(String.valueOf(solicitud.getDui())) ;
-            horaReserva.setText(String.valueOf(solicitud.getHoraReservada())) ;
+            actividad.setText("Actividad: "+ act.getNombre());
+            estado.setText("Estado: "+solicitud.getEstado()) ;
+            monto.setText("Monto Asignado: "+ String.valueOf(tar.getPrecio()));
+
+            dui.setText("Solicitante: "+String.valueOf(solicitud.getDui())) ;
         }
     }
     public void limpiarTexto(View v){
 
-        cantAsistentes.setText("") ;
         fechaReserva.setText("") ;
         fechaSolicitud.setText("") ;
         actividad.setText("") ;
         estado.setText("") ;
-        monto.setText("") ;
         dui.setText("") ;
-        horaReserva.setText("") ;
+        monto.setText("");
     }
 }
 

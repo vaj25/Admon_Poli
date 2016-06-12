@@ -21,13 +21,13 @@ public class SolicitudInsertarActivity extends Activity {
 
     ControlBD helper;
     EditText fechaReserva;
-    EditText cantAsistentes;
-    EditText horasReserva;
     EditText dui;
     Spinner actividad;
     Spinner sAdmin;
     List<String> lista;
     int idSolicitud;
+    Spinner sTarifa;
+    List<String> listaTarifa;
     Calendar fechaActual = GregorianCalendar.getInstance() ;
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -37,11 +37,16 @@ public class SolicitudInsertarActivity extends Activity {
         setContentView(R.layout.activity_solicitud_insertar);
         helper = new ControlBD(this);
 
+        sTarifa = (Spinner) findViewById(R.id.selectTarifa);
+        listaTarifa = new ArrayList<>();
+        listaTarifa=helper.consultaTarifa();
+        ArrayAdapter<String> adaptadorTarifa =new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,listaTarifa);
+        adaptadorTarifa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sTarifa.setAdapter(adaptadorTarifa);
+
         actividad = (Spinner) findViewById(R.id.selectActividad) ;
         sAdmin = (Spinner) findViewById(R.id.selectAdmin);
-        cantAsistentes = (EditText) findViewById(R.id.txtCantAsistentes) ;
         fechaReserva = (EditText) findViewById(R.id.txtFechaReserva) ;
-        horasReserva = (EditText) findViewById(R.id.txtHorasReservadas) ;
         dui = (EditText) findViewById(R.id.txtDui) ;
 
         LinkedList acts = new LinkedList();
@@ -76,26 +81,32 @@ public class SolicitudInsertarActivity extends Activity {
             }
             count++;
         }
+        int positionTarifa= sTarifa.getSelectedItemPosition();
+        Iterator iteradorTarifa = listaTarifa.listIterator();
+        int countTarifa=0;
+        int idtarifa=0;
+        while( iteradorTarifa.hasNext() ) {
+            Tarifa tar = (Tarifa) iteradorTarifa.next();
+            if(countTarifa==positionTarifa){
+                idtarifa=tar.getIdTarifa();
+            }
+            countTarifa++;
+        }
 
-        int cantAs = Integer.parseInt(cantAsistentes.getText().toString()) ;
         String fecha = fechaReserva.getText().toString() ;
         int idact = actividad.getSelectedItemPosition() + 1 ; //cambiar
-        String horas = horasReserva.getText().toString();
         String duiString = dui.getText().toString() ;
 
         String regInsertados;
         Solicitud solicitud = new Solicitud();
         solicitud.setIdSolicitud(idSolicitud);
-        solicitud.setEstado("Pendiente"); //siempre se tiene ese estado al principio
+        solicitud.setEstado("En Proceso"); //siempre se tiene ese estado al principio
         solicitud.setFechaSolicitud(sdf.format(fechaActual.getTime()));
         solicitud.setFechaReserva(fecha);
-        solicitud.setCantAsistentes(cantAs);
-
         solicitud.setIdAdministrador(idadmin);
         solicitud.setIdActividad(idact);
+        solicitud.setIdTarifa(idtarifa);
         solicitud.setDui(duiString);
-        solicitud.setMontoArea(20.30);
-        solicitud.setHoraReservada(horas+".00");
 
         helper.abrir();
         regInsertados = helper.insertar(solicitud);
@@ -105,8 +116,6 @@ public class SolicitudInsertarActivity extends Activity {
 
     public void limpiarTexto(View v) {
         fechaReserva.setText("");
-        cantAsistentes.setText("");
-        horasReserva.setText("");
         dui.setText("");
     }
 }

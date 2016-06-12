@@ -36,20 +36,12 @@
             android:onClick="limpiarTexto"
             android:id="@+id/LimpiarButton"/>
 
-        <EditText android:id = "@+id/txtCantAsistentes"
-            android:hint = "@string/cant_asistentes"
-            android:inputType = "number"
-            style="@style/editText"/>
 
         <EditText android:id = "@+id/txtFechaReserva"
             android:hint = "@string/fecha_reserva"
             android:inputType = "text"
             style="@style/editText"/>
 
-        <EditText android:id = "@+id/txtHoraReserva"
-            android:hint = "@string/hora_reserva"
-            android:inputType = "number"
-            style="@style/editText"/>
 
         <Spinner
             android:layout_width="fill_parent"
@@ -62,6 +54,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop = "25dip"
             android:id="@+id/selectEstado" />
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop = "25dip"
+            android:id="@+id/selectAdmin" />
+
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop = "25dip"
+            android:id="@+id/selectTarifa" />
 
     </LinearLayout>
 </ScrollView>

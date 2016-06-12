@@ -44,7 +44,7 @@ public class Administrador {
 
     @Override
     public String toString() {
-        return emailadmin;
+        return "Admin: "+emailadmin;
     }
 }
 

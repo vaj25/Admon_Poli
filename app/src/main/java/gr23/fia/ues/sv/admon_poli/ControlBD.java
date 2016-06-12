@@ -27,7 +27,7 @@ public class ControlBD {
     private static final String[] camposSolicitante = new String [] {"dui","nombresol","apellidosol","telefonosol","emailsol"};
     private static final String[] camposActividad = new String [] {"idactividad","nombreactividad"};
     private static final String[] camposAdministrador = new String [] {"idadministrador","telefonoadmin","emailadmin"};
-    private static final String[] camposSolicitud = new String [] {"idsolicitud","estado","fechasolicitud","fechareserva","cantasistentes","idadministrador","idactividad","dui","montoarea", "horareserva"};
+    private static final String[] camposSolicitud = new String [] {"idsolicitud","estado","fechasolicitud","fechareserva","idadministrador","idactividad","idtarifa","dui"};
     private static final String[] camposDetalleSolicitud = new String [] {"idsolicitud","idarea","descripcion"};
     //tablas de seguridad
     private static final String[] camposUsuario = new String [] {"idusuario", "nomusuario", "clave"} ;
@@ -47,7 +47,7 @@ public class ControlBD {
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
 
-        private static final String BASE_DATOS = "AdmonPoliv17.s3db" ;
+        private static final String BASE_DATOS = "AdmonPoliv20.s3db" ;
         private static final int VERSION = 2;
 
         DatabaseHelper(Context context) {
@@ -111,12 +111,11 @@ public class ControlBD {
                         "estado VARCHAR(10)," +
                         "fechasolicitud DATE," +
                         "fechareserva DATE," +
-                        "cantasistentes INTEGER," +
                         "idadministrador INTEGER NOT NULL," +
                         "idactividad INTEGER NOT NULL," +
-                        "dui VARCHAR(9) NOT NULL," +
-                        "montoarea FLOAT NOT NULL," +
-                        "horareserva TIME NOT NULL);");
+                        "idtarifa INTEGER NOT NULL," +
+                        "dui VARCHAR(9) NOT NULL);");
+
                 db.execSQL("CREATE TABLE detallesolicitud (" +
                         "idsolicitud INTEGER  NOT NULL," +
                         "idarea INTEGER  NOT NULL," +
@@ -412,11 +411,14 @@ public class ControlBD {
     }
 
     public String eliminar(Tarifa tarifa){
-        //String regAfectados="filas afectadas= ";
-        String contador="";
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        if (verificarIntegridad(tarifa,29)) {
+            contador+=db.delete("solicitud", "idtarifa='"+tarifa.getIdTarifa()+"'", null);
+        }
         contador+=db.delete("tarifa", "idtarifa='"+tarifa.getIdTarifa()+"'", null);
-        //regAfectados+=contador;
-        return contador;
+        regAfectados+=contador;
+        return regAfectados;
     }
 
     public String insertar(Tarifa tarifa){
@@ -481,12 +483,11 @@ public class ControlBD {
             sol.setEstado(cursor.getString(1));
             sol.setFechaSolicitud(cursor.getString(2));
             sol.setFechaReserva(cursor.getString(3));
-            sol.setCantAsistentes(cursor.getInt(4));
-            sol.setIdAdministrador(cursor.getInt(5));
-            sol.setIdActividad(cursor.getInt(6));
+            sol.setIdAdministrador(cursor.getInt(4));
+            sol.setIdActividad(cursor.getInt(5));
+            sol.setIdTarifa(cursor.getInt(6));
             sol.setDui(cursor.getString(7));
-            sol.setMontoArea(cursor.getInt(8));
-            sol.setHoraReservada(cursor.getString(9));
+
             contador+=eliminar(sol);
             while (cursor.moveToNext()){
                 Solicitud soli = new Solicitud();
@@ -494,12 +495,10 @@ public class ControlBD {
                 soli.setEstado(cursor.getString(1));
                 soli.setFechaSolicitud(cursor.getString(2));
                 soli.setFechaReserva(cursor.getString(3));
-                soli.setCantAsistentes(cursor.getInt(4));
-                soli.setIdAdministrador(cursor.getInt(5));
-                soli.setIdActividad(cursor.getInt(6));
+                soli.setIdAdministrador(cursor.getInt(4));
+                soli.setIdActividad(cursor.getInt(5));
+                soli.setIdTarifa(cursor.getInt(6));
                 soli.setDui(cursor.getString(7));
-                soli.setMontoArea(cursor.getInt(8));
-                soli.setHoraReservada(cursor.getString(9));
                 contador+=eliminar(soli);
             }
             // contador+=db.delete("reserva", "idhorario='"+horario.getIdHorario()+"'", null);
@@ -567,12 +566,10 @@ public class ControlBD {
             sol.setEstado(cursor.getString(1));
             sol.setFechaSolicitud(cursor.getString(2));
             sol.setFechaReserva(cursor.getString(3));
-            sol.setCantAsistentes(cursor.getInt(4));
-            sol.setIdAdministrador(cursor.getInt(5));
-            sol.setIdActividad(cursor.getInt(6));
+            sol.setIdAdministrador(cursor.getInt(4));
+            sol.setIdActividad(cursor.getInt(5));
+            sol.setIdTarifa(cursor.getInt(6));
             sol.setDui(cursor.getString(7));
-            sol.setMontoArea(cursor.getInt(8));
-            sol.setHoraReservada(cursor.getString(9));
             contador+=eliminar(sol);
             while (cursor.moveToNext()){
                 Solicitud soli = new Solicitud();
@@ -580,12 +577,10 @@ public class ControlBD {
                 soli.setEstado(cursor.getString(1));
                 soli.setFechaSolicitud(cursor.getString(2));
                 soli.setFechaReserva(cursor.getString(3));
-                soli.setCantAsistentes(cursor.getInt(4));
-                soli.setIdAdministrador(cursor.getInt(5));
-                soli.setIdActividad(cursor.getInt(6));
+                soli.setIdAdministrador(cursor.getInt(4));
+                soli.setIdActividad(cursor.getInt(5));
+                soli.setIdTarifa(cursor.getInt(6));
                 soli.setDui(cursor.getString(7));
-                soli.setMontoArea(cursor.getInt(8));
-                soli.setHoraReservada(cursor.getString(9));
                 contador+=eliminar(soli);
             }
             // contador+=db.delete("reserva", "idhorario='"+horario.getIdHorario()+"'", null);
@@ -669,12 +664,10 @@ public String insertar(Administrador administrador) {
             sol.setEstado(cursor.getString(1));
             sol.setFechaSolicitud(cursor.getString(2));
             sol.setFechaReserva(cursor.getString(3));
-            sol.setCantAsistentes(cursor.getInt(4));
-            sol.setIdAdministrador(cursor.getInt(5));
-            sol.setIdActividad(cursor.getInt(6));
+            sol.setIdAdministrador(cursor.getInt(4));
+            sol.setIdActividad(cursor.getInt(5));
+            sol.setIdTarifa(cursor.getInt(6));
             sol.setDui(cursor.getString(7));
-            sol.setMontoArea(cursor.getInt(8));
-            sol.setHoraReservada(cursor.getString(9));
             contador+=eliminar(sol);
             while (cursor.moveToNext()){
                 Solicitud soli = new Solicitud();
@@ -682,12 +675,10 @@ public String insertar(Administrador administrador) {
                 soli.setEstado(cursor.getString(1));
                 soli.setFechaSolicitud(cursor.getString(2));
                 soli.setFechaReserva(cursor.getString(3));
-                soli.setCantAsistentes(cursor.getInt(4));
-                soli.setIdAdministrador(cursor.getInt(5));
-                soli.setIdActividad(cursor.getInt(6));
+                soli.setIdAdministrador(cursor.getInt(4));
+                soli.setIdActividad(cursor.getInt(5));
+                soli.setIdTarifa(cursor.getInt(6));
                 soli.setDui(cursor.getString(7));
-                soli.setMontoArea(cursor.getInt(8));
-                soli.setHoraReservada(cursor.getString(9));
                 contador+=eliminar(soli);
             }
             // contador+=db.delete("reserva", "idhorario='"+horario.getIdHorario()+"'", null);
@@ -701,27 +692,28 @@ public String insertar(Administrador administrador) {
     //Tablas Alberto
     public String insertar(Solicitud solicitud){
         String regInsertados="Registro Insertado Nº= ";
-        long contador = 0;
-        if(verificarIntegridad(solicitud, 28)){
+        long contador;
+        if(verificarIntegridad(solicitud,28)) {
             ContentValues solt = new ContentValues();
             solt.put("idsolicitud", solicitud.getIdSolicitud()); // la genera el activity
+            solt.put("idtarifa", solicitud.getIdTarifa());
             solt.put("estado", solicitud.getEstado());
             solt.put("fechasolicitud", solicitud.getFechaSolicitud());//la genera el activity
             solt.put("fechareserva", solicitud.getFechaReserva());
-            solt.put("cantasistentes", solicitud.getCantAsistentes());
             solt.put("idadministrador", solicitud.getIdAdministrador());
             solt.put("idactividad", solicitud.getIdActividad());
             solt.put("dui", solicitud.getDui()); //la recupera el activity
-            solt.put("montoarea", solicitud.getMontoArea());
-            solt.put("horareserva", solicitud.getHoraReservada());
+
             contador = db.insert("solicitud", null, solt);
-        }
+
         if(contador==-1 || contador==0)
         {
             regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
         }
         else {
             regInsertados = regInsertados+contador;
+        }}else{
+            regInsertados="No existe Solicitante";
         }
         return regInsertados;
     }
@@ -732,14 +724,15 @@ public String insertar(Administrador administrador) {
             String[] id = {String.valueOf(solicitud.getIdSolicitud())};
             ContentValues cv = new ContentValues();
             cv.put("estado", solicitud.getEstado()); // solo lo modifica el admin
-            cv.put("montoarea",solicitud.getMontoArea());
+            //cv.put("montoarea",solicitud.getMontoArea());
             cv.put("fechareserva",solicitud.getFechaReserva());
             cv.put("fechasolicitud",solicitud.getFechaSolicitud());
-            cv.put("cantasistentes",solicitud.getCantAsistentes());
+            //cv.put("cantasistentes",solicitud.getCantAsistentes());
             cv.put("idactividad",solicitud.getIdActividad());
             cv.put("idadministrador",solicitud.getIdAdministrador());
             cv.put("dui",solicitud.getDui());
-            cv.put("horareserva",solicitud.getHoraReservada());
+            cv.put("idtarifa",solicitud.getIdTarifa());
+            //cv.put("horareserva",solicitud.getHoraReservada());
             db.update("solicitud", cv, "idsolicitud = ?", id);
             return "Registro Actualizado Correctamente";
         }else{
@@ -755,14 +748,13 @@ public String insertar(Administrador administrador) {
             Solicitud solicitud = new Solicitud() ;
             solicitud.setIdSolicitud(cursor.getInt(0));
             solicitud.setEstado(cursor.getString(1));
-            solicitud.setFechaReserva(cursor.getString(2));
-            solicitud.setFechaSolicitud(cursor.getString(3));
-            solicitud.setCantAsistentes(cursor.getInt(4));
-            solicitud.setIdAdministrador(cursor.getInt(5));
-            solicitud.setIdActividad(cursor.getInt(6));
+            solicitud.setFechaSolicitud(cursor.getString(2));
+            solicitud.setFechaReserva(cursor.getString(3));
+            solicitud.setIdAdministrador(cursor.getInt(4));
+            solicitud.setIdActividad(cursor.getInt(5));
+            solicitud.setIdTarifa(cursor.getInt(6));
             solicitud.setDui(cursor.getString(7));
-            solicitud.setMontoArea(cursor.getDouble(8));
-            solicitud.setHoraReservada(cursor.getString(9));
+
             return solicitud;
         }else{
             return null;
@@ -1160,12 +1152,13 @@ public String insertar(Administrador administrador) {
                 Solicitud solicitud = (Solicitud) dato;
                 String[] id1 = {String.valueOf(solicitud.getIdAdministrador())};
                 String[] id2 = {String.valueOf(solicitud.getIdActividad())};
-                String[] id3 = {String.valueOf(solicitud.getMontoArea())};
+                //String[] id3 = {String.valueOf(solicitud.getMontoArea())};
+                String[] id3={String.valueOf(solicitud.getIdTarifa())};
                 String[] id4 = {String.valueOf(solicitud.getDui())};
                 abrir();
                 Cursor cursor1 = db.query("administrador", null, "idadministrador = ?", id1, null, null, null);
                 Cursor cursor2 = db.query("actividad", null, "idactividad = ?", id2, null, null, null);
-                Cursor cursor3 = db.query("tarifa", null, "montoarea = ?", id2, null, null, null);
+                Cursor cursor3 = db.query("tarifa", null, "idtarifa = ?", id2, null, null, null);
                 Cursor cursor4 = db.query("solicitante", null, "dui = ?", id2, null, null, null);
                 if (cursor1.moveToFirst() && cursor2.moveToFirst() && cursor3.moveToFirst() && cursor4.moveToFirst()) {
                     //Se encontraron datos
@@ -1480,10 +1473,23 @@ public String insertar(Administrador administrador) {
 
             case 28:{
                 Solicitud solicitud = (Solicitud)dato;
-                String[] id = {solicitud.getDui()};
+                String[] id = {String.valueOf(solicitud.getDui())};
                 abrir();
                 Cursor cursor = db.query("solicitante", null, "dui = ?", id, null, null, null);
                 if(cursor.moveToFirst()){
+                    return true;
+                }
+                return false;
+            }
+            case 29:
+            {
+
+                Tarifa tar = (Tarifa) dato;
+                String[] id1 = {String.valueOf(tar.getIdTarifa())};
+                abrir();
+                Cursor cursor1 = db.query("solicitud", null, "idtarifa = ?", id1, null, null, null);
+                if (cursor1.moveToFirst()) {
+                    //Se encontraron datos
                     return true;
                 }
                 return false;
@@ -1524,13 +1530,13 @@ public String insertar(Administrador administrador) {
         final boolean[] VHinstructor = {true,false,true,false};
 
 
-        final int[] VTidTarifa = {1,2,3,4} ;
+        final int[] VTidTarifa = {1,2,3,4};
         final double[] VTprecio = {56.89,32.4,123.5,789.3};
         final double[] VTcanthora = {2.0,4.0,3.0,7.0};
         final int[] VTcantpersona = {100,200,500,500};
 
 
-        final String[] VSdui = {"12897856234","78894556231","7889455628","78894556235"};
+        final String[] VSdui = {"784556129","788945562","125623458","984512563"};
         final String[] VSnombresol = {"Moisés","Alberto","Pablo","Samuel"};
         final String[] VSapellidosol = {"Herrera","Sanchez","Tobar","Jovel"};
         final int[] VStelefonosol = {78895612,73235689,71235689,79455612};
@@ -1547,15 +1553,12 @@ public String insertar(Administrador administrador) {
         final String[] VSOestado = {"Aprobado","Denegado","En proceso","Aprobado"};
         final String[] VSOfechasolictud = {"06/02/16","06/02/16","06/02/16","06/02/16"};
         final String[] VSOfechareserva = {"06/02/16","06/02/16","06/02/16","06/02/16"};
-        final int[] VSOcantasistentes = {100,200,500,300};
         final int[] VSOidadministrador = {1,2,3,4};
         final int[] VSOidactividad = {1,2,3,4};
-        final String[] VSOhoraReserva = {"10.30.00", "12.00.00", "2.00.00", "4.30.00"};
-
-        final String[] VSOdui = {"12897856234","78894556231","7889455628","78894556235"};
+        final int[] VSOidtarifa = {1,2,3,4};
+        final String[] VSOdui = {"784556129","788945562","125623458","984512563"};
 
         final double[] VSOmontoarea = {56.89,32.4,123.5,789.3};
-
         final int[] VDSidsolicitud = {1,2,3,4};
         final int[] VDSidarea = {1,2,3,4};
         final String[] VDSdescripcion = {"solicita piscina","solicita cancha 11","solicita cancha papi","solicita duela"};
@@ -1578,7 +1581,7 @@ public String insertar(Administrador administrador) {
                 "070","071","072","073","074",
                 "080","081","082","083","084",
                 "090","091","092","093","094",
-                "100","101","102","103","104","105",
+                "100","101","102","103","104",
                 "110","111","112","113","114"};
         final String[] VOCdesopcion = {
                 /*0*/"Menu Actividad","Nueva Actividad","Eliminar Actividad","Consultar Actividad", "Actualizar Actividad",
@@ -1591,7 +1594,7 @@ public String insertar(Administrador administrador) {
                 /*7*/"Menu Horario","Insertar Horario","Eliminar Horario","Consultar Horario", "Actualizar Horario",
                 /*8*/"Menu Reserva","Insertar Reserva","Eliminar Reserva","Consultar Reserva", "Actualizar Reserva",
                 /*9*/"Menu Solicitante","Insertar Solicitante","Eliminar Solicitante","Consultar Solicitante", "Actualizar Solicitante",
-                /*10*/"Menu Solicitud","Insertar Solicitud","Eliminar Solicitud","Consultar Solicitud", "Actualizar Solicitud", "Consultar Estado Solicitud",
+                /*10*/"Menu Solicitud","Insertar Solicitud","Eliminar Solicitud","Consultar Solicitud", "Actualizar Solicitud",
                 /*11*/"Menu Tarifa","Insertar Tarifa","Eliminar Tarifa","Consultar Tarifa", "Actualizar Tarifa"} ;
         final int[] VOCnumcrud = {
                 0,1,2,3,4,
@@ -1604,7 +1607,7 @@ public String insertar(Administrador administrador) {
                 0,1,2,3,4,
                 0,1,2,3,4,
                 0,1,2,3,4,
-                0,1,2,3,4,5,
+                0,1,2,3,4,
                 0,1,2,3,4};
 
         //tabla accesousuario
@@ -1619,7 +1622,7 @@ public String insertar(Administrador administrador) {
                 "01","01","01","01","01",
                 "01","01","01","01","01",
                 "01","01","01","01","01",
-                "01","01","01","01","01", "01",
+                "01","01","01","01","01",
                 "01","01","01","01","01",
                 "02","02","02","02","02",
                 "02","02","02","02","02",
@@ -1639,7 +1642,7 @@ public String insertar(Administrador administrador) {
                 "070","071","072","073","074",
                 "080","081","082","083","084",
                 "090","091","092","093","094",
-                "100","101","102","103","104", "105",
+                "100","101","102","103","104",
                 "110","111","112","113","114",
                 "003","013","023","033","043",//user
                 "053","063","064","073","083",
@@ -1756,12 +1759,10 @@ public String insertar(Administrador administrador) {
             solicitud.setEstado(VSOestado[i]);
             solicitud.setFechaSolicitud(VSOfechasolictud[i]);
             solicitud.setFechaReserva(VSOfechareserva[i]);
-            solicitud.setCantAsistentes(VSOcantasistentes[i]);
             solicitud.setIdAdministrador(VSOidadministrador[i]);
             solicitud.setIdActividad(VSOidactividad[i]);
             solicitud.setDui(VSOdui[i]);
-            solicitud.setMontoArea(VSOmontoarea[i]);
-            solicitud.setHoraReservada(VSOhoraReserva[i]);
+            solicitud.setIdTarifa(VSOidtarifa[i]);
             insertar(solicitud);
         }
 
@@ -1784,7 +1785,7 @@ public String insertar(Administrador administrador) {
 
         //tabla opcioncrud
         OpcionCrud opcionCrud = new OpcionCrud() ;
-        for(int i=0; i<61;i++){
+        for(int i=0; i<60;i++){
             opcionCrud.setIdOpcion(VOCidopcion[i]);
             opcionCrud.setDesOpcion(VOCdesopcion[i]);
             opcionCrud.setNumCrud(VOCnumcrud[i]);
@@ -1793,7 +1794,7 @@ public String insertar(Administrador administrador) {
 
         //tabla accesousuario
         AccesoUsuario accesoUsuario = new AccesoUsuario() ;
-        for(int i=0; i<92;i++){
+        for(int i=0; i<91;i++){
             accesoUsuario.setIdOpcion(VAUidopcion[i]);
             accesoUsuario.setIdUsuario(VAUidusuario[i]);
             insertar(accesoUsuario) ;

@@ -9,27 +9,23 @@ public class Solicitud {
     private String estado;
     private String fechaSolicitud;
     private String fechaReserva;
-    private int cantAsistentes;
     private int idAdministrador;
     private int idActividad;
     private String dui;
-    private double montoArea;
-    private String horaReservada;
+    private int idTarifa;
 
-    public Solicitud(int idSolicitud, double montoArea, String estado, String fechaSolicitud, String fechaReserva, int cantAsistentes, int idAdministrador, int idActividad, String dui, String horaReservada) {
+    public Solicitud() {
+    }
+
+    public Solicitud(int idSolicitud, String estado, String fechaSolicitud, String fechaReserva, int idAdministrador, int idActividad, String dui, int idTarifa) {
         this.idSolicitud = idSolicitud;
-        this.montoArea = montoArea;
         this.estado = estado;
         this.fechaSolicitud = fechaSolicitud;
         this.fechaReserva = fechaReserva;
-        this.cantAsistentes = cantAsistentes;
         this.idAdministrador = idAdministrador;
         this.idActividad = idActividad;
         this.dui = dui;
-        this.horaReservada = horaReservada;
-    }
-
-    public Solicitud() {
+        this.idTarifa = idTarifa;
     }
 
     public int getIdSolicitud() {
@@ -39,10 +35,6 @@ public class Solicitud {
     public void setIdSolicitud(int idSolicitud) {
         this.idSolicitud = idSolicitud;
     }
-
-    public double getMontoArea() { return montoArea; }
-
-    public void setMontoArea(double montoArea) { this.montoArea = montoArea; }
 
     public String getEstado() {
         return estado;
@@ -66,14 +58,6 @@ public class Solicitud {
 
     public void setFechaReserva(String fechaReserva) {
         this.fechaReserva = fechaReserva;
-    }
-
-    public int getCantAsistentes() {
-        return cantAsistentes;
-    }
-
-    public void setCantAsistentes(int cantAsistentes) {
-        this.cantAsistentes = cantAsistentes;
     }
 
     public int getIdAdministrador() {
@@ -100,12 +84,12 @@ public class Solicitud {
         this.dui = dui;
     }
 
-    public String getHoraReservada() {
-        return horaReservada;
+    public int getIdTarifa() {
+        return idTarifa;
     }
 
-    public void setHoraReservada(String horaReservada) {
-        this.horaReservada = horaReservada;
+    public void setIdTarifa(int idTarifa) {
+        this.idTarifa = idTarifa;
     }
 
     @Override

@@ -1,64 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android = "http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
-        android:layout_width = "fill_parent"
-        android:layout_height = "fill_parent"
-        android:padding = "20dip"
-        android:orientation = "vertical">
 
-        <TextView android:id = "@+id/title_actualizar_area"
-            android:layout_width = "fill_parent"
-            android:layout_height = "wrap_content"
-            android:layout_marginTop = "10dip"
-            android:layout_marginBottom = "20dip"
-            android:text = "@string/actualizar_area"
-            android:gravity = "center"
-            android:textSize = "25dip"
-            android:textColor = "@color/colorAccent"/>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:padding="20dip">
 
-        <Spinner
+        <TextView
+            android:id="@+id/title_actualizar_area"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:prompt="@string/select_actividad"
-            android:layout_marginTop = "25dip"
-            android:id="@+id/selectArea" />
+            android:layout_marginBottom="20dip"
+            android:layout_marginTop="10dip"
+            android:gravity="center"
+            android:text="@string/actualizar_area"
+            android:textColor="@color/colorAccent"
+            android:textSize="25dip" />
+
+        <Spinner
+            android:id="@+id/selectArea"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dip"
+            android:prompt="@string/select_actividad" />
+
         <Button
+            android:id="@+id/EnviarButton"
             style="@style/button"
-            android:text="@string/btn_act_area"
             android:onClick="actualizarArea"
-            android:id="@+id/EnviarButton"/>
+            android:text="@string/btn_act_area" />
 
         <Button
+            android:id="@+id/LimpiarButton"
             style="@style/button"
-            android:text="@string/limpiar_area"
             android:onClick="limpiarTexto"
-            android:id="@+id/LimpiarButton"/>
+            android:text="@string/limpiar_area" />
 
 
-        <EditText android:id = "@+id/nombreArea"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
-            android:hint = "@string/nombre_area"
-            android:inputType = "text"
-            android:layout_marginTop = "25dip"/>
+        <EditText
+            android:id="@+id/nombreArea"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dip"
+            android:hint="@string/nombre_area"
+            android:inputType="text" />
 
-        <EditText android:id = "@+id/capacidadArea"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
-            android:hint = "@string/capacidad_area"
-            android:inputType = "number|text"
-            android:layout_marginTop = "25dip"
-            android:numeric="integer"/>
+        <EditText
+            android:id="@+id/capacidadArea"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dip"
+            android:hint="@string/capacidad_area"
+            android:inputType="number|text"
+            android:numeric="integer" />
 
-        <EditText android:id = "@+id/aream2"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
-            android:hint = "@string/area"
-            android:inputType = "text|numberDecimal"
-            android:layout_marginTop = "25dip"
-            android:numeric="decimal"/>
+        <EditText
+            android:id="@+id/aream2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dip"
+            android:hint="@string/area"
+            android:inputType="text|numberDecimal"
+            android:numeric="decimal" />
 
     </LinearLayout>
 </ScrollView>

@@ -25,13 +25,6 @@
             android:inputType = "number"
             android:layout_marginTop = "25dip"/>
 
-        <EditText android:id = "@+id/txtCantAsistentes"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
-            android:hint = "@string/cant_asistentes"
-            android:inputType = "number"
-            android:layout_marginTop = "25dip"
-            android:numeric="integer"/>
 
         <EditText android:id = "@+id/txtFechaReserva"
             android:layout_height = "wrap_content"
@@ -40,12 +33,6 @@
             android:inputType = "text"
             android:layout_marginTop = "25dip"/>
 
-        <EditText android:id = "@+id/txtHorasReservadas"
-            android:layout_height = "wrap_content"
-            android:layout_width = "fill_parent"
-            android:hint = "@string/hora_reserva"
-            android:inputType = "text"
-            android:layout_marginTop = "25dip"/>
 
         <Spinner
             android:layout_width="fill_parent"
@@ -60,6 +47,13 @@
             android:prompt="@string/select_actividad"
             android:layout_marginTop = "25dip"
             android:id="@+id/selectAdmin" />
+
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/select_actividad"
+            android:layout_marginTop = "25dip"
+            android:id="@+id/selectTarifa" />
 
         <Button
             style="@style/button"

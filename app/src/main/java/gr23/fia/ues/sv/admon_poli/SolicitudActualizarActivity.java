@@ -17,14 +17,16 @@ public class SolicitudActualizarActivity extends Activity {
 
     ControlBD helper;
     Spinner idSolicitud;
-    EditText cantAsistentes;
     Spinner actividad;
     EditText fechaReserva;
-    EditText horaReserva;
     Spinner estado ;
     List<Solicitud> lista ;
     String id;
     String idCompare = "01" ;
+    List<String> listaAdmin;
+    List<String> listaTarifa;
+    Spinner sTarifa;
+    Spinner sAdmin;
 
     /** Called when the activity is first created. */
     @Override
@@ -33,12 +35,23 @@ public class SolicitudActualizarActivity extends Activity {
         setContentView(R.layout.activity_solicitud_actualizar);
         helper = new ControlBD(this);
 
+        sTarifa = (Spinner) findViewById(R.id.selectTarifa);
+        sAdmin = (Spinner) findViewById(R.id.selectAdmin);
         idSolicitud = (Spinner) findViewById(R.id.selectSolicitud);
-        cantAsistentes = (EditText) findViewById(R.id.txtCantAsistentes);
         fechaReserva= (EditText) findViewById(R.id.txtFechaReserva);
-        horaReserva= (EditText) findViewById(R.id.txtHoraReserva);
         actividad = (Spinner) findViewById(R.id.selectActividad);
         estado = (Spinner) findViewById(R.id.selectEstado);
+
+        listaTarifa = new ArrayList<>();
+        listaTarifa=helper.consultaTarifa();
+        ArrayAdapter<String> adaptadorTarifa =new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,listaTarifa);
+        adaptadorTarifa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sTarifa.setAdapter(adaptadorTarifa);
+        listaAdmin = new ArrayList<>();
+        listaAdmin=helper.consultaAdministrador();
+        ArrayAdapter<String> adaptadorAdmin =new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,listaAdmin);
+        adaptadorAdmin.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sAdmin.setAdapter(adaptadorAdmin);
 
         Bundle bundle = getIntent().getExtras();
         id = bundle.getString("idUsuario");
@@ -46,9 +59,8 @@ public class SolicitudActualizarActivity extends Activity {
         if(id.compareTo(idCompare) != 0){
             estado.setEnabled(false);
         }else{
-            cantAsistentes.setEnabled(false);
-            fechaReserva.setEnabled(false);
-            actividad.setEnabled(false);
+            fechaReserva.setEnabled(true);
+            actividad.setEnabled(true);
         }
 
         ArrayAdapter adapter =
@@ -77,6 +89,29 @@ public class SolicitudActualizarActivity extends Activity {
 
     public void actualizarSolicitud(View v) {
 
+        int positionAdmin= sAdmin.getSelectedItemPosition();
+        Iterator iteradorAdmin = listaAdmin.listIterator();
+        int countAdmin=0;
+        int idadmin=0;
+        while( iteradorAdmin.hasNext() ) {
+            Administrador admin = (Administrador) iteradorAdmin.next();
+            if(countAdmin==positionAdmin){
+                idadmin=admin.getIdAdministrador();
+            }
+            countAdmin++;
+        }
+        int positionTarifa= sTarifa.getSelectedItemPosition();
+        Iterator iteradorTarifa = listaTarifa.listIterator();
+        int countTarifa=0;
+        int idtarifa=0;
+        while( iteradorTarifa.hasNext() ) {
+            Tarifa tar = (Tarifa) iteradorTarifa.next();
+            if(countTarifa==positionTarifa){
+                idtarifa=tar.getIdTarifa();
+            }
+            countTarifa++;
+        }
+
         helper.abrir();
         int position = idSolicitud.getSelectedItemPosition();
         Iterator iterador = lista.listIterator();
@@ -92,9 +127,7 @@ public class SolicitudActualizarActivity extends Activity {
         Solicitud solicitud = helper.consultarSolicitud(idsolicitud);
 
         if(id.compareTo(idCompare) != 0){
-            solicitud.setCantAsistentes(Integer.parseInt(cantAsistentes.getText().toString()));
             solicitud.setFechaReserva(fechaReserva.getText().toString());
-            solicitud.setHoraReservada(String.valueOf(horaReserva.getText().toString()));
             solicitud.setIdActividad(actividad.getSelectedItemPosition() + 1);
         }else{
             String [] estados = getResources().getStringArray(R.array.estados);
@@ -104,16 +137,15 @@ public class SolicitudActualizarActivity extends Activity {
                     es = estados[i] ;
                 }
             }
-            solicitud.setEstado(es);
+            solicitud.setEstado("Estado: "+es);
         }
-
+        solicitud.setIdTarifa(idtarifa);
+        solicitud.setIdAdministrador(idadmin);
         String estado = helper.actualizar(solicitud);
         helper.cerrar();
         Toast.makeText(this, estado, Toast.LENGTH_SHORT).show();
     }
     public void limpiarTexto(View v) {
-        cantAsistentes.setText("") ;
         fechaReserva.setText("") ;
-        horaReserva.setText("") ;
     }
 }

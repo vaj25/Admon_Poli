@@ -61,6 +61,6 @@ public class Tarifa {
     @Override
     public String toString(){
 
-        return  canthora + " horas "+ " -- " + cantPersonas + " personas";
+        return  "Tarifa: "+ canthora + " horas "+ " -- " + cantPersonas + " personas";
     }
 }
