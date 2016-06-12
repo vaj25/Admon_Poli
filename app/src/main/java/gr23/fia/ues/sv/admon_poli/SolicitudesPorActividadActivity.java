@@ -8,49 +8,41 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
-
-
-import java.util.Iterator;
 import java.util.List;
 
 @SuppressLint("NewApi")
-public class SolicitudPConsultarActivity extends Activity {
+public class SolicitudesPorActividadActivity extends Activity {
 
-    private Spinner estado;
+    private Spinner actividad;
     private ListView listView;
     private Conexion conexion;
     private List<Solicitud> listaSolicitud;
-    private final String service = "/AdmonPoli/count_solicitud.php?";
+    private final String service = "/AdmonPoli/ws_cant_sol_actividad.php?";
 
     @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_solicitud_pconsultar);
+        setContentView(R.layout.activity_solicitudes_por_actividad);
         conexion = new Conexion();
 
         StrictMode.ThreadPolicy policy = new
                 StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        estado = (Spinner) findViewById(R.id.selectEstado);
+        actividad = (Spinner) findViewById(R.id.selectActividad);
         listView = (ListView) findViewById(R.id.listView);
 
-        ArrayAdapter adapter =
-                ArrayAdapter.createFromResource(this,R.array.estados,android.R.layout.simple_spinner_item);
+        ArrayAdapter adapter =ArrayAdapter.createFromResource(this,R.array.actividades,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        estado.setAdapter(adapter);
+        actividad.setAdapter(adapter);
     }
 
-    public void consultarSolicitud(View v){
-        String [] estados = getResources().getStringArray(R.array.estados);
-        String es = "";
-        for (int i=0; i<3; i++) {
-            if(estado.getSelectedItemPosition() == i){
-                es = estados[i] ;
-            }
-        }
-        String url = conexion.getURLLocal() + service + "estado=" + es;
+    public void consultarSolicitud2(View v){
+        int idactividad=0;
+        idactividad=actividad.getSelectedItemPosition()+1;
+
+        String url = conexion.getURLLocal() + service + "idactividad=" + idactividad;
         String solicitudJSON = ControlServicio.obtenerRespuestaPeticion(url, this);
         listaSolicitud = ControlServicio.obtenerSolicitudes(solicitudJSON, this);
 

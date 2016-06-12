@@ -5,7 +5,7 @@ package gr23.fia.ues.sv.admon_poli;
  */
 public class Conexion {
 
-    private String URLLocal = "http://192.168.1.3";
+    private String URLLocal = "http://192.168.1.6";
 
     public Conexion() {
     }

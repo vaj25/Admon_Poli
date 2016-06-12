@@ -134,4 +134,5 @@
     <string name="numeros_personas">Cantidad De Personas</string>
     <string name="actualizar_services">Actualizar con Servicios</string>
     <string name="resultado">Resultador</string>
+    <string name="consultar_solicitud2">Solicitudes por Actividad</string>
 </resources>

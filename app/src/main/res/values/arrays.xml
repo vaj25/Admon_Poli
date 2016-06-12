@@ -5,4 +5,9 @@
         <item>Aprobado</item>
         <item>Denegado</item>
     </string-array>
+    <string-array name="actividades">
+        <item>Politica</item>
+        <item>Cultural</item>
+        <item>Religiosa</item>
+    </string-array>
 </resources>
