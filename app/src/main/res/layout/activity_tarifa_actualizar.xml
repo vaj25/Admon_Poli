@@ -42,13 +42,17 @@
         android:editable="false"
         android:enabled="false"
         android:hint="@string/monto"
-        android:longClickable="false"
-        android:numeric="decimal"/>
+        android:longClickable="false"/>
 
     <Button
         style="@style/button"
         android:text="@string/actualizar"
         android:onClick="actualizarTarifa"
         android:id="@+id/button5" />
-    an
+
+    <Button
+        style="@style/button"
+        android:text="@string/actualizar_services"
+        android:onClick="actualizarTarifaServices"
+        android:id="@+id/button2" />
 </LinearLayout>

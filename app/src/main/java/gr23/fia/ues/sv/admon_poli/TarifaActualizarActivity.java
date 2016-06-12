@@ -1,5 +1,7 @@
 package gr23.fia.ues.sv.admon_poli;
 
+import android.annotation.SuppressLint;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+@SuppressLint("NewApi")
 public class TarifaActualizarActivity extends AppCompatActivity {
 
     ControlBD helper;
@@ -22,11 +25,19 @@ public class TarifaActualizarActivity extends AppCompatActivity {
     EditText PersonasTarifa;
     EditText montoTarifa;
     Spinner idTarifa ;
+    private Conexion conexion;
+    private final String service = "/AdmonPoli/actualizar_tarifa.php?";
 
+    @SuppressLint("NewApi")
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tarifa_actualizar);
         helper=new ControlBD(this);
+        conexion = new Conexion();
+
+        StrictMode.ThreadPolicy policy = new
+                StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
 
        // EditMonto=(EditText)findViewById(R.id.editText16);
         HorasTarifa=(EditText)findViewById(R.id.cantHoras);
@@ -43,22 +54,10 @@ public class TarifaActualizarActivity extends AppCompatActivity {
     }
 
     public void actualizarTarifa(View v) {
-        int position= idTarifa.getSelectedItemPosition();
-        Iterator iterador = lista.listIterator();
-        int count=0;
-        int idtarifa=0;
-        while( iterador.hasNext() ) {
-            Tarifa tar = (Tarifa) iterador.next();
-            if(count==position){
-                idtarifa=tar.getIdTarifa();
-            }
-            count++;
-        }
-
         Tarifa tarif= new Tarifa();
         //Solicitante sol = new Solicitante();
         //tarif = helper.consultarTarifa(idtarifa);
-        tarif.setIdTarifa(idtarifa);
+        tarif.setIdTarifa(posicion());
         tarif.setCanthora(Double.parseDouble(HorasTarifa.getText().toString()));
         tarif.setCantPersonas(Integer.parseInt(PersonasTarifa.getText().toString()));
         double precio =(20*(Double.parseDouble(HorasTarifa.getText().toString())))+(1*(Double.parseDouble(PersonasTarifa.getText().toString())));
@@ -71,8 +70,34 @@ public class TarifaActualizarActivity extends AppCompatActivity {
         Toast.makeText(this, estado, Toast.LENGTH_SHORT).show();
     }
 
+    public void actualizarTarifaServices(View v){
+        Toast.makeText(this, conexion.getURLLocal(), Toast.LENGTH_LONG).show();
+        String url = conexion.getURLLocal() + service + "idtarifa=" + posicion() + "&precio=" + (20*
+                (Double.parseDouble(HorasTarifa.getText().toString())))+(
+                1*(Double.parseDouble(PersonasTarifa.getText().toString()))) + "&canthora=" +
+                HorasTarifa.getText().toString() + "&cantpersona=" +
+                PersonasTarifa.getText().toString();
+        String tarifaActualizada = ControlServicio.obtenerRespuestaPeticion(url, this);
+        Toast.makeText(this, tarifaActualizada, Toast.LENGTH_LONG).show();
+    }
+
     public void limpiarTexto(View v) {   //metodo convocado en el evento onclick del boton limpiar en el layout
         HorasTarifa.setText("");
         PersonasTarifa.setText("");
+    }
+
+    public int posicion() {
+        int position = idTarifa.getSelectedItemPosition();
+        Iterator iterador = lista.listIterator();
+        int count = 0;
+        int idtarifa = 0;
+        while (iterador.hasNext()) {
+            Tarifa tar = (Tarifa) iterador.next();
+            if (count == position) {
+                idtarifa = tar.getIdTarifa();
+            }
+            count++;
+        }
+        return idtarifa;
     }
 }
