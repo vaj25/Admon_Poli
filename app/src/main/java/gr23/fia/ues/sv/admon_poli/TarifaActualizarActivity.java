@@ -78,7 +78,6 @@ public class TarifaActualizarActivity extends AppCompatActivity {
         String url = conexion.getURLLocal() + service + "idtarifa=" + posicion() + "&precio=" + 20.0 + "&canthora=" +
                 HorasTarifa.getText().toString() + "&cantpersona=" +
                 PersonasTarifa.getText().toString();
-        Toast.makeText(this, url, Toast.LENGTH_LONG).show();
         String tarifaActualizada = ControlServicio.obtenerRespuestaPeticion(url, this);
         int dato = 0;
         try {
