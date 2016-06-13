@@ -79,14 +79,7 @@ public class TarifaActualizarActivity extends AppCompatActivity {
                 HorasTarifa.getText().toString() + "&cantpersona=" +
                 PersonasTarifa.getText().toString();
         String tarifaActualizada = ControlServicio.obtenerRespuestaPeticion(url, this);
-        int dato = 0;
-        try {
-            JSONArray solicitudesJSON = new JSONArray(tarifaActualizada);
-            JSONObject obj = solicitudesJSON.getJSONObject(0);
-            dato = obj.getInt("resultado");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        int dato = ControlServicio.verifiacaActualizar(tarifaActualizada, this);
         if(dato == 0)
             Toast.makeText(this, "Registro no actualizado", Toast.LENGTH_LONG).show();
         else

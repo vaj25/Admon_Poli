@@ -19,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.StreamHandler;
 
 /**
  * Created by FAMILY on 11/06/2016.
@@ -69,6 +70,13 @@ public class ControlServicio {
             Toast.makeText(ctx, "Error en parseo de JSON", Toast.LENGTH_LONG).show();
             return null;
         }
+    }
+
+    public static int verifiacaActualizar(String respuesta, Context ctx){
+        int dato = 0;
+        if(respuesta.equalsIgnoreCase("{\"resultado\":1}"))
+            dato = 1;
+        return dato;
     }
 
     public static String sumaTarifasJSON(String json, Context ctx) {
