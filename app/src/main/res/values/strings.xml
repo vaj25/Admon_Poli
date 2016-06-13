@@ -141,4 +141,6 @@
     <string name="fecha">Fecha</string>
     <string name="actu_tarifa_fecha">Guardar</string>
     <string name="insertar_tarifa_ext">Insertar Tarifa a Base Externa</string>
+    <string name="insertarSolicitante">Ingresar Solicitante a Base Exterior</string>
+    <string name="insertar">Insertar</string>
 </resources>

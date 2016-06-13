@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+        android:layout_width = "fill_parent"
+        android:layout_height = "fill_parent"
+        android:padding = "20dip"
+        android:orientation = "vertical">
+
+        <TextView android:id = "@+id/title_insert_solicitante"
+            android:layout_width = "fill_parent"
+            android:layout_height = "wrap_content"
+            android:layout_marginTop = "5dip"
+            android:layout_marginBottom = "20dip"
+            android:text = "@string/insertarSolicitante"
+            android:gravity = "center"
+            android:textSize = "25dip"
+            android:textColor = "@color/colorAccent"/>
+
+        <EditText android:id = "@+id/dui"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
+            android:hint = "@string/dui_solicitante"
+            android:inputType = "number"
+            android:layout_marginTop = "5dip"
+            android:numeric="integer"/>
+
+        <EditText android:id = "@+id/nombreSol"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
+            android:hint = "@string/nombre_solicitante"
+            android:inputType = "text"
+            android:layout_marginTop = "5dip"/>
+
+        <EditText android:id = "@+id/apellidoSol"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
+            android:hint = "@string/apellido_solicitante"
+            android:inputType = "text"
+            android:layout_marginTop = "5dip"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/telefonosol"
+            android:hint="@string/telefono_solicitante"
+            android:layout_marginTop = "5dip"
+            android:numeric="integer"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/emailsol"
+            android:hint="@string/mail_solicitante"
+            android:layout_marginTop = "5dip"/>
+
+        <Button
+            style="@style/button"
+            android:text="@string/insertar"
+            android:onClick="insertarSolicitanteBase"
+            android:id="@+id/enviar_solicitante"/>
+
+
+    </LinearLayout>
+</ScrollView>
