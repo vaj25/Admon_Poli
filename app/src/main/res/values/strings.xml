@@ -137,4 +137,7 @@
     <string name="consultar_solicitud2">Solicitudes por Actividad</string>
     <string name="consultar_solicitud3">Total de Solicitudes</string>
     <string name="montoSol">total</string>
+    <string name="update_horario_fecha">Actualizar Tarifa Por Fecha</string>
+    <string name="fecha">Fecha</string>
+    <string name="actu_tarifa_fecha">Guardar</string>
 </resources>

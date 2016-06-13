@@ -19,9 +19,9 @@ public class TarifaMenuActivity extends ListActivity {
     public ArrayList<String> resultados= new ArrayList<>();
     String id;
     ControlBD helper;
-    String[] menu = {"Insertar Tarifa","Eliminar Tarifa","Consultar Tarifa", "Actualizar Tarifa"};
+    String[] menu = {"Insertar Tarifa","Eliminar Tarifa","Consultar Tarifa", "Actualizar Tarifa","Actualizar Tarifa Por Fecha","Insertar Tarifa a Base Externa"};
     String[] activities = {"TarifaInsertarActivity","TarifaEliminarActivity","TarifaConsultarActivity",
-            "TarifaActualizarActivity"};
+            "TarifaActualizarActivity","TarifaActualizarFechaActivity","TarifaSwInsertarActivity"};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -47,7 +47,7 @@ public class ControlBD {
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
 
-        private static final String BASE_DATOS = "AdmonPoliv23.s3db" ;
+        private static final String BASE_DATOS = "AdmonPoliv24.s3db" ;
         private static final int VERSION = 2;
 
         DatabaseHelper(Context context) {
@@ -1582,7 +1582,7 @@ public String insertar(Administrador administrador) {
                 "080","081","082","083","084",
                 "090","091","092","093","094",
                 "100","101","102","103","104","105","106","107",
-                "110","111","112","113","114"};
+                "110","111","112","113","114","115","116"};
         final String[] VOCdesopcion = {
                 /*0*/"Menu Actividad","Nueva Actividad","Eliminar Actividad","Consultar Actividad", "Actualizar Actividad",
                 /*1*/"Menu Administrador","Nuevo Administrador","Eliminar Administrador","Consultar Administrador", "Actualizar Administrador",
@@ -1595,7 +1595,7 @@ public String insertar(Administrador administrador) {
                 /*8*/"Menu Reserva","Insertar Reserva","Eliminar Reserva","Consultar Reserva", "Actualizar Reserva",
                 /*9*/"Menu Solicitante","Insertar Solicitante","Eliminar Solicitante","Consultar Solicitante", "Actualizar Solicitante",
                 /*10*/"Menu Solicitud","Insertar Solicitud","Eliminar Solicitud","Consultar Solicitud", "Actualizar Solicitud","Consultar Estado Solicitud","Solicitudes por Actividad","Total Solicitudes",
-                /*11*/"Menu Tarifa","Insertar Tarifa","Eliminar Tarifa","Consultar Tarifa", "Actualizar Tarifa"} ;
+                /*11*/"Menu Tarifa","Insertar Tarifa","Eliminar Tarifa","Consultar Tarifa", "Actualizar Tarifa","Actualizar Tarifa Por Fecha","Insertar Tarifa a Base Externa"};
         final int[] VOCnumcrud = {
                 0,1,2,3,4,
                 0,1,2,3,4,
@@ -1608,7 +1608,7 @@ public String insertar(Administrador administrador) {
                 0,1,2,3,4,
                 0,1,2,3,4,
                 0,1,2,3,4,5,6,7,
-                0,1,2,3,4};
+                0,1,2,3,4,5,6};
 
         //tabla accesousuario
         final String[] VAUidusuario = {
@@ -1623,7 +1623,7 @@ public String insertar(Administrador administrador) {
                 "01","01","01","01","01",
                 "01","01","01","01","01",
                 "01","01","01","01","01","01","01","01",
-                "01","01","01","01","01",
+                "01","01","01","01","01","01","01",
                 "02","02","02","02","02",
                 "02","02","02","02","02",
                 "02","02","02","02","02",
@@ -1643,7 +1643,7 @@ public String insertar(Administrador administrador) {
                 "080","081","082","083","084",
                 "090","091","092","093","094",
                 "100","101","102","103","104","105","106","107",
-                "110","111","112","113","114",
+                "110","111","112","113","114","115","116",
                 "003","013","023","033","043",//user
                 "053","063","064","073","083",
                 "093","100","101","102","103",
@@ -1785,7 +1785,7 @@ public String insertar(Administrador administrador) {
 
         //tabla opcioncrud
         OpcionCrud opcionCrud = new OpcionCrud() ;
-        for(int i=0; i<63;i++){
+        for(int i=0; i<65;i++){
             opcionCrud.setIdOpcion(VOCidopcion[i]);
             opcionCrud.setDesOpcion(VOCdesopcion[i]);
             opcionCrud.setNumCrud(VOCnumcrud[i]);
@@ -1794,7 +1794,7 @@ public String insertar(Administrador administrador) {
 
         //tabla accesousuario
         AccesoUsuario accesoUsuario = new AccesoUsuario() ;
-        for(int i=0; i<94;i++){
+        for(int i=0; i<96;i++){
             accesoUsuario.setIdOpcion(VAUidopcion[i]);
             accesoUsuario.setIdUsuario(VAUidusuario[i]);
             insertar(accesoUsuario) ;

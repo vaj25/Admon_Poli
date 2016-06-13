@@ -91,4 +91,44 @@ public class ControlServicio {
             return " ";
         }
     }
+
+    public static List<Tarifa> obtenerTarifaExterno(String json, Context
+            ctx) {
+        List<Tarifa> listaTarifa = new ArrayList<Tarifa>();
+        try {
+            JSONArray tarifaJSON = new JSONArray(json);
+            for (int i = 0; i < tarifaJSON.length(); i++) {
+                JSONObject obj = tarifaJSON.getJSONObject(i);
+                Tarifa tarifa = new Tarifa();
+                tarifa.setIdTarifa(obj.getInt("idtarifa"));
+                tarifa.setPrecio(obj.getDouble("precio"));
+                tarifa.setCantPersonas(obj.getInt("cantpersona"));
+                tarifa.setCanthora(obj.getDouble("canthora"));
+                listaTarifa.add(tarifa);
+            }
+            return listaTarifa;
+        } catch (Exception e) {
+            Toast.makeText(ctx, "Error en parseo de JSON", Toast.LENGTH_LONG)
+                    .show();
+            return null;
+        }
+    }
+
+   /* public static void insertarTarifaPHP(String peticion, Context ctx) {
+        String json = obtenerRespuestaPeticion(peticion, ctx);
+        try {
+            JSONObject resultado = new JSONObject(json);
+            int respuesta = resultado.getInt("resultado");
+            if (respuesta == 1)
+                Toast.makeText(ctx, "Registro ingresado",
+                        Toast.LENGTH_LONG).show();
+            else
+                Toast.makeText(ctx, "Error registro duplicado",
+                        Toast.LENGTH_LONG).show();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }*/
+
 }
+
