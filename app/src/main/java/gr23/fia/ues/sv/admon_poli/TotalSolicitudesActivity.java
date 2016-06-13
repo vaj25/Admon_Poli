@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 
 @SuppressLint("NewApi")
@@ -31,7 +30,6 @@ public class TotalSolicitudesActivity extends Activity {
 
         String url = conexion.getURLLocal() + service;
         String solicitudJSON = ControlServicio.obtenerRespuestaPeticion(url, this);
-        Toast.makeText(this, solicitudJSON, Toast.LENGTH_SHORT).show();
         total.setText("Total calculado $"+ControlServicio.sumaTarifasJSON(solicitudJSON, this));
 
     }

@@ -64,8 +64,8 @@ public class TarifaActualizarActivity extends AppCompatActivity {
         tarif.setIdTarifa(posicion());
         tarif.setCanthora(Double.parseDouble(HorasTarifa.getText().toString()));
         tarif.setCantPersonas(Integer.parseInt(PersonasTarifa.getText().toString()));
-        double precio =(20*(Double.parseDouble(HorasTarifa.getText().toString())))+(1*(Double.parseDouble(PersonasTarifa.getText().toString())));
-        tarif.setPrecio(precio);
+        tarif.monto();
+        double precio = tarif.getPrecio();
 
         helper.abrir();
         String estado = helper.actualizar(tarif);
@@ -75,10 +75,13 @@ public class TarifaActualizarActivity extends AppCompatActivity {
     }
 
     public void actualizarTarifaServices(View v){
-        String url = conexion.getURLLocal() + service + "idtarifa=" + posicion() + "&precio=" + 20.0 + "&canthora=" +
-                HorasTarifa.getText().toString() + "&cantpersona=" +
-                PersonasTarifa.getText().toString();
+        Tarifa tarifa = new Tarifa(posicion(), Double.parseDouble(HorasTarifa.getText().toString()),
+                Integer.parseInt(PersonasTarifa.getText().toString()));
+        tarifa.monto();
+        String url = conexion.getURLLocal() + service + "idtarifa=" + tarifa.getIdTarifa() + "&precio=" + tarifa.getPrecio()
+                + "&canthora=" + tarifa.getCanthora() + "&cantpersona=" + tarifa.getCantPersonas();
         String tarifaActualizada = ControlServicio.obtenerRespuestaPeticion(url, this);
+        montoTarifa.setText(String.valueOf(tarifa.getPrecio()));
         int dato = ControlServicio.verifiacaActualizar(tarifaActualizada, this);
         if(dato == 0)
             Toast.makeText(this, "Registro no actualizado", Toast.LENGTH_LONG).show();
