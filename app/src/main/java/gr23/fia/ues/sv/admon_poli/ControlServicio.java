@@ -129,6 +129,47 @@ public class ControlServicio {
             e.printStackTrace();
         }
     }
+    public static List<Solicitud> obtenerSolicitudExterno(String json, Context
+            ctx) {
+        List<Solicitud> listaSolicitud = new ArrayList<Solicitud>();
+        try {
+            JSONArray tarifaJSON = new JSONArray(json);
+            for (int i = 0; i < tarifaJSON.length(); i++) {
+                JSONObject obj = tarifaJSON.getJSONObject(i);
+                Solicitud solicitud = new Solicitud();
+                solicitud.setIdSolicitud(obj.getInt("idsolicitud"));
+                solicitud.setEstado(obj.getString("estado"));
+                solicitud.setFechaSolicitud(obj.getString("fechasolicitud"));
+                solicitud.setFechaReserva(obj.getString("fechareserva"));
+                solicitud.setIdAdministrador(obj.getInt("idadministrador"));
+                solicitud.setIdActividad(obj.getInt("idactividad"));
+                solicitud.setIdTarifa(obj.getInt("idtarifa"));
+                solicitud.setDui(obj.getString("dui"));
+                listaSolicitud.add(solicitud);
+            }
+            return listaSolicitud;
+        } catch (Exception e) {
+            Toast.makeText(ctx, "Error en parseo de JSON", Toast.LENGTH_LONG)
+                    .show();
+            return null;
+        }
+    }
+
+    public static void insertarSolicitudPHP(String peticion, Context ctx) {
+        String json = obtenerRespuestaPeticion(peticion, ctx);
+        try {
+            JSONObject resultado = new JSONObject(json);
+            int respuesta = resultado.getInt("resultado");
+            if (respuesta == 1)
+                Toast.makeText(ctx, "Registro ingresado",
+                        Toast.LENGTH_LONG).show();
+            else
+                Toast.makeText(ctx, "Error registro duplicado",
+                        Toast.LENGTH_LONG).show();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void insertarSolicitantePHP(String peticion, Context ctx) {
         String json = obtenerRespuestaPeticion(peticion, ctx);

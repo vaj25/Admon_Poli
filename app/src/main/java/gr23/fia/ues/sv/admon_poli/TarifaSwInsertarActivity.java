@@ -44,7 +44,7 @@ public class TarifaSwInsertarActivity extends Activity {
         String url = null;
         //JSONObject datosTarifa = new JSONObject();
         //JSONObject tarifa = new JSONObject();
-        url=conn.getURLLocal()+"/ws_tarifa_insert.php" + "?idtarifa=" + idtarifa + "&precio=" + precio + "&canthora=" + canthora + "&cantpersona=" +  cantpersona + "&fecha_modificado=" + "CURRENT_TIMESTAMP";
+        url=conn.getURLLocal()+"/AdmonPoli/ws_tarifa_insert.php" + "?idtarifa=" + idtarifa + "&precio=" + precio + "&canthora=" + canthora + "&cantpersona=" +  cantpersona + "&fecha_modificado=" + "CURRENT_TIMESTAMP";
         ControlServicio.insertarTarifaPHP(url, this);
 
 
