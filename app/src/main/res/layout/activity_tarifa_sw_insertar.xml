@@ -31,13 +31,13 @@
             android:layout_height="wrap_content"
             android:id="@+id/tarPrecio"
             android:layout_gravity="center_horizontal"
-            android:hint="Cantidad De Personas"
+            android:hint="Precio"
             android:numeric="integer"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/cantPersonas"
+            android:id="@+id/cantPersona"
             android:layout_gravity="center_horizontal"
             android:hint="Cantidad De Personas"
             android:numeric="integer"/>
@@ -45,9 +45,9 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/cantPersonas"
+            android:id="@+id/cantHora"
             android:layout_gravity="center_horizontal"
-            android:hint="Cantidad De Personas"
+            android:hint="Cantidad De Horas"
             android:numeric="integer"/>
 
 
@@ -55,6 +55,6 @@
             style="@style/button"
             android:text="Insertar"
             android:id="@+id/button9"
-            android:onClick="insertarTarifa"/>
+            android:onClick="insertarTarifaBase"/>
     </LinearLayout>
 </ScrollView>
