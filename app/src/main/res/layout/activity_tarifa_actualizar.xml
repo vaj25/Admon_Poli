@@ -52,7 +52,7 @@
 
     <Button
         style="@style/button"
-        android:text="@string/actualizar_services"
-        android:onClick="actualizarTarifaServices"
+        android:text="@string/limpiar"
+        android:onClick="limpiarTexto"
         android:id="@+id/button2" />
 </LinearLayout>
