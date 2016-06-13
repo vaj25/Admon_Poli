@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+        android:layout_width = "fill_parent"
+        android:layout_height = "fill_parent"
+        android:padding = "20dip"
+        android:orientation = "vertical">
+
+        <TextView android:id = "@+id/title_insertar_tarifa"
+            android:layout_width = "fill_parent"
+            android:layout_height = "wrap_content"
+            android:layout_marginTop = "10dip"
+            android:layout_marginBottom = "20dip"
+            android:text = "@string/insertar_tarifa_ext"
+            android:gravity = "center"
+            android:textSize = "25dip"
+            android:textColor = "@color/colorAccent"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/idtarifa"
+            android:layout_gravity="center_horizontal"
+            android:hint="ID Tarifa"
+            android:numeric="decimal"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tarPrecio"
+            android:layout_gravity="center_horizontal"
+            android:hint="Cantidad De Personas"
+            android:numeric="integer"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cantPersonas"
+            android:layout_gravity="center_horizontal"
+            android:hint="Cantidad De Personas"
+            android:numeric="integer"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cantPersonas"
+            android:layout_gravity="center_horizontal"
+            android:hint="Cantidad De Personas"
+            android:numeric="integer"/>
+
+
+        <Button
+            style="@style/button"
+            android:text="Insertar"
+            android:id="@+id/button9"
+            android:onClick="insertarTarifa"/>
+    </LinearLayout>
+</ScrollView>

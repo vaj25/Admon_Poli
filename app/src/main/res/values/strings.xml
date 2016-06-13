@@ -140,4 +140,5 @@
     <string name="update_horario_fecha">Actualizar Tarifa Por Fecha</string>
     <string name="fecha">Fecha</string>
     <string name="actu_tarifa_fecha">Guardar</string>
+    <string name="insertar_tarifa_ext">Insertar Tarifa a Base Externa</string>
 </resources>

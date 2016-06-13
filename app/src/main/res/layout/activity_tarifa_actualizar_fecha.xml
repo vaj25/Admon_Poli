@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+        android:layout_width = "fill_parent"
+        android:layout_height = "fill_parent"
+        android:padding = "20dip"
+        android:orientation = "vertical">
+
+        <TextView android:id = "@+id/title_update_horario"
+            android:layout_width = "fill_parent"
+            android:layout_height = "wrap_content"
+            android:layout_marginTop = "10dip"
+            android:layout_marginBottom = "20dip"
+            android:text = "@string/update_horario_fecha"
+            android:gravity = "center"
+            android:textSize = "25dip"
+            android:textColor = "@color/colorAccent"/>
+
+
+        <EditText android:id = "@+id/fecha"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
+            android:hint = "@string/fecha"
+            android:inputType = "text"
+            android:layout_marginTop = "25dip"
+            android:numeric="decimal"/>
+
+
+        <Button
+            style="@style/button"
+            android:text="@string/actu_tarifa_fecha"
+            android:onClick="guardar"
+            android:id="@+id/UpdateHoraButton"/>
+
+        <ListView android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:id="@+id/listView1">
+        </ListView>
+
+
+    </LinearLayout>
+</ScrollView>

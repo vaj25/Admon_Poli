@@ -114,7 +114,7 @@ public class ControlServicio {
         }
     }
 
-   /* public static void insertarTarifaPHP(String peticion, Context ctx) {
+    public static void insertarTarifaPHP(String peticion, Context ctx) {
         String json = obtenerRespuestaPeticion(peticion, ctx);
         try {
             JSONObject resultado = new JSONObject(json);
@@ -128,7 +128,7 @@ public class ControlServicio {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-    }*/
+    }
 
 }
 
