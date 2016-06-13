@@ -18,6 +18,13 @@
             android:textSize = "25dip"
             android:textColor = "@color/colorAccent"/>
 
+        <EditText android:id = "@+id/idsolicitud"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
+            android:hint = "@string/id_solicitud"
+            android:inputType = "number"
+            android:layout_marginTop = "5dip"/>
+
         <EditText android:id = "@+id/txtDui"
             android:layout_height = "wrap_content"
             android:layout_width = "fill_parent"

@@ -23,6 +23,7 @@ public class SolicitudInsertarSWActivity extends Activity {
     ControlBD helper;
     EditText fechaReserva;
     EditText dui;
+    EditText id;
     Spinner actividad;
     Spinner sAdmin;
     List<String> lista;
@@ -39,8 +40,9 @@ public class SolicitudInsertarSWActivity extends Activity {
                 .permitAll().build();
         StrictMode.setThreadPolicy(policy);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_solicitud_insertar);
+        setContentView(R.layout.activity_solicitud_insertar_sw);
         helper = new ControlBD(this);
+        conn = new Conexion();
 
         sTarifa = (Spinner) findViewById(R.id.selectTarifa);
         listaTarifa = new ArrayList<>();
@@ -53,6 +55,7 @@ public class SolicitudInsertarSWActivity extends Activity {
         sAdmin = (Spinner) findViewById(R.id.selectAdmin);
         fechaReserva = (EditText) findViewById(R.id.txtFechaReserva) ;
         dui = (EditText) findViewById(R.id.txtDui) ;
+        id = (EditText) findViewById(R.id.idsolicitud);
 
         LinkedList acts = new LinkedList();
         helper.abrir();
@@ -102,7 +105,10 @@ public class SolicitudInsertarSWActivity extends Activity {
         int idact = actividad.getSelectedItemPosition() + 1 ; //cambiar
         String url = null;
 
-        url=conn.getURLLocal()+"/AdmonPoli/ws_insertar_solicitud.php" + "?idsolicitud=" + idSolicitud + "&estado=" + "Pendiente" + "&fechasolicitud=" + "2016/06/13" + "&fechareserva=" +  fecha + "&idadministrador=" + idadmin + "&idactividad" + idact + "&dui" + dui + "&idtarifa" + idtarifa + "&fecha_modificado" + "CURRENT_TIMESTAMP";
+        url=conn.getURLLocal()+"/AdmonPoli/ws_insertar_solicitud.php" + "?idsolicitud=" + id.getText().toString() +
+                "&estado=" + "Pendiente" + "&fechasolicitud=" + "2016/06/13" + "&fechareserva=" +  fecha +
+                "&idadministrador=" + idadmin + "&idactividad=" + idact + "&dui=" + dui.getText().toString() + "&idtarifa=" +
+                idtarifa + "&fecha_modificado=" + "2016/06/13";
         ControlServicio.insertarTarifaPHP(url, this);
     }
 

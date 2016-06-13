@@ -143,4 +143,8 @@
     <string name="insertar_tarifa_ext">Insertar Tarifa a Base Externa</string>
     <string name="insertarSolicitante">Ingresar Solicitante a Base Exterior</string>
     <string name="insertar">Insertar</string>
+    <string name="solciitudfecha">Consultar Solicitud por Fecha</string>
+    <string name="insert_solicitudsw">Insertar Solicitud</string>
+    <string name="actualizar_solicitante_ws">Actualizar Solicitante Por Fecha</string>
+    <string name="id_solicitud">Identificador Solicitud</string>
 </resources>

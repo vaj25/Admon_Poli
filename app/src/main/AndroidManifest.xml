@@ -189,7 +189,9 @@
         <activity android:name=".TotalSolicitudesActivity" />
         <activity android:name=".TarifaSwInsertarActivity" />
         <activity android:name=".TarifaActualizarFechaActivity" />
-        <activity android:name=".SolicitanteSwIngresarActivity"></activity>
+        <activity android:name=".SolicitanteSwIngresarActivity" />
+        <activity android:name=".SolicitanteActualizarFecha"></activity>
+        <activity android:name=".SolicitudInsertarSWActivity"></activity>
     </application>
 
 </manifest>

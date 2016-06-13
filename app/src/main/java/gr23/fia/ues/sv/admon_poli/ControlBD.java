@@ -47,7 +47,7 @@ public class ControlBD {
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
 
-        private static final String BASE_DATOS = "AdmonPoliv25.s3db" ;
+        private static final String BASE_DATOS = "AdmonPoliv27.s3db" ;
         private static final int VERSION = 2;
 
         DatabaseHelper(Context context) {
@@ -1581,7 +1581,7 @@ public String insertar(Administrador administrador) {
                 "070","071","072","073","074",
                 "080","081","082","083","084",
                 "090","091","092","093","094","095","096",
-                "100","101","102","103","104","105","106","107",
+                "100","101","102","103","104","105","106","107","108","109",
                 "110","111","112","113","114","115","116"};
         final String[] VOCdesopcion = {
                 /*0*/"Menu Actividad","Nueva Actividad","Eliminar Actividad","Consultar Actividad", "Actualizar Actividad",
@@ -1593,8 +1593,8 @@ public String insertar(Administrador administrador) {
                 /*6*/"Menu Detalle de Solicitud","Insertar Detalle de Solicitud","Eliminar Detalle de Solicitud","Consultar Detalle de Solicitud","Actualizar Detalle d Solicitud",
                 /*7*/"Menu Horario","Insertar Horario","Eliminar Horario","Consultar Horario", "Actualizar Horario",
                 /*8*/"Menu Reserva","Insertar Reserva","Eliminar Reserva","Consultar Reserva", "Actualizar Reserva",
-                /*9*/"Menu Solicitante","Insertar Solicitante","Eliminar Solicitante","Consultar Solicitante", "Actualizar Solicitante","Insertar Solicitante a Base Externa","Actualizar Tarifa Por Fecha",
-                /*10*/"Menu Solicitud","Insertar Solicitud","Eliminar Solicitud","Consultar Solicitud", "Actualizar Solicitud","Consultar Estado Solicitud","Solicitudes por Actividad","Total Solicitudes",
+                /*9*/"Menu Solicitante","Insertar Solicitante","Eliminar Solicitante","Consultar Solicitante", "Actualizar Solicitante","Insertar Solicitante a Base Externa","Actualizar Solicitante Por Fecha",
+                /*10*/"Menu Solicitud","Insertar Solicitud","Eliminar Solicitud","Consultar Solicitud", "Actualizar Solicitud","Consultar Estado Solicitud","Solicitudes por Actividad","Total Solicitudes", "Actualizar Solicitudes SW","Insertar Solicitudes SW",
                 /*11*/"Menu Tarifa","Insertar Tarifa","Eliminar Tarifa","Consultar Tarifa", "Actualizar Tarifa","Actualizar Tarifa Por Fecha","Insertar Tarifa a Base Externa"};
         final int[] VOCnumcrud = {
                 0,1,2,3,4,
@@ -1607,7 +1607,7 @@ public String insertar(Administrador administrador) {
                 0,1,2,3,4,
                 0,1,2,3,4,
                 0,1,2,3,4,5,6,
-                0,1,2,3,4,5,6,7,
+                0,1,2,3,4,5,6,7,8,9,
                 0,1,2,3,4,5,6};
 
         //tabla accesousuario
@@ -1623,7 +1623,7 @@ public String insertar(Administrador administrador) {
                 "01","01","01","01","01",
                 "01","01","01","01","01","01","01",
                 "01","01","01","01","01","01","01","01",
-                "01","01","01","01","01","01","01",
+                "01","01","01","01","01","01","01","01","01",
                 "02","02","02","02","02",
                 "02","02","02","02","02",
                 "02","02","02","02","02",
@@ -1642,7 +1642,7 @@ public String insertar(Administrador administrador) {
                 "070","071","072","073","074",
                 "080","081","082","083","084",
                 "090","091","092","093","094","095","096",
-                "100","101","102","103","104","105","106","107",
+                "100","101","102","103","104","105","106","107","108","109",
                 "110","111","112","113","114","115","116",
                 "003","013","023","033","043",//user
                 "053","063","064","073","083",
@@ -1785,7 +1785,7 @@ public String insertar(Administrador administrador) {
 
         //tabla opcioncrud
         OpcionCrud opcionCrud = new OpcionCrud() ;
-        for(int i=0; i<67;i++){
+        for(int i=0; i<69;i++){
             opcionCrud.setIdOpcion(VOCidopcion[i]);
             opcionCrud.setDesOpcion(VOCdesopcion[i]);
             opcionCrud.setNumCrud(VOCnumcrud[i]);
@@ -1794,7 +1794,7 @@ public String insertar(Administrador administrador) {
 
         //tabla accesousuario
         AccesoUsuario accesoUsuario = new AccesoUsuario() ;
-        for(int i=0; i<98;i++){
+        for(int i=0; i<100;i++){
             accesoUsuario.setIdOpcion(VAUidopcion[i]);
             accesoUsuario.setIdUsuario(VAUidusuario[i]);
             insertar(accesoUsuario) ;

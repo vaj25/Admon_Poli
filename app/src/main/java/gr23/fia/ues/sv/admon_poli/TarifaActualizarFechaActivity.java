@@ -67,8 +67,8 @@ public class TarifaActualizarFechaActivity extends Activity {
         }
         db.cerrar();
         Toast.makeText(this, "Guardado con exito", Toast.LENGTH_LONG).show();
-        listaTarifa.removeAll(listaTarifa   );
         actualizarListView();
+        listaTarifa.removeAll(listaTarifa);
     }
 
     private void actualizarListView() {

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+        android:layout_width = "fill_parent"
+        android:layout_height = "fill_parent"
+        android:padding = "20dip"
+        android:orientation = "vertical">
+
+        <TextView android:id = "@+id/title_actualizar_fecha"
+            android:layout_width = "fill_parent"
+            android:layout_height = "wrap_content"
+            android:layout_marginTop = "10dip"
+            android:layout_marginBottom = "20dip"
+            android:text = "@string/actualizar_solicitante_ws"
+            android:gravity = "center"
+            android:textSize = "25dip"
+            android:textColor = "@color/colorAccent"/>
+
+
+        <EditText android:id = "@+id/fechasoli"
+            android:layout_height = "wrap_content"
+            android:layout_width = "fill_parent"
+            android:hint = "Fecha (AAAA-MM-DD)"
+            android:inputType = "text"
+            android:layout_marginTop = "25dip"
+            android:numeric="decimal"/>
+
+        <Button
+            style="@style/button"
+            android:text="Actualiza Solicitante"
+            android:onClick="Guardar"
+            android:id="@+id/Updatesolicitantefecha"/>
+
+        <ListView android:layout_height="173dp"
+            android:layout_width="wrap_content"
+            android:id="@+id/listView1">
+        </ListView>
+
+
+    </LinearLayout>
+</ScrollView>

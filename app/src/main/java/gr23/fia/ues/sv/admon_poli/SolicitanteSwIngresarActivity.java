@@ -48,9 +48,9 @@ public class SolicitanteSwIngresarActivity extends Activity {
         String url = null;
         //JSONObject datosTarifa = new JSONObject();
         //JSONObject tarifa = new JSONObject();
-        url=conn.getURLLocal()+"AdmonPoli/ingresar_solicitante.php" + "?dui=" + dui + "&nombresol=" + nombre + "&apellidosol=" + apellido + "&telefonosol=" +  telefono + "&emailsol=" +  email + "&FECHA_MODIFICADO=" + "CURRENT_TIMESTAMP";
+        url=conn.getURLLocal()+"/AdmonPoli/ingresar_solicitante.php" + "?dui=" + dui + "&nombresol="
+                + nombre + "&apellidosol=" + apellido + "&telefonosol=" +  telefono + "&emailsol=" +
+                email + "&FECHA_MODIFICADO=" + "2016-06-20";
         ControlServicio.insertarSolicitantePHP(url, this);
-
-
     }
 }

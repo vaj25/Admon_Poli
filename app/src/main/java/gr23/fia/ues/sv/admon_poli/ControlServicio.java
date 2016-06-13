@@ -120,11 +120,9 @@ public class ControlServicio {
             JSONObject resultado = new JSONObject(json);
             int respuesta = resultado.getInt("resultado");
             if (respuesta == 1)
-                Toast.makeText(ctx, "Registro ingresado",
-                        Toast.LENGTH_LONG).show();
+                Toast.makeText(ctx, "Registro ingresado", Toast.LENGTH_LONG).show();
             else
-                Toast.makeText(ctx, "Error registro duplicado",
-                        Toast.LENGTH_LONG).show();
+                Toast.makeText(ctx, "Error registro duplicado", Toast.LENGTH_LONG).show();
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -180,10 +178,31 @@ public class ControlServicio {
                 Toast.makeText(ctx, "Registro ingresado",
                         Toast.LENGTH_LONG).show();
             else
-                Toast.makeText(ctx, "Error registro duplicado",
-                        Toast.LENGTH_LONG).show();
+                Toast.makeText(ctx, "Error registro duplicado", Toast.LENGTH_LONG).show();
         } catch (JSONException e) {
             e.printStackTrace();
+            Toast.makeText(ctx, "Error en parseo de JSON", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public static List<Solicitante> obtenerSolicitanteExterno(String json, Context ctx) {
+        List<Solicitante> listaSolicitante = new ArrayList<Solicitante>();
+        try {
+            JSONArray solicitanteJSON = new JSONArray(json);
+            for (int i = 0; i < solicitanteJSON.length(); i++) {
+                JSONObject obj = solicitanteJSON.getJSONObject(i);
+                Solicitante solicitante = new Solicitante();
+                solicitante.setDui(obj.getString("dui"));
+                solicitante.setNombreSol(obj.getString("nombresol"));
+                solicitante.setApellidoSol(obj.getString("apellidosol"));
+                solicitante.setMail(obj.getString("emailsol"));
+                solicitante.setTelefonoSol(obj.getInt("telefonosol"));
+                listaSolicitante.add(solicitante);
+            }
+            return listaSolicitante;
+        } catch (Exception e) {
+            Toast.makeText(ctx, "Error en parseo de JSON", Toast.LENGTH_LONG).show();
+            return null;
         }
     }
 
