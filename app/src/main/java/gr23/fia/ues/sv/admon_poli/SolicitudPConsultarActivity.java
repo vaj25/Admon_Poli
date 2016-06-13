@@ -12,7 +12,6 @@ import java.util.List;
 
 @SuppressLint("NewApi")
 public class SolicitudPConsultarActivity extends Activity {
-
     private Spinner estado;
     private ListView listView;
     private Conexion conexion;

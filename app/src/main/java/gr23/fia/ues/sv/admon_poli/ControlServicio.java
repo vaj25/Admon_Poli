@@ -3,7 +3,6 @@ package gr23.fia.ues.sv.admon_poli;
 import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
